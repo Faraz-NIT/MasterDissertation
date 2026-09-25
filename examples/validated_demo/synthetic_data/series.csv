@@ -1,0 +1,3 @@
+series_id,item_id,department,family,location,cluster,supplier,currency,attributes_complete
+ITEM_0@CA_1,ITEM_0,DEPT_0,FOODS,CA_1,CA,SUP_DEPT_0,USD,True
+ITEM_0@CA_2,ITEM_0,DEPT_0,FOODS,CA_2,CA,SUP_DEPT_0,USD,True

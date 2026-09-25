@@ -1,0 +1,1 @@
+{"inputs":{"baseline_deviation":1.0,"constraint_confidence":1.0,"forecast_dispersion":0.06493506493506493,"hold_count":0,"max_days_supply":9.6,"policy_version":"gate-v1-synthetic","quality":0.6,"spend":29.000000000000004},"level":"approval","permitted":false,"reasons":["Evidence quality below autonomous threshold"],"required_approvals":1,"urgent":false}

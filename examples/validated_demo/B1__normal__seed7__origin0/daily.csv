@@ -1,0 +1,7 @@
+day,policy,effective_policy,scenario,seed,origin,quality,autonomy,held,urgent,executed_action,harmful,hard_violations,reference_available,reference_distance,orders,transfer_units,cost,purchase,fixed_order,transfer,holding,shortage,spoilage,demand,sales,lost_sales,on_hand,stockout_pairs,pairs,spoilage_units,tokens,llm_calls,llm_errors,fallback,latency_seconds,step_including_reference_seconds
+140,B1,B1,normal,7,0,1.0,full,False,False,True,False,0,True,14.0,12,0,29.060000000000002,26.400000000000002,2.0,0.0,0.66,0.0,0.0,5.0,5.0,0.0,20.0,0,2,0.0,0,0,0,False,0.012669989000187343,0.16292993799970645
+141,B1,B1,normal,7,0,1.0,full,False,False,True,False,0,True,21.0,12,0,29.126,26.400000000000002,2.0,0.0,0.726,0.0,0.0,4.0,4.0,0.0,22.0,0,2,0.0,0,0,0,False,0.012075314999947295,0.07074149800018859
+142,B1,B1,normal,7,0,0.84,full,False,False,False,False,0,True,,0,0,0.627,0.0,0.0,0.0,0.627,0.0,0.0,3.0,3.0,0.0,19.0,0,2,0.0,0,0,0,False,0.014014548999966792,0.038205709000067145
+143,B1,B1,normal,7,0,0.84,full,False,False,True,False,0,True,9.0,6,0,26.629,13.200000000000001,2.0,0.0,0.429,11.0,0.0,7.0,6.0,1.0,13.0,1,2,0.0,0,0,0,False,0.02124801199988724,0.055372671999975864
+144,B1,B1,normal,7,0,0.8,full,False,False,False,False,0,True,,0,0,0.6599999999999999,0.0,0.0,0.0,0.6599999999999999,0.0,0.0,5.0,5.0,0.0,20.0,0,2,0.0,0,0,0,False,0.013539089999994758,0.03447612699983438
+145,B1,B1,normal,7,0,0.96,full,False,False,False,False,0,True,,0,0,1.0230000000000001,0.0,0.0,0.0,1.0230000000000001,0.0,0.0,1.0,1.0,0.0,31.0,0,2,0.0,0,0,0,False,0.013184229999751551,0.04395372099997985

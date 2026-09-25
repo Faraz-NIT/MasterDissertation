@@ -1,0 +1,1 @@
+{"demand":1.0,"holding":1.32,"lost_by_series":[0.0,0.0],"lost_sales":0.0,"on_hand":40.0,"on_hand_by_series":[14.0,26.0],"pairs":2,"received_order_ids":["D0-derived_field_collapse-seed29-origin0:day141:po:ITEM_0@CA_2"],"received_units":8.0,"sales":1.0,"sales_by_series":[1.0,0.0],"shortage":0.0,"spoilage":0.0,"spoilage_units":0.0,"stockout_pairs":0}

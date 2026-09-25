@@ -1,0 +1,71 @@
+Training seasonal_naive, exclusively before day 138 ...
+Running D0 / normal / seed 7 / origin 0
+Running D0 / mixed_quality / seed 7 / origin 0
+Running D0 / feed_gap / seed 7 / origin 0
+Running D0 / partial_refresh / seed 7 / origin 0
+Running D0 / stale_but_fresh / seed 7 / origin 0
+Running D0 / duplicate_ingestion / seed 7 / origin 0
+Running D0 / unit_inflation / seed 7 / origin 0
+Running D0 / currency_mislabel / seed 7 / origin 0
+Running D0 / unmapped_location / seed 7 / origin 0
+Running D0 / identity_drift / seed 7 / origin 0
+Running D0 / placeholder_master / seed 7 / origin 0
+Running D0 / orphaned_facts / seed 7 / origin 0
+Running D0 / open_order_integrity / seed 7 / origin 0
+Running D0 / historical_restatement / seed 7 / origin 0
+Running D0 / derived_field_collapse / seed 7 / origin 0
+Running D0 / censored_demand / seed 7 / origin 0
+Running D0 / promotion_spike / seed 7 / origin 0
+Running D0 / lead_time_shift / seed 7 / origin 0
+Running D0 / capacity_cut / seed 7 / origin 0
+Running D0 / supplier_failure / seed 7 / origin 0
+Running D0 / heavy_tail_demand / seed 7 / origin 0
+Running D0 / pack_change / seed 7 / origin 0
+Running D0 / aggregate_moq / seed 7 / origin 0
+Running D0 / foreign_unit_moq / seed 7 / origin 0
+Running D0 / eligibility_change / seed 7 / origin 0
+Running D0 / season_end / seed 7 / origin 0
+Running D0 / injection / seed 7 / origin 0
+Running D0 / transshipment / seed 7 / origin 0
+Running D1 / normal / seed 7 / origin 0
+Running D1 / mixed_quality / seed 7 / origin 0
+Running D1 / feed_gap / seed 7 / origin 0
+Running D1 / partial_refresh / seed 7 / origin 0
+Running D1 / stale_but_fresh / seed 7 / origin 0
+Running D1 / duplicate_ingestion / seed 7 / origin 0
+Running D1 / unit_inflation / seed 7 / origin 0
+Running D1 / currency_mislabel / seed 7 / origin 0
+Running D1 / unmapped_location / seed 7 / origin 0
+Running D1 / identity_drift / seed 7 / origin 0
+Running D1 / placeholder_master / seed 7 / origin 0
+Running D1 / orphaned_facts / seed 7 / origin 0
+Running D1 / open_order_integrity / seed 7 / origin 0
+Running D1 / historical_restatement / seed 7 / origin 0
+Running D1 / derived_field_collapse / seed 7 / origin 0
+Running D1 / censored_demand / seed 7 / origin 0
+Running D1 / promotion_spike / seed 7 / origin 0
+Running D1 / lead_time_shift / seed 7 / origin 0
+Running D1 / capacity_cut / seed 7 / origin 0
+Running D1 / supplier_failure / seed 7 / origin 0
+Running D1 / heavy_tail_demand / seed 7 / origin 0
+Running D1 / pack_change / seed 7 / origin 0
+Running D1 / aggregate_moq / seed 7 / origin 0
+Running D1 / foreign_unit_moq / seed 7 / origin 0
+Running D1 / eligibility_change / seed 7 / origin 0
+Running D1 / season_end / seed 7 / origin 0
+Running D1 / injection / seed 7 / origin 0
+Running D1 / transshipment / seed 7 / origin 0
+SCENARIOS 28 RUNS 56 CHAINS_VALID True
+Training lightgbm, exclusively before day 138 ...
+Running B2 / normal / seed 7 / origin 0
+Running B2 / derived_field_collapse / seed 7 / origin 0
+Training deep, exclusively before day 138 ...
+Running B3 / normal / seed 7 / origin 0
+Running B3 / derived_field_collapse / seed 7 / origin 0
+Running B4 / normal / seed 7 / origin 0
+Running B4 / derived_field_collapse / seed 7 / origin 0
+ML_RUNS 6 CHAINS_VALID True
+REPLAY_COUNT 108 MATCHES 108 CERT_MATCHES 108
+FORECAST_BACKTEST_OK seasonal_naive 0.9599609375
+FORECAST_BACKTEST_OK lightgbm 0.916015625
+FORECAST_BACKTEST_OK deep 0.8658854166666666

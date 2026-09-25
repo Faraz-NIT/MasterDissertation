@@ -1,0 +1,14 @@
+WARNING: The directory '/home/oai/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Obtaining file:///mnt/data/evidence-gated-replenishment
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: evidence-gated-replenishment
+  Building editable for evidence-gated-replenishment (pyproject.toml): started
+  Building editable for evidence-gated-replenishment (pyproject.toml): finished with status 'done'
+  Created wheel for evidence-gated-replenishment: filename=evidence_gated_replenishment-0.1.0-0.editable-py3-none-any.whl size=7998 sha256=14501606663bf133c1cfdf0e5cfd831a76979129830055019d3a428dfcbc954b
+  Stored in directory: /tmp/pip-ephem-wheel-cache-vhlhws7t/wheels/5b/83/74/7177cf78949ffe05093bca4e4356cf27a1442683736a7504dc
+Successfully built evidence-gated-replenishment
+Installing collected packages: evidence-gated-replenishment
+Successfully installed evidence-gated-replenishment-0.1.0

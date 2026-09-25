@@ -1,0 +1,3465 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evidence-gated replenishment — experiment report</title><style>
+body{font:15px/1.55 system-ui,sans-serif;background:#f4f6f7;color:#14252d;margin:0;padding:36px}
+main{max-width:1250px;margin:auto}h1{font-size:36px;line-height:1.15;margin:0 0 12px}.eyebrow{letter-spacing:.15em;text-transform:uppercase;font-size:12px;color:#396a73}
+.card{background:white;border:1px solid #d8e2e5;border-radius:12px;padding:24px;margin:20px 0;overflow:auto}
+.notice{background:#fff8e5;border-left:4px solid #d4a026;padding:16px}table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:10px;border-bottom:1px solid #e3e8eb}th{background:#eef4f5}
+pre{white-space:pre-wrap;word-break:break-word;background:#f1f5f6;padding:16px;font-size:12px}summary{cursor:pointer;font-weight:650;padding:12px 0}.subtle{color:#63767e}footer{margin-top:35px;color:#63767e}
+</style><main>
+<p class="eyebrow">Evidence-gated autonomy / research workbench</p><h1>Replenishment experiment & audit report</h1>
+<p class="subtle">A decision is only as reliable as the evidence it uses.</p><div class="notice">SYNTHETIC SOFTWARE DEMONSTRATION — not M5 results and not dissertation evidence.</div>
+<section class="card"><h2>Study outcomes</h2><p>18 policy/scenario/seed/origin runs. Costs, service and safety must be read together.</p><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>expected_run_cost</th>
+      <th>insufficient_for_dissertation_protocol</th>
+      <th>mean_fill_rate</th>
+      <th>mean_harmful_executions</th>
+      <th>policy</th>
+      <th>replications</th>
+      <th>run_cost_cvar</th>
+      <th>safety_adjusted_utility</th>
+      <th>scenario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>155.3375</td>
+      <td>True</td>
+      <td>0.98</td>
+      <td>0.0</td>
+      <td>B1</td>
+      <td>2</td>
+      <td>157.323</td>
+      <td>-171.0698</td>
+      <td>derived_field_collapse</td>
+    </tr>
+    <tr>
+      <td>115.5935</td>
+      <td>True</td>
+      <td>1.00</td>
+      <td>0.0</td>
+      <td>D0</td>
+      <td>2</td>
+      <td>151.621</td>
+      <td>-130.7556</td>
+      <td>derived_field_collapse</td>
+    </tr>
+    <tr>
+      <td>79.8645</td>
+      <td>True</td>
+      <td>1.00</td>
+      <td>0.0</td>
+      <td>D1</td>
+      <td>2</td>
+      <td>81.498</td>
+      <td>-95.0143</td>
+      <td>derived_field_collapse</td>
+    </tr>
+    <tr>
+      <td>126.1765</td>
+      <td>True</td>
+      <td>0.98</td>
+      <td>0.5</td>
+      <td>B1</td>
+      <td>2</td>
+      <td>170.721</td>
+      <td>-193.2486</td>
+      <td>feed_gap</td>
+    </tr>
+    <tr>
+      <td>157.3925</td>
+      <td>True</td>
+      <td>0.94</td>
+      <td>1.0</td>
+      <td>D0</td>
+      <td>2</td>
+      <td>182.695</td>
+      <td>-275.6620</td>
+      <td>feed_gap</td>
+    </tr>
+    <tr>
+      <td>80.3985</td>
+      <td>True</td>
+      <td>1.00</td>
+      <td>0.0</td>
+      <td>D1</td>
+      <td>2</td>
+      <td>82.566</td>
+      <td>-94.6551</td>
+      <td>feed_gap</td>
+    </tr>
+    <tr>
+      <td>84.3785</td>
+      <td>True</td>
+      <td>0.98</td>
+      <td>0.0</td>
+      <td>B1</td>
+      <td>2</td>
+      <td>87.125</td>
+      <td>-93.0910</td>
+      <td>normal</td>
+    </tr>
+    <tr>
+      <td>102.7950</td>
+      <td>True</td>
+      <td>0.98</td>
+      <td>0.0</td>
+      <td>D0</td>
+      <td>2</td>
+      <td>115.492</td>
+      <td>-114.3442</td>
+      <td>normal</td>
+    </tr>
+    <tr>
+      <td>93.3980</td>
+      <td>True</td>
+      <td>0.98</td>
+      <td>0.0</td>
+      <td>D1</td>
+      <td>2</td>
+      <td>96.698</td>
+      <td>-106.0678</td>
+      <td>normal</td>
+    </tr>
+  </tbody>
+</table></section>
+<section class="card"><h2>Lineage-first decision inspection</h2><p>First three decisions per run. Complete trace indexes and artifacts are stored alongside this report.</p><details><summary>B1 · derived_field_collapse · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;27118ab354de8920a99566ac8b421043eaf3e7e975b22cf6d4f3080f71ad2a8b&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;B1-derived_field_collapse-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;83954452b86eb84b595a0e7412a4ddf0f724a4ebcb3db6268703a709970b4db5&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 14,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;d20e8d5220e41b07524cd64bfdf2f742fe987bd89a071535413c38369717176c&quot;
+}</pre></details><details><summary>B1 · derived_field_collapse · day 141 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;38b9836fb88f98900a187ae5bf7758880df3e9d9e8ffc6f0f09dcd0f4c110877&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;B1-derived_field_collapse-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;2301c5beddc35aacd3588d49218e9bdd886b9da671cc32eb48457e7f416b3c1d&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 2,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;ab1c70c0829c4071bfc1f245728b785f5d3788d6d0a1163826c023299def5425&quot;
+}</pre></details><details><summary>B1 · derived_field_collapse · day 142 · quality 0.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;5e954d0b216ae2597dab9b83a6bc08454ae706eb5c6b5ceb3f9b8ced932bd0b5&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;B1-derived_field_collapse-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;22e909737c6d50bbe64a68e76af713cb8a70214b2ab42437258c885fce49dea4&quot;
+  },
+  &quot;state_quality&quot;: 0.0,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;mismatches&quot;: [
+          {
+            &quot;ledger_expected&quot;: 13.0,
+            &quot;observed&quot;: 0.0,
+            &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;
+          },
+          {
+            &quot;ledger_expected&quot;: 14.0,
+            &quot;observed&quot;: 0.0,
+            &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;
+          }
+        ]
+      },
+      &quot;family&quot;: &quot;movement&quot;,
+      &quot;name&quot;: &quot;stock_movement_balance&quot;,
+      &quot;outcome&quot;: &quot;hard_fail&quot;,
+      &quot;weight&quot;: 0.12
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;current_total&quot;: 0.0,
+        &quot;movement_inconsistent&quot;: true,
+        &quot;previous_total&quot;: 20.0
+      },
+      &quot;family&quot;: &quot;derived_field_collapse&quot;,
+      &quot;name&quot;: &quot;inventory_distribution_shift&quot;,
+      &quot;outcome&quot;: &quot;hard_fail&quot;,
+      &quot;weight&quot;: 0.12
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 0.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 12,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 14,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;9b249f9c69074afff7bac63ce47a27f83c3c2b3741ed31fdbad3947548466431&quot;
+}</pre></details><details><summary>B1 · derived_field_collapse · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;cdab563a1204c6b8a28a6c480e885ae179934f41035dfa66ff1b1257ee7e6b94&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;B1-derived_field_collapse-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;c63543abd3426142050e995f600be23b96172bcb9471a3cad890ed4540c4c9da&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 12,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;2e907e35fb42408ba52f3ee134963b1cb8483da4995b9971bca4ec6390e873ba&quot;
+}</pre></details><details><summary>B1 · derived_field_collapse · day 141 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;62d500bd1c546582bbf2f0cb0142194803cdbabd065fff3cabf0f9af9d472eb6&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;B1-derived_field_collapse-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;53be0cb8fa89ca2b27496e822ab2ee078c7bd0d011878d3e3c2c3db67b1e40cd&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 12,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;95f62db54291889e9ca4035e8479d100c504c002b29b23215e58578f6d2f67b0&quot;
+}</pre></details><details><summary>B1 · derived_field_collapse · day 142 · quality 0.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;50fd0b8d67317a2670b77920d41f62b849cee76a43466ee69436559861d454e1&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;B1-derived_field_collapse-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;086bf889538fee72adf3bb2e4785b92f2f2ce7c205ebef550c5eb27ed3fac5cd&quot;
+  },
+  &quot;state_quality&quot;: 0.0,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;B1-derived_field_collapse-seed7-origin0:day141:po:ITEM_0@CA_2&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;mismatches&quot;: [
+          {
+            &quot;ledger_expected&quot;: 19.0,
+            &quot;observed&quot;: 0.0,
+            &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;
+          },
+          {
+            &quot;ledger_expected&quot;: 3.0,
+            &quot;observed&quot;: 0.0,
+            &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;
+          }
+        ]
+      },
+      &quot;family&quot;: &quot;movement&quot;,
+      &quot;name&quot;: &quot;stock_movement_balance&quot;,
+      &quot;outcome&quot;: &quot;hard_fail&quot;,
+      &quot;weight&quot;: 0.12
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;current_total&quot;: 0.0,
+        &quot;movement_inconsistent&quot;: true,
+        &quot;previous_total&quot;: 26.0
+      },
+      &quot;family&quot;: &quot;derived_field_collapse&quot;,
+      &quot;name&quot;: &quot;inventory_distribution_shift&quot;,
+      &quot;outcome&quot;: &quot;hard_fail&quot;,
+      &quot;weight&quot;: 0.12
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 0.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 12,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;bdf3a5bb6ee04a2ae92aa8146eb51893f71f7f3f4998b2788f9732165fca2a69&quot;
+}</pre></details><details><summary>B1 · feed_gap · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;e4a5d574a96049fb68e371f41d4607adcaf38d1abb2d880ab13c868cd55ba9be&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;B1-feed_gap-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;772d3bf357b83b66bb5ee27f19fae6067206b2d7621155b169c6977f67fc2937&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 14,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;e121260b4efa906aaad830dac72a6d4a2512517e070a8c8abf2bb596c5ac20ec&quot;
+}</pre></details><details><summary>B1 · feed_gap · day 141 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;d112cc1e6d10ec4a62d975b4ddaa213635b5d8e6648986237702c68706e26f88&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;B1-feed_gap-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;b7a646b854938977bd9433eb5254fdeb9af63c6e4c63b61d0a110fda96ad0c1d&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 2,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;d2d4cb111db44b9f338c65f09c5ff99b35c69e1ec9c650730a2c6c841f946d38&quot;
+}</pre></details><details><summary>B1 · feed_gap · day 142 · quality 0.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;f5cd9c857a0970c2bab5a2b52893fdd1a5b1c68ebe31606710a9c56bec68ea4b&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;B1-feed_gap-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;56ceef59eb3cf2d6308e5940a4c393f54efdef3da45bed08f2cafd126781e4cc&quot;
+  },
+  &quot;state_quality&quot;: 0.0,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;ages_days&quot;: {
+          &quot;inventory&quot;: 1,
+          &quot;open_orders&quot;: 1,
+          &quot;prices&quot;: 1,
+          &quot;products&quot;: 1,
+          &quot;sales&quot;: 1
+        }
+      },
+      &quot;family&quot;: &quot;feed_gap&quot;,
+      &quot;name&quot;: &quot;table_freshness&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.2
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;missing_days&quot;: [],
+        &quot;missing_values&quot;: 2
+      },
+      &quot;family&quot;: &quot;feed_gap&quot;,
+      &quot;name&quot;: &quot;history_continuity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.2
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;hash_equal&quot;: true,
+        &quot;movement_volume&quot;: 15.0
+      },
+      &quot;family&quot;: &quot;stale_but_fresh&quot;,
+      &quot;name&quot;: &quot;content_reuse&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.35
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;mismatches&quot;: [
+          {
+            &quot;ledger_expected&quot;: 14.0,
+            &quot;observed&quot;: 6.0,
+            &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;
+          }
+        ]
+      },
+      &quot;family&quot;: &quot;movement&quot;,
+      &quot;name&quot;: &quot;stock_movement_balance&quot;,
+      &quot;outcome&quot;: &quot;hard_fail&quot;,
+      &quot;weight&quot;: 0.12
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 0.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;d33ef238e5c0436500b6ec9a504acf64e213549d7b8f4094566464bd3fb97642&quot;
+}</pre></details><details><summary>B1 · feed_gap · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;f72dce3d4b97ede2071ee08577aac99f7b38cf38534d40036569d72531c5600c&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;B1-feed_gap-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;3e4b44261ace2341d0bf5c9b7c4a08f61eaa2ed5102da76df89f2d0cfd1b79db&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 12,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;3155fc6b920d4e3b2225ff49d6dd2ad569c6807804869f4c42211955b489441e&quot;
+}</pre></details><details><summary>B1 · feed_gap · day 141 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;311b9e5cefb1aff63650a2d1a2e1c367c052a57be02faa7b9ba18387e6ac9955&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;B1-feed_gap-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;f34cbd52202282c481216c3e47b40cb59e9c232e7fbb0fc197d745ee0ee049ec&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 12,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;a380ca5be4c24f8f5cd1de7c04e39145270a009956c6c94e871382b3232d3e75&quot;
+}</pre></details><details><summary>B1 · feed_gap · day 142 · quality 0.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;0f51cc14f3d3172bd9cc79424b5df887cf0d8bf3c2c6ad8f8e69da050f538081&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;B1-feed_gap-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;15ece6bd913b4a3af02206e13b335f4e973a59741da44db9d74a91cf8a207043&quot;
+  },
+  &quot;state_quality&quot;: 0.0,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;ages_days&quot;: {
+          &quot;inventory&quot;: 1,
+          &quot;open_orders&quot;: 1,
+          &quot;prices&quot;: 1,
+          &quot;products&quot;: 1,
+          &quot;sales&quot;: 1
+        }
+      },
+      &quot;family&quot;: &quot;feed_gap&quot;,
+      &quot;name&quot;: &quot;table_freshness&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.2
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;missing_days&quot;: [],
+        &quot;missing_values&quot;: 2
+      },
+      &quot;family&quot;: &quot;feed_gap&quot;,
+      &quot;name&quot;: &quot;history_continuity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.2
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;hash_equal&quot;: true,
+        &quot;movement_volume&quot;: 4.0
+      },
+      &quot;family&quot;: &quot;stale_but_fresh&quot;,
+      &quot;name&quot;: &quot;content_reuse&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.35
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;mismatches&quot;: [
+          {
+            &quot;ledger_expected&quot;: 3.0,
+            &quot;observed&quot;: 6.0,
+            &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;
+          }
+        ]
+      },
+      &quot;family&quot;: &quot;movement&quot;,
+      &quot;name&quot;: &quot;stock_movement_balance&quot;,
+      &quot;outcome&quot;: &quot;hard_fail&quot;,
+      &quot;weight&quot;: 0.12
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 0.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 12,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;3e2a24e1e974d647d4b152ebf05d0844e55ddf2954d582e83a98a1086d60b298&quot;
+}</pre></details><details><summary>B1 · normal · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;892a9e421c984c0c522aabce877a66200d6b2af55b02205f704264ece465e204&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;B1-normal-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;2ec1a02db5cf9a6aaf72ca5084c071890b6e4c56bfa64014465bcaa85aec39fe&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 14,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;f71ecc3ff1a159546b095f4a50ecb9d55699662386f64417396eb548d9498316&quot;
+}</pre></details><details><summary>B1 · normal · day 141 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;08d6e5771a0f913243a75f5272275f9d06f11ee9260f7a02da6fe4c3ffae2316&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;B1-normal-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;4b21c75542cfd15a7bd740759392d6a4847f5ba9be955b534de85628815b3f16&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 2,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;cb2ee2381c9b0fd5d508dfd412fe4b0762e563d8488a6cfd6670a4ec5cfd000a&quot;
+}</pre></details><details><summary>B1 · normal · day 142 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;5264e1c5aebba018a340261c0987bba23b79a430bc58477888350c357e712fb1&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;B1-normal-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;b8bd010b24466608569852129327cf44eca05bc5d36ea6cc7cab54b09d378a9a&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;1c3bb24edb76b60655c083917c556b313b43ed0709abed581d486052670269c5&quot;
+}</pre></details><details><summary>B1 · normal · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;90b7d3da3f28715869d8f35e5ab090585c1420de6a4332bac46498412dfe4277&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;B1-normal-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;e5fdd88c81966e07a277cee20eadbf1925723cbcbb64bf5135f9d5b7e81a2b61&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 12,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;a1df1e1fb6ca591f9f9bb8aead30c92da03bf1c2c25bae3dd42ce3e3c91c53e3&quot;
+}</pre></details><details><summary>B1 · normal · day 141 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;0e1a3302fb65aaf2acf6d068fbff917f82fe4782dd7b5702344c7f1a3518c91d&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;B1-normal-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;4cd29bed60017f3ac0f03b39d5d23dd403bb8e805c652e9672f01da43630c24a&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 12,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;be87b92d2171828e85d0af823a064ed85c077c7d561571a01db8d587da0e8292&quot;
+}</pre></details><details><summary>B1 · normal · day 142 · quality 0.84</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;e05d5d4c0704e5a2f0bf1b849a83f6e244c2a9cf4ebba8379e2ae5de0667b355&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;B1-normal-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;40a3bfbdb719d5cdaa6b507944f4cca499f0c534336d9b54aa88ed4af99c0d7e&quot;
+  },
+  &quot;state_quality&quot;: 0.84,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;B1-normal-seed7-origin0:day141:po:ITEM_0@CA_2&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 0.84
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: null,
+    &quot;status&quot;: &quot;policy&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;cfdfb9d832b57ee982eba93e141f2717add6adfb215b512de2c7d0c1d35a1cea&quot;
+}</pre></details><details><summary>D0 · derived_field_collapse · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;846af73f3d171cf28b3bd892de5ff605a570e7eec2a82b2d69e9b1c2b7f77622&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;D0-derived_field_collapse-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;b3ee1bdb1c8cc3af1ce4dd111ffc0f8bfb6386b86b4a546617d531bfaf75822b&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 10,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 10,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 10,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 61.7931,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 0.0,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;021f4c256ff495dce2210940cc8630fc579b47292eb9ae612424fde8667d0474&quot;,
+    &quot;raw_objective&quot;: 61.79310000000001,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.053167915000358335,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;931684522656c241a49ce356abf296a8470af0a1bdb5ace8173aaeaf4d8704ea&quot;
+}</pre></details><details><summary>D0 · derived_field_collapse · day 141 · quality 0.84</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;374dfed0624345a4c06c4c3ba9812981baf36fea3ad6f007c9cec87067c4ca49&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;D0-derived_field_collapse-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;82aee08c1ca4e8ed33a46effc5cd56dfec5f5809e0d89ce6fad07991af59684b&quot;
+  },
+  &quot;state_quality&quot;: 0.84,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;D0-derived_field_collapse-seed29-origin0:day140:po:ITEM_0@CA_1&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 0.84
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 4,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 8,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 7,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_2&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 44.070100000000004,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 0.0,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;58135ee93372d09045c59cf57469765929683b1528d56fcef796c34af4ee5c7d&quot;,
+    &quot;raw_objective&quot;: 44.070100000000004,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.040656976999798644,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;1cf382763be518bebf8abb4db1061837df24a061a1f303ec897b02640fc4324a&quot;
+}</pre></details><details><summary>D0 · derived_field_collapse · day 142 · quality 0.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;1a11c31e4128d9acc94d01da3dfb46d96691be3f137992f44917be2561dfb720&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;D0-derived_field_collapse-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;6400d216bd3351f0ceb22e02b1ac169ae05421aea8cfdd072528bf4cbc64a36c&quot;
+  },
+  &quot;state_quality&quot;: 0.0,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;D0-derived_field_collapse-seed29-origin0:day140:po:ITEM_0@CA_1&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;mismatches&quot;: [
+          {
+            &quot;ledger_expected&quot;: 10.0,
+            &quot;observed&quot;: 0.0,
+            &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;
+          },
+          {
+            &quot;ledger_expected&quot;: 14.0,
+            &quot;observed&quot;: 0.0,
+            &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;
+          }
+        ]
+      },
+      &quot;family&quot;: &quot;movement&quot;,
+      &quot;name&quot;: &quot;stock_movement_balance&quot;,
+      &quot;outcome&quot;: &quot;hard_fail&quot;,
+      &quot;weight&quot;: 0.12
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;current_total&quot;: 0.0,
+        &quot;movement_inconsistent&quot;: true,
+        &quot;previous_total&quot;: 13.0
+      },
+      &quot;family&quot;: &quot;derived_field_collapse&quot;,
+      &quot;name&quot;: &quot;inventory_distribution_shift&quot;,
+      &quot;outcome&quot;: &quot;hard_fail&quot;,
+      &quot;weight&quot;: 0.12
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 0.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 10,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 216.3962,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 8.132568255820943e-05,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 0.0,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;33837a7a6375b81bc6c91514c4241d1bf8798db9aeda9442720522ed61bfec20&quot;,
+    &quot;raw_objective&quot;: 216.4138,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.010439860999667872,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;9fd5b3905dce7777a5a757b240b4cb32381aa3c60969bb96acb61e9dccc94c71&quot;
+}</pre></details><details><summary>D0 · derived_field_collapse · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;a9191ca97627b8c7a69e4df61569f57b5fb7c1ccec086e9f232f83b34abcb133&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;D0-derived_field_collapse-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;381cc7d9e2055bf1dc39b24461ce969581b10a56d1d2df3938f555a4b46bc296&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 8,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 37.15707680872151,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0007348025322039271,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 2.1316282072803006e-14,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;d6eeb55266cd78f6374fd3759572ae3cf3473f2bd46762c749d06291246b0743&quot;,
+    &quot;raw_objective&quot;: 37.1844,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.13432400400006372,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;1303805a5be08858d18472de8ac10e3598c35a1a0697222061cf42b756491965&quot;
+}</pre></details><details><summary>D0 · derived_field_collapse · day 141 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;38b14af7118c5fddc6cbc7faa4d84a387169d8ac508a2aa866066c386dfe4d50&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;D0-derived_field_collapse-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;566054e521d08c74656485ab38e6b6264cb994b180fa532512acfcbde29c0706&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 12,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 1,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 85.02295000000001,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 1.6714139788377137e-16,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 1.7763568394002505e-15,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;12f748dbaecdaa28ad420c60a48202fa430d1cef67f36c51e00222f2408d6194&quot;,
+    &quot;raw_objective&quot;: 85.02295000000002,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.050787581999884424,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;0937d22e0755ed310fa18bb7f21f75aa93cecb4f682f1e33681836ccbeb5e71e&quot;
+}</pre></details><details><summary>D0 · derived_field_collapse · day 142 · quality 0.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;758edd1e2ed82e5faf6c4f32aef0ed42e50a17f24fe842bb53ce0e725e6a8781&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;D0-derived_field_collapse-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;dcbcc6dc47f43d00a8e48b44f91abbcfe4d0dc2cbd598adbd40947411ae4ce30&quot;
+  },
+  &quot;state_quality&quot;: 0.0,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;D0-derived_field_collapse-seed7-origin0:day141:po:ITEM_0@CA_2&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;mismatches&quot;: [
+          {
+            &quot;ledger_expected&quot;: 10.0,
+            &quot;observed&quot;: 0.0,
+            &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;
+          },
+          {
+            &quot;ledger_expected&quot;: 12.0,
+            &quot;observed&quot;: 0.0,
+            &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;
+          }
+        ]
+      },
+      &quot;family&quot;: &quot;movement&quot;,
+      &quot;name&quot;: &quot;stock_movement_balance&quot;,
+      &quot;outcome&quot;: &quot;hard_fail&quot;,
+      &quot;weight&quot;: 0.12
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;current_total&quot;: 0.0,
+        &quot;movement_inconsistent&quot;: true,
+        &quot;previous_total&quot;: 25.0
+      },
+      &quot;family&quot;: &quot;derived_field_collapse&quot;,
+      &quot;name&quot;: &quot;inventory_distribution_shift&quot;,
+      &quot;outcome&quot;: &quot;hard_fail&quot;,
+      &quot;weight&quot;: 0.12
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 0.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 229.22845,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 2.842170943040401e-14,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;efb13acaf7645ed7d82e630f7fcb1a5d40057891329d79b2dc71adb030d8dee7&quot;,
+    &quot;raw_objective&quot;: 229.22845,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.006640262000018993,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;d5047a301615bd53b0295b27167faf8e25550efcc33ac177f47edd12ba750c74&quot;
+}</pre></details><details><summary>D0 · feed_gap · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;95358aab41d7f4d2ee057beeb10917bc35e92f05403f5ce055cfe56e5cce17e5&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;D0-feed_gap-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;23af90703fb2a873b29390713ef45d9d80c1e0cfcfe1700bfe4d9618e13c781c&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 10,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 10,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 10,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 61.7931,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 0.0,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;d8a2a077151ae0cb42faee0d98965095aea7fe93ba38486e49e16e8954b839c3&quot;,
+    &quot;raw_objective&quot;: 61.79310000000001,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.05160503700017216,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;b24260736d32f495b4fadabc7e30eefd6cdedf6c6176417bad3754ca80d7c880&quot;
+}</pre></details><details><summary>D0 · feed_gap · day 141 · quality 0.84</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;72d72a3a4af73b6da902f10cf3664fa44cb6c9f98d170060aab212a6b2da1630&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;D0-feed_gap-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;15d933b197898341dfd5b158d204df4cbcfc839f2dcdfea6adada1f5fa38a879&quot;
+  },
+  &quot;state_quality&quot;: 0.84,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;D0-feed_gap-seed29-origin0:day140:po:ITEM_0@CA_1&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 0.84
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 2,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 10,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 9,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_2&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 40.70250000000001,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 0.0,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;2f9df8d5caea1a32bd98e3284b1022a049274725b85fa7ef2cd360e299a1a343&quot;,
+    &quot;raw_objective&quot;: 40.70250000000001,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.04834484100001646,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;3aa5fc85ab60bf1f25aa2c122f905f3f64685eb2f867042151102d46a27f7d71&quot;
+}</pre></details><details><summary>D0 · feed_gap · day 142 · quality 0.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;669faf62ac9484875d07172fd7227eb647ed8b1e9dbc7d4c1e131b56572dbcd3&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;D0-feed_gap-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;2a78557df3ab9444850b5ad60009ccc3b2e754dbc716351de3ce62fac58da826&quot;
+  },
+  &quot;state_quality&quot;: 0.0,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;ages_days&quot;: {
+          &quot;inventory&quot;: 1,
+          &quot;open_orders&quot;: 1,
+          &quot;prices&quot;: 1,
+          &quot;products&quot;: 1,
+          &quot;sales&quot;: 1
+        }
+      },
+      &quot;family&quot;: &quot;feed_gap&quot;,
+      &quot;name&quot;: &quot;table_freshness&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.2
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;missing_days&quot;: [],
+        &quot;missing_values&quot;: 2
+      },
+      &quot;family&quot;: &quot;feed_gap&quot;,
+      &quot;name&quot;: &quot;history_continuity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.2
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;D0-feed_gap-seed29-origin0:day140:po:ITEM_0@CA_1&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;mismatches&quot;: [
+          {
+            &quot;ledger_expected&quot;: 12.0,
+            &quot;observed&quot;: 4.0,
+            &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;
+          },
+          {
+            &quot;ledger_expected&quot;: 12.0,
+            &quot;observed&quot;: 16.0,
+            &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;
+          }
+        ]
+      },
+      &quot;family&quot;: &quot;movement&quot;,
+      &quot;name&quot;: &quot;stock_movement_balance&quot;,
+      &quot;outcome&quot;: &quot;hard_fail&quot;,
+      &quot;weight&quot;: 0.12
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 0.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 12,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 6,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_2&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 40.29900000000001,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 0.0,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;1b63b2de42e49da47ba5fd029bc91835a31e8775ed203ffe18d2e1deac142079&quot;,
+    &quot;raw_objective&quot;: 40.29900000000001,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.014113612000073772,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;3fea1d67c0437c57146cc828b7f2bd69a11b918461642e312268b54519ce7375&quot;
+}</pre></details><details><summary>D0 · feed_gap · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;ac683be9c57eb459285ab4bc5f3cc8e708332a3066dc1abcc0cda67a0bfdec04&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;D0-feed_gap-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;5f2f3c2a38ae664ca3ba8970de6fe3c68f0aa8e7290afaf09efb998a4c2c5487&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 8,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 37.15707680872151,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0007348025322039271,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 2.1316282072803006e-14,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;77f28777713af9e16aaa39b9a9f31bb6cfb546f2e49cd833a6057e68852677ea&quot;,
+    &quot;raw_objective&quot;: 37.1844,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.14919559999998455,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;f1ae34b58d1606e6c7a2c95a8dafd90f19297b6ce38a1f1a515bf9636cb04eaf&quot;
+}</pre></details><details><summary>D0 · feed_gap · day 141 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;7aedb0f7043d7785b9c75d1dfb70cc543f8247148fd91e41f18cf04c513b20a9&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;D0-feed_gap-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;d409ce591180aca3942b4f0857b339015a8eb611ee5f24a42efddce55889d749&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 12,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 1,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 85.02295000000001,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 1.6714139788377137e-16,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 1.7763568394002505e-15,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;a032902a08d489a0140b74b1da0da2672e37813486e17922c03fdb3d59d9d9fb&quot;,
+    &quot;raw_objective&quot;: 85.02295000000002,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.05229351899970425,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;3f3a7b79764a3d9d0515ad563c69bad34f820b358a2e5dbdc976e9b6a5bc140d&quot;
+}</pre></details><details><summary>D0 · feed_gap · day 142 · quality 0.60</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;41966a97667275e61a752792f0c5893375bda8f8c8e60183da95edda2bb791d9&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;D0-feed_gap-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;5738db9d5bb0b482af4e9f75c5b1510219d9a50f1c731918b4cd3ebf3f5904d8&quot;
+  },
+  &quot;state_quality&quot;: 0.6,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;ages_days&quot;: {
+          &quot;inventory&quot;: 1,
+          &quot;open_orders&quot;: 1,
+          &quot;prices&quot;: 1,
+          &quot;products&quot;: 1,
+          &quot;sales&quot;: 1
+        }
+      },
+      &quot;family&quot;: &quot;feed_gap&quot;,
+      &quot;name&quot;: &quot;table_freshness&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.2
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;missing_days&quot;: [],
+        &quot;missing_values&quot;: 2
+      },
+      &quot;family&quot;: &quot;feed_gap&quot;,
+      &quot;name&quot;: &quot;history_continuity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.2
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 0.6
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 2,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 41.04909999999997,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 8.748557434046234e-14,
+    &quot;max_primal_violation&quot;: 1.7497114868092467e-13,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;c4a18ae0cdecd30b963c3f4fb0ab84598b77208743868f0b670aacc8a9ae4039&quot;,
+    &quot;raw_objective&quot;: 41.049099999999974,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.05912060800028485,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;a6b319b980d2219efa6383b600afaad08967ba4789e15af9f217440230cf4000&quot;
+}</pre></details><details><summary>D0 · normal · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;e1adea18a0e33ca5419e67481fc5d6d264204cb0568f161ef9c7dbc122e1ea6e&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;D0-normal-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;8309f74614b0a703b5b2ed318ca88cf33d857f959ca350df79e09213b9886a44&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 10,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 10,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 10,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 61.7931,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 0.0,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;18e6deb516e237e9256cc1b358be8ba3e95e4ef939028078831b39e5154686c4&quot;,
+    &quot;raw_objective&quot;: 61.79310000000001,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.051366715999847656,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;65e9c0e20c972ef8327ad43e8cc7d6ce45669ce98c2faf26bc15eadfd869b2d9&quot;
+}</pre></details><details><summary>D0 · normal · day 141 · quality 0.84</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;26f306697ae462c1c262500ed579275b5730adbd9afef0388489b830ade06afc&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;D0-normal-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;c72e2c9e7b902a4fad32a0e54f0b3aea53cf7a339fb15dcd243dee1be4586137&quot;
+  },
+  &quot;state_quality&quot;: 0.84,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;D0-normal-seed29-origin0:day140:po:ITEM_0@CA_1&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 0.84
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 4,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 8,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 7,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_2&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 40.35210000000001,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 0.0,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;df7579284edc92fba40c58d39e483096f8df26fb2979bf7bd98eec5e6557aa76&quot;,
+    &quot;raw_objective&quot;: 40.35210000000001,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.02962070700004915,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;ffae6fe0bc1489d6210319405ac343db2983cd529b69d5585ccb0149e8afe906&quot;
+}</pre></details><details><summary>D0 · normal · day 142 · quality 0.84</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;98f63217024ef6196efe34f069fc79dc9244d26dd649998ef5fe17de02ac7180&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;D0-normal-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;483c98abac2d08be61252c835653cbd0d1f4f6bf1d882a732f3dafc216d2e3f4&quot;
+  },
+  &quot;state_quality&quot;: 0.84,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;D0-normal-seed29-origin0:day140:po:ITEM_0@CA_1&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 0.84
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 2,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 23.0454,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 0.0,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;09230076bcb04efaf227bc802c75b126a25351a9d5807895c23d30b6e5091273&quot;,
+    &quot;raw_objective&quot;: 23.045400000000004,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.018755548000171984,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;ff16a8a7b65182f3c236e35304ba5e681f84bd9edc67053e8984fbd5a5516be5&quot;
+}</pre></details><details><summary>D0 · normal · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;065666739bd1265ac34879904f39f160e4584a9019e08cd3a9ff91edd366fbd1&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;D0-normal-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;514949f29533aab09cc14bda4560c83e837a9c2ef6f1e914fa0ef28b8b0afcdf&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 8,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 37.15707680872151,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0007348025322039271,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 2.1316282072803006e-14,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;f4c5065ab1c2b589f963164ba83f9b37f64f45e2006a99cb83505380d596b382&quot;,
+    &quot;raw_objective&quot;: 37.1844,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.12397097799976109,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;73f264d288a161825bda7fd8f5e60e2c0a7a544866baf55c5491cac33da94566&quot;
+}</pre></details><details><summary>D0 · normal · day 141 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;78abb04436b78a233ac4747613c01127036e996c29476c57fb0277e0951699ed&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;D0-normal-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;a10dc3a01f56c16871823c7b1eff5be2991e82cdb764b2979096e111f1960358&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 1.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 12,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 1,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 85.02295000000001,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 1.6714139788377137e-16,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 1.7763568394002505e-15,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;b9bc2fa250a79779beca32f6e8ae1c9da642c109d4a86690c1b44a65f0c53567&quot;,
+    &quot;raw_objective&quot;: 85.02295000000002,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.05395667099992352,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;d63123748bfcd366ecb749647fc3cd2316befa63100d5312c022f198f95b7db6&quot;
+}</pre></details><details><summary>D0 · normal · day 142 · quality 0.84</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;8960d74db475a9481d1d2993ab3dda6ee295b3c791e88103e00be287556f0db5&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;D0-normal-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;ec18c1db061cfd3b1926858355f3ccce9df1d0ba365ddb795a791c28558435e6&quot;
+  },
+  &quot;state_quality&quot;: 0.84,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;D0-normal-seed7-origin0:day141:po:ITEM_0@CA_2&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;quality_logged_but_not_gated&quot;: 0.84
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Fixed-autonomy ablation in simulator&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 2,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 17.20955,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 0.0,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;f864fa35a8fc4aa12216fd296517a69123d6ed9649ea9583e0677dce0be909ee&quot;,
+    &quot;raw_objective&quot;: 17.20955,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.01925760399990395,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;9aa3aea8ecf4a3dbbde1676989de2661e738169a6514873eff7e731495266393&quot;
+}</pre></details><details><summary>D1 · derived_field_collapse · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;4b6386d2d6a0f9ef46872183080b9c9a7250c70ad22cc5c7ea5ee31337a42d15&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;D1-derived_field_collapse-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;4f5ef23257599e1cbc43ef69191139cecc1a68c1fba2c137195f7a86b3ac7f07&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;baseline_deviation&quot;: 1.0,
+      &quot;constraint_confidence&quot;: 1.0,
+      &quot;forecast_dispersion&quot;: 0.2222497723670352,
+      &quot;hold_count&quot;: 0,
+      &quot;max_days_supply&quot;: 12.521739130434781,
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 1.0,
+      &quot;spend&quot;: 49.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Verified evidence and risk inside simulator policy limits&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 10,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 10,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 10,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 61.7931,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 0.0,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;cdc0c07a2a4af3103fc2ed6900354f0cde8b665499b37ea7aa4cfc538d761999&quot;,
+    &quot;raw_objective&quot;: 61.79310000000001,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.04740683699992587,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;f4805008977b8d5fac1e0cca60d7c760eeadb5df2aaf2b9a971cf0f327be800b&quot;
+}</pre></details><details><summary>D1 · derived_field_collapse · day 141 · quality 0.84</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;87a4ebe3dcb2083805cb2e457f4d2e893aa42493e92496144fc15bf2994ca925&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;D1-derived_field_collapse-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;50d99209e258b885340b8d0aba9921c8512c224be206d28d9a787131e183c28f&quot;
+  },
+  &quot;state_quality&quot;: 0.84,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;D1-derived_field_collapse-seed29-origin0:day140:po:ITEM_0@CA_1&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;baseline_deviation&quot;: 5.0,
+      &quot;constraint_confidence&quot;: 1.0,
+      &quot;forecast_dispersion&quot;: 0.11464396638609863,
+      &quot;hold_count&quot;: 0,
+      &quot;max_days_supply&quot;: 9.035294117647059,
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 0.84,
+      &quot;spend&quot;: 30.500000000000004
+    },
+    &quot;level&quot;: &quot;approval&quot;,
+    &quot;permitted&quot;: false,
+    &quot;reasons&quot;: [
+      &quot;Deviation from deterministic baseline exceeds cap&quot;
+    ],
+    &quot;required_approvals&quot;: 1,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 4,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 8,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 7,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_2&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 43.987600000000015,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 4.6629367034256575e-15,
+    &quot;max_primal_violation&quot;: 5.684341886080802e-14,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;175343c8c7ef851bc5da7b9f1133c71313c58d47799bab95dbaedfd1188e4395&quot;,
+    &quot;raw_objective&quot;: 43.987600000000015,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.06738109900015843,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;784874e74a8398264d2d131869acceab8645c408137898a459380964e930c491&quot;
+}</pre></details><details><summary>D1 · derived_field_collapse · day 142 · quality 0.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;c7c87ea208a0df6c23ce9c5cb48639dc22e410e3f2f6d87c80cc302225c70993&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;D1-derived_field_collapse-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;e1eb41305d9f30f9e9691e055554e1232a54a910709ee832c62a182849cc2857&quot;
+  },
+  &quot;state_quality&quot;: 0.0,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;D1-derived_field_collapse-seed29-origin0:day140:po:ITEM_0@CA_1&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;mismatches&quot;: [
+          {
+            &quot;ledger_expected&quot;: 3.0,
+            &quot;observed&quot;: 0.0,
+            &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;
+          },
+          {
+            &quot;ledger_expected&quot;: 21.0,
+            &quot;observed&quot;: 0.0,
+            &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;
+          }
+        ]
+      },
+      &quot;family&quot;: &quot;movement&quot;,
+      &quot;name&quot;: &quot;stock_movement_balance&quot;,
+      &quot;outcome&quot;: &quot;hard_fail&quot;,
+      &quot;weight&quot;: 0.12
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;current_total&quot;: 0.0,
+        &quot;movement_inconsistent&quot;: true,
+        &quot;previous_total&quot;: 20.0
+      },
+      &quot;family&quot;: &quot;derived_field_collapse&quot;,
+      &quot;name&quot;: &quot;inventory_distribution_shift&quot;,
+      &quot;outcome&quot;: &quot;hard_fail&quot;,
+      &quot;weight&quot;: 0.12
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 0.0
+    },
+    &quot;level&quot;: &quot;advisory&quot;,
+    &quot;permitted&quot;: false,
+    &quot;reasons&quot;: [
+      &quot;State hard failure; hold is not a zero-order recommendation&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: false,
+    &quot;status&quot;: &quot;not_run&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;776931239c61cae756464781204ebdbfbdbf48483a28a38560064a93eb1aa553&quot;
+}</pre></details><details><summary>D1 · derived_field_collapse · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;392b06a24d712186bd3e1363d26c62154aaf89f196d359674e49036eb79a1ba4&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;D1-derived_field_collapse-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;ee961d5662443005418e67e719c3a33415a50f3c1c661cd25fdc70c14196ee3e&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;baseline_deviation&quot;: 0.5,
+      &quot;constraint_confidence&quot;: 1.0,
+      &quot;forecast_dispersion&quot;: 0.16641861374356684,
+      &quot;hold_count&quot;: 0,
+      &quot;max_days_supply&quot;: 5.44,
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 1.0,
+      &quot;spend&quot;: 17.6
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Verified evidence and risk inside simulator policy limits&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 8,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 37.15707680872151,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0007348025322039271,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 2.1316282072803006e-14,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;00b90acbe308c5e27bd024ac77fa156b91062d2d8e752410ecc1cb3346b28a66&quot;,
+    &quot;raw_objective&quot;: 37.1844,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.11874241499981508,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;7326b8adfd26f185627f2ed14d810edf27ffeb7b0162f69d77074741868a533a&quot;
+}</pre></details><details><summary>D1 · derived_field_collapse · day 141 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;ec22347ceccfee47b071a55cae9b07c027b0240eee57fdaa65d24e816a6ac8f9&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;D1-derived_field_collapse-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;2392507a299b8c99e204627527026fb43ff7780e225b4bd3bd89f16495c15d53&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;baseline_deviation&quot;: 0.5,
+      &quot;constraint_confidence&quot;: 1.0,
+      &quot;forecast_dispersion&quot;: 0.12643678160919541,
+      &quot;hold_count&quot;: 0,
+      &quot;max_days_supply&quot;: 8.816326530612246,
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 1.0,
+      &quot;spend&quot;: 41.9
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Verified evidence and risk inside simulator policy limits&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 12,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 1,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 85.02295000000001,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 1.6714139788377137e-16,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 1.7763568394002505e-15,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;613fda83df519be4643e51bee775878c47378189366b6da51fa4e63e48b7437b&quot;,
+    &quot;raw_objective&quot;: 85.02295000000002,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.048661078000350244,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;04e094ad87a38dad35f33d5d666c7789637b955020fda60d044a7bc39446355c&quot;
+}</pre></details><details><summary>D1 · derived_field_collapse · day 142 · quality 0.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;1033ebd4f8461876a7b51ec753335fb212c17bf30bf93ef5b86fc828e4a70ab2&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;D1-derived_field_collapse-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;4ee762473f939832c29f490359acb3d6bc425ff507b47781fad67bc19b46195a&quot;
+  },
+  &quot;state_quality&quot;: 0.0,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;D1-derived_field_collapse-seed7-origin0:day141:po:ITEM_0@CA_2&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;mismatches&quot;: [
+          {
+            &quot;ledger_expected&quot;: 10.0,
+            &quot;observed&quot;: 0.0,
+            &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;
+          },
+          {
+            &quot;ledger_expected&quot;: 12.0,
+            &quot;observed&quot;: 0.0,
+            &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;
+          }
+        ]
+      },
+      &quot;family&quot;: &quot;movement&quot;,
+      &quot;name&quot;: &quot;stock_movement_balance&quot;,
+      &quot;outcome&quot;: &quot;hard_fail&quot;,
+      &quot;weight&quot;: 0.12
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;current_total&quot;: 0.0,
+        &quot;movement_inconsistent&quot;: true,
+        &quot;previous_total&quot;: 25.0
+      },
+      &quot;family&quot;: &quot;derived_field_collapse&quot;,
+      &quot;name&quot;: &quot;inventory_distribution_shift&quot;,
+      &quot;outcome&quot;: &quot;hard_fail&quot;,
+      &quot;weight&quot;: 0.12
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 0.0
+    },
+    &quot;level&quot;: &quot;advisory&quot;,
+    &quot;permitted&quot;: false,
+    &quot;reasons&quot;: [
+      &quot;State hard failure; hold is not a zero-order recommendation&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: false,
+    &quot;status&quot;: &quot;not_run&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;b4e360295caad0db501048a1bdd07b94253b9579976498ca300617ebfac96ac5&quot;
+}</pre></details><details><summary>D1 · feed_gap · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;24b568aafddbd6104672ea043702c785e34cb3fb0f1c3e4beaae3097a764ff1f&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;D1-feed_gap-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;0c6afd9b1d68d439cc70314ec327c55e1a143ae37c79db6516d6d634b16a6d13&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;baseline_deviation&quot;: 1.0,
+      &quot;constraint_confidence&quot;: 1.0,
+      &quot;forecast_dispersion&quot;: 0.2222497723670352,
+      &quot;hold_count&quot;: 0,
+      &quot;max_days_supply&quot;: 12.521739130434781,
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 1.0,
+      &quot;spend&quot;: 49.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Verified evidence and risk inside simulator policy limits&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 10,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 10,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 10,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 61.7931,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 0.0,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;e0ba100c8039cd0b7085fe37e0455af04c5ab2e3e813088df39641722dee99f4&quot;,
+    &quot;raw_objective&quot;: 61.79310000000001,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.05905179399996996,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;6d477698a29353dc9c87af39d95478f507a28e0d4e9798ade509ecc5929c5fad&quot;
+}</pre></details><details><summary>D1 · feed_gap · day 141 · quality 0.84</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;67bc537381b95b898290b99950c18d4b94f5ca2443c239e758439ff7aa143185&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;D1-feed_gap-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;f9c3a3ec215bab4dbc10174b7eb328664d1ef07cb09fe83b11b0ac4cbe2618aa&quot;
+  },
+  &quot;state_quality&quot;: 0.84,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;D1-feed_gap-seed29-origin0:day140:po:ITEM_0@CA_1&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;baseline_deviation&quot;: 1.0,
+      &quot;constraint_confidence&quot;: 1.0,
+      &quot;forecast_dispersion&quot;: 0.11464396638609863,
+      &quot;hold_count&quot;: 0,
+      &quot;max_days_supply&quot;: 0.0,
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 0.84,
+      &quot;spend&quot;: 0.6
+    },
+    &quot;level&quot;: &quot;bounded&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Verified evidence and risk inside simulator policy limits&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 2,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_2&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 15.20205,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 0.0,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;bda9b1f1afd4b016f0f0b4c0f3a0967943ea4ac7bfef4e0a136abb17d7441981&quot;,
+    &quot;raw_objective&quot;: 15.202050000000002,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.02703190700003688,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;87a018640b82538e16542cc8087fa88b5d0faba635a12a323cf3ed96a244e48e&quot;
+}</pre></details><details><summary>D1 · feed_gap · day 142 · quality 0.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;1f64bb65b60a9637951b985f7f5c6c11c4dbbc18250d6ef2a207100668e11e5b&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;D1-feed_gap-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;cada1c5fbe8cfcfca49a8d2a2e719b5575d6c80efd3847598275b9f70d9dc8cf&quot;
+  },
+  &quot;state_quality&quot;: 0.0,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;ages_days&quot;: {
+          &quot;inventory&quot;: 1,
+          &quot;open_orders&quot;: 1,
+          &quot;prices&quot;: 1,
+          &quot;products&quot;: 1,
+          &quot;sales&quot;: 1
+        }
+      },
+      &quot;family&quot;: &quot;feed_gap&quot;,
+      &quot;name&quot;: &quot;table_freshness&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.2
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;missing_days&quot;: [],
+        &quot;missing_values&quot;: 2
+      },
+      &quot;family&quot;: &quot;feed_gap&quot;,
+      &quot;name&quot;: &quot;history_continuity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.2
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;D1-feed_gap-seed29-origin0:day140:po:ITEM_0@CA_1&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;mismatches&quot;: [
+          {
+            &quot;ledger_expected&quot;: 19.0,
+            &quot;observed&quot;: 16.0,
+            &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;
+          }
+        ]
+      },
+      &quot;family&quot;: &quot;movement&quot;,
+      &quot;name&quot;: &quot;stock_movement_balance&quot;,
+      &quot;outcome&quot;: &quot;hard_fail&quot;,
+      &quot;weight&quot;: 0.12
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 0.0
+    },
+    &quot;level&quot;: &quot;advisory&quot;,
+    &quot;permitted&quot;: false,
+    &quot;reasons&quot;: [
+      &quot;State hard failure; hold is not a zero-order recommendation&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [],
+  &quot;transfers&quot;: [],
+  &quot;solver&quot;: {
+    &quot;feasible&quot;: false,
+    &quot;status&quot;: &quot;not_run&quot;
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;dc857a5f8f9c665c3c9b59b011cb7dd4b3cc24378de2d7256c8397badb44704f&quot;
+}</pre></details><details><summary>D1 · feed_gap · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;91dbe3b676bcf856ae69505bdd27b944ed6a5abc9ecc146ef27dfb0e94123643&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;D1-feed_gap-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;415047d13dad6ad0caf37659110767f7bab32e38a57dff4809f2095c75962f15&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;baseline_deviation&quot;: 0.5,
+      &quot;constraint_confidence&quot;: 1.0,
+      &quot;forecast_dispersion&quot;: 0.16641861374356684,
+      &quot;hold_count&quot;: 0,
+      &quot;max_days_supply&quot;: 5.44,
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 1.0,
+      &quot;spend&quot;: 17.6
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Verified evidence and risk inside simulator policy limits&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 8,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 37.15707680872151,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0007348025322039271,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 2.1316282072803006e-14,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;ac0c9402caf05b09746b636f7474b54315f8897e5c971a4fa2edfddea8e36e45&quot;,
+    &quot;raw_objective&quot;: 37.1844,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.11953639000012117,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;aea9a8aee1a749d3c9ce24f298cf4b550c78890627cfe8ffe06058a54b48e6e4&quot;
+}</pre></details><details><summary>D1 · feed_gap · day 141 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;db70edc09d11b0e15a4bfce694000d8744aaa61b049d63c5fa31e137b5d73567&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;D1-feed_gap-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;054f0a7eef54bae1725981ebbdecf287b370eddce0491d000505c3251f63299e&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;baseline_deviation&quot;: 0.5,
+      &quot;constraint_confidence&quot;: 1.0,
+      &quot;forecast_dispersion&quot;: 0.12643678160919541,
+      &quot;hold_count&quot;: 0,
+      &quot;max_days_supply&quot;: 8.816326530612246,
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 1.0,
+      &quot;spend&quot;: 41.9
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Verified evidence and risk inside simulator policy limits&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 12,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 1,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 85.02295000000001,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 1.6714139788377137e-16,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 1.7763568394002505e-15,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;51f2d0cc04549fa7aea10726e2b06070a76d503873d31861ae42a635ffb280e9&quot;,
+    &quot;raw_objective&quot;: 85.02295000000002,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.05197021300000415,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;f83b0b3661ec3bf89d8fc8bedf263d5454c6f9da089cc42cfc6cb024d05c0d94&quot;
+}</pre></details><details><summary>D1 · feed_gap · day 142 · quality 0.60</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;2294275ade265ec3b26943422c4e90ff560a2999d57aca6a045a7587b86cab06&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;D1-feed_gap-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;a84de2920a1b99c8917815f5686ebcefd358fb72a1e8dd86f02d1c021a134eda&quot;
+  },
+  &quot;state_quality&quot;: 0.6,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;ages_days&quot;: {
+          &quot;inventory&quot;: 1,
+          &quot;open_orders&quot;: 1,
+          &quot;prices&quot;: 1,
+          &quot;products&quot;: 1,
+          &quot;sales&quot;: 1
+        }
+      },
+      &quot;family&quot;: &quot;feed_gap&quot;,
+      &quot;name&quot;: &quot;table_freshness&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.2
+    },
+    {
+      &quot;evidence&quot;: {
+        &quot;missing_days&quot;: [],
+        &quot;missing_values&quot;: 2
+      },
+      &quot;family&quot;: &quot;feed_gap&quot;,
+      &quot;name&quot;: &quot;history_continuity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.2
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;baseline_deviation&quot;: 1.0,
+      &quot;constraint_confidence&quot;: 1.0,
+      &quot;forecast_dispersion&quot;: 0.06493506493506493,
+      &quot;hold_count&quot;: 0,
+      &quot;max_days_supply&quot;: 9.6,
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 0.6,
+      &quot;spend&quot;: 29.000000000000004
+    },
+    &quot;level&quot;: &quot;approval&quot;,
+    &quot;permitted&quot;: false,
+    &quot;reasons&quot;: [
+      &quot;Evidence quality below autonomous threshold&quot;
+    ],
+    &quot;required_approvals&quot;: 1,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 2,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 41.04909999999997,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 8.748557434046234e-14,
+    &quot;max_primal_violation&quot;: 1.7497114868092467e-13,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;e19ac7a896d80229e731b7c092b32e4b5539b7fe6b0e0c619d61b0bfc6edd435&quot;,
+    &quot;raw_objective&quot;: 41.049099999999974,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.05697313399969062,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;541f91bade8462e726b22ca70530f95f4c4b9f0a0ab76db9af32e464d26d32d1&quot;
+}</pre></details><details><summary>D1 · normal · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;8a205825bb977c18935171b78180d4a11a35fffc4a74c4e9c1cc5d536d6b363a&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;D1-normal-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;181d472d23da1445f5eaea93786d625c4b561179708b0835365b36ede73e9e96&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;baseline_deviation&quot;: 1.0,
+      &quot;constraint_confidence&quot;: 1.0,
+      &quot;forecast_dispersion&quot;: 0.2222497723670352,
+      &quot;hold_count&quot;: 0,
+      &quot;max_days_supply&quot;: 12.521739130434781,
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 1.0,
+      &quot;spend&quot;: 49.0
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Verified evidence and risk inside simulator policy limits&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 10,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 10,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 10,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 61.7931,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 0.0,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;77949d08b340216554b45c5d3dbf4f49f041fffc63e4d51ec2a66071eba3645d&quot;,
+    &quot;raw_objective&quot;: 61.79310000000001,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.05354400299984263,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;d2924e09c386b1c94011031b2c790eaa1b6476241827c1cb4618fb5d5b8e15fb&quot;
+}</pre></details><details><summary>D1 · normal · day 141 · quality 0.84</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;6cf59f2d0f37f4205d0d2238c854d92c90bd15f9a380e87ecd0cf7306824c9ec&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;D1-normal-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;22f937fd9232187b27616cfd8f6d8de52d6c1b853c038d48ab752749b3d094eb&quot;
+  },
+  &quot;state_quality&quot;: 0.84,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;D1-normal-seed29-origin0:day140:po:ITEM_0@CA_1&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;baseline_deviation&quot;: 5.0,
+      &quot;constraint_confidence&quot;: 1.0,
+      &quot;forecast_dispersion&quot;: 0.11464396638609863,
+      &quot;hold_count&quot;: 0,
+      &quot;max_days_supply&quot;: 9.035294117647059,
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 0.84,
+      &quot;spend&quot;: 30.500000000000004
+    },
+    &quot;level&quot;: &quot;approval&quot;,
+    &quot;permitted&quot;: false,
+    &quot;reasons&quot;: [
+      &quot;Deviation from deterministic baseline exceeds cap&quot;
+    ],
+    &quot;required_approvals&quot;: 1,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 4,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 8,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 7,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_2&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 40.269600000000004,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 0.0,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;0512b83382ce3b4476f349594706f9e429b8d01518b620a4abb7686fcb014fa5&quot;,
+    &quot;raw_objective&quot;: 40.269600000000004,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.03017851000004157,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;da1abea28d13d7d819029a86247a2958e21ea68b0fdc00aa79dcca13c08c708d&quot;
+}</pre></details><details><summary>D1 · normal · day 142 · quality 0.84</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;4800c62137ff8458c934ce3b020feb1277d661eff454f436fb4c4dbeb12d8644&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;D1-normal-seed29-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;bf6ae51cca570069df8559f434e139cac8bf94bd8392f8cd2ed7313e360a31bd&quot;
+  },
+  &quot;state_quality&quot;: 0.84,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;D1-normal-seed29-origin0:day140:po:ITEM_0@CA_1&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;baseline_deviation&quot;: 12.0,
+      &quot;constraint_confidence&quot;: 1.0,
+      &quot;forecast_dispersion&quot;: 0.13766952905645055,
+      &quot;hold_count&quot;: 1,
+      &quot;max_days_supply&quot;: 8.425531914893618,
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 0.84,
+      &quot;spend&quot;: 29.6
+    },
+    &quot;level&quot;: &quot;approval&quot;,
+    &quot;permitted&quot;: false,
+    &quot;reasons&quot;: [
+      &quot;Deviation from deterministic baseline exceeds cap&quot;
+    ],
+    &quot;required_approvals&quot;: 1,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 12,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 4,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_2&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 48.383268374384244,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0006388957292644976,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 7.105427357601002e-15,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;d45e89f6ea1889aa7a8136821729741448005ada9f932927190664eca6de1ab4&quot;,
+    &quot;raw_objective&quot;: 48.41420000000001,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.023218912000174896,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;3a2485f14392cd8776c6d38f19ba3e9a054b0ddf7f334fa6ebc9b7ef482b451f&quot;
+}</pre></details><details><summary>D1 · normal · day 140 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;363ad4720b937702a8f99fd8cd4eff24ddaa314a0da8b4b8d3d37eaeefec21ec&quot;,
+    &quot;day&quot;: 140,
+    &quot;run_id&quot;: &quot;D1-normal-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;4397dc09c950ff79aedf9cbbbfa4516aaf98d7b46d9cf95cb234dd40dedcb442&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;baseline_deviation&quot;: 0.5,
+      &quot;constraint_confidence&quot;: 1.0,
+      &quot;forecast_dispersion&quot;: 0.16641861374356684,
+      &quot;hold_count&quot;: 0,
+      &quot;max_days_supply&quot;: 5.44,
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 1.0,
+      &quot;spend&quot;: 17.6
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Verified evidence and risk inside simulator policy limits&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 8,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 37.15707680872151,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0007348025322039271,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 2.1316282072803006e-14,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;110d6e8f633eec71719e5fff995fb59485fb9eba7159f08c49bd9caf004396a4&quot;,
+    &quot;raw_objective&quot;: 37.1844,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.11938751899970157,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;6d023e0d4ceddbb22fc91b71019d62c79f800243bf6da430f26196dec513d825&quot;
+}</pre></details><details><summary>D1 · normal · day 141 · quality 1.00</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;0e27b1d0b20c50bcb778b9c4f1ff5e301b6ec5d52fde879ce5c810fbbd7fab2a&quot;,
+    &quot;day&quot;: 141,
+    &quot;run_id&quot;: &quot;D1-normal-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;aa4aca667db86f4d1412e43000cf6ca05255c898123495d29b4995c62bd9f35c&quot;
+  },
+  &quot;state_quality&quot;: 1.0,
+  &quot;failed_checks&quot;: [],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;baseline_deviation&quot;: 0.5,
+      &quot;constraint_confidence&quot;: 1.0,
+      &quot;forecast_dispersion&quot;: 0.12643678160919541,
+      &quot;hold_count&quot;: 0,
+      &quot;max_days_supply&quot;: 8.816326530612246,
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 1.0,
+      &quot;spend&quot;: 41.9
+    },
+    &quot;level&quot;: &quot;full&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Verified evidence and risk inside simulator policy limits&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [
+    {
+      &quot;quantity&quot;: 6,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_1&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    },
+    {
+      &quot;quantity&quot;: 12,
+      &quot;series_id&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;supplier&quot;: &quot;SUP_DEPT_0&quot;
+    }
+  ],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 1,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 85.02295000000001,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 1.6714139788377137e-16,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 1.7763568394002505e-15,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;65598074780d9f602884b0a903e829d74a2b2691b92373cd00bf7b66c03dc88c&quot;,
+    &quot;raw_objective&quot;: 85.02295000000002,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.054548505999719055,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;4c7a770b1fb16bc48ee794268a889aff9b8ab2fe68bd26569a7ba46cef2e2f71&quot;
+}</pre></details><details><summary>D1 · normal · day 142 · quality 0.84</summary><pre>{
+  &quot;lineage&quot;: {
+    &quot;certificate_hash&quot;: &quot;6b27a44fadeae39fc7042f08c6f82a64ac974c63b0a91af906657295aa9a0076&quot;,
+    &quot;day&quot;: 142,
+    &quot;run_id&quot;: &quot;D1-normal-seed7-origin0&quot;,
+    &quot;snapshot_version&quot;: &quot;6022b3b9ea1a272b6b47fec3e786d6756a100d2675d3b62c3cf273bad6e5e3d6&quot;
+  },
+  &quot;state_quality&quot;: 0.84,
+  &quot;failed_checks&quot;: [
+    {
+      &quot;evidence&quot;: {
+        &quot;invalid&quot;: [],
+        &quot;unknown_dates&quot;: [
+          &quot;D1-normal-seed7-origin0:day141:po:ITEM_0@CA_2&quot;
+        ]
+      },
+      &quot;family&quot;: &quot;open_order_integrity&quot;,
+      &quot;name&quot;: &quot;purchase_order_integrity&quot;,
+      &quot;outcome&quot;: &quot;warn&quot;,
+      &quot;weight&quot;: 0.16
+    }
+  ],
+  &quot;autonomy&quot;: {
+    &quot;inputs&quot;: {
+      &quot;baseline_deviation&quot;: 0.0,
+      &quot;constraint_confidence&quot;: 1.0,
+      &quot;forecast_dispersion&quot;: 0.06493506493506493,
+      &quot;hold_count&quot;: 0,
+      &quot;max_days_supply&quot;: 0.0,
+      &quot;policy_version&quot;: &quot;gate-v1-synthetic&quot;,
+      &quot;quality&quot;: 0.84,
+      &quot;spend&quot;: 0.3
+    },
+    &quot;level&quot;: &quot;bounded&quot;,
+    &quot;permitted&quot;: true,
+    &quot;reasons&quot;: [
+      &quot;Verified evidence and risk inside simulator policy limits&quot;
+    ],
+    &quot;required_approvals&quot;: 0,
+    &quot;urgent&quot;: false
+  },
+  &quot;orders&quot;: [],
+  &quot;transfers&quot;: [
+    {
+      &quot;destination_series&quot;: &quot;ITEM_0@CA_2&quot;,
+      &quot;item_id&quot;: &quot;ITEM_0&quot;,
+      &quot;quantity&quot;: 1,
+      &quot;source_series&quot;: &quot;ITEM_0@CA_1&quot;
+    }
+  ],
+  &quot;solver&quot;: {
+    &quot;dual_bound&quot;: 6.3319,
+    &quot;feasible&quot;: true,
+    &quot;gap&quot;: 0.0,
+    &quot;max_integer_violation&quot;: 0.0,
+    &quot;max_primal_violation&quot;: 3.552713678800501e-15,
+    &quot;message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;optimal&quot;: true,
+    &quot;problem_hash&quot;: &quot;fff3a824dcfb54d6798903055c55e2d62c2c51a9c50d4e1873943127a479d02e&quot;,
+    &quot;raw_objective&quot;: 6.3319,
+    &quot;rows&quot;: 207,
+    &quot;seconds&quot;: 0.014888583000356448,
+    &quot;status&quot;: 0,
+    &quot;variables&quot;: 156
+  },
+  &quot;fallback&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;trace_ref&quot;: &quot;e21c65a04d2b659c3841d1cce3d7ef2c94b76f8a3de3f74b5abd8c33180b8bb8&quot;
+}</pre></details></section>
+<footer>Simulator-only execution. Local content hashes are tamper-evident, not cryptographic proof of trusted authorship. No model reasoning transcript is claimed.</footer></main></html>

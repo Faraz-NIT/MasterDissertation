@@ -1,0 +1,28 @@
+# Core dissertation comparison without an LLM: B1–B4.
+# Run on a research-sized item subset before expanding.
+dataset: data/processed/m5
+output: results/deterministic_study
+policies: [B1, B2, B3, B4]
+scenarios: [normal, mixed_quality, feed_gap, partial_refresh, stale_but_fresh, duplicate_ingestion, unit_inflation, currency_mislabel, unmapped_location, identity_drift, placeholder_master, orphaned_facts, open_order_integrity, historical_restatement, derived_field_collapse, capacity_cut, foreign_unit_moq]
+seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+start_day: 1830
+warmup_days: 14
+days: 28
+origins: 3
+origin_stride: 28
+solver:
+  horizon: 14
+  scenarios: 16
+  time_limit: 60
+  cvar_alpha: 0.95
+  risk_weight: 0.1
+forecast:
+  deep_epochs: 10
+  max_training_windows: 12000
+  lgbm_estimators: 150
+quality:
+  version: synthetic-control-v1-NOT-calibrated
+  calibrated: false
+  onset_rate: 0.025
+  min_duration: 1
+  max_duration: 5

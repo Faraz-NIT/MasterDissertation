@@ -1,0 +1,31 @@
+# Copy to llm_study.yaml and set a REAL installed/provider model identifier.
+# No model is silently downloaded; no external service is selected by this file.
+dataset: data/processed/m5
+output: results/llm_smoke
+policies: [B4, B6, B7, B8, B9, B10]
+scenarios: [normal, derived_field_collapse, injection]
+seeds: [42]
+start_day: 1800
+warmup_days: 7
+days: 4
+solver:
+  horizon: 10
+  scenarios: 8
+  time_limit: 30
+forecast:
+  deep_epochs: 3
+llm:
+  enabled: true
+  base_url: http://localhost:11434/v1
+  model: REPLACE_WITH_YOUR_INSTALLED_MODEL
+  model_revision: REPLACE_WITH_PINNED_MODEL_OR_PROVIDER_VERSION
+  api_key_env: EGA_LLM_API_KEY
+  json_mode: schema
+  temperature: 0
+  retries: 1
+  max_calls: 500
+  max_tokens: 3000
+  on_failure: hold
+  use_memory: true
+quality:
+  calibrated: false

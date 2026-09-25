@@ -1,0 +1,4 @@
+source_ref,synthetic_text,notes
+supplier/pack,"Ship in multiples of six.","Prose requires explicit LLM grounding; deterministic parser escalates."
+supplier/material,"Minimum 24 meters across the supplier order. ITEM_0 consumes 1.4 meters per unit.","Aggregate conversion; not an independent minimum per item."
+season/convention,"The season starts September 2026. January belongs to January 2027.","Explicit rollover convention."

@@ -1,0 +1,39 @@
+Training seasonal_naive, exclusively before day 136 ...
+Running B1 / normal / seed 7 / origin 0
+Running B1 / normal / seed 29 / origin 0
+Running B1 / feed_gap / seed 7 / origin 0
+Running B1 / feed_gap / seed 29 / origin 0
+Running B1 / derived_field_collapse / seed 7 / origin 0
+Running B1 / derived_field_collapse / seed 29 / origin 0
+Running D0 / normal / seed 7 / origin 0
+Running D0 / normal / seed 29 / origin 0
+Running D0 / feed_gap / seed 7 / origin 0
+Running D0 / feed_gap / seed 29 / origin 0
+Running D0 / derived_field_collapse / seed 7 / origin 0
+Running D0 / derived_field_collapse / seed 29 / origin 0
+Running D1 / normal / seed 7 / origin 0
+Running D1 / normal / seed 29 / origin 0
+Running D1 / feed_gap / seed 7 / origin 0
+Running D1 / feed_gap / seed 29 / origin 0
+Running D1 / derived_field_collapse / seed 7 / origin 0
+Running D1 / derived_field_collapse / seed 29 / origin 0
+policy               scenario  seed    cost  fill_rate  held_decisions  harmful_executions
+    B1                 normal     7  87.125       0.96               0                   0
+    B1                 normal    29  81.632       1.00               0                   0
+    B1               feed_gap     7 170.721       0.96               0                   1
+    B1               feed_gap    29  81.632       1.00               0                   0
+    B1 derived_field_collapse     7 157.323       0.96               0                   0
+    B1 derived_field_collapse    29 153.352       1.00               0                   0
+    D0                 normal     7  90.098       0.96               0                   0
+    D0                 normal    29 115.492       1.00               0                   0
+    D0               feed_gap     7 182.695       0.88               0                   1
+    D0               feed_gap    29 132.090       1.00               0                   1
+    D0 derived_field_collapse     7  79.566       1.00               0                   0
+    D0 derived_field_collapse    29 151.621       1.00               0                   0
+    D1                 normal     7  90.098       0.96               0                   0
+    D1                 normal    29  96.698       1.00               3                   0
+    D1               feed_gap     7  78.231       1.00               3                   0
+    D1               feed_gap    29  82.566       1.00               3                   0
+    D1 derived_field_collapse     7  78.231       1.00               3                   0
+    D1 derived_field_collapse    29  81.498       1.00               4                   0
+Report: examples/validated_demo/dashboard.html

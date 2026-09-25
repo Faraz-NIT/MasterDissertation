@@ -1,0 +1,16 @@
+# Non-LLM plumbing test. D1 is deliberately NOT called B10.
+dataset: data/processed/m5
+output: results/m5_smoke
+policies: [B1, D0, D1]
+scenarios: [normal, feed_gap, derived_field_collapse, foreign_unit_moq]
+seeds: [7]
+start_day: 1800  # zero-based; this decision uses history up to M5 d_1800
+warmup_days: 4
+days: 4
+solver:
+  horizon: 6
+  scenarios: 4
+  time_limit: 10
+quality:
+  version: synthetic-v1-NOT-telemetry-calibrated
+  calibrated: false

@@ -1,0 +1,7 @@
+day,policy,effective_policy,scenario,seed,origin,quality,autonomy,held,urgent,executed_action,harmful,hard_violations,reference_available,reference_distance,orders,transfer_units,cost,purchase,fixed_order,transfer,holding,shortage,spoilage,demand,sales,lost_sales,on_hand,stockout_pairs,pairs,spoilage_units,tokens,llm_calls,llm_errors,fallback,latency_seconds,step_including_reference_seconds
+140,D1,D1,feed_gap,29,0,1.0,full,False,False,True,False,0,True,0.0,20,10,44.93,39.6,2.0,3.0,0.33,0.0,0.0,5.0,5.0,0.0,10.0,0,2,0.0,0,0,0,False,0.07795738999993773,0.15403194100008477
+141,D1,D1,feed_gap,29,0,0.84,bounded,False,False,True,False,0,True,1.0,0,2,1.062,0.0,0.0,0.6,0.4620000000000001,0.0,0.0,4.0,4.0,0.0,14.0,0,2,0.0,0,0,0,False,0.043976650000331574,0.08006617799992455
+142,D1,D1,feed_gap,29,0,0.0,advisory,True,False,False,False,0,True,,0,0,0.693,0.0,0.0,0.0,0.693,0.0,0.0,3.0,3.0,0.0,21.0,0,2,0.0,0,0,0,False,0.004262627000116481,0.032732032999774674
+143,D1,D1,feed_gap,29,0,0.0,advisory,True,False,False,False,0,True,,0,0,0.792,0.0,0.0,0.0,0.792,0.0,0.0,7.0,7.0,0.0,24.0,0,2,0.0,0,0,0,False,0.004500066000218794,0.04884492500013948
+144,D1,D1,feed_gap,29,0,0.0,advisory,True,True,False,False,0,True,,0,0,0.627,0.0,0.0,0.0,0.627,0.0,0.0,5.0,5.0,0.0,19.0,0,2,0.0,0,0,0,False,0.004265384000063932,0.08541585500006477
+145,D1,D1,feed_gap,29,0,1.0,full,False,False,True,False,0,True,0.0,14,4,34.462,30.800000000000004,2.0,1.2,0.46199999999999997,0.0,0.0,1.0,1.0,0.0,14.0,0,2,0.0,0,0,0,False,0.05607383500000651,0.09869245799973214

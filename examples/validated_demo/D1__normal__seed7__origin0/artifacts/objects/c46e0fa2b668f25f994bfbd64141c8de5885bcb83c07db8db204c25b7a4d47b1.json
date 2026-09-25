@@ -1,0 +1,1 @@
+{"action_hash":"8448ca1b07db7cd6ab9b2de2612e5b24c1c6871b8cee02910691b98725edac48","decision_id":"D1-normal-seed7-origin0:day141","environment":"simulator","idempotency_key":"D1-normal-seed7-origin0:day141","order_ids":["D1-normal-seed7-origin0:day141:transfer:0","D1-normal-seed7-origin0:day141:po:ITEM_0@CA_1","D1-normal-seed7-origin0:day141:po:ITEM_0@CA_2"],"status":"executed"}

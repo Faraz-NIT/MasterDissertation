@@ -1,0 +1,9 @@
+services:
+  experiments:
+    build: .
+    volumes:
+      - ./data:/app/data
+      - ./results:/app/results
+      - ./configs:/app/configs:ro
+    command: ["run", "--config", "configs/smoke.yaml"]
+    # Core container is CPU-only and intentionally excludes optional neural/LLM servers.

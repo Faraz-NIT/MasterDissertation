@@ -1,0 +1,1 @@
+{"inputs":{"policy_version":"gate-v1-synthetic","quality":0.0},"level":"advisory","permitted":false,"reasons":["State hard failure; hold is not a zero-order recommendation"],"required_approvals":0,"urgent":true}

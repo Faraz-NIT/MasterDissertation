@@ -1,0 +1,15 @@
+# Optional original Chronos-T5 baseline, not the latest Chronos-2 architecture.
+dataset: data/processed/m5
+output: results/foundation
+policies: [B1, B5]
+scenarios: [normal]
+seeds: [42]
+start_day: 1800
+warmup_days: 14
+days: 14
+forecast:
+  chronos_model: amazon/chronos-t5-tiny
+  chronos_revision: null  # Set an immutable Hugging Face commit for final research.
+solver:
+  horizon: 14
+  scenarios: 32

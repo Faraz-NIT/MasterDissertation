@@ -1,0 +1,1 @@
+{"inputs":{"baseline_deviation":0.0,"constraint_confidence":1.0,"forecast_dispersion":0.20771776629089536,"hold_count":3,"max_days_supply":7.255813953488372,"policy_version":"gate-v1-synthetic","quality":1.0,"spend":15.200000000000001},"level":"full","permitted":true,"reasons":["Verified evidence and risk inside simulator policy limits"],"required_approvals":0,"urgent":false}
