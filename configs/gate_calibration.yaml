@@ -1,0 +1,38 @@
+# Gate calibration: B4 on clean evidence, days 1730-1757 (M5 prices complete; 1700-1727 has real price gaps) (disjoint from every test window),
+# deviation cap disabled so every clean-day deviation is logged. See docs/GATE_CALIBRATION.md.
+dataset: data/processed/m5
+output: results/gate_calibration
+policies:
+- B4
+scenarios:
+- normal
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+start_day: 1730
+warmup_days: 14
+days: 28
+origins: 1
+origin_stride: 28
+solver:
+  horizon: 14
+  scenarios: 16
+  time_limit: 60
+  cvar_alpha: 0.95
+  risk_weight: 0.1
+forecast:
+  deep_epochs: 10
+  max_training_windows: 12000
+  lgbm_estimators: 150
+quality:
+  version: synthetic-control-v1-NOT-calibrated
+  calibrated: false
+  onset_rate: 0.025
+  min_duration: 1
+  max_duration: 5
+gate:
+  max_deviation: 1000000000.0
+  version: calibration-probe-deviation-uncapped

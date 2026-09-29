@@ -184,7 +184,8 @@ def run_experiment(config:ExperimentConfig,progress=print,resume=False):
                     root=output/f'{policy}__{scenario}__seed{seed}__origin{origin}'
                     if resume and (root/'summary.json').exists():
                         progress(f'Resuming: keeping completed {root.name}')
-                        summaries.append(json.loads((root/'summary.json').read_text()));continue
+                        summaries.append(json.loads((root/'summary.json').read_text()))
+                        pd.DataFrame(summaries).to_csv(output/'summary.csv',index=False);continue
                     if resume and root.exists():shutil.rmtree(root)  # partial run from an interrupted study
                     progress(f'Running {policy} / {scenario} / seed {seed} / origin {origin}')
                     summaries.append(run_one(panel,config,policy,scenario,seed,origin,models[key],root))
