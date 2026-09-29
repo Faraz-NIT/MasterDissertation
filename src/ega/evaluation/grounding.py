@@ -1,5 +1,6 @@
 """Field-level grounding benchmark with labels kept out of extraction requests."""
 from __future__ import annotations
+from ..agents.roles import FORMAT_CONVENTIONS
 import json
 from pathlib import Path
 from ..constraints import SourceDocument,extract_templates,verify_constraints,render_templates,synthetic_contracts
@@ -48,7 +49,7 @@ def evaluate_corpus(corpus,output,llm_config=None):
                 for start in range(0,len(docs),6):
                     try:
                         response=client.ask('constraint extraction benchmark',{'documents':[d.payload() for d in docs[start:start+6]],
-                            'day':case['day'],'known_entities':[s.model_dump() for s in series]},Extraction)
+                            'day':case['day'],'known_entities':[s.model_dump() for s in series],'format_conventions':FORMAT_CONVENTIONS},Extraction)
                         values.extend(response.constraints);issues.extend(response.issues)
                     except ModelUnavailable as exc:issues.append(str(exc))
                 raw=ConstraintSet(lineage=lineage,constraints=values,issues=issues)

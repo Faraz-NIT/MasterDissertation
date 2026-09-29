@@ -1,0 +1,33 @@
+# Real LLM study on M5 via Cerebras (OpenAI-compatible). Key is read from EGA_LLM_API_KEY only.
+dataset: data/processed/m5_smoke  # 2 series first: fits ~1 day of free-tier quota
+output: results/llm_pilot_cerebras
+policies: [B4, B6, B7, B8, B9, B10]
+scenarios: [normal, derived_field_collapse, injection]
+seeds: [42]
+start_day: 1800
+warmup_days: 7
+days: 4
+solver:
+  horizon: 10
+  scenarios: 8
+  time_limit: 30
+forecast:
+  deep_epochs: 3
+llm:
+  enabled: true
+  base_url: https://api.cerebras.ai/v1
+  model: gpt-oss-120b
+  model_revision: cerebras-gpt-oss-120b-2026-09-29
+  api_key_env: EGA_LLM_API_KEY
+  json_mode: schema
+  temperature: 0
+  retries: 1
+  max_calls: 500
+  max_tokens: 6000
+  timeout: 120
+  rate_limit_retries: 300
+  rate_limit_max_wait: 3600  # rides out per-minute/hourly limits; stops if the daily quota is gone
+  on_failure: hold
+  use_memory: true
+quality:
+  calibrated: false

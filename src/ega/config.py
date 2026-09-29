@@ -50,6 +50,9 @@ class ForecastConfig(StrictConfig):
 
 class LLMConfig(StrictConfig):
     enabled: bool = False
+    provider: Literal["openai_compatible", "anthropic"] = "openai_compatible"
+    effort: Literal["low", "medium", "high", "xhigh", "max"] | None = "medium"  # anthropic only; null for Haiku 4.5
+    fallbacks: bool = True  # anthropic only: server-side refusal fallback; served model is recorded
     base_url: str = "http://localhost:11434/v1"
     model: str = ""
     model_revision: str = "unrecorded"
@@ -58,7 +61,14 @@ class LLMConfig(StrictConfig):
     temperature: float = Field(0, ge=0, le=2)
     timeout: float = Field(60, gt=0)
     retries: int = Field(1, ge=0, le=5)
+    rate_limit_retries: int = Field(30, ge=0)
+    rate_limit_max_wait: float = Field(120, gt=0)
     max_calls: int = Field(500, ge=1)
+    # Hard spend cap across every run that shares the ledger file (anthropic only). Prices are USD per 1M tokens.
+    max_cost_usd: float | None = Field(None, gt=0)
+    input_usd_per_mtok: float = Field(0, ge=0)
+    output_usd_per_mtok: float = Field(0, ge=0)
+    spend_ledger: str = "results/llm_spend.json"
     max_tokens: int = Field(2500, ge=128)
     seed: int = 42
     on_failure: Literal["hold", "deterministic"] = "hold"

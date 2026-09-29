@@ -1,6 +1,7 @@
 """Rolling-origin closed-loop experiments; truth stays on the evaluator side."""
 from __future__ import annotations
 import json
+import shutil
 import time
 from pathlib import Path
 import numpy as np
@@ -16,7 +17,7 @@ from .agents.orchestrator import OrchestratorAutonomyAgent,POLICIES
 from .agents.roles import ExecutionMonitoringAgent
 from .optimization import build_problem,solve,policy_plan,check_plan
 from .store import ArtifactStore
-from .util import atomic_json,digest,environment
+from .util import atomic_json,canonical,digest,environment
 from .evaluation.metrics import bullwhip,cvar,paired_bootstrap,holm
 
 def sources_for(env,config,scenario,shock):
@@ -148,9 +149,19 @@ def run_one(panel,config,policy,scenario,seed,origin,model,output):
         'path':str(root),'forecast_override':config.forecast_override}
     atomic_json(root/'summary.json',summary);store.close();return summary
 
-def run_experiment(config:ExperimentConfig,progress=print):
+def changed_settings(old,new,prefix=''):
+    """Settings that differ; keys only one side has (fields added since the run started) are ignored."""
+    if isinstance(old,dict) and isinstance(new,dict):
+        return [k for key in old.keys()&new.keys() for k in changed_settings(old[key],new[key],prefix+key+'.')]
+    return [] if old==new else [prefix.rstrip('.')]
+
+def run_experiment(config:ExperimentConfig,progress=print,resume=False):
     panel=Panel.load(config.dataset);output=Path(config.output)
-    if (output/'summary.csv').exists():raise FileExistsError(f'{output} already contains a run; choose a new output to avoid accidental overwrite')
+    if resume and (output/'resolved_config.json').exists():
+        previous=json.loads((output/'resolved_config.json').read_text())
+        if changed_settings(previous,json.loads(canonical(config))):
+            raise ValueError(f'{output} was run with different settings {changed_settings(previous,json.loads(canonical(config)))}; cannot resume')
+    elif (output/'summary.csv').exists():raise FileExistsError(f'{output} already contains a run; choose a new output to avoid accidental overwrite')
     output.mkdir(parents=True,exist_ok=True)
     end=config.start_day+(config.origins-1)*config.origin_stride+config.days
     if end>panel.days:raise ValueError(f'Run needs {end} days but dataset contains {panel.days}')
@@ -171,6 +182,10 @@ def run_experiment(config:ExperimentConfig,progress=print):
             for scenario in config.scenarios:
                 for seed in config.seeds:
                     root=output/f'{policy}__{scenario}__seed{seed}__origin{origin}'
+                    if resume and (root/'summary.json').exists():
+                        progress(f'Resuming: keeping completed {root.name}')
+                        summaries.append(json.loads((root/'summary.json').read_text()));continue
+                    if resume and root.exists():shutil.rmtree(root)  # partial run from an interrupted study
                     progress(f'Running {policy} / {scenario} / seed {seed} / origin {origin}')
                     summaries.append(run_one(panel,config,policy,scenario,seed,origin,models[key],root))
                     pd.DataFrame(summaries).to_csv(output/'summary.csv',index=False)

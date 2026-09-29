@@ -38,9 +38,13 @@ class SupplierConstraintAgent:
                 if not docs:continue
                 payload={'documents':[d.payload() for d in docs],'day':snapshot.lineage.day,
                          'known_entities':[s.model_dump() for s in snapshot.series],
-                         'task':'Extract all active source rules. Preserve values and units exactly. Do not silently resolve conflicts.'}
+                         'task':'Extract all active source rules. Preserve values and units exactly. Do not silently resolve conflicts.',
+                         'format_conventions':FORMAT_CONVENTIONS}
                 if single:
                     payload['state_certificate']=certificate.model_dump() if certificate else None
+                    # Same routing instruction the multi-agent optimizer receives, so B6 differs only in structure.
+                    payload['allowed_tools']=['stochastic_milp']
+                    payload['task']+=' Also route the numeric decision: set requested_tool to stochastic_milp.'
                     response=client.ask('single generalist agent (all roles)',payload,SingleOutput)
                     if response.requested_tool not in {'stochastic_milp','milp'}:
                         issues.append('Single agent requested a tool outside its allowlist')
@@ -50,13 +54,17 @@ class SupplierConstraintAgent:
             raw=ConstraintSet(lineage=snapshot.lineage,constraints=values,issues=issues)
         return verify_constraints(raw,snapshot.series,documents,snapshot.lineage.day,gate.min_confidence)
 
+FORMAT_CONVENTIONS=('In source rules, conversion=none means no unit conversion applies: return conversion as null. '
+                    'This is the documented encoding, not an ambiguity or an issue.')
+
 class OptimizationAgent:
     def run(self,problem,service_quantile=0.95,mode='milp',client=None,free_form=False):
         # A model may request a simpler tool, but may not turn a coupled formulation into an uncoupled policy.
         if client:
             route=client.ask('replenishment optimization agent',{'budget':problem['budget'],
                  'suppliers':problem['supplier_parameters'],'edges':len(problem['edges']),
-                 'allowed_tools':['stochastic_milp'],'task':'Route this verified coupled specification; request stochastic_milp.'},Route,free_form)
+                 'allowed_tools':['stochastic_milp'],'task':('Route this verified coupled specification; request stochastic_milp. Set escalation_reason to an '
+                         'empty string unless the specification needs human review; any non-empty value escalates.')},Route,free_form)
             if route.requested_tool not in {'stochastic_milp','milp'}:
                 raise ValueError('Model requested a tool outside the optimizer allowlist')
             if route.escalation_reason:raise ValueError('Optimizer requested escalation: '+route.escalation_reason)

@@ -1,0 +1,31 @@
+# Real LLM study on M5 via Groq (OpenAI-compatible). Key is read from EGA_LLM_API_KEY only.
+dataset: data/processed/m5
+output: results/llm_pilot
+policies: [B4, B6, B7, B8, B9, B10]
+scenarios: [normal, derived_field_collapse, injection]
+seeds: [42]
+start_day: 1800
+warmup_days: 7
+days: 4
+solver:
+  horizon: 10
+  scenarios: 8
+  time_limit: 30
+forecast:
+  deep_epochs: 3
+llm:
+  enabled: true
+  base_url: https://api.groq.com/openai/v1
+  model: openai/gpt-oss-120b
+  model_revision: groq-openai/gpt-oss-120b-2026-09-29
+  api_key_env: EGA_LLM_API_KEY
+  json_mode: schema
+  temperature: 0
+  retries: 1
+  max_calls: 500
+  max_tokens: 6000
+  timeout: 120
+  on_failure: hold
+  use_memory: true
+quality:
+  calibrated: false

@@ -68,3 +68,26 @@ def test_bundled_demo_reconstructs_byte_equivalent_problem():
     root=Path(__file__).resolve().parents[1]
     result=replay(root/'examples/validated_demo/D1__normal__seed7__origin0',140)
     assert result['problem_reconstruction_matches'] and result['action_matches']
+
+def test_anthropic_adapter_mocked_not_real_call(monkeypatch,tmp_path):
+    pytest.importorskip('anthropic')
+    from types import SimpleNamespace
+    from ega.agents.llm import Route
+    sent={}
+    class Messages:
+        def create(self,**request):
+            sent.update(request)
+            block=SimpleNamespace(type='text',text='{"requested_tool":"stochastic_milp","evidence_refs":[],"escalation_reason":""}')
+            usage={'input_tokens':10,'output_tokens':5,'cache_read_input_tokens':0,'cache_creation_input_tokens':0}
+            return SimpleNamespace(content=[block],stop_reason='end_turn',model=request['model'],
+                                   to_dict=lambda:{'usage':usage,'model':request['model']})
+    monkeypatch.setenv('EGA_LLM_API_KEY','test-key')
+    s=ArtifactStore(tmp_path)
+    client=LLMClient(LLMConfig(enabled=True,provider='anthropic',model='claude-test',fallbacks=False,spend_ledger=str(tmp_path/'spend.json'),max_cost_usd=1,input_usd_per_mtok=1e6,output_usd_per_mtok=0),s)
+    client.anthropic=SimpleNamespace(messages=Messages())
+    route=client.ask('optimizer',{'x':1},Route)
+    assert route.requested_tool=='stochastic_milp' and client.tokens==15 and client.calls==1
+    assert sent['output_config']['format']['type']=='json_schema' and 'temperature' not in sent
+    from ega.agents.llm import SpendCapReached
+    with pytest.raises(SpendCapReached):client.ask('optimizer',{'x':1},Route)  # $10 spent > $1 cap
+    s.close()

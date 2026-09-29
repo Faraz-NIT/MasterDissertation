@@ -17,7 +17,7 @@ def main(argv=None):
     p=sub.add_parser('demo-data');p.add_argument('--out',default='data/processed/demo');p.add_argument('--items',type=int,default=2);p.add_argument('--stores',type=int,default=2)
     p=sub.add_parser('demo',help='Run synthetic, non-LLM software demonstration')
     p.add_argument('--output',default='results/demo');p.add_argument('--days',type=int,default=6)
-    p=sub.add_parser('run');p.add_argument('--config',required=True);p.add_argument('--output');p.add_argument('--policies',nargs='+');p.add_argument('--seeds',nargs='+',type=int);p.add_argument('--days',type=int)
+    p=sub.add_parser('run');p.add_argument('--config',required=True);p.add_argument('--output');p.add_argument('--policies',nargs='+');p.add_argument('--seeds',nargs='+',type=int);p.add_argument('--days',type=int);p.add_argument('--resume',action='store_true',help='Keep completed runs in --output and re-run the rest')
     p=sub.add_parser('forecast-backtest');p.add_argument('--config',required=True);p.add_argument('--model',choices=['seasonal_naive','croston_sba','lightgbm','deep','chronos'],required=True);p.add_argument('--origins',nargs='+',type=int,required=True);p.add_argument('--horizon',type=int,default=28);p.add_argument('--out',default='results/forecast_scores.json')
     p=sub.add_parser('report');p.add_argument('--results',required=True);p.add_argument('--out')
     for name in ['replay','trace-audit','counterfactual','delete-evidence']:
@@ -53,7 +53,7 @@ def main(argv=None):
                     value=getattr(args,key,None)
                     if value is not None:raw[key]=value
                 config=ExperimentConfig.model_validate(raw)
-            results=run_experiment(config)
+            results=run_experiment(config,resume=getattr(args,'resume',False))
             from .evaluation.report import render_report
             report=render_report(config.output)
             print(results[['policy','scenario','seed','cost','fill_rate','held_decisions','harmful_executions']].to_string(index=False))

@@ -1,0 +1,36 @@
+# Real LLM study on M5 via the Anthropic Messages API. Key is read from EGA_LLM_API_KEY only.
+dataset: data/processed/m5_smoke  # 2 series: sized for a $5 budget
+output: results/llm_pilot_claude
+policies: [B4, B6, B7, B8, B9, B10]
+scenarios: [normal, derived_field_collapse, injection]
+seeds: [42]
+start_day: 1800
+warmup_days: 7
+days: 4
+solver:
+  horizon: 10
+  scenarios: 8
+  time_limit: 30
+forecast:
+  deep_epochs: 3
+llm:
+  enabled: true
+  base_url: https://api.anthropic.com
+  model: claude-sonnet-5-5
+  model_revision: claude-sonnet-5-5
+  api_key_env: EGA_LLM_API_KEY
+  json_mode: schema
+  provider: anthropic
+  effort: medium
+  fallbacks: true
+  max_cost_usd: 4.50  # hard stop across all Claude runs (results/llm_spend.json)
+  input_usd_per_mtok: 2.00   # Sonnet 5.5 list price
+  output_usd_per_mtok: 10.00
+  retries: 1
+  max_calls: 500
+  max_tokens: 16000  # includes adaptive thinking
+  timeout: 120
+  on_failure: hold
+  use_memory: true
+quality:
+  calibrated: false
