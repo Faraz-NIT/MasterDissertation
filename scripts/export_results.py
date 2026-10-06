@@ -32,6 +32,7 @@ WHAT = {  # one line per known folder; unknown folders are still indexed from th
     'baseline_pilot_gate_v2': 'B4 of the B1-B4 pilot repeated with the frozen gate v2 (6 Oct 2026); compare with baseline_pilot',
     'llm_pilot_cerebras_gate_v2': 'B4, B8, B10 of the LLM pilot repeated with the frozen gate v2; compare with llm_pilot_cerebras',
     'baseline_pilot_gate_v2_oracle_approval': 'As baseline_pilot_gate_v2 but held plans are released by simulated delayed reviewers (approval_mode oracle)',
+    'main_study_stage1': 'MAIN STUDY stage 1 (frozen 6 Oct 2026): B1-B4, 30 seeds, 28 days, 4 scenarios, gate v2, simulated approval; merged from the seed workers',
 }
 
 def load(path):
