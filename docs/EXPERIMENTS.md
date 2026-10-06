@@ -88,7 +88,8 @@ WORKERS=3 PY=.venv/bin/python scripts/run_main_study.sh configs/llm_prose_study.
 PY=.venv/bin/python scripts/run_main_study.sh configs/llm_prose_study_reference.yaml
 ```
 
-Both resume after a quota stop or a cap stop with the same command.
+Both resume after a quota stop or a cap stop with the same command. Run on 6 Oct 2026: 180 LLM-study runs and 120
+reference runs, USD 13.14 metered, 4,750 calls, no LLM errors; results in section 9 of the report.
 
 ## Stage 2 on the Cerebras free tier
 

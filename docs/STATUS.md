@@ -1,6 +1,6 @@
 # Project status and resume sheet
 
-Updated 6 Oct 2026, 11:20. Everything below is on disk; nothing lives only in a chat session. If a session, a credit
+Updated 6 Oct 2026, 14:10. Everything below is on disk; nothing lives only in a chat session. If a session, a credit
 balance or the machine goes away, start from here.
 
 ## Where things are
@@ -45,10 +45,13 @@ packets; gate v2 validation repeats (30-series B4 with dropped holds and with si
 ## Still open
 
 1. Stage 2 of the deterministic study: the other 13 scenarios of `configs/deterministic_study.yaml`, same runner.
-2. LLM arms on the USD 20 design (`configs/llm_prose_study.cerebras.yaml`: 10 series, prose documents, B4/B9/B10,
-   30 seeds, 4 days, 2 scenarios, about USD 17, cap USD 19) plus its free deterministic reference
-   (`configs/llm_prose_study_reference.yaml`). Needs paid Cerebras credit for a reasonable wall-clock; see
-   `docs/EXPERIMENTS.md` for the two commands. Spend ledger: `results/llm_spend_prose.json`.
+2. ~~LLM arms on the USD 20 design~~ **Done 6 Oct 2026, 13:22** (`results/llm_prose_study`, 180 runs, USD 13.14,
+   4,750 calls, 0 LLM errors; reference `results/llm_prose_study_reference`, 120 runs). Paired over 30 seeds:
+   B10 on prose vs B4 on templates, cost −1.0 (normal) and −0.2 (fault), fill 100% both, 0 harmful, 0 violations,
+   so the gated LLM system reproduced the deterministic decisions from documents the parser cannot read; it escalated
+   about 7.5% of decisions (omitted one store's rules or a confidence field), never invented a rule. B10 vs B9 under
+   the stock-data fault: cost 25.5 vs 112.9 (Wilcoxon p<0.001), harmful 0 vs 0.6 per run (all distance flags, no true
+   violation). Section 9 of the PDF and `results/RESULTS.md` carry the tables.
 3. Dissertation text: gate redesign and calibration, hostile-note result, fixed-evidence determinism, prose grounding.
 4. B5 needs Chronos weights; the human audit needs institutional approval first.
 
