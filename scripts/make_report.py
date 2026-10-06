@@ -223,6 +223,57 @@ def section_gate_validation(P, h2, table, W):
               'calibrated for steady state and the hold-release rule decides whether steady state is ever reached; the '
               'simulated-approval arm tests that directly. The numbers are in docs/GATE_CALIBRATION.md.')] + s
 
+def section_prose_study(P, h2, table, W):
+    """Section 9: the USD 20 LLM design on prose documents, with its free template-carrier reference."""
+    prose, ref = study('llm_prose_study'), study('llm_prose_study_reference')
+    if prose is None: return [P('9 · LLM study on prose documents', h2),
+                              P('Not yet run: configs/llm_prose_study.cerebras.yaml (see docs/EXPERIMENTS.md).')]
+    cfg = json.loads((ROOT/'results/llm_prose_study/resolved_config.json').read_text())
+    ledger = ROOT/'results/llm_spend_prose.json'; spent = json.loads(ledger.read_text())['usd'] if ledger.exists() else None
+    llm = prose[prose.llm_calls > 0]
+    tok = int(llm.tokens.sum()/max(llm.trace_count.sum(), 1)) if len(llm) else 0
+    frames = [(prose, 'prose')] + ([(ref, 'template')] if ref is not None else [])
+    rows = [['Policy', 'Documents', 'Scenario', 'Seeds', 'Cost ($)', 'Fill rate', 'Days held', 'Executed', 'Harmful (viol. / dist.)', 'LLM errors']]
+    for frame, carrier in frames:
+        for pol in [p for p in ['B3', 'B4', 'B9', 'B10'] if p in set(frame.policy)]:
+            for sc in cfg['scenarios']:
+                sub = frame[(frame.policy == pol) & (frame.scenario == sc)]
+                if sub.empty: continue
+                m = sub.mean(numeric_only=True)
+                viol = m.get('violation_executions', float('nan')); dist = m.get('reference_deviations', float('nan'))
+                rows.append([pol, carrier, SCEN_FLAT.get(sc, sc), len(sub), f'{m.cost:,.1f}', f'{100*m.fill_rate:.0f}%', f'{m.held_decisions:.1f}',
+                             f'{m.executed_actions:.1f}', f'{m.harmful_executions:.1f} ({viol:.1f} / {dist:.1f})', f'{m.llm_errors:.0f}'])
+    text = (f"Ten series (one product at all ten stores), {len(cfg['seeds'])} seeds, {cfg['days']} decision days from day "
+            f"{cfg['start_day']}, gate v2 with simulated approval. The agents receive every supplier contract as field-complete "
+            "prose with no machine-readable rule line; ground truth, the oracle and the harm checks still use the exact rules. "
+            "B4 on prose is the control: its parser cannot read the documents, so it escalates and holds every day. B9 and B10 "
+            "are the LLM systems without and with the per-decision gate. B3 and B4 on the template documents, same seeds and "
+            f"days, are the no-cost reference. An LLM decision on this panel costs about {tok:,} tokens"
+            + (f"; the whole study cost ${spent:.2f} at list price." if spent is not None else '.'))
+    s = [PageBreak(), P('9 · LLM study on prose documents (the USD 20 design)', h2), P(text),
+         table(rows, [14*mm, 20*mm, 26*mm, 12*mm, 16*mm, 16*mm, 16*mm, 16*mm, 24*mm, W-160*mm])]
+    if ref is not None:
+        parts = []
+        for sc in cfg['scenarios']:
+            a = prose[(prose.policy == 'B10') & (prose.scenario == sc)].groupby('seed').mean(numeric_only=True)
+            b = ref[(ref.policy == 'B4') & (ref.scenario == sc)].groupby('seed').mean(numeric_only=True)
+            shared = a.index.intersection(b.index)
+            if len(shared) >= 2:
+                d = (a.loc[shared].cost - b.loc[shared].cost)
+                parts.append(f'{SCEN_FLAT.get(sc, sc)}: B10 on prose minus B4 on templates = {d.mean():+.1f} $ per run '
+                             f'(paired over {len(shared)} seeds, fill rate {100*a.loc[shared].fill_rate.mean():.0f}% vs {100*b.loc[shared].fill_rate.mean():.0f}%)')
+        if parts:
+            s.append(P('<b>Does reading prose cost anything?</b> ' + '; '.join(parts) + '. A difference near zero means the gated '
+                       'LLM system reproduced, from prose, the decisions the deterministic system makes from machine-readable rules.'))
+    fault = cfg['scenarios'][-1]
+    a9 = prose[(prose.policy == 'B9') & (prose.scenario == fault)]; a10 = prose[(prose.policy == 'B10') & (prose.scenario == fault)]
+    if len(a9) and len(a10):
+        s.append(P(f'<b>Does the gate matter with LLM agents?</b> On {SCEN_FLAT.get(fault, fault).lower()}, B9 (no gate) executed '
+                   f'{a9.executed_actions.mean():.1f} of {cfg["days"]} days with {a9.harmful_executions.mean():.1f} harmful orders per run '
+                   f'({a9.violation_executions.mean():.1f} true violations); B10 held {a10.held_decisions.mean():.1f} days and executed '
+                   f'{a10.executed_actions.mean():.1f}, with {a10.harmful_executions.mean():.1f} harmful ({a10.violation_executions.mean():.1f} violations).'))
+    return s
+
 def section_grounding_sensitivity_audit(P, h2, table, W):
     """Section 7: controlled grounding corpora, the synthetic-rate/hold-budget sweep and the audit-packet export."""
     s = [PageBreak(), P('7 · Grounding benchmark, sensitivity sweep and audit packets', h2)]
@@ -559,12 +610,13 @@ def build(out: Path):
             'when a daily quota is gone, and continue with <i>ega run --resume</i>.')]
     s += section_grounding_sensitivity_audit(P, h2, table, W)
     s += section_stage2(P, h2, table, W, llm)
-    s += [P('9 · Limitations and next steps', h2),
+    s += section_prose_study(P, h2, table, W)
+    s += [P('10 · Limitations and next steps', h2),
           P('• 1–2 seeds per pilot; the protocol requires 30. No result here is statistically meaningful.'),
           P('• The gate\'s deviation measure was redesigned and frozen (section 5); pilots run before 6 October 2026 '
             'used the old measure, so their hold counts overstate what the frozen gate does.'),
-          P('• The LLM pilot uses only 2 series; the LLM did not change any decision relative to B4. A richer slice needs '
-            'paid LLM credit (estimated about $285 for a reduced 30-seed design on 30 series).'),
+          P('• The LLM pilots use only 2 series, where the LLM changed no decision relative to B4; section 9 is the 30-seed '
+            'LLM study on a 10-series panel with prose documents, sized to a USD 20 budget (a 30-series design costs about $500).'),
           P('• Hostile-note tests with the deterministic screen off (section 8) measure the LLM\'s own resistance; until '
             'that run exists the injection results only show that the screen works.'),
           P('• B5 (Chronos) needs model weights. The grounding corpora and the sensitivity sweep are small and synthetic; '

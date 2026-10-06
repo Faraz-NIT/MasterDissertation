@@ -33,6 +33,9 @@ WHAT = {  # one line per known folder; unknown folders are still indexed from th
     'llm_pilot_cerebras_gate_v2': 'B4, B8, B10 of the LLM pilot repeated with the frozen gate v2; compare with llm_pilot_cerebras',
     'baseline_pilot_gate_v2_oracle_approval': 'As baseline_pilot_gate_v2 but held plans are released by simulated delayed reviewers (approval_mode oracle)',
     'main_study_stage1': 'MAIN STUDY stage 1 (frozen 6 Oct 2026): B1-B4, 30 seeds, 28 days, 4 scenarios, gate v2, simulated approval; merged from the seed workers',
+    'llm_prose_study': 'LLM STUDY (USD 20 design, 6 Oct 2026): 10 series, PROSE documents, B4 control / B9 / B10, 30 seeds, 4 days, 2 scenarios; merged from workers',
+    'llm_prose_study_reference': 'Free reference for the LLM study: B3 and B4 on TEMPLATE documents, same panel, seeds, days and scenarios',
+    'llm_prose_probe': 'Two-decision cost probe for the prose study (B10, free tier); not a result',
 }
 
 def load(path):
