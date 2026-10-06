@@ -45,9 +45,10 @@ packets; gate v2 validation repeats (30-series B4 with dropped holds and with si
 ## Still open
 
 1. Stage 2 of the deterministic study: the other 13 scenarios of `configs/deterministic_study.yaml`, same runner.
-2. LLM arms (B9, B10, optionally B8) at the 30-seed design: needs paid Cerebras credit (about $285 estimated); the free
-   tier's 150 requests/hour makes it infeasible. Run with `ega run --config configs/llm_study.cerebras.yaml` adapted to
-   the stage-1 settings, with `--resume`; `results/llm_spend.json` and the 429 log lines show spend and waits.
+2. LLM arms on the USD 20 design (`configs/llm_prose_study.cerebras.yaml`: 10 series, prose documents, B4/B9/B10,
+   30 seeds, 4 days, 2 scenarios, about USD 17, cap USD 19) plus its free deterministic reference
+   (`configs/llm_prose_study_reference.yaml`). Needs paid Cerebras credit for a reasonable wall-clock; see
+   `docs/EXPERIMENTS.md` for the two commands. Spend ledger: `results/llm_spend_prose.json`.
 3. Dissertation text: gate redesign and calibration, hostile-note result, fixed-evidence determinism, prose grounding.
 4. B5 needs Chronos weights; the human audit needs institutional approval first.
 

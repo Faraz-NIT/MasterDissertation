@@ -185,3 +185,36 @@ def test_harmful_split_and_worker_merge(panel,config,tmp_path):
     study=json.loads((tmp_path/'merged'/'study_summary.json').read_text())
     assert all(r['replications']==2 for r in study['results']) and 'mean_reference_deviations' in study['results'][0]
     assert (tmp_path/'merged'/'D1__normal__seed8__origin0'/'summary.json').exists()
+
+
+def test_prose_carrier_hides_rules_from_agents_but_not_from_truth(panel,config,tmp_path,monkeypatch):
+    import pandas as pd
+    from ega.constraints import render_prose,extract_templates,synthetic_contracts,SourceDocument
+    from ega.schemas import Lineage
+    rules=synthetic_contracts(panel.series,panel.price_at(140).tolist(),panel.eligibility(140),140,7,'normal',False,3000)
+    prose=render_prose(rules,variant=1)
+    assert all('RULE ' not in d.text for d in prose) and len(prose)==len(rules)
+    for r,d in zip(rules,prose):  # field-complete: every schema field appears in the words
+        for v in [r.constraint_id,r.entity,r.scope,r.parameter,str(r.value),r.unit,r.aggregation,str(r.valid_from),str(r.valid_to),str(r.precedence)]:
+            assert v in d.text
+    assert all('no recognized deterministic rule' in i for i in extract_templates(prose,Lineage(snapshot_version='t',run_id='t',day=140)).issues)
+    # End to end: the deterministic D1 holds every day on prose, while ground truth and the oracle still exist.
+    dataset=tmp_path/'data';panel.save(dataset)
+    c=ExperimentConfig.model_validate({**config.model_dump(),'dataset':str(dataset),'output':str(tmp_path/'prose'),
+                                       'policies':['D1'],'scenarios':['normal'],'seeds':[7],'days':2,'document_carrier':'prose'})
+    rows=run_experiment(c);assert int(rows.held_decisions.sum())==2 and rows.chain_valid.all()
+    daily=pd.read_csv(tmp_path/'prose'/'D1__normal__seed7__origin0'/'daily.csv');assert daily.reference_available.all()
+
+
+def test_openai_compatible_spend_is_metered_and_capped(monkeypatch,tmp_path):
+    def post(url,**kwargs):
+        return httpx.Response(200,json={'choices':[{'message':{'content':'{"constraints": [], "issues": []}'},'finish_reason':'stop'}],
+                                        'usage':{'prompt_tokens':1_000_000,'completion_tokens':0,'total_tokens':1_000_000}},request=httpx.Request('POST',url))
+    monkeypatch.setattr(httpx,'post',post)
+    ledger=tmp_path/'spend.json';s=ArtifactStore(tmp_path/'store')
+    client=LLMClient(LLMConfig(enabled=True,model='test',max_calls=5,input_usd_per_mtok=0.35,output_usd_per_mtok=0.75,max_cost_usd=0.5,spend_ledger=str(ledger)),s)
+    client.ask('t',{},Extraction);assert abs(json.loads(ledger.read_text())['usd']-0.35)<1e-9
+    client.ask('t',{},Extraction);assert abs(json.loads(ledger.read_text())['usd']-0.70)<1e-9
+    from ega.agents.llm import SpendCapReached
+    with pytest.raises(SpendCapReached):client.ask('t',{},Extraction)  # cap checked before the request, nothing more is spent
+    assert abs(json.loads(ledger.read_text())['usd']-0.70)<1e-9;s.close()

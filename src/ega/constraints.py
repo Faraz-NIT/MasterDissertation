@@ -37,6 +37,24 @@ def render_templates(constraints: list[Constraint], variant: int=0) -> list[Sour
         docs.append(SourceDocument(c.source_ref,note+'\n'+body))
     return docs
 
+def render_prose(constraints: list[Constraint], variant: int=0) -> list[SourceDocument]:
+    """Field-complete prose WITHOUT the RULE carrier: every field the schema needs is stated once, in words. The
+    deterministic parser cannot read it and escalates, so a run on this carrier measures what a configured model adds.
+    Two phrasings alternate by day so that the model never sees one fixed template."""
+    docs=[]
+    for c in constraints:
+        conv='none' if c.conversion is None else str(c.conversion)
+        if variant%2:
+            text=(f"Rule {c.constraint_id}. For entity {c.entity}, scope {c.scope}, {c.parameter} is {c.value} {c.unit}. "
+                  f"Aggregation level: {c.aggregation}. Effective from day {c.valid_from} to day {c.valid_to}, both inclusive. "
+                  f"Precedence {c.precedence}. Conversion: {conv}.")
+        else:
+            text=(f"Contract clause {c.constraint_id} (precedence {c.precedence}, aggregation {c.aggregation}): {c.entity} "
+                  f"must comply with {c.parameter} = {c.value} {c.unit} at {c.scope} scope, valid from day {c.valid_from} "
+                  f"to day {c.valid_to} inclusive; conversion {conv}.")
+        docs.append(SourceDocument(c.source_ref,text))
+    return docs
+
 def extract_templates(documents: list[SourceDocument], lineage: Lineage) -> ConstraintSet:
     constraints=[];issues=[]
     for doc in documents:

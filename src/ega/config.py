@@ -72,7 +72,7 @@ class LLMConfig(StrictConfig):
     rate_limit_retries: int = Field(30, ge=0)
     rate_limit_max_wait: float = Field(120, gt=0)
     max_calls: int = Field(500, ge=1)
-    # Hard spend cap across every run that shares the ledger file (anthropic only). Prices are USD per 1M tokens.
+    # Hard spend cap across every run that shares the ledger file (all providers). Prices are USD per 1M tokens.
     max_cost_usd: float | None = Field(None, gt=0)
     input_usd_per_mtok: float = Field(0, ge=0)
     output_usd_per_mtok: float = Field(0, ge=0)
@@ -123,6 +123,10 @@ class ExperimentConfig(StrictConfig):
     trace_every: int = Field(1, ge=1)
     oracle: bool = True
     approval_mode: Literal["hold", "oracle"] = "hold"
+    # What the agents read: 'template' documents carry a machine-readable RULE line (the deterministic parser reads them);
+    # 'prose' documents state the same fields in words only, so only a configured model can ground them. Ground truth,
+    # the oracle and the deterministic checks always use the template rendering of the same contracts.
+    document_carrier: Literal["template", "prose"] = "template"
     approval_delay: int = Field(1, ge=0)
     @model_validator(mode="after")
     def check(self):

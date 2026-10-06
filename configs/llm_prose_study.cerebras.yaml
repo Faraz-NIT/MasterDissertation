@@ -1,0 +1,60 @@
+# Shortened LLM study on a USD 20 budget (6 Oct 2026). Ten series (FOODS_1_001 at all ten stores: one coupled supplier
+# portfolio with capacity and fixed costs) and supplier documents rendered as field-complete PROSE with no machine-
+# readable rule line, so the deterministic parser escalates every document and only a model can ground the
+# constraints. B4 on this carrier is the control (it holds every day); B9 and B10 are the LLM systems without and
+# with the per-decision gate. 30 seeds, 4 decision days from day 1830, normal plus the stock-corruption fault.
+# Sized by the probe of 6 Oct 2026 (results/llm_prose_probe): B10 costs 77k tokens, 11.5 calls and USD 0.032 per
+# decision on this panel; B9 about 20% more. 2 policies x 30 seeds x 2 scenarios x 4 days = 480 LLM decisions, about
+# USD 17, under the USD 19 cap below. Seven days would cost about USD 30.
+# Deterministic reference on the template carrier (B3, B4, free): configs/llm_prose_study_reference.yaml.
+# Spend is metered at Cerebras list prices (USD 0.35 / 0.75 per M tokens) and hard-capped; resume with --resume.
+# Run: EGA_LLM_API_KEY=... WORKERS=3 PY=.venv/bin/python scripts/run_main_study.sh configs/llm_prose_study.cerebras.yaml
+dataset: data/processed/m5_item1
+output: results/llm_prose_study
+policies: [B4, B9, B10]
+scenarios: [normal, derived_field_collapse]
+seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+start_day: 1830
+warmup_days: 14
+days: 4
+origins: 1
+origin_stride: 28
+document_carrier: prose
+approval_mode: oracle
+approval_delay: 1
+solver:
+  horizon: 14
+  scenarios: 16
+  time_limit: 60
+  cvar_alpha: 0.95
+  risk_weight: 0.1
+forecast:
+  deep_epochs: 10
+  max_training_windows: 12000
+  lgbm_estimators: 150
+llm:
+  enabled: true
+  base_url: https://api.cerebras.ai/v1
+  model: gpt-oss-120b
+  model_revision: cerebras-gpt-oss-120b-2026-09-29
+  api_key_env: EGA_LLM_API_KEY
+  json_mode: schema
+  temperature: 0
+  retries: 1
+  max_calls: 500
+  max_tokens: 6000
+  timeout: 120
+  rate_limit_retries: 300
+  rate_limit_max_wait: 3600
+  max_cost_usd: 19.0
+  input_usd_per_mtok: 0.35
+  output_usd_per_mtok: 0.75
+  spend_ledger: results/llm_spend_prose.json
+  on_failure: hold
+  use_memory: true
+quality:
+  version: synthetic-control-v1-NOT-calibrated
+  calibrated: false
+  onset_rate: 0.025
+  min_duration: 1
+  max_duration: 5

@@ -5,6 +5,7 @@ text is data, never an executable instruction. JSON schema does not prove semant
 """
 from __future__ import annotations
 import json
+import fcntl
 import os
 import sys
 import time
@@ -151,9 +152,11 @@ class LLMClient:
         c=self.config;pin=c.input_usd_per_mtok/1e6
         usd=(int(usage.get('input_tokens') or 0)*pin+int(usage.get('cache_creation_input_tokens') or 0)*pin*1.25
              +int(usage.get('cache_read_input_tokens') or 0)*pin*0.1+int(usage.get('output_tokens') or 0)*c.output_usd_per_mtok/1e6)
-        ledger=self._ledger();ledger['usd']+=usd;ledger['calls']+=1
         path=Path(c.spend_ledger);path.parent.mkdir(parents=True,exist_ok=True)
-        tmp=path.with_suffix('.tmp');tmp.write_text(json.dumps(ledger));tmp.replace(path)
+        with open(path.with_suffix('.lock'),'w') as lock:  # parallel seed workers share one ledger
+            fcntl.flock(lock,fcntl.LOCK_EX)
+            ledger=self._ledger();ledger['usd']+=usd;ledger['calls']+=1
+            tmp=path.with_suffix('.tmp');tmp.write_text(json.dumps(ledger));tmp.replace(path)
         return usd
     def _complete_anthropic(self,messages:list,schema_obj:dict,free_form:bool) -> tuple[str,dict,int,str|None]:
         """Native Messages API call. Returns (text, stored request/response, tokens, failure reason)."""
@@ -216,10 +219,13 @@ class LLMClient:
                 if config.provider=='anthropic':
                     content,record,tokens,failure=self._complete_anthropic(messages,schema_obj,free_form)
                 else:
+                    self._check_spend()
                     response=self._post(body,headers)
                     response.raise_for_status();data=response.json()
                     choice=data['choices'][0];message=choice['message'];content=message.get('content') or ''
-                    tokens=int(data.get('usage',{}).get('total_tokens',0));record={'request':body,'response':data}
+                    usage=data.get('usage') or {};tokens=int(usage.get('total_tokens',0))
+                    data['cost_usd']=self._record_spend({'input_tokens':usage.get('prompt_tokens',0),'output_tokens':usage.get('completion_tokens',0)})
+                    record={'request':body,'response':data}
                     failure=('Model refused the task' if message.get('refusal') else
                              'Truncated model output; increase max_tokens or reduce batch size' if choice.get('finish_reason')=='length' else None)
                 self.tokens+=tokens

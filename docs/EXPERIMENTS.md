@@ -64,6 +64,32 @@ report. The statistical unit is the seed; one origin means no within-seed origin
 13 scenarios of `configs/deterministic_study.yaml` with identical settings. "Harmful" executions are reported with
 their split into true-constraint violations and distance-to-reference flags.
 
+## Shortened LLM study on a USD 20 budget (frozen 6 Oct 2026)
+
+A 30-series, 30-seed LLM study costs about USD 500 at list price (146k tokens per B10 decision), so the LLM arms are
+run on a design that keeps 30 seeds and asks the one question only an LLM arm can answer: can the gated LLM system
+replenish safely from **prose** supplier documents that the deterministic parser cannot read?
+
+`configs/llm_prose_study.cerebras.yaml`: 10 series (FOODS_1_001 at all ten stores, one coupled supplier portfolio),
+`document_carrier: prose` (field-complete prose, no RULE line; ground truth and oracle still use the template
+rendering of the same contracts), B4 (control: holds every day on prose), B9 and B10 (LLM systems without and with
+the gate), 30 seeds, 4 decision days from day 1830, normal and derived_field_collapse, gate v2, simulated approval.
+`configs/llm_prose_study_reference.yaml` runs B3 and B4 on the template carrier for the same seeds and days at no
+cost: B4 there is the upper reference for B10-on-prose, B3 the no-gate reference for B9.
+
+Sized by the probe `results/llm_prose_probe` (6 Oct 2026): a B10 decision on this panel costs 77k tokens, 11.5 calls
+and USD 0.032 at list price; the 480 LLM decisions come to about USD 17, hard-capped at USD 19 by `llm.max_cost_usd`
+(the ledger `results/llm_spend_prose.json` is shared by parallel workers under a file lock). On the free tier the
+daily token quota allows about 13 decisions per day; with paid credit the study takes a few hours:
+
+```
+set -a; . ./.env; set +a
+WORKERS=3 PY=.venv/bin/python scripts/run_main_study.sh configs/llm_prose_study.cerebras.yaml
+PY=.venv/bin/python scripts/run_main_study.sh configs/llm_prose_study_reference.yaml
+```
+
+Both resume after a quota stop or a cap stop with the same command.
+
 ## Stage 2 on the Cerebras free tier
 
 The first LLM pilot (`configs/llm_study.cerebras.yaml`: 2 series, 1 seed, 4 days, B4 and B6–B10) used about 950k
