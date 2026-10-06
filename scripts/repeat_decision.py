@@ -1,5 +1,5 @@
 """Real-LLM fixed-evidence decision dispersion. No fake stochastic agent substitute."""
-import argparse,json,copy
+import argparse,json,copy,shutil
 from pathlib import Path
 import numpy as np
 from ega.config import load_config,ExperimentConfig
@@ -28,11 +28,15 @@ class FixedForecast:
         return obj
 rows=[]
 for i in range(a.replications):
+    root=Path(a.out)/f'repeat_{i:03}';done=root/'replication.json'
+    if done.exists():  # resumable: a provider quota stop leaves finished replications in place
+        rows.append(json.loads(done.read_text()));continue
+    if root.exists():shutil.rmtree(root)  # partial replication from an interrupted run
     config=cfg.model_copy(deep=True);config.llm.seed=cfg.llm.seed+i
-    s=ArtifactStore(Path(a.out)/f'repeat_{i:03}');agent=OrchestratorAutonomyAgent('B10',FixedForecast(),config,s)
+    s=ArtifactStore(root);agent=OrchestratorAutonomyAgent('B10',FixedForecast(),config,s)
     d=agent.run(snap.model_copy(deep=True),docs,f'fixed-evidence-{i}',manifest['seed'])
     rows.append({'replication':i,'proposed_units':sum(o.quantity for o in d.plan.orders),'permitted':d.autonomy.permitted,
                  'action_hash':d.plan.action_hash(),'trace_ref':s.put(d.trace),'tokens':d.trace['llm']['tokens']})
-    s.close()
+    s.close();atomic_json(done,rows[-1])
 atomic_json(Path(a.out)/'reliability.json',{'replications':rows,'proposed_units_variance':float(np.var([x['proposed_units'] for x in rows],ddof=1)),
     'distinct_action_hashes':len({x['action_hash'] for x in rows}),'warning':'Fixed evidence and demand forecast; no order is executed. Seeds may be ignored by providers. Constant-demand bullwhip ratio is undefined; report absolute action dispersion.'})

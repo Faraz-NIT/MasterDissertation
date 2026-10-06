@@ -72,7 +72,7 @@ class OrchestratorAutonomyAgent:
                 plan=OptimizationAgent().run(problem,cfg.forecast.service_quantile,spec['mode'],None if single else client,free)
                 plan_ref=record('propose',plan,[problem_ref])
                 if spec['critic']:
-                    verdict=RiskCriticAgent().run(plan,problem,documents,None if single else client,free)
+                    verdict=RiskCriticAgent().run(plan,problem,documents,None if single else client,free,screen=cfg.gate.injection_screen)
                     record('verify',verdict,[plan_ref,problem_ref,sources_ref])
             except ModelUnavailable as exc:
                 fallback_reasons.append(str(exc));used_fallback=True
@@ -85,7 +85,7 @@ class OrchestratorAutonomyAgent:
                         problem_ref=record('problem',problem,[snap_ref,refs['forecast'],cs_ref])
                         plan=OptimizationAgent().run(problem,cfg.forecast.service_quantile,spec['mode'])
                         record('propose',plan,[problem_ref])
-                        verdict=RiskCriticAgent().run(plan,problem,documents)
+                        verdict=RiskCriticAgent().run(plan,problem,documents,screen=cfg.gate.injection_screen)
                         record('verify',verdict,[refs['propose'],problem_ref])
                     else:plan=empty
                 else:plan=empty;problem=None

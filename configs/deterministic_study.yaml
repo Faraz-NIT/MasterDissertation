@@ -10,6 +10,10 @@ warmup_days: 14
 days: 28
 origins: 3
 origin_stride: 28
+# Primary configuration (6 Oct 2026): held plans are released by simulated delayed reviewers if they still pass the
+# current-state checks; approval_mode: hold (plans dropped) is the ablation. See docs/GATE_CALIBRATION.md.
+approval_mode: oracle
+approval_delay: 1
 solver:
   horizon: 14
   scenarios: 16

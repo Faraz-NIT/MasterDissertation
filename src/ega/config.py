@@ -24,18 +24,26 @@ class SolverConfig(StrictConfig):
     max_order_units: int = Field(1000, ge=1)
 
 class GateConfig(StrictConfig):
-    version: str = "gate-v1-synthetic"
+    version: str = "gate-v2-spend-deviation-2026-10-06"
     min_quality: float = Field(0.7, ge=0, le=1)
     full_quality: float = Field(0.95, ge=0, le=1)
     min_confidence: float = Field(0.9, ge=0, le=1)
     max_spend: float = Field(1500, gt=0)
     two_person_spend: float = Field(2500, gt=0)
-    max_deviation: float = Field(2.5, ge=0)
+    # Gate v2: extra spend beyond the order-up-to baseline as a share of the budget (see docs/GATE_CALIBRATION.md).
+    # Frozen 6 Oct 2026 at 0.03: between the 95th and 99th percentile of clean-day values in both calibration windows
+    # (trips on about 3.5% of clean days). Other caps never tripped on clean days and were left as they were.
+    max_spend_deviation: float = Field(0.03, ge=0)
+    # Gate v1 cap, retired 6 Oct 2026. Accepted (never evaluated) so run manifests written before then still replay.
+    max_deviation: float | None = None
     max_days_supply: float = Field(45, gt=0)
     max_dispersion: float = Field(4, gt=0)
     hold_budget: int = Field(2, ge=0)
     max_feed_age: int = Field(1, ge=0)
     fixed_level: Literal["advisory", "approval", "bounded", "full"] = "full"
+    # Deterministic pattern screen that drops a document before any model reads it and vetoes a plan whose
+    # sources failed it. Switch it off ONLY to measure the LLM's own resistance; label the run via `version`.
+    injection_screen: bool = True
 
 class ForecastConfig(StrictConfig):
     lookback: int = Field(56, ge=14)

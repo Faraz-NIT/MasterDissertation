@@ -4,6 +4,31 @@ import numpy as np
 from .schemas import Autonomy
 from .optimization import policy_plan
 
+def plan_spend(plan,problem) -> float:
+    """Purchase cost plus transfer cost plus the fixed cost of every supplier that receives an order."""
+    idx={s['series_id']:i for i,s in enumerate(problem['series'])}
+    spend=float(sum(o.quantity*problem['parameters']['unit_cost'][idx[o.series_id]] for o in plan.orders))
+    spend+=sum(t.quantity*problem['config']['transfer_cost'] for t in plan.transfers)
+    spend+=sum(problem['supplier_parameters'][s]['fixed_cost'] for s in {o.supplier for o in plan.orders if o.quantity>0})
+    return float(spend)
+
+def gate_measures(plan,problem) -> dict:
+    """How far the proposed action departs from the transparent order-up-to baseline built on the same problem.
+
+    spend_deviation (gate v2, the gated measure): extra spend beyond the baseline's spend as a share of the budget.
+    Bounded by construction, in money, and independent of how small the baseline order is.
+    baseline_deviation (gate v1, logged only): L1 distance in units divided by baseline units; a baseline of a few
+    units inflates it, which is why it was retired (docs/GATE_CALIBRATION.md)."""
+    idx={s['series_id']:i for i,s in enumerate(problem['series'])};orders=np.zeros(len(idx));base=np.zeros(len(idx))
+    for o in plan.orders:
+        if o.series_id in idx:orders[idx[o.series_id]]+=o.quantity
+    baseline=policy_plan(problem)
+    for o in baseline.orders:base[idx[o.series_id]]+=o.quantity
+    spend=plan_spend(plan,problem);baseline_spend=plan_spend(baseline,problem)
+    return {'spend':spend,'baseline_spend':baseline_spend,
+            'spend_deviation':max(0.,spend-baseline_spend)/max(float(problem['budget']),1e-9),
+            'baseline_deviation':float(np.abs(orders-base).sum()/max(1,base.sum()))}
+
 def decide_autonomy(certificate,plan,problem,forecast,constraints,gate,hold_count=0,enabled=True):
     if not enabled:
         permitted=gate.fixed_level in {'bounded','full'}
@@ -21,21 +46,15 @@ def decide_autonomy(certificate,plan,problem,forecast,constraints,gate,hold_coun
     idx={s['series_id']:i for i,s in enumerate(problem['series'])};orders=np.zeros(len(idx))
     for o in plan.orders:
         if o.series_id in idx:orders[idx[o.series_id]]+=o.quantity
-    baseline=policy_plan(problem)
-    base=np.zeros(len(idx))
-    for o in baseline.orders:base[idx[o.series_id]]+=o.quantity
-    spend=float(sum(o.quantity*problem['parameters']['unit_cost'][idx[o.series_id]] for o in plan.orders))
-    spend+=sum(t.quantity*problem['config']['transfer_cost'] for t in plan.transfers)
-    spend+=sum(problem['supplier_parameters'][s]['fixed_cost'] for s in {o.supplier for o in plan.orders if o.quantity>0})
-    deviation=float(np.abs(orders-base).sum()/max(1,base.sum()))
+    measures=gate_measures(plan,problem);spend=measures['spend'];deviation=measures['spend_deviation']
     samples=np.asarray(forecast.samples);mean=samples.mean(axis=(0,2))
     ip=np.asarray(problem['on_hand'])+np.asarray(problem['receipts']).sum(axis=2).mean(axis=0)+orders
     active=orders>0
     days_supply=float(np.max(ip[active]/np.maximum(mean[active],0.1))) if active.any() else 0.
     totals=samples.sum(axis=(1,2));dispersion=float(totals.std()/max(totals.mean(),1))
-    inputs.update(spend=spend,baseline_deviation=deviation,max_days_supply=days_supply,forecast_dispersion=dispersion)
+    inputs.update(**measures,max_days_supply=days_supply,forecast_dispersion=dispersion)
     if spend>gate.max_spend:reasons.append('Spend exceeds autonomous cap')
-    if deviation>gate.max_deviation:reasons.append('Deviation from deterministic baseline exceeds cap')
+    if deviation>gate.max_spend_deviation:reasons.append('Extra spend beyond the deterministic baseline exceeds cap')
     if days_supply>gate.max_days_supply:reasons.append('Projected days of supply exceed cap')
     if dispersion>gate.max_dispersion:reasons.append('Forecast dispersion exceeds cap')
     approvals=2 if spend>gate.two_person_spend else 1

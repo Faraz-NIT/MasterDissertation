@@ -6,6 +6,7 @@ text is data, never an executable instruction. JSON schema does not prove semant
 from __future__ import annotations
 import json
 import os
+import sys
 import time
 from pathlib import Path
 from typing import Any
@@ -117,8 +118,10 @@ class LLMClient:
         else:
             parsed=urlparse(config.base_url)
             if parsed.scheme not in {'http','https'}:raise ValueError('LLM base URL must be HTTP(S)')
-            if parsed.scheme=='http' and parsed.hostname not in {'localhost','127.0.0.1','::1'}:
-                raise ValueError('Remote LLM endpoints require HTTPS')
+            local=parsed.hostname in {'localhost','127.0.0.1','::1'}
+            if parsed.scheme=='http' and not local:raise ValueError('Remote LLM endpoints require HTTPS')
+            if not local and not os.environ.get(config.api_key_env):
+                raise ModelUnavailable(f'Set {config.api_key_env} before calling {parsed.hostname}; without it every call fails and the study would record only held decisions')
         self.config=config;self.store=store;self.calls=0;self.tokens=0;self.errors=0;self.seconds=0.;self.refs=[];self.freeform_messages=[]
         self.rate_limit_waits=0;self.rate_limit_seconds=0.
     def _post(self,body:dict,headers:dict) -> httpx.Response:
@@ -133,6 +136,8 @@ class LLMClient:
                 raise ProviderQuotaExhausted(f'Provider rate limit resets in {wait:.0f}s: {response.text[:300]}')
             wait=max(wait,1.)
             self.rate_limit_waits+=1;self.rate_limit_seconds+=wait
+            limits={k:v for k,v in response.headers.items() if k.lower().startswith('x-ratelimit-remaining')}
+            print(f'[llm] 429 from {urlparse(url).hostname}: waiting {wait:.0f}s (wait #{self.rate_limit_waits}); remaining {limits}',file=sys.stderr,flush=True)
             time.sleep(wait)
         return response
     def _ledger(self) -> dict:

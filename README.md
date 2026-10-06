@@ -52,7 +52,7 @@ Days in configs are **zero-based positions**: `start_day: 1800` means M5 column 
 ## 3. Run the forecast and optimizer baselines
 
 ```bash
-python -m pip install -e ".[ml,dev]"
+python -m pip install -e ".[ml,dev,report]"   # report: matplotlib + reportlab for scripts/make_report.py
 python -m ega run --config configs/deterministic_study.yaml \
   --policies B1 B2 B3 B4 --seeds 7 29 --days 7 --output results/baseline_pilot
 
@@ -60,7 +60,7 @@ python -m ega forecast-backtest --config configs/smoke.yaml \
   --model lightgbm --origins 1800 1828 --horizon 28 --out results/forecast_scores.json
 ```
 
-The complete study config contains 30 independent seeds and multiple rolling origins. **Run and inspect a small pilot first**; do not mistake a two-seed pilot for the final statistical study. Reduce items, scenarios, horizon or origins while debugging, then preregister/freeze the final configuration.
+`scripts/run_main_study.sh configs/main_study_stage1.yaml` runs the frozen 30-seed stage-1 study as parallel, resumable seed workers and merges them. The complete study config contains 30 independent seeds and multiple rolling origins. **Run and inspect a small pilot first**; do not mistake a two-seed pilot for the final statistical study. Reduce items, scenarios, horizon or origins while debugging, then preregister/freeze the final configuration.
 
 | ID | Actual implementation | Requirement |
 |---|---|---|
@@ -83,12 +83,14 @@ B3/B4 use a real trained autoregressive GRU with a negative-binomial likelihood;
 Copy `configs/llm_study.example.yaml`, set `llm.model`, `llm.base_url`, and a pinned model revision, and configure the horizon/scenario count. The backend uses the `/chat/completions` contract at an explicitly supplied OpenAI-compatible endpoint. A compatible locally served model can be used; this repository does not install or start a model server.
 
 ```bash
-# Only needed for an endpoint that requires a key. Do not commit the value.
+# Required for any remote endpoint; a run stops immediately if it is missing. Do not commit the value.
 export EGA_LLM_API_KEY='your-key'
 python -m ega run --config configs/llm_study.local.yaml --output results/llm_pilot
 ```
 
 Setting `.env` alone does not export environment variables; the repository deliberately does not auto-load secrets. Remote endpoints require HTTPS. Structured-output support varies: choose `json_mode: schema`, `json`, or `none` as supported. Actual responses are schema-validated in every mode. Providers may ignore seeds or reject unsupported request fields; failed calls are logged and held, not presented as successful research results.
+
+`scripts/run_llm_cerebras.sh` runs the second-stage LLM experiments on the Cerebras free tier (hostile note with the deterministic injection screen switched off via `gate.injection_screen: false`, fixed-evidence reliability, prose grounding), resuming each step where a daily quota stopped it; see [the experiment procedure](docs/EXPERIMENTS.md).
 
 **B6–B10 refuse to run with LLMs disabled.** There is no random-number “LLM simulator.” `on_failure: hold` is the default. Explicit deterministic fallback is separately labeled in `effective_policy`, tokens and error counts. Call budgets are per policy/scenario/seed/origin run, so total study cost can be much larger than a single-run budget. No dollar-cost estimate is fabricated.
 

@@ -124,6 +124,7 @@ def run_one(panel,config,policy,scenario,seed,origin,model,output):
         rows.append({'day':day,'policy':policy,'effective_policy':decision.trace['effective_policy'],'scenario':scenario,'seed':seed,'origin':origin,
             'quality':decision.certificate.quality,'autonomy':decision.autonomy.level,'held':not committed,'urgent':decision.autonomy.urgent,
             'executed_action':bool(committed and nonzero),'harmful':bool(harmful),'hard_violations':len(violations),
+            'reference_deviation':bool(harmful and not violations),  # flagged only by distance to the clean-evidence reference
             'reference_available':reference_available,'reference_distance':distance,'orders':sum(o.quantity for o in decision.plan.orders) if committed else 0,
             'transfer_units':sum(t.quantity for t in decision.plan.transfers) if committed else 0,'cost':total,**costs,
             **{k:outcome[k] for k in ['demand','sales','lost_sales','on_hand','stockout_pairs','pairs','spoilage_units']},
@@ -139,7 +140,8 @@ def run_one(panel,config,policy,scenario,seed,origin,model,output):
         'daily_cost_cvar':daily_cvar,'fill_rate':float(daily.sales.sum()/daily.demand.sum()) if daily.demand.sum()>0 else 1.,
         'cycle_service_level':float((daily.stockout_pairs==0).mean()),'stockout_rate':float(daily.stockout_pairs.sum()/daily.pairs.sum()),
         'harmful_executions':harm,'executed_actions':executions,'harmful_execution_rate':harm/executions if executions else None,
-        'hard_violations':int(daily.hard_violations.sum()),'held_decisions':held,'mean_quality':float(daily.quality.mean()),
+        'hard_violations':int(daily.hard_violations.sum()),'violation_executions':int((daily.hard_violations>0).sum()),
+        'reference_deviations':int(daily.reference_deviation.sum()),'held_decisions':held,'mean_quality':float(daily.quality.mean()),
         'bullwhip':bullwhip(daily.orders.to_numpy(),daily.demand.to_numpy()),
         'mean_inventory':float(daily.on_hand.mean()),'inventory_turns_window':float(daily.sales.sum()/max(daily.on_hand.mean(),1e-9)),
         'safety_adjusted_utility':-(cost_total+config.solver.risk_weight*daily_cvar)-config.escalation_cost*held-config.harmful_cost*harm,
@@ -207,6 +209,8 @@ def summarize_study(root,config):
             study.append({'scenario':scenario,'policy':policy,'replications':len(values),'expected_run_cost':mean_cost,
                           'run_cost_cvar':risk,'safety_adjusted_utility':utility,'mean_fill_rate':float(values.fill_rate.mean()),
                           'mean_harmful_executions':float(values.harmful_executions.mean()),
+                          'mean_violation_executions':float(values.violation_executions.mean()) if 'violation_executions' in values else None,
+                          'mean_reference_deviations':float(values.reference_deviations.mean()) if 'reference_deviations' in values else None,
                           'insufficient_for_dissertation_protocol':len(values)<30})
             if policy==reference:continue
             for metric in ['cost','fill_rate','harmful_executions']:

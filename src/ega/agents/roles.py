@@ -31,7 +31,7 @@ class SupplierConstraintAgent:
             values=[];issues=[]
             for start in range(0,len(documents),6):
                 docs=documents[start:start+6]
-                flagged=[d.ref for d in docs if not d.authenticated or screen_injection(d.text)]
+                flagged=[d.ref for d in docs if not d.authenticated or (gate.injection_screen and screen_injection(d.text))]
                 if flagged:
                     issues.extend(f'untrusted/injected source {ref}' for ref in flagged)
                     docs=[d for d in docs if d.ref not in flagged]
@@ -71,11 +71,11 @@ class OptimizationAgent:
         return solve(problem) if mode=='milp' else policy_plan(problem,service_quantile,ss=mode=='ss')
 
 class RiskCriticAgent:
-    def run(self,plan,problem,documents,client=None,free_form=False):
+    def run(self,plan,problem,documents,client=None,free_form=False,screen=True):
         failures=check_plan(plan,problem);checks=[]
         if plan.method=='stochastic_milp' and not plan.solver.get('feasible'):failures.append('missing_solver_feasibility')
         for doc in documents:
-            if screen_injection(doc.text):failures.append('injection_screening')
+            if screen and screen_injection(doc.text):failures.append('injection_screening')
         checks.append(Check(name='independent_action_feasibility',family='constraint',outcome='hard_fail' if failures else 'pass',evidence={'failures':sorted(set(failures))}))
         # Capacity/budget stress verifies robustness; failing a hypothetical stress is not a current hard violation.
         for label,factor in [('budget_80pct',0.8),('capacity_80pct',0.8)]:

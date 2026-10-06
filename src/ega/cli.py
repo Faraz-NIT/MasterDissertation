@@ -46,7 +46,7 @@ def main(argv=None):
                 dataset=Path(args.output)/'synthetic_data';make_demo(dataset,items=1,stores=2)
                 config=ExperimentConfig.model_validate({'dataset':str(dataset),'output':args.output,'policies':['B1','D0','D1'],
                     'scenarios':['normal','feed_gap','derived_field_collapse'],'seeds':[7,29],'days':args.days,'warmup_days':4,
-                    'solver':{'horizon':6,'scenarios':4,'time_limit':10},'gate':{'max_deviation':4}})
+                    'solver':{'horizon':6,'scenarios':4,'time_limit':10}})
             else:
                 raw=load_config(args.config).model_dump()
                 for key in ['output','policies','seeds','days']:

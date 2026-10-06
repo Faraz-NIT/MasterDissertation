@@ -1,0 +1,33 @@
+# Main deterministic study, stage 1 (frozen 6 Oct 2026): B1–B4, 30 independent seeds, one origin, 28 decision days
+# from M5 day 1830 (history ends d_1830; disjoint from the calibration windows), normal plus three fault families.
+# Gate v2 frozen; held plans are released by simulated delayed reviewers (primary; approval_mode: hold is the ablation).
+# Run: scripts/run_main_study.sh configs/main_study_stage1.yaml   (parallel seed workers, resumable, then merged)
+# Stage 2 adds the remaining 13 scenarios of configs/deterministic_study.yaml with the same settings.
+dataset: data/processed/m5
+output: results/main_study_stage1
+policies: [B1, B2, B3, B4]
+scenarios: [normal, feed_gap, derived_field_collapse, foreign_unit_moq]
+seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+start_day: 1830
+warmup_days: 14
+days: 28
+origins: 1
+origin_stride: 28
+approval_mode: oracle
+approval_delay: 1
+solver:
+  horizon: 14
+  scenarios: 16
+  time_limit: 60
+  cvar_alpha: 0.95
+  risk_weight: 0.1
+forecast:
+  deep_epochs: 10
+  max_training_windows: 12000
+  lgbm_estimators: 150
+quality:
+  version: synthetic-control-v1-NOT-calibrated
+  calibrated: false
+  onset_rate: 0.025
+  min_duration: 1
+  max_duration: 5

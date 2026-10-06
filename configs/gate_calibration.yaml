@@ -34,5 +34,5 @@ quality:
   min_duration: 1
   max_duration: 5
 gate:
-  max_deviation: 1000000000.0
+  max_spend_deviation: 1000000000.0
   version: calibration-probe-deviation-uncapped

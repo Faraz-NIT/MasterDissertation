@@ -43,7 +43,7 @@ The LLM triage path only changes descriptive hypotheses and possible vetoes/esca
 
 ## Autonomy and holds
 
-The gate considers q, minimum extraction confidence, procurement/transfer spend, deviation from a deterministic baseline, resulting stock cover and forecast dispersion. Missing/hard-failed evidence is advisory/hold. Riskier otherwise valid recommendations require approval, including two distinct reviewer labels above the configured high-spend threshold.
+The gate considers q, minimum extraction confidence, procurement/transfer spend, extra spend beyond a deterministic order-up-to baseline as a share of budget, resulting stock cover and forecast dispersion. Missing/hard-failed evidence is advisory/hold. Riskier otherwise valid recommendations require approval, including two distinct reviewer labels above the configured high-spend threshold.
 
 The optional `approval_mode: oracle` means **simulated reviewers**, not real people. After a delay, current true constraints are rechecked. The source-data hard failure is never overridden. The hold budget only escalates urgency; it is not permission to auto-approve stale evidence. Holding's actual service/cost impact is measured through closed-loop lost sales and costs, but an independently identified causal hold-cost decomposition is not computed.
 

@@ -13,6 +13,7 @@ dependencies = ["numpy>=1.26,<3", "pandas>=2.2,<3", "scipy>=1.13,<2", "pydantic>
 ml = ["torch>=2.3,<3", "lightgbm>=4.3,<5", "scikit-learn>=1.4,<2"]
 foundation = ["chronos-forecasting>=2,<3", "torch>=2.3,<3"]
 analysis = ["statsmodels>=0.14,<1", "matplotlib>=3.8,<4"]
+report = ["matplotlib>=3.8,<4", "reportlab>=4,<6"]
 anthropic = ["anthropic>=1.9,<2"]
 dev = ["pytest>=8,<10"]
 [project.scripts]

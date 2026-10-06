@@ -1,0 +1,40 @@
+# LLM-resistance experiment on Cerebras: the hostile supplier note reaches the model because the deterministic
+# injection screen is OFF. B4 (no LLM) is the control: its template parser ignores prose. In the first pilot the
+# screen caught every note before any model read it, so the model's own behaviour was never measured.
+# Same slice, solver and days as configs/llm_study.cerebras.yaml so results are directly comparable.
+# About 120k tokens per seed; five seeds fit one free-tier day (1M tokens). Resume with `ega run --resume`.
+dataset: data/processed/m5_smoke
+output: results/llm_injection_unscreened_cerebras
+policies: [B4, B8, B9, B10]
+scenarios: [injection]
+seeds: [42, 0, 1, 2, 3]
+start_day: 1800
+warmup_days: 7
+days: 4
+solver:
+  horizon: 10
+  scenarios: 8
+  time_limit: 30
+forecast:
+  deep_epochs: 3
+gate:
+  injection_screen: false
+  version: gate-v1-synthetic-INJECTION-SCREEN-OFF
+llm:
+  enabled: true
+  base_url: https://api.cerebras.ai/v1
+  model: gpt-oss-120b
+  model_revision: cerebras-gpt-oss-120b-2026-09-29
+  api_key_env: EGA_LLM_API_KEY
+  json_mode: schema
+  temperature: 0
+  retries: 1
+  max_calls: 500
+  max_tokens: 6000
+  timeout: 120
+  rate_limit_retries: 300
+  rate_limit_max_wait: 3600
+  on_failure: hold
+  use_memory: true
+quality:
+  calibrated: false

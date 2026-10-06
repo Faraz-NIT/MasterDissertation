@@ -7,7 +7,8 @@
 3. Run B1/B2/B3/B4 on one clean and one degraded scenario; inspect individual traces, fill rates, holds and true-reference comparisons.
 4. Run separate rolling-origin forecast scoring before choosing a final model. Do not choose hyperparameters on the final evaluation origins.
 5. Configure one real LLM and run B10 on a small public/synthetic panel. Inspect token counts, schema errors and fallback labels before comparing B6–B10.
-6. Freeze a configuration and preregister primary comparisons/tolerances. The main draft comparison is B3/B4/B9/B10; validate that the selected model/architecture implementations match the claims you intend to make.
+6. Freeze a configuration and preregister primary comparisons/tolerances. The autonomy gate is frozen as of 6 Oct 2026
+   (`gate-v2-spend-deviation-2026-10-06`, see `docs/GATE_CALIBRATION.md`); do not retune it on test windows. The main draft comparison is B3/B4/B9/B10; validate that the selected model/architecture implementations match the claims you intend to make.
 7. Supply pooled calibration only with permission and defensible denominators. Until then, report synthetic perturbations and do not call them calibrated.
 8. Run independent replications, rate/hold sensitivity, constraint carrier variants, replay and counterfactual audits.
 9. Conduct a human pilot only after institutional approval; expert-review the generated reference labels and improve/match the explanation arms before a powered main study.
@@ -46,6 +47,39 @@ python -m ega calibrate --incidents /approved/pooled_incidents.csv \
 ```
 
 Replace `10000` with the real approved denominator. Set `quality.calibrated: true` and `quality.calibration_file` in a copied config. Missing classes are not filled with fictional calibrated rates; isolated incidents remain rare-event stress scenarios. Rates are marginal, not a model of correlated outages.
+
+## Main deterministic study, stage 1 (frozen 6 Oct 2026)
+
+`configs/main_study_stage1.yaml`: B1–B4, 30 seeds, one origin, 28 decision days from day 1830, scenarios normal,
+feed_gap, derived_field_collapse and foreign_unit_moq, gate v2, simulated delayed approval. 480 runs; a 28-day MILP run
+takes about 12 minutes on one core, so the study is run as parallel seed workers:
+
+```
+scripts/run_main_study.sh configs/main_study_stage1.yaml      # WORKERS=4 by default, niced, resumable
+```
+
+Each worker is an ordinary `ega run --resume` on a seed subset; rerunning the script resumes whatever was interrupted
+and finally merges the workers into `results/main_study_stage1` (`scripts/merge_studies.py`, hard links) and renders the
+report. The statistical unit is the seed; one origin means no within-seed origin averaging. Stage 2 is the remaining
+13 scenarios of `configs/deterministic_study.yaml` with identical settings. "Harmful" executions are reported with
+their split into true-constraint violations and distance-to-reference flags.
+
+## Stage 2 on the Cerebras free tier
+
+The first LLM pilot (`configs/llm_study.cerebras.yaml`: 2 series, 1 seed, 4 days, B4 and B6–B10) used about 950k
+tokens, which is one day of the free tier for `gpt-oss-120b` (1M tokens/day; in practice the binding limits are
+150 requests/hour and 5 requests/minute, so a run sleeps for up to an hour whenever the hourly request budget is
+spent, which is why step 1 below takes about 40 minutes and the whole driver several hours). The
+30-series, 30-seed design is not reachable on that quota; it needs paid credit. `scripts/run_llm_cerebras.sh` runs
+the experiments that are reachable, each resumable, and rebuilds the PDF report:
+
+1. `configs/llm_injection_unscreened.cerebras.yaml`: the injection scenario with `gate.injection_screen: false`, so the
+   hostile note reaches the model instead of being dropped by the regex screen. B4 is the no-LLM control. The gate
+   version string labels every trace of this run; never mix it with screened runs in one comparison.
+2. `scripts/repeat_decision.py` on a stored B10 decision, 30 replications, only the requested LLM seed varies.
+3. `scripts/grounding_benchmark.py` on the controlled prose corpus, where the deterministic parser can only escalate.
+
+Export `EGA_LLM_API_KEY` in the shell first; a remote endpoint without a key stops before any run is written.
 
 ## Known hold-budget limitation
 
