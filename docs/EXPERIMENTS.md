@@ -1,5 +1,59 @@
 # Experiment procedure
 
+## Redesigned local protocol (6 October 2026)
+
+Run `.venv\Scripts\python.exe scripts/run_local_study.py` on Windows. The driver freezes
+`results/local_redesign_v1/protocol.json` before evaluation, rejects a changed protocol on
+resume, and preserves completed runs. All model requests go to localhost Ollama. Run from
+the repository root with the installed `ega-llama3.2:3b` model. The output includes resolved
+configs, complete traces, paired comparisons, replay/deletion audits and a standalone HTML report.
+
+The primary operational experiment uses a newly generated four-series synthetic panel
+(two items and two stores; data seed 20261006), 30 simulation seeds, two disjoint 14-day
+windows at positions 160 and 188, seven warm-up days, and six scenarios: clean, feed gap,
+collapsed inventory field, foreign-unit MOQ, supplier capacity cut and promotion spike.
+The 14-day windows include onset and recovery of the three-day quality faults. Forecast
+family, solver settings, exogenous streams and warm-up are matched across D0, D1 and B1.
+D1 versus D0 estimates the combined gate/critic effect, not a gate-only effect. A separate
+D1 hold-only arm tests the consequences of removing delayed simulated approval. These
+are software controls, not GRU-based B3/B4 reproductions.
+
+The two planned contrasts report cost, fill rate, hard violations, reference deviations
+and held decisions. Origins are averaged within each seed before paired bootstrap
+intervals and Wilcoxon testing. Holm correction covers all 60 generated tests. Constraint
+violations and deviations from the clean-evidence reference are distinct endpoints;
+reference distance does not by itself establish actual economic harm. Thirty simulation
+seeds quantify uncertainty conditional on this one panel, not generalization across retailers.
+
+The semantic component tests all six controlled prose cases with the pinned local Llama
+model, alongside deterministic template and prose controls. Expected labels are held out
+of model requests. A separate 24-decision closed-loop integration check compares B9 and
+B10 on prose, two seeds, clean and collapsed-field scenarios, and three decision days.
+Both use an explicitly recorded seasonal forecast override. This component is deliberately
+small and is not a statistically powered LLM effectiveness study. Memory and model
+settings remain frozen; unsuccessful calls and holds remain in the results.
+
+Grounding accuracy is separate from schema validity. Dimensional checks can reject an
+empty eligibility unit, but a plausible wrong cost with a valid unit can pass the prose
+verifier. The benchmark therefore counts incorrect accepted tuples as residual errors
+eligible for the solver. Passing citation, type and dimensional checks does not establish
+that a prose value is factually entailed by its source.
+
+The execution amendment in `execution_amendment.json` records a grounding optimization:
+the integration driver stops requesting documents after an active extracted rule has an
+irreparable unit, entity, range, confidence or provenance error. Missing coverage alone
+does not stop extraction. The complete numeric results and full-corpus benchmark are
+preserved; the interrupted integration prefix is archived separately and the integration
+runs restart with the same data, seeds, prompts and model settings. This is a conservative
+fail-closed optimization, not a model-accuracy improvement or gate retuning.
+
+Each run's first decision is replayed and inspected for trace consistency and required
+forecast deletion. Complete daily traces and audit-chain validation cover every run;
+first-decision replay is a sample, not an exhaustive re-solve of every recorded action.
+No M5 results, calibrated platform-failure rates, human-study findings, or real inventory
+execution are claimed. Larger retailer panels, trained forecast families and a powered
+LLM study remain separate experiments.
+
 ## Suggested order
 
 1. Run `python -m pytest -q` and the offline synthetic demonstration.

@@ -6,3 +6,4 @@ pydantic==2.13.4
 PyYAML==6.0.3
 httpx==0.28.1
 pytest==9.0.2
+filelock==3.32.7

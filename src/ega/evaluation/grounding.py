@@ -46,9 +46,10 @@ def evaluate_corpus(corpus,output,llm_config=None):
             lineage=Lineage(snapshot_version='grounding-benchmark',run_id=case['case_id'],day=case['day'])
             if client:
                 values=[];issues=[]
-                for start in range(0,len(docs),6):
+                batch_size=client.config.document_batch_size
+                for start in range(0,len(docs),batch_size):
                     try:
-                        response=client.ask('constraint extraction benchmark',{'documents':[d.payload() for d in docs[start:start+6]],
+                        response=client.ask('constraint extraction benchmark',{'documents':[d.payload() for d in docs[start:start+batch_size]],
                             'day':case['day'],'known_entities':[s.model_dump() for s in series],'format_conventions':FORMAT_CONVENTIONS},Extraction)
                         values.extend(response.constraints);issues.extend(response.issues)
                     except ModelUnavailable as exc:issues.append(str(exc))
@@ -57,13 +58,16 @@ def evaluate_corpus(corpus,output,llm_config=None):
             verified=verify_constraints(raw,series,docs,case['day'])
             expected={signature(c) for c in case['expected']};actual={signature(c.model_dump()) for c in raw.constraints}
             tp=len(expected&actual);false=len(actual-expected);missing=len(expected-actual)
+            eligible={signature(c.model_dump()) for c in verified.constraints} if not verified.issues else set()
             results.append({'case_id':case['case_id'],'carrier':case.get('carrier','user_supplied'),
                 'whole_set_exact_match':actual==expected,'field_tuple_precision':tp/len(actual) if actual else None,
                 'field_tuple_recall':tp/len(expected) if expected else 1,'false_constraints':false,'omitted_constraints':missing,
-                'escalated':bool(verified.issues),'residual_errors_eligible_for_solver':false if not verified.issues else 0,
+                'escalated':bool(verified.issues),'residual_errors_eligible_for_solver':len(eligible-expected),
                 'issues':verified.issues,'extraction_ref':store.put(raw),'verification_ref':store.put(verified)})
         atomic_json(output/'grounding_results.json',{'mode':'real_llm' if client else 'deterministic_template',
             'warning':'Controlled carrier benchmark, not a validated natural-language dataset. No expected labels are sent to the model.',
-            'cases':results,'llm_calls':client.calls if client else 0,'tokens':client.tokens if client else 0})
+            'cases':results,'llm_calls':client.calls if client else 0,'tokens':client.tokens if client else 0,
+            'llm_errors':client.errors if client else 0,'llm_seconds':client.seconds if client else 0,
+            'document_batch_size':client.config.document_batch_size if client else None})
         return results
     finally:store.close()

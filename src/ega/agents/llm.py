@@ -5,14 +5,15 @@ text is data, never an executable instruction. JSON schema does not prove semant
 """
 from __future__ import annotations
 import json
-import fcntl
 import os
 import sys
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 import httpx
+from filelock import FileLock
 from pydantic import BaseModel, ConfigDict, Field
 from ..config import LLMConfig
 from ..schemas import Constraint
@@ -131,6 +132,9 @@ class LLMClient:
         for _ in range(self.config.rate_limit_retries+1):
             response=httpx.post(url,json=body,headers=headers,timeout=self.config.timeout)
             if response.status_code!=429:return response
+            self.refs.append(self.store.put({'kind':'llm_rate_limit','request':body,
+                'response':{'status_code':response.status_code,'body':response.text},
+                'recorded_at_utc':datetime.now(timezone.utc).isoformat()}))
             try:wait=float(response.headers.get('retry-after',''))
             except ValueError:wait=10.
             if wait>self.config.rate_limit_max_wait:
@@ -153,8 +157,7 @@ class LLMClient:
         usd=(int(usage.get('input_tokens') or 0)*pin+int(usage.get('cache_creation_input_tokens') or 0)*pin*1.25
              +int(usage.get('cache_read_input_tokens') or 0)*pin*0.1+int(usage.get('output_tokens') or 0)*c.output_usd_per_mtok/1e6)
         path=Path(c.spend_ledger);path.parent.mkdir(parents=True,exist_ok=True)
-        with open(path.with_suffix('.lock'),'w') as lock:  # parallel seed workers share one ledger
-            fcntl.flock(lock,fcntl.LOCK_EX)
+        with FileLock(path.with_suffix('.lock')):  # parallel seed workers share one ledger on Windows/Linux
             ledger=self._ledger();ledger['usd']+=usd;ledger['calls']+=1
             tmp=path.with_suffix('.tmp');tmp.write_text(json.dumps(ledger));tmp.replace(path)
         return usd
@@ -215,6 +218,8 @@ class LLMClient:
         for attempt in range(config.retries+1):
             if self.calls>=config.max_calls:raise ModelUnavailable('LLM call budget exhausted')
             self.calls+=1
+            attempt_started=time.perf_counter();recorded_at=datetime.now(timezone.utc).isoformat()
+            response=None;record=None
             try:
                 if config.provider=='anthropic':
                     content,record,tokens,failure=self._complete_anthropic(messages,schema_obj,free_form)
@@ -230,7 +235,8 @@ class LLMClient:
                              'Truncated model output; increase max_tokens or reduce batch size' if choice.get('finish_reason')=='length' else None)
                 self.tokens+=tokens
                 ref=self.store.put({'kind':'llm_call','role':role,**record,
-                                   'model_revision':config.model_revision,'attempt':attempt})
+                                   'model_revision':config.model_revision,'attempt':attempt,
+                                   'started_at_utc':recorded_at,'elapsed_seconds':time.perf_counter()-attempt_started})
                 self.refs.append(ref)
                 if failure:raise ValueError(failure)
                 if free_form:self.freeform_messages.append({'agent':role,'message':content})
@@ -239,7 +245,12 @@ class LLMClient:
                 return result
             except (httpx.HTTPError,KeyError,IndexError,ValueError,TypeError) as exc:
                 self.errors+=1;last=exc
-                self.refs.append(self.store.put({'kind':'llm_error','role':role,'request_hash':digest(body),'attempt':attempt,'error':str(exc)}))
+                self.refs.append(self.store.put({'kind':'llm_error','role':role,'request_hash':digest(body),
+                    'request':record['request'] if record else body,
+                    'response':{'status_code':response.status_code,'body':response.text} if response is not None else
+                               record.get('response') if record else None,
+                    'model_revision':config.model_revision,'attempt':attempt,'error':str(exc),
+                    'started_at_utc':recorded_at,'elapsed_seconds':time.perf_counter()-attempt_started}))
                 if attempt<config.retries:
                     messages.append({'role':'user','content':f'Validation failed: {str(exc)[:500]}. Return a valid result or explicit issues, without inventing facts.'})
         self.seconds+=time.perf_counter()-started

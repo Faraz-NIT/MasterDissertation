@@ -78,6 +78,7 @@ class LLMConfig(StrictConfig):
     output_usd_per_mtok: float = Field(0, ge=0)
     spend_ledger: str = "results/llm_spend.json"
     max_tokens: int = Field(2500, ge=128)
+    document_batch_size: int = Field(6, ge=1, le=100)
     seed: int = 42
     on_failure: Literal["hold", "deterministic"] = "hold"
     use_memory: bool = True

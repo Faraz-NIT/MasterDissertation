@@ -19,6 +19,27 @@ def test_prose_not_passed_as_mock_llm(tmp_path):
     assert all(x['escalated'] for x in results)
 
 
+def test_accepted_wrong_prose_rule_is_counted_as_residual_error(tmp_path, monkeypatch):
+    """A schema-valid semantic mistake can survive prose validation."""
+    from ega import evaluation
+    from ega.schemas import ConstraintSet, Constraint
+
+    path = tmp_path/'prose.jsonl'
+    make_corpus(path, True)
+    def wrong_rule(documents, lineage):
+        case = next(c for c in map(json.loads, path.read_text().splitlines())
+                    if c['case_id'] == lineage.run_id)
+        values = [Constraint.model_validate(c) for c in case['expected']]
+        price = next(c for c in values if c.parameter == 'unit_cost')
+        price.value += 1
+        return ConstraintSet(lineage=lineage, constraints=values)
+
+    monkeypatch.setattr(evaluation.grounding, 'extract_templates', wrong_rule)
+    results = evaluate_corpus(path, tmp_path/'run')
+    assert all(not x['escalated'] and x['residual_errors_eligible_for_solver'] == 1
+               for x in results)
+
+
 def test_year_rollover_and_cluster_union():
     assert parse_season_month(2026,9,1)==(2027,1)
     assert parse_season_month(2026,9,10)==(2026,10)

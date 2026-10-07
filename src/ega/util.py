@@ -45,7 +45,7 @@ def atomic_json(path: Path, value: Any) -> None:
 
 def environment() -> dict:
     packages = {}
-    for name in ["numpy", "pandas", "scipy", "pydantic", "httpx", "PyYAML", "torch", "lightgbm", "chronos-forecasting"]:
+    for name in ["numpy", "pandas", "scipy", "pydantic", "httpx", "PyYAML", "filelock", "torch", "lightgbm", "chronos-forecasting"]:
         try:
             packages[name] = importlib.metadata.version(name)
         except importlib.metadata.PackageNotFoundError:

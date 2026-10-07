@@ -1,0 +1,4 @@
+# The OpenAI-compatible endpoint cannot set num_ctx in the request.
+# A named local model records the context setting without changing Ollama globally.
+FROM llama3.2:3b
+PARAMETER num_ctx 8192

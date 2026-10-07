@@ -13,7 +13,7 @@ from ..quality import certify
 from ..optimization import solve,policy_plan,build_problem,check_plan
 from ..autonomy import decide_autonomy
 from ..agents.orchestrator import POLICIES
-from ..util import digest
+from ..util import digest,plain
 
 def load_trace(run,day=None,ref=None):
     run=Path(run);store=ArtifactStore(run/'artifacts')
@@ -59,9 +59,21 @@ def replay(run,day=None,ref=None):
             return result
         problem=reconstruct(store,trace,manifest);saved=store.get(refs['problem'])
         recorded=Plan.model_validate(store.get(refs['propose']))
-        action=solve(problem) if recorded.method=='stochastic_milp' else policy_plan(problem,config.forecast.service_quantile,recorded.method=='s_S')
+        proposal_ref=trace.get('harness',{}).get('proposal_override_ref')
+        if proposal_ref:
+            # An injected tool output is a fixture, not a solver result. Replay its
+            # recorded source and independently verify it against reconstructed inputs.
+            action=Plan.model_validate(store.get(proposal_ref))
+            action.lineage=recorded.lineage.model_copy(deep=True)
+            result['action_source']='frozen harness proposal; no optimizer rerun'
+        else:
+            action=solve(problem) if recorded.method=='stochastic_milp' else policy_plan(problem,config.forecast.service_quantile,recorded.method=='s_S')
         same_action=action.action_hash()==recorded.action_hash()
-        result.update(held=False,problem_reconstruction_matches=digest(problem)==digest(saved),action_matches=same_action,
+        # Re-validation can turn JSON integers into equivalent floats. Report
+        # numerical reconstruction separately from byte-representation identity;
+        # store.get still verifies each recorded artifact's original content hash.
+        result.update(held=False,problem_reconstruction_matches=plain(problem)==plain(saved),
+                      problem_wire_hash_matches=digest(problem)==digest(saved),action_matches=same_action,
                       independent_violations=check_plan(action,problem),recorded_action_hash=recorded.action_hash(),replayed_action_hash=action.action_hash(),
                       objective_difference=None if action.objective is None or recorded.objective is None else action.objective-recorded.objective)
         result['replay_status']='exact action match' if same_action else 'action differs; inspect time-limit incumbent, tied optimum, or environment versions'

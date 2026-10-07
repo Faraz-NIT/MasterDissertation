@@ -28,10 +28,29 @@ def main(argv=None):
     p=sub.add_parser('audit-score');p.add_argument('--study-dir',required=True);p.add_argument('--responses',required=True);p.add_argument('--out',required=True)
     p=sub.add_parser('calibrate');p.add_argument('--incidents',required=True);p.add_argument('--exposure-days',type=int,required=True);p.add_argument('--provenance',required=True);p.add_argument('--out',required=True)
     p=sub.add_parser('read-workbook');p.add_argument('path');p.add_argument('--out',required=True)
+    p=sub.add_parser('harness',help='Evaluate frozen synthetic decision cases with offline D0/D1 policies')
+    p.add_argument('--suite',help='Validated harness-v1 JSON; defaults to the built-in synthetic suite')
+    p.add_argument('--output',default='results/harness');p.add_argument('--policies',nargs='+',choices=['D0','D1'])
+    p.add_argument('--cases',nargs='+',help='Run only these case IDs')
+    p=sub.add_parser('harness-suite',help='Export the built-in frozen synthetic evaluation suite')
+    p.add_argument('--out',required=True)
     args=parser.parse_args(argv)
     try:
         if args.command=='doctor':
             print(json.dumps(environment(),indent=2));print('No API key is inspected or printed. LLM connectivity is checked only by an explicitly selected live run.');return 0
+        if args.command=='harness-suite':
+            from .evaluation.harness import default_suite
+            target=Path(args.out)
+            if target.exists():raise FileExistsError(f'Suite already exists: {target}')
+            atomic_json(target,default_suite());print(target);return 0
+        if args.command=='harness':
+            from .evaluation.harness import default_suite,load_suite,run_harness
+            suite=load_suite(args.suite) if args.suite else default_suite()
+            result=run_harness(suite,args.output,args.policies,args.cases,progress=lambda message: print(message,flush=True))
+            print(pd.DataFrame(result['summary'])[['policy','cases','passed','failed','unsafe_executions',
+                'unnecessary_holds','permitted_constraint_violations','runtime_errors','invalid_traces']].to_string(index=False))
+            print(f'Decision permission only; no orders committed. Results: {Path(args.output)/"results.json"}')
+            return 0 if result['passed'] else 1
         if args.command=='prepare':
             from .data.m5 import prepare_m5
             panel=prepare_m5(args.raw,args.out,None if args.all_items else args.items,args.stores,args.materialize_facts)

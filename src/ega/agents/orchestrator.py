@@ -32,9 +32,10 @@ class Decision:
     problem:dict|None
 
 class OrchestratorAutonomyAgent:
-    def __init__(self,policy,model,config,store):
+    def __init__(self,policy,model,config,store,optimizer=None):
         self.policy=policy;self.spec=POLICIES[policy];self.model=model;self.config=config;self.store=store
         self.client=LLMClient(config.llm,store) if self.spec['llm'] else None
+        self.optimizer=optimizer if optimizer is not None else OptimizationAgent()
         self.holds=0
     def run(self,snapshot,documents,decision_id,seed):
         cfg=self.config;spec=self.spec;refs={};consumed=[];stages=[];used_fallback=False
@@ -69,7 +70,7 @@ class OrchestratorAutonomyAgent:
                 if cs.issues:raise ValueError('Constraint escalation: '+'; '.join(cs.issues))
                 problem=build_problem(snap,forecast,cs,cfg.solver,seed)
                 problem_ref=record('problem',problem,[snap_ref,forecast_ref,cs_ref])
-                plan=OptimizationAgent().run(problem,cfg.forecast.service_quantile,spec['mode'],None if single else client,free)
+                plan=self.optimizer.run(problem,cfg.forecast.service_quantile,spec['mode'],None if single else client,free)
                 plan_ref=record('propose',plan,[problem_ref])
                 if spec['critic']:
                     verdict=RiskCriticAgent().run(plan,problem,documents,None if single else client,free,screen=cfg.gate.injection_screen)
@@ -83,7 +84,7 @@ class OrchestratorAutonomyAgent:
                     if not cs.issues and forecast is not None:
                         problem=build_problem(snap,forecast,cs,cfg.solver,seed)
                         problem_ref=record('problem',problem,[snap_ref,refs['forecast'],cs_ref])
-                        plan=OptimizationAgent().run(problem,cfg.forecast.service_quantile,spec['mode'])
+                        plan=self.optimizer.run(problem,cfg.forecast.service_quantile,spec['mode'])
                         record('propose',plan,[problem_ref])
                         verdict=RiskCriticAgent().run(plan,problem,documents,screen=cfg.gate.injection_screen)
                         record('verify',verdict,[refs['propose'],problem_ref])

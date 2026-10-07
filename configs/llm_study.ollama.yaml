@@ -1,0 +1,39 @@
+# Small synthetic connectivity/debugging pilot, not a dissertation baseline.
+# Run grounding first, then generate data with:
+# python -m ega demo-data --out data/processed/llama_demo --items 1 --stores 2
+dataset: data/processed/llama_demo
+output: results/llama_pilot
+policies: [B4, B10]
+scenarios: [normal]
+seeds: [7]
+start_day: 140
+warmup_days: 0
+days: 2
+approval_mode: oracle
+approval_delay: 1
+# Avoid optional PyTorch training while testing the local semantic model.
+# Both policies use the same seasonal forecast; this changes the B4/B10 baselines.
+forecast_override: seasonal_naive
+document_carrier: template
+solver:
+  horizon: 6
+  scenarios: 4
+  time_limit: 10
+llm:
+  enabled: true
+  provider: openai_compatible
+  base_url: http://localhost:11434/v1
+  model: ega-llama3.2:3b
+  model_revision: a2e8a97858cfa9801debb9b3243bf46365fc430a10fbd8471be84e7aab0e35e4
+  json_mode: schema
+  temperature: 0
+  timeout: 300
+  retries: 1
+  max_calls: 100
+  max_tokens: 4000
+  document_batch_size: 1
+  spend_ledger: results/llama_spend.json
+  on_failure: hold
+  use_memory: true
+quality:
+  calibrated: false

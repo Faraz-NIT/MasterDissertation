@@ -6,6 +6,17 @@ from ..quality import certify
 from ..constraints import extract_templates,verify_constraints,screen_injection
 from ..optimization import solve,policy_plan,check_plan
 
+# These errors are attached to an already extracted active rule. Additional
+# documents cannot remove them: verify_constraints checks every supplied rule.
+# Missing coverage and template omissions are deliberately excluded because
+# later batches can supply the missing evidence.
+IRREPARABLE_GROUNDING_ERRORS = (
+    ': unknown entity ', ': untrusted/missing source', ': input instruction detected',
+    ': dimensional mismatch ', ': invalid range', ': noninteger discrete parameter',
+    ': eligibility is not binary', ': low extraction confidence', ': invalid conversion',
+    ': conflicting equal-precedence rules',
+)
+
 class StateReconciliationAgent:
     def run(self,snapshot,gate,client=None,memory=None,free_form=False):
         certificate=certify(snapshot,gate)
@@ -29,12 +40,15 @@ class SupplierConstraintAgent:
         if client is None:raw=extract_templates(documents,snapshot.lineage)
         else:
             values=[];issues=[]
-            for start in range(0,len(documents),6):
-                docs=documents[start:start+6]
+            batch_size=client.config.document_batch_size
+            for start in range(0,len(documents),batch_size):
+                docs=documents[start:start+batch_size]
                 flagged=[d.ref for d in docs if not d.authenticated or (gate.injection_screen and screen_injection(d.text))]
                 if flagged:
                     issues.extend(f'untrusted/injected source {ref}' for ref in flagged)
-                    docs=[d for d in docs if d.ref not in flagged]
+                    return verify_constraints(ConstraintSet(lineage=snapshot.lineage,
+                        constraints=values,issues=issues),snapshot.series,documents,
+                        snapshot.lineage.day,gate.min_confidence)
                 if not docs:continue
                 payload={'documents':[d.payload() for d in docs],'day':snapshot.lineage.day,
                          'known_entities':[s.model_dump() for s in snapshot.series],
@@ -51,6 +65,12 @@ class SupplierConstraintAgent:
                 else:
                     response=client.ask('supplier and constraint agent',payload,Extraction,free_form)
                 values.extend(response.constraints);issues.extend(response.issues)
+                partial=verify_constraints(ConstraintSet(lineage=snapshot.lineage,
+                    constraints=values,issues=issues),snapshot.series,documents,
+                    snapshot.lineage.day,gate.min_confidence)
+                if issues or any(marker in issue for issue in partial.issues
+                                 for marker in IRREPARABLE_GROUNDING_ERRORS):
+                    return partial
             raw=ConstraintSet(lineage=snapshot.lineage,constraints=values,issues=issues)
         return verify_constraints(raw,snapshot.series,documents,snapshot.lineage.day,gate.min_confidence)
 

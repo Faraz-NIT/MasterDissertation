@@ -90,6 +90,19 @@ python -m ega run --config configs/llm_study.local.yaml --output results/llm_pil
 
 Setting `.env` alone does not export environment variables; the repository deliberately does not auto-load secrets. Remote endpoints require HTTPS. Structured-output support varies: choose `json_mode: schema`, `json`, or `none` as supported. Actual responses are schema-validated in every mode. Providers may ignore seeds or reject unsupported request fields; failed calls are logged and held, not presented as successful research results.
 
+For a small **local Ollama/Llama experiment**, use `configs/llm_study.ollama.yaml`. It connects to localhost without an API key and uses an 8,192-token context window defined by the supplied Modelfile. On Windows, run the following from PowerShell after installing the project in `.venv`:
+
+```powershell
+ollama pull llama3.2:3b
+ollama create ega-llama3.2:3b -f configs/Modelfile.llama
+# If you rebuild with different weights/settings, update llm.model_revision to the new /api/tags digest.
+.\.venv\Scripts\python.exe scripts/grounding_benchmark.py --corpus examples/grounding_prose.jsonl --llm-config configs/llm_study.ollama.yaml --output results/llama_grounding
+.\.venv\Scripts\python.exe -m ega demo-data --out data/processed/llama_demo --items 1 --stores 2
+.\.venv\Scripts\python.exe -m ega run --config configs/llm_study.ollama.yaml
+```
+
+The grounding benchmark uses controlled prose and needs no M5 data or PyTorch. The two-day simulation compares B4 and B10 with an explicitly recorded seasonal forecast override, so it is a synthetic integration pilot, not the standard GRU-based research comparison. The local config extracts one document per call (`llm.document_batch_size: 1`); the default for other configs remains six. Smaller batches can reduce omissions but require more calls. Start with a small corpus subset if local inference is slow; every response remains schema-validated and extraction failures hold the decision. The spending ledger uses cross-platform file locks for Windows and Linux workers.
+
 `scripts/run_llm_cerebras.sh` runs the second-stage LLM experiments on the Cerebras free tier (hostile note with the deterministic injection screen switched off via `gate.injection_screen: false`, fixed-evidence reliability, prose grounding), resuming each step where a daily quota stopped it; see [the experiment procedure](docs/EXPERIMENTS.md).
 
 **B6–B10 refuse to run with LLMs disabled.** There is no random-number “LLM simulator.” `on_failure: hold` is the default. Explicit deterministic fallback is separately labeled in `effective_policy`, tokens and error counts. Call budgets are per policy/scenario/seed/origin run, so total study cost can be much larger than a single-run budget. No dollar-cost estimate is fabricated.
@@ -124,6 +137,11 @@ XLSX supplier carriers can be inspected using `python -m ega read-workbook suppl
 The human-audit exporter creates three explanation arms, counterbalanced assignments, a response template, and separate researcher-only labels. It **does not conduct a human study**. Do not distribute the answer key with participant packets; institutional approval, consent and expert label review are required first. The narrative arm is currently a deterministic summary, not an LLM rationale.
 
 ## 7. Repository map
+
+For a frozen-evidence safety comparison, run `python -m ega harness --output results/harness`.
+The eight-case synthetic suite compares D0/D1 and saves decision traces, separate safety/grounding metrics,
+and a JSON report. D0 intentionally fails three safety cases; `--policies D1` is the passing gate check.
+No orders are committed. See [the harness guide](docs/HARNESS.md) for case authoring, exit codes and replay.
 
 ```text
 src/ega/

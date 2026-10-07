@@ -29,6 +29,26 @@ def test_free_form_bridges_reject_ambiguity():
     with pytest.raises(ValueError):decode_object('{"a":1} {"b":2}')
 
 
+@pytest.mark.parametrize('status',[200,500])
+def test_llm_failures_log_full_request_and_response_without_credentials(monkeypatch,tmp_path,status):
+    monkeypatch.setenv('EGA_LLM_API_KEY','test-secret-not-for-logs')
+    data=({'choices':[{'message':{'content':'invalid JSON'},'finish_reason':'stop'}]} if status==200
+          else {'error':'inference failed'})
+    monkeypatch.setattr(httpx,'post',lambda url,**kwargs:
+        httpx.Response(status,json=data,request=httpx.Request('POST',url)))
+    store=ArtifactStore(tmp_path/'store')
+    try:
+        client=LLMClient(LLMConfig(enabled=True,model='test',retries=0,
+                                  spend_ledger=str(tmp_path/'spend.json')),store)
+        with pytest.raises(ModelUnavailable):client.ask('test',{'documents':[]},Extraction)
+        error=store.get(client.refs[-1])
+        assert error['kind']=='llm_error' and error['request']['model']=='test'
+        assert json.loads(error['response']['body'])==data and error['response']['status_code']==status
+        assert error['started_at_utc'] and error['elapsed_seconds']>=0
+        assert 'test-secret-not-for-logs' not in json.dumps(error)
+    finally:store.close()
+
+
 def test_remote_http_is_rejected(tmp_path):
     s=ArtifactStore(tmp_path)
     with pytest.raises(ValueError):LLMClient(LLMConfig(enabled=True,model='test',base_url='http://external.example/v1'),s)
@@ -218,3 +238,53 @@ def test_openai_compatible_spend_is_metered_and_capped(monkeypatch,tmp_path):
     from ega.agents.llm import SpendCapReached
     with pytest.raises(SpendCapReached):client.ask('t',{},Extraction)  # cap checked before the request, nothing more is spent
     assert abs(json.loads(ledger.read_text())['usd']-0.70)<1e-9;s.close()
+
+
+def _record_shared_spend(ledger,start):
+    client=LLMClient(LLMConfig(enabled=True,model='test',spend_ledger=ledger,
+                               input_usd_per_mtok=1),None)
+    start.wait(20)
+    for _ in range(10):client._record_spend({'input_tokens':1_000_000})
+
+
+def test_spend_ledger_preserves_concurrent_process_updates(tmp_path):
+    import multiprocessing
+    context=multiprocessing.get_context('spawn')  # exercise the Windows process model on every platform
+    start=context.Event();ledger=tmp_path/'shared.json'
+    workers=[context.Process(target=_record_shared_spend,args=(str(ledger),start)) for _ in range(3)]
+    try:
+        for worker in workers:worker.start()
+        start.set()
+        for worker in workers:
+            worker.join(30)
+            assert worker.exitcode==0
+        assert json.loads(ledger.read_text())=={'usd':30.,'calls':30}
+    finally:
+        for worker in workers:
+            if worker.is_alive():worker.terminate();worker.join()
+
+
+@pytest.mark.parametrize('batch_size',[1,4,6])
+def test_document_batches_preserve_all_verified_rules(snapshot,docs,config,monkeypatch,tmp_path,batch_size):
+    from ega.agents.roles import SupplierConstraintAgent
+    from ega.constraints import SourceDocument,extract_templates
+    batches=[]
+    def post(url,**kwargs):
+        payload=json.loads(kwargs['json']['messages'][1]['content']);batch=payload['documents']
+        batches.append([d['source_ref'] for d in batch])
+        sources=[SourceDocument(d['source_ref'],d['text'],d['authenticated']) for d in batch]
+        rules=extract_templates(sources,snapshot.lineage)
+        content=json.dumps({'constraints':[c.model_dump() for c in rules.constraints],'issues':rules.issues})
+        return httpx.Response(200,json={'choices':[{'message':{'content':content},'finish_reason':'stop'}]},
+                              request=httpx.Request('POST',url))
+    monkeypatch.setattr(httpx,'post',post)
+    with_store=ArtifactStore(tmp_path/'store')
+    try:
+        client=LLMClient(LLMConfig(enabled=True,model='test',document_batch_size=batch_size,
+                                  spend_ledger=str(tmp_path/'spend.json')),with_store)
+        result=SupplierConstraintAgent().run(snapshot,docs,config.gate,client)
+        assert not result.issues
+        assert {c.constraint_id for c in result.constraints}=={c.constraint_id for c in extract_templates(docs,snapshot.lineage).constraints}
+        assert [ref for batch in batches for ref in batch]==[d.ref for d in docs]
+        assert all(len(batch)<=batch_size for batch in batches)
+    finally:with_store.close()
