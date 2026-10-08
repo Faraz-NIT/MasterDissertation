@@ -1,0 +1,31 @@
+{
+  "validated_at_utc": "2026-10-07T20:13:35.700701+00:00",
+  "tests": {
+    "passed": 9,
+    "failed": 0,
+    "path": "/tmp/test_m5_six_hour.py",
+    "covers": [
+      "zero-launch actual frozen all30 numeric preflight",
+      "96runs/672decisions",
+      "category mismatch rejection",
+      "timezone/report reserve",
+      "actual pinned model mismatch rejection",
+      "explicit deadline/epoch guards",
+      "real owned process-group stop leaves separate fixture alive",
+      "final PDF scope and snapshot args",
+      "declared mandatory/optional late config queue is read-only",
+      "pending stage cannot accept unverified actual model revision"
+    ]
+  },
+  "actual_readonly_preflight": {
+    "numeric_config": "results/run_configs/six_hour_numeric.yaml",
+    "series": 30,
+    "runs": 96,
+    "decisions": 672,
+    "study_launches": 0
+  },
+  "job_cutoff_utc": "2026-10-08T01:31:00Z",
+  "report_deadline_utc": "2026-10-08T02:01:00Z",
+  "tracked_repository_changes": false,
+  "new_model_generations": "Parent-owned actual development measurements, not fabricated by tests"
+}

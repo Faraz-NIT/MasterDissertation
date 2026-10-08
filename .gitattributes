@@ -1,0 +1,3 @@
+*.pdf binary
+study_results/** -text
+scripts/cloud_study/** -text

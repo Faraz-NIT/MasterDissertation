@@ -1,0 +1,1 @@
+{"assessor_sha256":"84491e0413fd03017bb0ab451d452afc62a62d6bd701fea5fca5461f3f606cea","errors":0,"failures":0,"passed":true,"scope":"Independent public/hybrid inverses, source authentication/hash refusal, validity/precedence, metadata attribution, numeric unit/quote/duplicate failure detection and selector current-source/anomaly instruction compliance","tests":11}

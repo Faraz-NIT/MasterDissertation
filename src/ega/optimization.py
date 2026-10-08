@@ -14,6 +14,11 @@ from .schemas import Snapshot, Forecast, ConstraintSet, Plan, Order, Transfer, L
 from .constraints import lookup
 from .util import keyed_rng,digest
 
+def arrival_opportunity(snapshot: Snapshot, order) -> str:
+    """Remove only this simulator run's namespace; preserve the business order suffix."""
+    prefix=snapshot.lineage.run_id+':'
+    return order.order_id[len(prefix):] if order.order_id.startswith(prefix) else order.order_id
+
 def build_problem(snapshot: Snapshot, forecast: Forecast, constraints: ConstraintSet,
                   config: SolverConfig, seed: int) -> dict:
     assert_lineage(snapshot,forecast,constraints)
@@ -44,7 +49,8 @@ def build_problem(snapshot: Snapshot, forecast: Forecast, constraints: Constrain
             if po.series_id not in index or not po.stock_line:continue
             i=index[po.series_id]
             if po.due_day is None:
-                rng=keyed_rng(seed,'unknown_po_arrival',snapshot.lineage.day,po.order_id,w)
+                opportunity=arrival_opportunity(snapshot,po) if config.unknown_arrival_rng=='v2_opportunity' else po.order_id
+                rng=keyed_rng(seed,'unknown_po_arrival',snapshot.lineage.day,opportunity,w)
                 # Conditional arrival AFTER today when overdue/unknown; never infer receipt into the past.
                 base=(po.ordered_day if po.ordered_day is not None else snapshot.lineage.day)+int(params['lead_time'][i])
                 offset=max(1,base-snapshot.lineage.day)+int(rng.integers(0,3))
@@ -55,6 +61,9 @@ def build_problem(snapshot: Snapshot, forecast: Forecast, constraints: Constrain
             assumptions.append({'source':'system_default','parameter':'arrival_offset','order_id':po.order_id,
                                 'rule':'max(1, order_day + lead - decision_day) + discrete_uniform(0,2)',
                                 'confidence':0.6})
+            if config.unknown_arrival_rng=='v2_opportunity':
+                assumptions[-1].update(sampling_key=arrival_opportunity(snapshot,po),
+                                       rng_version='v2_opportunity')
     edges=[]
     if config.allow_transfers:
         for i,s in enumerate(series):

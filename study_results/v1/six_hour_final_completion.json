@@ -1,0 +1,59 @@
+{
+  "all_required_stages_complete": true,
+  "checkout_sha": "bbe3bbcad24291994fbc70fb329f165d2d97bb96",
+  "comparison_group_runs": {
+    "numerical_7_days": 360,
+    "prose_feasibility_2_days": 8,
+    "structured_reference_2_days": 4
+  },
+  "elapsed_hours_to_export": 1.6718573602777778,
+  "export_scope": "Report, CSV, prepared panel, frozen configuration, original run summaries and 14 selected complete audit cases. Full numerical object archives and model weights remain outside this partial evidence export.",
+  "findings": {
+    "feed_gap_committed_plan_violations_B3": 63,
+    "feed_gap_committed_plan_violations_B4": 0,
+    "live_llm_executed_decisions": 0,
+    "live_llm_held_decisions": 8,
+    "llm_replenishment_benefit_established": false
+  },
+  "format": "m5-shortened-study-final-completion-v1",
+  "full_dissertation_complete": false,
+  "important_output_sha256": {
+    "results/report/M5_six_hour_study_report.html": "96eb1ca3fd1ec263526e9e82744fd5bdce2ada358506ed2e9ea9fecb4399c1a3",
+    "results/report/M5_six_hour_study_report.md": "c71258de86a1e00c95754bbb611f0bf50b3af4818beb244117e8563144b3b2fc",
+    "results/report/M5_six_hour_study_report.pdf": "e3aab72f8bbe2eced7b4b54cd3630eace763d1521cc464711554d5ad1dc298ba",
+    "results/report/M5_six_hour_study_report_data.json": "7f293b88d7926efb5476ae9c1a9872b29a127ae91631464ef1f0ce564a4bf8a7",
+    "results/report/M5_six_hour_study_report_input_hashes.json": "249ef55023d41b5f234770eee15cfc7689bb7e5a0e30e1a558998dfe72a8373f"
+  },
+  "llm_calls": 30,
+  "recorded_at_utc": "2026-10-07T21:41:18.686497+00:00",
+  "report_deadline_utc": "2026-10-08T02:01:00+00:00",
+  "report_refresh_repair": "The extension owner recorded a report-reader error after successful numerical completion. The report-only reader was corrected and the final UTC snapshot generated without resimulation or changes to experiment outputs.",
+  "report_snapshot_utc": "2026-10-07T21:36:28+00:00",
+  "report_warnings": [],
+  "requested_at_utc": "2026-10-07T20:01:00+00:00",
+  "scope": "shortened_six_hour",
+  "selected_complete_audit_cases": [
+    "results/six_hour_agentic_prose/B10__derived_field_collapse__seed0__origin0",
+    "results/six_hour_agentic_prose/B10__normal__seed0__origin0",
+    "results/six_hour_agentic_prose/B3__derived_field_collapse__seed0__origin0",
+    "results/six_hour_agentic_prose/B3__normal__seed0__origin0",
+    "results/six_hour_agentic_prose/B4__derived_field_collapse__seed0__origin0",
+    "results/six_hour_agentic_prose/B4__normal__seed0__origin0",
+    "results/six_hour_agentic_prose/B9__derived_field_collapse__seed0__origin0",
+    "results/six_hour_agentic_prose/B9__normal__seed0__origin0",
+    "results/six_hour_structured_controls/B3__derived_field_collapse__seed0__origin0",
+    "results/six_hour_structured_controls/B3__normal__seed0__origin0",
+    "results/six_hour_structured_controls/B4__derived_field_collapse__seed0__origin0",
+    "results/six_hour_structured_controls/B4__normal__seed0__origin0",
+    "results/six_hour_numeric/B3__feed_gap__seed0__origin0",
+    "results/six_hour_numeric/B4__feed_gap__seed0__origin0"
+  ],
+  "series": 30,
+  "source_grid_audit_valid": true,
+  "status": "COMPLETE",
+  "tokens": 112739,
+  "trace_count": 2544,
+  "tracked_checkout_changes": false,
+  "unique_runs": 372,
+  "within_six_hour_deadline": true
+}

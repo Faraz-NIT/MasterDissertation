@@ -1,0 +1,18 @@
+{
+  "fixture": "/tmp/m5_pack_test_5rxflfz3/B1__normal__seed0__origin0",
+  "original_objects": 367,
+  "retained_after_pack": 9,
+  "archive_bytes": 2417610,
+  "validated": [
+    "full original-byte/hash/archive filename verification",
+    "actual SQLite chain",
+    "first-three standard report",
+    "exact full restoration",
+    "idempotent pack/restore",
+    "conflicting file refusal",
+    "corrupt archive refusal",
+    "unknown scope refusal",
+    "symlink refusal"
+  ],
+  "actual_experiment_outputs_modified": false
+}

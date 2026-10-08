@@ -1,0 +1,172 @@
+{
+  "verified_at_utc": "2026-10-07T21:29:45.022374+00:00",
+  "scope": "Actual completed six-hour numerical and live local-LLM traces; four deliberately selected decision cases",
+  "mode": "Cached evidence/tool replay; no LLM recalled; no forecast retraining; no humanparticipants",
+  "results": [
+    {
+      "path": "results/six_hour_numeric/B3__feed_gap__seed0__origin0",
+      "policy": "B3",
+      "day": 1833,
+      "replay": {
+        "decision_id": "B3-feed_gap-seed0-origin0:day1833",
+        "chain_valid": true,
+        "state_certificate_matches": true,
+        "mode": "cached external evidence/tool replay; does not re-call the LLM or retrain forecasts",
+        "held": false,
+        "problem_reconstruction_matches": true,
+        "problem_wire_hash_matches": true,
+        "action_matches": true,
+        "independent_violations": [],
+        "recorded_action_hash": "86aac12d995dd82a860ca0992cb8b5d2678737a8b42b1b0953f87c451fed807c",
+        "replayed_action_hash": "86aac12d995dd82a860ca0992cb8b5d2678737a8b42b1b0953f87c451fed807c",
+        "objective_difference": 0.0,
+        "replay_status": "exact action match"
+      },
+      "trace_audit": {
+        "completeness": 1.0,
+        "consumption_precision": 1.0,
+        "consumption_recall": 0.9,
+        "artifacts_hash_verified": true,
+        "note": "Consumption is instrumentation evidence, not proof that every consumed field was decisive. No neural chain-of-thought claims."
+      },
+      "receipt": {
+        "action_hash": "86aac12d995dd82a860ca0992cb8b5d2678737a8b42b1b0953f87c451fed807c",
+        "decision_id": "B3-feed_gap-seed0-origin0:day1833",
+        "environment": "simulator",
+        "idempotency_key": "B3-feed_gap-seed0-origin0:day1833",
+        "order_ids": [
+          "B3-feed_gap-seed0-origin0:day1833:transfer:0",
+          "B3-feed_gap-seed0-origin0:day1833:transfer:1",
+          "B3-feed_gap-seed0-origin0:day1833:transfer:2",
+          "B3-feed_gap-seed0-origin0:day1833:transfer:3",
+          "B3-feed_gap-seed0-origin0:day1833:transfer:4",
+          "B3-feed_gap-seed0-origin0:day1833:transfer:5",
+          "B3-feed_gap-seed0-origin0:day1833:transfer:6",
+          "B3-feed_gap-seed0-origin0:day1833:transfer:7",
+          "B3-feed_gap-seed0-origin0:day1833:transfer:8",
+          "B3-feed_gap-seed0-origin0:day1833:transfer:9",
+          "B3-feed_gap-seed0-origin0:day1833:transfer:10",
+          "B3-feed_gap-seed0-origin0:day1833:transfer:11",
+          "B3-feed_gap-seed0-origin0:day1833:transfer:12",
+          "B3-feed_gap-seed0-origin0:day1833:po:FOODS_3_001@CA_1",
+          "B3-feed_gap-seed0-origin0:day1833:po:FOODS_3_001@CA_3"
+        ],
+        "status": "executed"
+      },
+      "ground_truth_constraint_artifact_present": true,
+      "required_evidence_deletion": {
+        "deleted_artifact": "forecast",
+        "reconstruction_blocked": true,
+        "interpretation": "Structural required-evidence deletion test, not a semantic LLM-context deletion or proof of causal importance."
+      },
+      "evaluator_artifact_ref": "68ce9fc70d39039ad347e81d3a7097de46e143a6dfd374459f173774541a7b0e",
+      "raw_true_problem_checks": [
+        "lineage_mismatch",
+        "transfer_availability"
+      ],
+      "independent_true_problem_violations": [
+        "transfer_availability"
+      ],
+      "true_problem_check_matches_recorded_evaluator": true,
+      "truth_note": "Hidden simulator true planning problem is written only after the agent decision, outside model context. Match production evaluator by aligning only comparison lineage metadata to recorded plan; all physical/economic constraints and quantities remain unchanged."
+    },
+    {
+      "path": "results/six_hour_numeric/B4__feed_gap__seed0__origin0",
+      "policy": "B4",
+      "day": 1833,
+      "replay": {
+        "decision_id": "B4-feed_gap-seed0-origin0:day1833",
+        "chain_valid": true,
+        "state_certificate_matches": true,
+        "mode": "cached external evidence/tool replay; does not re-call the LLM or retrain forecasts",
+        "held": true,
+        "action_matches": true,
+        "replay_status": "reproduced fail-closed held decision"
+      },
+      "trace_audit": {
+        "completeness": 1.0,
+        "consumption_precision": 0.6666666666666666,
+        "consumption_recall": 0.8,
+        "artifacts_hash_verified": true,
+        "note": "Consumption is instrumentation evidence, not proof that every consumed field was decisive. No neural chain-of-thought claims."
+      },
+      "receipt": {
+        "action_hash": "bb60880168e29f06db29ebca5101a43aa3b7cabaf7616fb91fb5624eaea3bafa",
+        "decision_id": "B4-feed_gap-seed0-origin0:day1833",
+        "environment": "simulator",
+        "idempotency_key": "B4-feed_gap-seed0-origin0:day1833",
+        "order_ids": [],
+        "status": "held"
+      },
+      "ground_truth_constraint_artifact_present": true,
+      "evaluator_artifact_ref": "26be13a50e80962f999c72baa5f2bc6647d5e20e0d68477f614201d3ff30e4a2",
+      "raw_true_problem_checks": [
+        "lineage_mismatch"
+      ],
+      "independent_true_problem_violations": [],
+      "true_problem_check_matches_recorded_evaluator": true,
+      "truth_note": "Hidden simulator true planning problem is written only after the agent decision, outside model context. Match production evaluator by aligning only comparison lineage metadata to recorded plan; all physical/economic constraints and quantities remain unchanged."
+    },
+    {
+      "path": "results/six_hour_agentic_prose/B10__derived_field_collapse__seed0__origin0",
+      "policy": "B10",
+      "day": 1830,
+      "mode": "actual completed live local-LLM decision; cached replay only",
+      "replay": {
+        "decision_id": "B10-derived_field_collapse-seed0-origin0:day1830",
+        "chain_valid": true,
+        "state_certificate_matches": true,
+        "mode": "cached external evidence/tool replay; does not re-call the LLM or retrain forecasts",
+        "held": true,
+        "action_matches": true,
+        "replay_status": "reproduced fail-closed held decision"
+      },
+      "trace_audit": {
+        "completeness": 1.0,
+        "consumption_precision": 1.0,
+        "consumption_recall": 0.8888888888888888,
+        "artifacts_hash_verified": true,
+        "note": "Consumption is instrumentation evidence, not proof that every consumed field was decisive. No neural chain-of-thought claims."
+      },
+      "ground_truth_constraint_artifact_present": true,
+      "evaluator_artifact_ref": "4e53e9b2730f3c06ca7a6e4ce051f61e0fc78f5327106148b98cdb2746a1df9b",
+      "raw_true_problem_checks": [
+        "lineage_mismatch"
+      ],
+      "independent_true_problem_violations": [],
+      "true_problem_check_matches_recorded_evaluator": true,
+      "truth_note": "Hidden simulator true planning problem is written only after the agent decision, outside model context. Match production evaluator by aligning only comparison lineage metadata to recorded plan; all physical/economic constraints and quantities remain unchanged."
+    },
+    {
+      "path": "results/six_hour_agentic_prose/B10__derived_field_collapse__seed0__origin0",
+      "policy": "B10",
+      "day": 1831,
+      "mode": "actual completed live local-LLM decision; cached replay only",
+      "replay": {
+        "decision_id": "B10-derived_field_collapse-seed0-origin0:day1831",
+        "chain_valid": true,
+        "state_certificate_matches": true,
+        "mode": "cached external evidence/tool replay; does not re-call the LLM or retrain forecasts",
+        "held": true,
+        "action_matches": true,
+        "replay_status": "reproduced fail-closed held decision"
+      },
+      "trace_audit": {
+        "completeness": 1.0,
+        "consumption_precision": 0.6666666666666666,
+        "consumption_recall": 0.8,
+        "artifacts_hash_verified": true,
+        "note": "Consumption is instrumentation evidence, not proof that every consumed field was decisive. No neural chain-of-thought claims."
+      },
+      "ground_truth_constraint_artifact_present": true,
+      "evaluator_artifact_ref": "4994656f98a825e96c0798f11db438a7e6072922df430c5ff2d616e6f566f81e",
+      "raw_true_problem_checks": [
+        "lineage_mismatch"
+      ],
+      "independent_true_problem_violations": [],
+      "true_problem_check_matches_recorded_evaluator": true,
+      "truth_note": "Hidden simulator true planning problem is written only after the agent decision, outside model context. Match production evaluator by aligning only comparison lineage metadata to recorded plan; all physical/economic constraints and quantities remain unchanged."
+    }
+  ],
+  "limitation": "Four deliberately selected cases, not a random or full solver-replay audit. Cached action replay uses the observed problem; separate deterministic feasibility recheck uses post-decision evaluator true_problem with comparison lineage aligned as in production evaluator. Simulator physical fulfillment clamps infeasible transfer quantities, so violations describe committed plans rather than negative physical stock."
+}

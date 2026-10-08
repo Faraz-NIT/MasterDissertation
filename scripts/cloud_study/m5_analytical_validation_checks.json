@@ -1,0 +1,10 @@
+{
+  "fixture": "/tmp/m5_analytical_negative_5dnl1rqu",
+  "actual_experiment_outputs_modified": false,
+  "checks": [
+    "duplicate source phase refused despite claimed360 completion",
+    "changed analytical cache refused",
+    "unrecognized analytical format refused"
+  ],
+  "valid_full_grid_test": "pending actual extension completion; fixture is not counted as results"
+}

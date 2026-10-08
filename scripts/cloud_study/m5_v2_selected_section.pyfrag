@@ -1,0 +1,27 @@
+def selected_true_checks(traces,proofs,inventory):
+    """Check two trace plans against post-decision truth, without model input."""
+    from ega.schemas import Plan
+    from ega.optimization import check_plan
+    by_run={(p['arm'],p['run']):p for p in proofs}
+    selected=[]
+    normal=[t for t in traces if t['arm'].startswith('llm') and t['scenario']=='normal' and t['executed_nonzero_action']]
+    recovered=[t for t in traces if t['arm'].startswith('llm') and t.get('recovery_applied') and t['executed_nonzero_action']]
+    if normal:selected.append(('First actual normal model-enabled replenishment',normal[0]))
+    if recovered:selected.append(('First actual replenishment after model-selected deterministic recovery',recovered[0]))
+    elif any(t.get('recovery_applied') for t in traces):selected.append(('First recorded deterministic recovery (no model-recovery execution case available)',next(t for t in traces if t.get('recovery_applied'))))
+    if len(selected)<2:
+        used={(t['arm'],t['decision_id']) for reason,t in selected}
+        other=[t for t in traces if (t['arm'],t['decision_id']) not in used and t['optimizer_reached']]
+        if other:selected.append(('First additional optimizer trace',other[0]))
+    result=[]
+    for reason,row in selected[:2]:
+        proof=by_run[(row['arm'],row['run'])];reader=VerifiedReader(proof['path'],inventory)
+        trace=reader.load(row['trace_ref']);plan_ref=trace['references']['propose'];plan=Plan.model_validate(reader.load(plan_ref))
+        evaluation_ref=trace['evaluation'];evaluation=reader.load(evaluation_ref);true_problem=evaluation['true_problem']
+        raw=check_plan(plan,true_problem)
+        comparison={**true_problem,'lineage':plan.lineage.model_dump()}
+        aligned=check_plan(plan,comparison)
+        relevant=row['receipt_status']=='executed' and row['executed_nonzero_action']
+        if relevant and aligned!=evaluation['violations']:raise ValueError('Selected independently recomputed committed-plan violations differ from original evaluator')
+        result.append({'selection_reason':reason,'arm':row['arm'],'run':row['run'],'day':row['day'],'decision_id':row['decision_id'],'trace_ref':row['trace_ref'],'plan_ref':plan_ref,'evaluation_ref':evaluation_ref,'receipt_status':row['receipt_status'],'executed_nonzero_action':row['executed_nonzero_action'],'raw_true_problem_checks':raw,'metadata_aligned_true_problem_checks':aligned,'recorded_evaluation_violations':evaluation['violations'],'recomputed_metric_matches_evaluator':aligned==evaluation['violations'] if relevant else None,'alignment':'Only problem.lineage is set to the immutable plan.lineage, matching the registered evaluator comparison. Physical/economic state, sources, constraints, quantities and forecast values are unchanged. Evaluation truth remains post-decision and is never model context.'})
+    return result

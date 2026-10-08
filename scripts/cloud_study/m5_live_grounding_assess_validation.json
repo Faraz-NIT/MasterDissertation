@@ -1,0 +1,86 @@
+{
+  "schema_version": "m5-live-grounding-assessor-validation-v1",
+  "validated_at_utc": "2026-10-07T21:30:46.386352+00:00",
+  "helper_sha256": "58eba7606a6fbf39ec31d43561e63bb78ceaa77db2698e312f205a788a343eea",
+  "assessment_path": "/workspace/MasterDissertation/results/report/six_hour_live_grounding_assessment.json",
+  "assessment_sha256": "0e26b2e30231dec6d4658297d873004d47460b69398b6e57f2d23b3065cc5616",
+  "tests_passed": 10,
+  "test_file": "/tmp/test_m5_live_grounding_assess.py",
+  "tests": [
+    "Both public phrasings reconstruct and rerender typed numeric, conversion, unit, unicode and validity-range edge cases exactly",
+    "Malformed trailing prose is rejected",
+    "Incorrect source SHA is rejected",
+    "Noncanonical numeric source with valid changed SHA fails exact rerender",
+    "Unproven source truth and its returned rule are excluded with explicit denominators",
+    "Unsupported extra source rule is false without fabricating an omission",
+    "Duplicate exact return is separate from unique tuple precision",
+    "USD versus USD/unit yields one false and one omitted tuple plus unit mismatch",
+    "Explicitly truncated response is excluded with no numeric accuracy claim",
+    "Requested source differing from captured available payload is rejected"
+  ],
+  "actual_grid": {
+    "all_actual_sqlite_chains_valid": true,
+    "all_selected_artifacts_hash_verified": true,
+    "config_sha256": "f1c640212151b555f1b76a5ba6f18a2af81b2db19354544a704f4293369c657f",
+    "decision_days": 16,
+    "exact_grid": true,
+    "expected_runs": 8,
+    "merge_manifest_sha256": "5ea6d64841cf2bef102737656f65096749abb0a3c24e2a0b9a13c0c3468052b9",
+    "validated_runs": 8
+  },
+  "actual_request_counts": {
+    "total": 30,
+    "supplier_extraction": 28,
+    "roles": {
+      "state reconciliation agent": 2,
+      "supplier and constraint agent": 28
+    }
+  },
+  "actual_usage_totals": {
+    "completion_tokens": 13079,
+    "prompt_tokens": 99660,
+    "total_tokens": 112739
+  },
+  "actual_conditional_grounding": {
+    "additional_rules_for_known_sources": 0,
+    "duplicate_returned_rule_occurrences": 0,
+    "exact_tuples": 88,
+    "excluded_unproven_document_exposures": 0,
+    "expected_tuples_excluded_due_to_invalid_response": 0,
+    "expected_unique_tuples": 112,
+    "false_tuples": 7,
+    "field_mismatch_counts": {
+      "aggregation": 0,
+      "conversion": 0,
+      "entity": 0,
+      "parameter": 0,
+      "precedence": 0,
+      "scope": 0,
+      "source_ref": 0,
+      "unit": 7,
+      "valid_from": 0,
+      "valid_to": 0,
+      "value": 0
+    },
+    "invalid_response_requests": 0,
+    "omitted_submitted_tuples": 24,
+    "returned_rules": 95,
+    "returned_unique_tuples": 95,
+    "submitted_document_exposures": 112,
+    "truth_proven_document_exposures": 112,
+    "tuple_precision": 0.9263157894736842,
+    "tuple_recall": 0.7857142857142857,
+    "unknown_extra_source_rule_occurrences": 0,
+    "valid_response_requests": 28
+  },
+  "actual_coverage": {
+    "available_document_exposures_on_extraction_days": 1099,
+    "days_without_extraction_requests": 1,
+    "distinct_submitted_document_exposures_on_extraction_days": 112,
+    "extraction_decision_days": 7,
+    "llm_decision_days": 8,
+    "unprocessed_document_exposures_on_extraction_days": 987
+  },
+  "tracked_repository_status": "clean when inspected after assessor generation",
+  "read_only_execution": "No model calls, experiment launches, configuration edits or application edits. Only new assessment/helper/validation artifacts written."
+}

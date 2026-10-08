@@ -1,0 +1,47 @@
+def auxiliary_development(protocol_path,inventory):
+    root=Path(protocol_path).resolve().parent
+    selection_paths=sorted(root.glob('development_selection*.json'),key=lambda p:p.name)
+    if not selection_paths:return {}
+    current_path=root/'development_current_selection.json'
+    current=load_json(current_path) if current_path.exists() else load_json(selection_paths[-1])
+    if current_path.exists():inventory[str(current_path)]={'sha256':sha(current_path),'bytes':current_path.stat().st_size}
+    rounds=[];candidates=[];proofs=[];captured_artifacts=[];cache_probes=[]
+    for selection_path in selection_paths:
+        selected=load_json(selection_path);inventory[str(selection_path)]={'sha256':sha(selection_path),'bytes':selection_path.stat().st_size}
+        round_no=int(selected.get('round') or (int(re.search(r'round([0-9]+)',selection_path.name).group(1)) if re.search(r'round([0-9]+)',selection_path.name) else 1))
+        rounds.append({'round':round_no,'compact_output':selected.get('compact_output',False),'inventory_pilot_eligible':selected['inventory_pilot_eligible'],'selected_label':selected['selected_label'],'selected_at_utc':selected['selected_at_utc'],'source':str(selection_path),'development_day':selected.get('development_day',1700),'development_seed':selected.get('development_seed',4242)})
+        for candidate in selected.get('candidates',[]):
+            label=candidate['label']; path=root/'development'/(label if round_no==1 else f'{label}_round{round_no}')
+            reader=VerifiedReader(path,inventory);summary=reader.read_file(path/'summary.json')
+            if summary!=candidate:raise ValueError('Development candidate summary differs from frozen selection')
+            events,receipts,last=verify_chain(path/'artifacts/audit.sqlite')
+            inventory[str(path/'artifacts/audit.sqlite')]={'sha256':sha(path/'artifacts/audit.sqlite'),'bytes':(path/'artifacts/audit.sqlite').stat().st_size}
+            objects=reader.verify_all();captured=[];source_documents={}
+            for event in events:
+                ref=event['payload'].get('output');obj=reader.load(ref) if ref else {}
+                if event['stage']=='grounding_v2_sources':source_documents[event['decision_id']]={d['source_ref']:d for d in obj['documents']}
+                if event['stage'] in {'llm_request_response','llm_request_error'}:
+                    for payload in request_payloads(obj.get('request',{})):
+                        if discover_keys(payload):raise ValueError('Forbidden evaluator keys in development model context')
+                        for doc in payload.get('documents',[]):
+                            available=source_documents.get(event['decision_id'],{})
+                            if available.get(doc['source_ref'])!=doc:raise ValueError('Development model source differs from captured case source')
+                    if obj.get('kind')=='llm_call':
+                        captured.append(ref);captured_artifacts.append({'development_round':round_no,'candidate':label,'artifact_ref':ref,'artifact':obj})
+            if len(captured)!=int(summary['calls']) or len(captured)!=len(set(captured)):raise ValueError('Development fresh captured-call count differs')
+            selected_current=label==current.get('selected_label') and round_no==int(current.get('round') or 1)
+            candidates.append({'round':round_no,'compact_output':summary.get('compact_output',False),'label':label,'model':summary['model']['name'],'digest':summary['model']['digest'],'complete_case_successes':summary['complete_successes'],'cases':len(summary['cases']),'semantic_retries':summary['semantic_retries'],'client_errors':summary['client_errors'],'calls':summary['calls'],'tokens':summary['tokens'],'elapsed_seconds':summary['seconds'],'selected_for_evaluation':selected_current,'case_issues':[{'variant':c['variant'],'issues':c['issues'],'stats':c['stats']} for c in summary['cases']]})
+            proofs.append({'round':round_no,'candidate':label,'chain_events':len(events),'chain_final_hash':last,'objects':objects,'summary_sha256':sha(path/'summary.json')})
+            probe_path=path/'cache_probe.json'
+            if probe_path.exists():
+                probe=reader.read_file(probe_path);cache_probes.append({'round':round_no,'candidate':label,**probe})
+    work_log=root/'work_log.jsonl';work_proof={}
+    if work_log.exists():
+        previous='0'*64;count=0
+        for line in work_log.read_text().splitlines():
+            obj=json.loads(line);claimed=obj.pop('hash')
+            if obj.get('previous_hash')!=previous or digest(obj)!=claimed:raise ValueError('Global pilot work-log chain differs')
+            previous=claimed;count+=1
+        work_proof={'events':count,'final_hash':previous,'sha256':sha(work_log)}
+        inventory[str(work_log)]={'sha256':sha(work_log),'bytes':work_log.stat().st_size}
+    return {'selection':current,'rounds':rounds,'candidates':candidates,'candidate_audit_proofs':proofs,'development_captured_model_artifacts':captured_artifacts,'cache_probes':cache_probes,'global_work_log_proof':work_proof,'separate_from_inventory_run_counts':True}

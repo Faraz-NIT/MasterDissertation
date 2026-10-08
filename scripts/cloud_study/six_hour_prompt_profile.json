@@ -1,0 +1,5 @@
+{
+  "version": "six-hour-literal-identifiers-and-documented-rule-format-v1",
+  "development_only_selection": true,
+  "additional_conventions": "Copy entity, constraint_id and source_ref literally from the document. Preserve complete identifiers, including @ and store suffixes. Do not substitute an item_id for a series entity. Copy physical units literally: USD/unit differs from USD; m/unit differs from m. A RULE line is a positional carrier with fields in this exact order: constraint_id | entity | scope | parameter | value | unit | conversion | aggregation | valid_from | valid_to | precedence. Read the last field as precedence. Known entities supply identifiers only; they do not supply additional rules or values. Extract only source rules in the supplied documents."
+}

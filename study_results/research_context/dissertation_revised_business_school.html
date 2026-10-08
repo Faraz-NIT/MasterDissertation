@@ -1,0 +1,704 @@
+<title>Evidence-Gated Autonomy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F5F6F2; --ink:#1C2429; --muted:#5B6770; --rule:#D3D9D4;
+  --accent:#1E6E6A; --accent-soft:#E3EFEC; --code-bg:#ECEFEA; --thead:#E9EEEA;
+  --rail:#EEF1ED;
+  --serif:"Literata",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#12181B; --ink:#DEE3DF; --muted:#9AA6A3; --rule:#2B3538;
+    --accent:#74C4BC; --accent-soft:#1B2A2B; --code-bg:#1A2225; --thead:#1C2629; --rail:#151C1F;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12181B; --ink:#DEE3DF; --muted:#9AA6A3; --rule:#2B3538;
+  --accent:#74C4BC; --accent-soft:#1B2A2B; --code-bg:#1A2225; --thead:#1C2629; --rail:#151C1F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.page{display:grid;grid-template-columns:1fr;gap:0}
+@media (min-width:1040px){.page{grid-template-columns:260px minmax(0,1fr)}}
+.rail{display:none}
+@media (min-width:1040px){
+  .rail{display:block;position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--rail);
+    border-right:1px solid var(--rule);padding:28px 20px 40px;font-family:var(--sans);font-size:13px;line-height:1.45}
+}
+.rail .rail-title{font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:11px;color:var(--muted);margin:0 0 14px}
+.rail ol{list-style:none;margin:0;padding:0}
+.rail li{margin:0}
+.rail li.lvl2{margin-top:12px;font-weight:600}
+.rail li.lvl3{padding-left:12px;margin-top:3px;font-weight:400;color:var(--muted)}
+.rail a{color:inherit;text-decoration:none;display:block;padding:2px 0}
+.rail a:hover{color:var(--accent)}
+main{padding-block:40px 80px;padding-inline:clamp(16px,5vw,64px);min-width:0}
+.doc{max-width:70ch;margin:0 auto}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(28px,3.6vw,38px);line-height:1.18;letter-spacing:-.012em;
+  text-wrap:balance;margin:0 0 20px}
+h2{font-family:var(--serif);font-weight:600;font-size:26px;line-height:1.25;text-wrap:balance;margin:64px 0 16px;
+  padding-top:28px;border-top:1px solid var(--rule)}
+h2 .eyebrow{display:block;font-family:var(--sans);font-weight:500;font-size:12px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:8px}
+h3{font-family:var(--serif);font-weight:600;font-size:19.5px;line-height:1.3;text-wrap:balance;margin:36px 0 10px}
+h4{font-family:var(--sans);font-weight:600;font-size:15px;margin:24px 0 8px}
+p{margin:0 0 16px}
+p:first-of-type{margin-top:0}
+/* front matter */
+.doc > p:nth-of-type(1){font-family:var(--sans);font-size:14px;color:var(--muted);margin-bottom:6px}
+.doc > p:nth-of-type(2){font-family:var(--sans);font-size:14px;color:var(--muted);line-height:1.55;margin-bottom:24px}
+.lineage{font-family:var(--sans);font-size:13.5px;border:1px solid var(--rule);border-radius:4px;padding:14px 16px;
+  margin:0 0 36px;display:grid;grid-template-columns:auto 1fr;column-gap:18px;row-gap:6px;background:var(--accent-soft)}
+.lineage dt{color:var(--muted);font-weight:500;letter-spacing:.02em}
+.lineage dd{margin:0;font-variant-numeric:tabular-nums}
+.lineage .lin-head{grid-column:1/-1;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:2px}
+hr{border:0;border-top:1px solid var(--rule);margin:40px 0}
+ul,ol{padding-left:1.35em;margin:0 0 18px}
+li{margin:0 0 8px}
+li::marker{color:var(--muted)}
+strong{font-weight:600}
+code{font-family:var(--mono);font-size:.88em;background:var(--code-bg);padding:1px 5px;border-radius:3px}
+.code-wrap{overflow-x:auto;margin:0 0 20px}
+pre{margin:0;background:var(--code-bg);border:1px solid var(--rule);border-radius:4px;padding:16px 18px;
+  font-family:var(--mono);font-size:13px;line-height:1.55}
+pre code{background:none;padding:0;font-size:inherit}
+.table-wrap{overflow-x:auto;margin:6px 0 8px}
+table{border-collapse:collapse;width:100%;font-family:var(--sans);font-size:14px;line-height:1.45;min-width:520px}
+thead th{text-align:left;font-weight:600;background:var(--thead);border-bottom:1.5px solid var(--rule);padding:10px 12px;vertical-align:bottom}
+tbody td{padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5px solid var(--rule)}
+td:first-child,th:first-child{padding-left:8px}
+p.caption{font-family:var(--sans);font-size:13px;color:var(--muted);margin:8px 0 28px}
+p.caption em{font-style:normal}
+.refs p{font-size:15px;padding-left:1.6em;text-indent:-1.6em;margin-bottom:12px;overflow-wrap:anywhere}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+@media (max-width:600px){body{font-size:16px} h2{font-size:23px;margin-top:48px} table{font-size:13px}}
+</style>
+<div class="page">
+  <nav class="rail" aria-label="Contents">
+    <p class="rail-title">Contents</p>
+    <ol><li class="lvl2"><a href="#abstract">Abstract</a></li><li class="lvl2"><a href="#chapter-1-introduction">Introduction</a></li><li class="lvl3"><a href="#11-replenishment-as-a-sequential-decision-under-uncertainty">1.1 Replenishment as a Sequential Decision under Uncertainty</a></li><li class="lvl3"><a href="#12-two-gaps-semantic-and-evidential">1.2 Two Gaps: Semantic and Evidential</a></li><li class="lvl3"><a href="#13-lessons-from-operating-replenishment-data-at-scale">1.3 Operational Grounding from Retail Standards and Prior Research</a></li><li class="lvl3"><a href="#14-the-promise-and-perils-of-llm-agents-in-supply-chains">1.4 The Promise and Perils of LLM Agents in Supply Chains</a></li><li class="lvl3"><a href="#15-problem-statement-and-scope">1.5 Problem Statement and Scope</a></li><li class="lvl3"><a href="#16-research-questions-and-hypotheses">1.6 Research Questions and Hypotheses</a></li><li class="lvl3"><a href="#17-contributions-and-structure">1.7 Contributions and Structure</a></li><li class="lvl2"><a href="#chapter-2-literature-review">Literature Review</a></li><li class="lvl3"><a href="#21-inventory-control-theory-and-the-bullwhip-effect">2.1 Inventory Control Theory and the Bullwhip Effect</a></li><li class="lvl3"><a href="#22-inventory-record-inaccuracy-censored-demand-and-data-quality">2.2 Inventory Record Inaccuracy, Censored Demand, and Data Quality</a></li><li class="lvl3"><a href="#23-probabilistic-hierarchical-and-intermittent-retail-forecasting">2.3 Probabilistic, Hierarchical, and Intermittent Retail Forecasting</a></li><li class="lvl3"><a href="#24-tool-augmented-llms-and-multi-agent-coordination">2.4 Tool-Augmented LLMs and Multi-Agent Coordination</a></li><li class="lvl3"><a href="#25-llm-agents-for-supply-chain-and-inventory-decisions">2.5 LLM Agents for Supply-Chain and Inventory Decisions</a></li><li class="lvl3"><a href="#26-explainability-decision-traces-and-faithfulness">2.6 Explainability, Decision Traces, and Faithfulness</a></li><li class="lvl3"><a href="#27-humanautomation-interaction-and-graded-autonomy">2.7 Human–Automation Interaction and Graded Autonomy</a></li><li class="lvl3"><a href="#28-research-gap">2.8 Research Gap</a></li><li class="lvl2"><a href="#chapter-3-operational-grounding-replenishment-data-in-practice">Operational Grounding: Replenishment Data in Practice</a></li><li class="lvl3"><a href="#31-setting-and-method">3.1 Setting and Method</a></li><li class="lvl3"><a href="#32-the-canonical-replenishment-data-model">3.2 The Canonical Replenishment Data Model</a></li><li class="lvl3"><a href="#33-how-replenishment-state-is-produced">3.3 How Replenishment State Is Produced</a></li><li class="lvl3"><a href="#34-a-taxonomy-of-state-quality-failures">3.4 A Taxonomy of State-Quality Failures</a></li><li class="lvl3"><a href="#35-a-taxonomy-of-constraints-as-they-arrive">3.5 A Taxonomy of Constraints as They Arrive</a></li><li class="lvl3"><a href="#36-decision-context-specifics">3.6 Decision Context Specifics</a></li><li class="lvl3"><a href="#37-design-implications">3.7 Design Implications</a></li><li class="lvl2"><a href="#chapter-4-methodology-and-architecture">Methodology and Architecture</a></li><li class="lvl3"><a href="#41-research-design">4.1 Research Design</a></li><li class="lvl3"><a href="#42-formal-replenishment-problem">4.2 Formal Replenishment Problem</a></li><li class="lvl3"><a href="#43-blackboard-architecture-over-a-canonical-schema">4.3 Blackboard Architecture over a Canonical Schema</a></li><li class="lvl3"><a href="#44-agents-and-their-verifiable-outputs">4.4 Agents and Their Verifiable Outputs</a></li><li class="lvl3"><a href="#45-coordination-protocol">4.5 Coordination Protocol</a></li><li class="lvl3"><a href="#46-state-reconciliation-and-the-data-quality-score">4.6 State Reconciliation and the Data-Quality Score</a></li><li class="lvl3"><a href="#47-constraint-extraction-and-verification">4.7 Constraint Extraction and Verification</a></li><li class="lvl3"><a href="#48-forecasting-module">4.8 Forecasting Module</a></li><li class="lvl3"><a href="#49-optimization-and-policy-tools">4.9 Optimization and Policy Tools</a></li><li class="lvl3"><a href="#410-evidence-gated-autonomy-and-safety-controls">4.10 Evidence-Gated Autonomy and Safety Controls</a></li><li class="lvl3"><a href="#411-native-structured-decision-trace-with-lineage">4.11 Native Structured Decision Trace with Lineage</a></li><li class="lvl2"><a href="#chapter-5-experimental-design-and-evaluation-protocol">Experimental Design and Evaluation Protocol</a></li><li class="lvl3"><a href="#51-data-the-m5-retail-hierarchy">5.1 Data: The M5 Retail Hierarchy</a></li><li class="lvl3"><a href="#52-mapping-m5-into-the-canonical-data-model">5.2 Mapping M5 into the Canonical Data Model</a></li><li class="lvl3"><a href="#53-disturbance-layers">5.3 Disturbance Layers</a></li><li class="lvl3"><a href="#54-inventory-initialization-and-simulation-state">5.4 Inventory Initialization and Simulation State</a></li><li class="lvl3"><a href="#55-baseline-policies-and-ablations">5.5 Baseline Policies and Ablations</a></li><li class="lvl3"><a href="#56-evaluation-metrics">5.6 Evaluation Metrics</a></li><li class="lvl3"><a href="#57-trace-faithfulness-evaluation">5.7 Trace Faithfulness Evaluation</a></li><li class="lvl3"><a href="#58-stress-tests-and-robustness-scenarios">5.8 Stress Tests and Robustness Scenarios</a></li><li class="lvl3"><a href="#59-human-audit-study">5.9 Human Audit Study</a></li><li class="lvl3"><a href="#510-statistical-analysis">5.10 Statistical Analysis</a></li><li class="lvl2"><a href="#chapter-6-expected-findings-and-implications">Expected Findings and Managerial Implications</a></li><li class="lvl3"><a href="#61-operational-performance-under-clean-state">6.1 Operational Performance under Clean State</a></li><li class="lvl3"><a href="#62-where-failures-originate-evidence-gating-versus-critic-review">6.2 Where Failures Originate: Evidence Gating versus Critic Review</a></li><li class="lvl3"><a href="#63-constraint-grounding">6.3 Constraint Grounding</a></li><li class="lvl3"><a href="#64-specialization-typed-state-and-coordination-cost">6.4 Specialization, Typed State, and Coordination Cost</a></li><li class="lvl3"><a href="#65-trace-faithfulness-and-human-audit">6.5 Trace Faithfulness and Human Audit</a></li><li class="lvl3"><a href="#66-transferability-and-managerial-implications">6.6 Transferability and Managerial Implications</a></li><li class="lvl2"><a href="#chapter-7-ethical-safety-and-governance-considerations">Ethical, Safety, and Governance Considerations</a></li><li class="lvl3"><a href="#71-automation-bias-and-accountability">7.1 Automation Bias and Accountability</a></li><li class="lvl3"><a href="#72-data-quality-as-a-safety-property">7.2 Data Quality as a Safety Property</a></li><li class="lvl3"><a href="#73-security-and-prompt-injection">7.3 Security and Prompt Injection</a></li><li class="lvl3"><a href="#74-supplier-concentration">7.4 Supplier Concentration</a></li><li class="lvl3"><a href="#75-environmental-and-economic-externalities">7.5 Environmental and Economic Externalities</a></li><li class="lvl3"><a href="#76-limitations">7.6 Limitations</a></li><li class="lvl2"><a href="#chapter-8-conclusion">Conclusion</a></li><li class="lvl3"><a href="#81-summary-of-contributions">8.1 Summary of Contributions</a></li><li class="lvl3"><a href="#82-limitations">8.2 Limitations</a></li><li class="lvl3"><a href="#83-future-directions">8.3 Future Directions</a></li><li class="lvl2"><a href="#references">References</a></li><li class="lvl2"><a href="#appendix-a-summary-of-revisions-relative-to-the-previous-draft">Summary of Revisions Relative to the Previous Draft</a></li></ol>
+  </nav>
+  <main>
+    <article class="doc">
+
+      <h1 id="evidence-gated-autonomy-for-retail-replenishment-a-constraint-grounded-llm-multi-agent-system-with-verifiable-decision-traces">Evidence-Gated Autonomy for Retail Replenishment: A Constraint-Grounded LLM Multi-Agent System with Verifiable Decision Traces</h1>
+      <p><strong>A Research Dissertation (revised business-school draft, October 2026)</strong></p>
+      <p><strong>Keywords:</strong> large language model agents; multi-agent systems; retail replenishment; inventory record inaccuracy; data quality; probabilistic forecasting; stochastic optimization; supply-chain planning; decision trace; explainability; graded autonomy; human oversight</p>
+      <dl class="lineage">
+        <div class="lin-head">Document positioning</div>
+        <dt>Research approach</dt><dd>Design science with controlled simulation and human-audit evaluation</dd>
+        <dt>Empirical benchmark</dt><dd>Public M5 retail dataset only; no proprietary retailer data</dd>
+        <dt>Operational grounding</dt><dd>Academic literature and established retail/supply-chain data standards</dd>
+        <dt>Managerial focus</dt><dd>Safe adoption, governance, auditability, and the conditions under which autonomy should be granted</dd>
+      </dl>
+      <hr>
+
+      <h2 id="abstract">Abstract</h2>
+      <p>Retail replenishment looks simple when it is reduced to a forecasting problem: estimate demand, compare it with available stock, and place an order. In practice, however, the decision is spread across several systems and several kinds of evidence. Sales history may be incomplete, inventory records may not match physical stock, open purchase orders may have uncertain arrival dates, and supplier rules may be expressed in contracts, spreadsheets, or emails rather than in a form that an optimizer can use directly. These issues matter because a technically correct optimization model can still produce a poor business decision when the information entering the model is stale, inconsistent, or misunderstood.</p>
+      <p>This dissertation examines whether large language model (LLM) agents can help coordinate this fragmented decision process without being given unchecked authority over operational actions. The study proposes a hybrid multi-agent architecture in which language models interpret documents, coordinate specialist tasks, and prepare explanations, while deterministic tools remain responsible for forecasting calculations, data-quality checks, unit validation, optimization, and feasibility. A central design principle is <em>evidence-gated autonomy</em>: the level of automation granted to a replenishment decision depends not only on the economic value or risk of the order, but also on the quality of the data and the confidence of the active constraints.</p>
+      <p>The design is grounded in existing research and industry standards rather than in a proprietary operating environment. The canonical replenishment schema used by the agents is a research abstraction informed by the ARTS Operational Data Model, GS1 master-data and visibility standards, and the literature on retail inventory, data integration, and data quality. These sources motivate a common set of entities—items, locations, suppliers, prices, sales, inventory, orders, transfers, and time-stamped state—and also motivate checks for completeness, timeliness, consistency, referential integrity, unit compatibility, and inventory record accuracy. The schema is therefore not presented as a new industry standard; it is a deliberately compact interface that translates established retail concepts into a form suitable for controlled experimentation.</p>
+      <p>The proposed system is evaluated on the public M5 retail hierarchy. Because M5 contains sales and prices but not inventory, suppliers, purchase orders, or operational data-quality failures, the benchmark is extended with transparent, versioned simulation layers. The disturbances are derived from the failure categories documented in inventory-record, ETL, and data-quality research, and are tested across low, medium, and high severity rather than being presented as proprietary empirical frequencies. The evaluation compares classical replenishment policies, forecast-plus-optimizer pipelines, rule-based data-quality gates, and several LLM-agent baselines on operating cost, service level, bullwhip amplification, constraint violations, harmful-order rate, reliability, and auditability. The intended contribution is both technical and managerial: a way to determine when agentic AI should assist, when it should escalate, and when it should be allowed to act.</p>
+      <hr>
+
+      <h2 id="chapter-1-introduction"><span class="eyebrow">Chapter 1</span>Introduction</h2>
+
+      <h3 id="11-replenishment-as-a-sequential-decision-under-uncertainty">1.1 Replenishment as a Sequential Decision under Uncertainty</h3>
+      <p>Inventory replenishment is a repeated business decision made under uncertainty. A retailer has to estimate future demand, understand what stock is actually available, account for goods already on order, respect supplier and budget constraints, and decide how much to buy before the consequences of that decision are fully known. Ordering too much ties up working capital and can lead to markdowns, obsolescence, or waste. Ordering too little creates stockouts, lost sales, and poor customer experience. The decision is therefore not simply about forecast accuracy; it is about balancing service, cost, cash, and operational risk over time.</p>
+      <p>Classical inventory theory provides a strong foundation for this problem. Base-stock policies, (s, S) policies, multi-echelon models, and stochastic dynamic programming provide transparent rules under clearly defined assumptions (Clark &amp; Scarf, 1960; Zipkin, 2000). These models remain valuable because they make the trade-offs explicit and, unlike a generative model, they can guarantee feasibility when the assumptions and inputs are valid. Retail environments, however, regularly challenge those assumptions through changing assortments, intermittent demand, promotions, uncertain lead times, pack-size restrictions, supplier minimums, and incomplete information about stock and open orders.</p>
+
+      <h3 id="12-two-gaps-semantic-and-evidential">1.2 Two Gaps: Semantic and Evidential</h3>
+      <p>Modern retailers already have access to strong forecasting and optimization methods. Probabilistic forecasting models can estimate distributions rather than point forecasts, while mathematical optimization can convert those forecasts into order quantities subject to capacity, budget, pack, and service constraints. Yet two practical gaps remain between a model output and an executable purchase order.</p>
+      <p>The first is a <strong>semantic gap</strong>. Business constraints are not always stored as clean parameters. A minimum order may be defined at supplier level rather than SKU level; a case-pack rule may use a different unit from the selling unit; an assortment decision may determine whether an item is eligible for a store at all; and a temporary capacity change may arrive in a document rather than in a database field. The challenge is not only to read these rules, but to translate them into precise, testable constraints.</p>
+      <p>The second is an <strong>evidential gap</strong>. The optimization model normally treats its inventory position, open orders, prices, and sales history as facts. Research on inventory record inaccuracy shows that this assumption is often unsafe. DeHoratius and Raman (2008), for example, found substantial discrepancies between recorded and actual inventory in a large retail sample, while other work shows that even modest inaccuracies can materially affect automated replenishment decisions (Kang &amp; Gershwin, 2005; DeHoratius, Mersereau, &amp; Schrage, 2008). Data-integration research adds another layer: when information is assembled from heterogeneous systems, quality problems can arise through missing values, duplicates, failed ETL stages, inconsistent keys, stale data, or inconsistent representation (Rahm &amp; Do, 2000; Woodall et al., 2016; Souibgui et al., 2019).</p>
+      <p>This dissertation argues that agentic automation in replenishment has to address both gaps. An AI system should not merely understand the rule and optimize the order. It should first establish whether the evidence on which the order is based is sufficiently trustworthy.</p>
+
+      <h3 id="13-lessons-from-operating-replenishment-data-at-scale">1.3 Operational Grounding from Retail Standards and Prior Research</h3>
+      <p>The operational design of this study is grounded in a synthesis of retail standards, supply-chain research, and data-quality literature. The ARTS Operational Data Model provides a retail-specific view of items, supplier relationships, sales transactions, inventory, receipts, and transfers, and is explicitly intended to support integration across retail applications (Object Management Group, n.d.). GS1 standards make a complementary distinction between relatively stable master data, business transaction data, and time-stamped visibility events, while the GS1 Global Data Model standardizes foundational product attributes used across the product life cycle (GS1, 2022, 2026). Together, these sources provide a defensible basis for the common entities and lineage concepts used in the dissertation's canonical schema.</p>
+      <p>The literature also suggests that the reliability of those entities cannot be taken for granted. Wang and Strong (1996) frame data quality as broader than accuracy alone, including dimensions such as completeness, timeliness, and consistency. Research on ETL and data integration shows that heterogeneous sources introduce duplicate records, missing values, schema conflicts, transformation errors, and delays (Rahm &amp; Do, 2000; Yang, Ge, &amp; Helfert, 2017; Souibgui et al., 2019). In retail operations, inaccurate inventory records are particularly important because an automated ordering policy can repeatedly act on a false stock position (DeHoratius &amp; Raman, 2008).</p>
+      <p>These findings lead to three design choices that recur throughout the dissertation. First, the replenishment system operates on a common, versioned decision state rather than reading directly from heterogeneous source systems. Second, data quality is treated as an operational input to the decision rather than as a separate reporting concern. Third, a decision trace records not only the recommendation but also the data version, constraints, model outputs, and verification steps that produced it. In other words, the research starts from a managerial question—<em>when should the organization trust automation enough to let it act?</em>—and turns that question into a technical control architecture.</p>
+
+      <h3 id="14-the-promise-and-perils-of-llm-agents-in-supply-chains">1.4 The Promise and Perils of LLM Agents in Supply Chains</h3>
+      <p>LLM agents are attractive in this setting because they can work across the boundary between structured computation and unstructured business information. ReAct demonstrated how a language model can alternate between reasoning and external tool use (Yao et al., 2023), while AutoGen formalized multi-agent collaboration with different roles and tools (Wu et al., 2023). In supply-chain settings, systems such as OptiGuide use a language model as an interface to established optimization tools rather than as a substitute for them (Li et al., 2023). More recent work explores multi-agent inventory decisions, consensus, memory, and solver-assisted repair (Quan &amp; Liu, 2024; Jannelli et al., 2024; Yoshizato et al., 2026; Ao, Simchi-Levi, &amp; Wang, 2026).</p>
+      <p>At the same time, the risks are significant. Agentic models can be inconsistent across repeated runs, can reproduce human-like biases in inventory decisions, and can generate convincing explanations that do not faithfully reflect the cause of the output (Turpin et al., 2023; Zhao et al., 2025; Long et al., 2026). Documents supplied by external parties can also contain instructions that function as indirect prompt injections (Greshake et al., 2023). These limitations suggest a conservative design principle: the LLM should interpret and coordinate, but deterministic tools should decide whether the numbers are valid, the constraints are satisfied, and the action is permitted.</p>
+
+      <h3 id="15-problem-statement-and-scope">1.5 Problem Statement and Scope</h3>
+      <p>The research problem is therefore not whether an LLM can generate an order quantity. It is whether an agentic system can combine the flexibility of language models with the discipline of formal decision tools while remaining governable in an operational setting. The system must be able to work with imperfect evidence, translate heterogeneous business rules into formal constraints, distinguish between low-risk and high-risk decisions, and leave an audit trail that a manager can verify after the fact.</p>
+      <p>The dissertation focuses on operational replenishment for item-location-supplier combinations in a multi-period, multi-store setting. It considers stochastic and intermittent demand, uncertain lead times, pack multiples, supplier minimums, assortment eligibility, capacity and budget constraints, lateral transfers, and data-quality degradation. It does not attempt to solve strategic network design or the full pre-season fashion-buying problem. Autonomous execution is evaluated only in simulation; the managerial recommendation for real organizations is staged adoption with approval gates.</p>
+
+      <h3 id="16-research-questions-and-hypotheses">1.6 Research Questions and Hypotheses</h3>
+      <p>The central research question is: <strong>Can an LLM multi-agent replenishment system deliver useful decisions while granting autonomy only when the underlying evidence and constraints have been sufficiently verified?</strong></p>
+      <p>This question is developed through seven sub-questions.</p>
+      <ul>
+        <li><strong>RQ1 — Performance.</strong> How does the proposed system compare with classical and forecast-plus-optimizer baselines on total cost, service, stockouts, and bullwhip amplification when the data state is clean?</li>
+        <li><strong>RQ2 — Evidence quality.</strong> When the observed state is degraded, does evidence-gated autonomy reduce harmful executed orders relative to systems that continue operating with fixed autonomy?</li>
+        <li><strong>RQ3 — Constraint grounding.</strong> How accurately can the system translate realistic replenishment constraints—such as pack sizes, supplier minimums, unit conversions, and assortment eligibility—into typed, verifiable rules?</li>
+        <li><strong>RQ4 — Architecture.</strong> What value is added by specialist roles, typed shared state, critic review, and memory, and what coordination cost do these mechanisms introduce?</li>
+        <li><strong>RQ5 — Reliability.</strong> How often does the system violate hard constraints, fail to use tools correctly, or produce materially different outcomes across equivalent runs?</li>
+        <li><strong>RQ6 — Trace faithfulness.</strong> Can the decision trace be replayed and tested so that the stated evidence genuinely corresponds to the action taken?</li>
+        <li><strong>RQ7 — Human audit.</strong> Does a structured trace with lineage help reviewers detect poor decisions more quickly and with better calibrated trust than a free-form explanation?</li>
+      </ul>
+      <p>The hypotheses are deliberately framed so that they can be falsified.</p>
+      <ul>
+        <li><strong>H1.</strong> A tool-grounded multi-agent system will outperform an LLM-only policy on operating cost and reliability, while remaining close to a well-specified stochastic optimizer when the data are clean.</li>
+        <li><strong>H2.</strong> Independent critic checks will reduce hard-constraint violations and high-cost tail events, but will increase latency and computational cost.</li>
+        <li><strong>H3.</strong> Typed shared state will reduce grounding errors and invalid tool use relative to free-form agent communication.</li>
+        <li><strong>H4.</strong> Under state-quality disturbances, evidence-gated autonomy will reduce the harmful-execution rate relative to fixed-autonomy variants. Deterministic checks will capture most simple failures; language-model reasoning will add most value where multiple sources or documents must be reconciled.</li>
+        <li><strong>H5.</strong> Constraint extraction will be strongest for explicit, templated rules and weaker for coupled constraints, unit conversions, and ambiguous document conventions. Deterministic validation and escalation will prevent most residual errors from reaching the optimizer.</li>
+        <li><strong>H6.</strong> Structured traces will achieve higher replay consistency, evidence completeness, and counterfactual sensitivity than free-form rationales.</li>
+        <li><strong>H7.</strong> Reviewers given lineage-bearing traces will identify decisions made on degraded evidence more accurately and more quickly than reviewers given only narrative explanations.</li>
+        <li><strong>H8.</strong> Under severe demand, supply, or data shocks, bounded autonomy with escalation will produce higher safety-adjusted utility than unrestricted autonomous execution.</li>
+      </ul>
+
+      <h3 id="17-contributions-and-structure">1.7 Contributions and Structure</h3>
+      <p>The dissertation makes six intended contributions. First, it translates retail standards and prior research into a compact canonical data model for experimental replenishment. Second, it treats evidence quality as a control variable in the autonomy decision rather than as a background data-engineering concern. Third, it proposes a hybrid agent architecture in which language models interpret and coordinate while deterministic tools certify state, constraints, and optimization. Fourth, it extends the M5 benchmark with transparent supply, assortment, and data-quality disturbances. Fifth, it evaluates explanation as a replayable decision trace rather than as persuasive prose. Finally, it develops a staged managerial adoption model in which deterministic controls are introduced before bounded agentic autonomy.</p>
+      <hr>
+
+      <h2 id="chapter-2-literature-review"><span class="eyebrow">Chapter 2</span>Literature Review</h2>
+
+      <h3 id="21-inventory-control-theory-and-the-bullwhip-effect">2.1 Inventory Control Theory and the Bullwhip Effect</h3>
+      <p>Inventory theory provides the economic core of this dissertation. At its simplest, replenishment balances the cost of holding stock against the cost of running short. In multi-period and multi-location settings, that trade-off becomes more difficult because today's order changes tomorrow's inventory position and can affect other parts of the supply chain. Clark and Scarf (1960) established important results for multi-echelon systems, while later work consolidated practical policies such as base-stock and (s, S) control (Zipkin, 2000).</p>
+      <p>A second strand of literature shows why locally reasonable decisions can create instability at system level. Sterman (1989) demonstrated how decision delays and misperceptions generate oscillation in the Beer Game. Lee, Padmanabhan, and Whang (1997) described the bullwhip effect through demand-signal processing, order batching, rationing games, and price variation, and Chen et al. (2000) quantified the role of forecasting and lead time. This matters for AI-enabled replenishment because a policy should not be judged only by the accuracy of one order. A system that appears efficient item by item may still generate excessive upstream volatility.</p>
+      <p>Recent research suggests that agentic AI does not automatically remove this problem. Long et al. (2026) report that stochastic LLM decision-making can itself become a source of order variability, producing what they call an agent bullwhip effect. The implication for this dissertation is straightforward: reliability must be evaluated over repeated runs and over the full sequence of decisions, not inferred from a few plausible examples.</p>
+      <p>Lateral transshipment provides another useful control mechanism. When stores belong to the same network, a local shortage can sometimes be addressed by moving inventory rather than placing a new supplier order. Paterson et al. (2011) review a substantial literature on this topic. The simulator therefore allows transfers between eligible locations as a secondary action, which makes the setting closer to a networked retail decision than a single-stockpoint problem.</p>
+
+      <h3 id="22-inventory-record-inaccuracy-censored-demand-and-data-quality">2.2 Inventory Record Inaccuracy, Censored Demand, and Data Quality</h3>
+      <p>The quality of the recorded state is central to automated replenishment. DeHoratius and Raman (2008) found that a large share of audited store-item inventory records in their retail sample differed from the physical quantity. Kang and Gershwin (2005) showed that such discrepancies can have an outsized effect on stockouts because an automated system may continue to believe that stock is available when it is not. DeHoratius, Mersereau, and Schrage (2008) further show that explicitly accounting for record uncertainty can improve both replenishment and audit decisions. Together, these studies justify treating inventory accuracy as part of the decision problem rather than as a separate control activity.</p>
+      <p>Sales data create another evidential problem. A sale records a transaction, not necessarily the full demand that would have occurred if stock had always been available. In lost-sales settings, demand is censored during stockouts, which can bias forecasts downward (Nahmias, 1994). Intermittent demand adds further difficulty because many item-location series contain long sequences of zeros, for which traditional forecasting methods can perform poorly (Croston, 1972; Syntetos &amp; Boylan, 2005).</p>
+      <p>Information-systems research broadens the discussion beyond inventory accuracy. Wang and Strong (1996) argue that users assess data through dimensions including accuracy, completeness, timeliness, and consistency. Data-integration research reaches a similar conclusion from a process perspective: heterogeneous sources create missing values, duplicates, inconsistent representations, schema conflicts, and transformation failures, so data quality has to be managed throughout the integration workflow rather than checked only at the end (Rahm &amp; Do, 2000; Yang et al., 2017; Souibgui et al., 2019). Woodall et al. (2016), studying ETL deployments in large organizations, report failures that affect timeliness, accessibility, and representational consistency. These findings motivate the state certificate introduced in Chapter 4.</p>
+
+      <h3 id="23-probabilistic-hierarchical-and-intermittent-retail-forecasting">2.3 Probabilistic, Hierarchical, and Intermittent Retail Forecasting</h3>
+      <p>A replenishment decision needs more than a point estimate of next week's sales. The uncertainty around the forecast determines safety stock, service probability, and the economic value of waiting or escalating. Probabilistic forecasting is therefore a better fit for the decision problem. DeepAR learns probabilistic forecasts across related series (Salinas et al., 2020), while the Temporal Fusion Transformer combines multi-horizon forecasting with variable selection and attention mechanisms (Lim et al., 2021). More recent time-series foundation models such as Chronos and Moirai provide useful zero-shot or lightly adapted baselines (Ansari et al., 2024; Woo et al., 2024).</p>
+      <p>The M5 competition is particularly relevant because it combines a large hierarchy, intermittent item-level sales, prices, and calendar effects. It includes 30,490 bottom-level item-store series that aggregate into 42,840 series, and its uncertainty track evaluates multiple forecast quantiles (Makridakis, Spiliotis, &amp; Assimakopoulos, 2022a; Makridakis et al., 2022b). Forecast coherence across levels also matters in retail: item-store forecasts should not imply totals that contradict store, department, or category forecasts. Trace-minimization methods provide one way of reconciling such hierarchies (Wickramasuriya, Athanasopoulos, &amp; Hyndman, 2019).</p>
+      <p>In this dissertation, the language model does not calculate a forecast in prose. The forecasting component returns a versioned artifact containing quantiles or scenarios, calibration diagnostics, and data-quality flags. This separation is intentional: generative models may help select or explain a forecasting method, but the numerical forecast remains a tool output that can be reproduced and evaluated independently.</p>
+
+      <h3 id="24-tool-augmented-llms-and-multi-agent-coordination">2.4 Tool-Augmented LLMs and Multi-Agent Coordination</h3>
+      <p>LLM agents combine a language model with tools, memory, observations, and an action loop. ReAct demonstrated a general pattern in which reasoning is interleaved with external actions (Yao et al., 2023). AgentBench and AgentBoard show that performance in longer tasks depends on grounding, planning, and recovery from intermediate failures rather than on answer quality alone (Liu, X. et al., 2024; Ma et al., 2024). AutoGen provides a framework in which multiple agents can be given different roles and tool permissions (Wu et al., 2023).</p>
+      <p>These systems create opportunities but also new coordination risks. More agents do not necessarily mean better decisions. Each additional hand-off can propagate an error, create inconsistent state, increase latency, and make it harder to determine which component caused the final action. For a business process such as replenishment, the question is therefore not whether a multi-agent design is more sophisticated, but whether specialization produces measurable gains that justify its coordination cost.</p>
+      <p>Planning research supports a hybrid approach. LLM+P translates natural language into a formal planning representation and delegates search to a classical planner (Liu, B. et al., 2023). OptiGuide similarly uses an LLM to interact with an established optimization model rather than replacing it (Li et al., 2023). Simchi-Levi et al. (2025) argue for the use of LLMs as interfaces and coordinators around quantitative supply-chain tools. This dissertation adopts the same principle: language models handle ambiguity and orchestration; formal tools handle arithmetic, feasibility, and certification.</p>
+
+      <h3 id="25-llm-agents-for-supply-chain-and-inventory-decisions">2.5 LLM Agents for Supply-Chain and Inventory Decisions</h3>
+      <p>Early studies of LLM agents in supply chains show that the technology is capable of useful coordination, but the evidence is still emerging. InvAgent applies a multi-agent approach to inventory management (Quan &amp; Liu, 2024), while Jannelli et al. (2024) study consensus-seeking among supply-chain agents. Yoshizato et al. (2026) report benefits from structured decision prompts and retrieval of previous cases. These studies support the use of specialization and memory, but they generally work in settings where the state and the business constraints are already clean enough to be presented to the agent.</p>
+      <p>Other studies highlight the need for stronger safeguards. AIM-Bench identifies decision biases in agentic inventory managers (Zhao et al., 2025). OptiRepair uses solver feedback and explicit inventory-theory checks to diagnose infeasible optimization models (Ao et al., 2026). The lesson is important for this dissertation: an LLM judge should not be the final authority on whether a replenishment plan is operationally valid. Validation should be expressed through tests that can be executed independently of the model.</p>
+
+      <h3 id="26-explainability-decision-traces-and-faithfulness">2.6 Explainability, Decision Traces, and Faithfulness</h3>
+      <p>Business users often ask an automated system to explain why a recommendation changed. A natural-language rationale can be helpful, but it can also create false confidence. Research on chain-of-thought faithfulness shows that a model can produce a fluent explanation that does not faithfully reveal the factors that caused the answer (Turpin et al., 2023; Arcuschin et al., 2025). This makes explanation quality a governance issue rather than only a usability issue.</p>
+      <p>The dissertation therefore distinguishes between a <em>rationale</em> and a <em>decision trace</em>. A rationale is text. A trace is a structured record of the evidence and tools used to make the decision: the snapshot, forecast artifact, active constraints, solver result, critic tests, approval status, and execution receipt. The text shown to a reviewer is generated from that record rather than treated as evidence in its own right. Faithfulness can then be tested by replaying the decision, removing evidence, or changing a cited factor and checking whether the action responds as expected.</p>
+
+      <h3 id="27-humanautomation-interaction-and-graded-autonomy">2.7 Human–Automation Interaction and Graded Autonomy</h3>
+      <p>Human-factors research has long shown that automation can be misused, disused, or over-trusted (Parasuraman &amp; Riley, 1997). Parasuraman, Sheridan, and Wickens (2000) describe different levels of automation across information acquisition, analysis, decision selection, and action implementation. This framework is useful for AI governance because it avoids treating automation as a binary choice between manual and fully autonomous work.</p>
+      <p>The architecture in this dissertation follows that logic. A decision can remain advisory, require explicit approval, execute automatically within a bounded policy, or—in simulation only—operate fully autonomously. The level is recomputed for each decision. This is a meaningful departure from assigning a fixed autonomy level to an entire product category: the same item may be safe to reorder automatically on one day and require human review on another because the evidence has deteriorated.</p>
+
+      <h3 id="28-research-gap">2.8 Research Gap</h3>
+      <p>The literature has developed strong methods for forecasting, formal inventory optimization, data-quality management, and increasingly, LLM-based coordination. Retail standards also provide mature representations for product, supplier, transaction, and inventory information. What remains underexplored is the connection between these areas. Existing agentic replenishment studies rarely make the quality of the observed state an explicit input to the autonomy decision, and explainability studies rarely test whether an operational decision can be reconstructed from its evidence lineage.</p>
+      <p>The gap addressed here is therefore an end-to-end governance problem: how to combine semantic flexibility, quantitative rigor, evidence quality, and accountable automation in one replenishment process.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Approach</th><th>What it does well</th><th>Remaining gap for this study</th></tr></thead>
+          <tbody>
+            <tr><td>Classical replenishment</td><td>Clear assumptions, formal feasibility, mature control policies</td><td>Limited handling of unstructured rules and uncertain data quality</td></tr>
+            <tr><td>Forecast-first ML pipeline</td><td>Scalable predictive accuracy</td><td>Forecast quality is separated from execution, state validity, and governance</td></tr>
+            <tr><td>Data-quality / ETL controls</td><td>Detect missing, late, duplicate, or inconsistent data</td><td>Usually not connected to the level of decision autonomy</td></tr>
+            <tr><td>Single LLM agent</td><td>Flexible language interface</td><td>Run-to-run variance, hallucination, and weak arithmetic guarantees</td></tr>
+            <tr><td>Early supply-chain multi-agent systems</td><td>Role specialization and coordination</td><td>Often assume a clean decision state and provide limited auditability</td></tr>
+            <tr><td><strong>Proposed system</strong></td><td><strong>Combines typed state, deterministic checks, formal optimization, LLM coordination, graded autonomy, and replayable lineage</strong></td><td><strong>Contribution to be evaluated empirically</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="caption">Table 2.1. Positioning of the proposed research.</p>
+      <hr>
+
+      <h2 id="chapter-3-operational-grounding-replenishment-data-in-practice"><span class="eyebrow">Chapter 3</span>Operational Grounding: Replenishment Data in Practice</h2>
+
+      <h3 id="31-setting-and-method">3.1 Setting and Method</h3>
+      <p>This chapter translates the literature reviewed in Chapter 2 into a concrete representation of the information that a replenishment system needs. It is intentionally based on published research and established retail data standards rather than on the internal architecture of any one company. The objective is not to claim that all retailers use the same database design. It is to identify a defensible minimum set of business objects and quality risks that recur across retail operations and that can therefore support a controlled research artifact.</p>
+      <p>The synthesis uses four types of evidence. First, the ARTS Operational Data Model provides a mature retail-specific vocabulary for items, vendors, sales, inventory, receipts, and transfers, and is explicitly designed to help retailers integrate operational applications (Object Management Group, n.d.). Second, GS1 standards distinguish master data, transaction data, and supply-chain visibility events, while the Global Data Model standardizes foundational product attributes and the EPCIS standard captures what happened, when, where, and in what business context (GS1, 2022, 2026). Third, the academic inventory literature identifies decision variables that matter for replenishment, including inventory position, lead time, demand uncertainty, pack sizes, supplier constraints, assortment decisions, and transshipment. Fourth, the data-quality and ETL literature identifies common risks introduced when information is integrated across heterogeneous systems (Wang &amp; Strong, 1996; Rahm &amp; Do, 2000; Woodall et al., 2016; Yang et al., 2017; Souibgui et al., 2019).</p>
+      <p>This approach is consistent with design-science research: the artifact is built from a clearly defined problem environment, but the design decisions are made traceable to prior knowledge rather than justified through personal experience alone (Hevner et al., 2004). The resulting schema and failure taxonomy should therefore be read as a literature- and standards-informed research abstraction. Where the literature provides strong empirical evidence—such as inventory record inaccuracy—that evidence is cited directly. Where a failure mode is a logical implementation stress case rather than a well-quantified population phenomenon, it is labelled and evaluated through sensitivity analysis rather than presented as an observed frequency.</p>
+
+      <h3 id="32-the-canonical-replenishment-data-model">3.2 The Canonical Replenishment Data Model</h3>
+      <p>The canonical schema is the interface through which every agent sees the retail environment. The word <em>canonical</em> is used in the integration sense: heterogeneous source representations are mapped into a common set of business entities before the decision process begins. The schema is not proposed as a replacement for ARTS, GS1, ERP, or warehouse-management models. It is a narrower research model assembled from concepts that recur across those standards and across replenishment theory.</p>
+      <p>ARTS supports the inclusion of retail items, item-supplier relationships, inventory, receiving documents, transfers, prices, and sales transactions. GS1 supports the separation of stable master data from transaction and visibility-event data, and provides standardized identifiers and product attributes. Retail assortment research adds the idea that an item-location pair may be eligible or ineligible depending on the planned assortment (Rajaram, 2001; Mantrala et al., 2009). Replenishment and forecasting research motivates time-indexed demand, inventory position, open orders, lead time, and product hierarchy. The resulting model is shown below.</p>
+
+      <div class="table-wrap"><table>
+      <thead><tr><th>Entity</th><th>Role in replenishment</th><th>Main literature / standards basis</th></tr></thead>
+      <tbody>
+        <tr><td>Locations</td><td>Stores, warehouses, and fulfilment nodes; region and cluster membership</td><td>ARTS retail business units; GS1 location/master-data concepts</td></tr>
+        <tr><td>Products and variants</td><td>SKU hierarchy, attributes, selling unit, lifecycle</td><td>ARTS item model; GS1 Global Data Model</td></tr>
+        <tr><td>Suppliers and supplier-items</td><td>Ordering relationship, lead time, pack or receiving unit, supplier-specific identifiers</td><td>ARTS Item Supplier View; GS1 party/master-data concepts</td></tr>
+        <tr><td>Prices</td><td>Valuation, margin context, time-valid selling prices</td><td>ARTS price and transaction structures</td></tr>
+        <tr><td>Sales transactions</td><td>Observed demand signal by item, location, and time</td><td>ARTS retail transaction model</td></tr>
+        <tr><td>Purchase orders and receipts</td><td>Pipeline inventory, ordered quantities, expected or realized arrivals</td><td>ARTS inventory control and receiving structures</td></tr>
+        <tr><td>Transfers</td><td>Movement of stock between locations</td><td>ARTS inventory movement structures; transshipment literature</td></tr>
+        <tr><td>Inventory state and snapshots</td><td>On-hand quantity used for decisions plus a versioned history for replay</td><td>Inventory-control literature; GS1 visibility-event logic; auditability requirement of this study</td></tr>
+        <tr><td>Assortment / eligibility</td><td>Defines whether an item is legitimately ranged at a location during a period</td><td>Retail assortment-planning literature</td></tr>
+        <tr><td>Reference and policy data</td><td>Units, currencies, calendars, service targets, budgets, and policy versions</td><td>GS1 master-data principles; data-quality literature</td></tr>
+      </tbody>
+      </table></div>
+      <p class="caption">Table 3.1. Literature- and standards-informed canonical replenishment model.</p>
+
+      <p>Two features of the schema are particularly important for the research design. First, it separates the <em>business state</em> from the source systems that produced it. This allows the experiment to ask whether an agent can make a good decision given a defined state, without tying the results to one ERP or one retailer's data warehouse. Second, every state is versioned. The decision trace can therefore refer to the exact inventory, order, price, and eligibility snapshot that was available when a recommendation was generated.</p>
+      <p>The structure also supports a practical distinction found in GS1's architecture: relatively stable master data describe products, parties, and locations; transaction data describe commercial actions; and visibility or event data describe what happened to objects over time. This distinction is useful because different quality checks apply to each class. A duplicate product identifier is a master-data problem; a missing receipt is a transaction problem; a stale inventory snapshot is a temporal state problem.</p>
+
+      <h3 id="33-how-replenishment-state-is-produced">3.3 How Replenishment State Is Produced</h3>
+      <p>A replenishment system rarely observes the physical world directly. Its decision state is assembled from systems such as point of sale, e-commerce, enterprise resource planning, warehouse management, supplier feeds, and planning applications. Data-integration research commonly represents this process as extraction from heterogeneous sources, transformation into a common structure, quality checking, and loading into a target analytical or operational model (Rahm &amp; Do, 2000; Yang et al., 2017; Souibgui et al., 2019). The exact technology may be batch ETL, ELT, streaming, APIs, or a combination, but the governance problem is the same: the decision system sees the result of an integration process, not the underlying reality.</p>
+      <p>For the purpose of this dissertation, the state-production process is represented through five general steps. <strong>Master-data alignment</strong> maps products, suppliers, and locations into common identifiers. <strong>Transaction ingestion</strong> loads sales, purchase orders, receipts, and transfers. <strong>State construction</strong> derives the current inventory position and the time series used for forecasting. <strong>Quality certification</strong> tests freshness, completeness, consistency, cardinality, units, and referential integrity. <strong>Versioning</strong> freezes the state used for a decision so that the decision can later be replayed.</p>
+      <p>This model is deliberately technology-neutral. A retailer with streaming inventory and a retailer with nightly batches may produce different freshness distributions, but both still face the need to know which sources were current, which transformations succeeded, and which version of the state informed the order. The simulator therefore uses daily snapshots because the M5 data are daily, not because daily batch processing is assumed to be universal.</p>
+
+      <h3 id="34-a-taxonomy-of-state-quality-failures">3.4 A Taxonomy of State-Quality Failures</h3>
+      <p>The state-quality layer used later in the experiments is derived from established data-quality dimensions and from failures described in the inventory and data-integration literature. Rather than presenting a long list of company-specific incidents, the taxonomy groups failures by the business property they violate. This makes it more generalizable and easier to connect to measurable checks.</p>
+
+      <div class="table-wrap"><table>
+      <thead><tr><th>Failure class</th><th>Business meaning</th><th>Why it matters for replenishment</th><th>Research grounding</th></tr></thead>
+      <tbody>
+        <tr><td>Stale or late state</td><td>Inventory, orders, or sales are older than the decision assumes</td><td>The system acts on yesterday's or an incomplete view of stock and demand</td><td>Timeliness in Wang &amp; Strong (1996); ETL delay/failure in Woodall et al. (2016)</td></tr>
+        <tr><td>Partial refresh</td><td>Different tables refer to different effective times</td><td>Current sales may be combined with stale stock or open orders</td><td>ETL process-quality literature; consistency and timeliness dimensions</td></tr>
+        <tr><td>Missing records</td><td>Expected item, location, order, or transaction rows are absent</td><td>Demand, available inventory, or pipeline stock is understated</td><td>Completeness literature; Souibgui et al. (2019)</td></tr>
+        <tr><td>Duplicate records</td><td>The same fact is loaded more than once</td><td>Sales, receipts, or open orders are overstated</td><td>Rahm &amp; Do (2000); Souibgui et al. (2019)</td></tr>
+        <tr><td>Referential mismatch</td><td>A transaction cannot be linked to a valid item, supplier, or location</td><td>Facts can be dropped, misallocated, or excluded from forecasts</td><td>Schema/integration literature; ARTS and GS1 master-data logic</td></tr>
+        <tr><td>Identity inconsistency</td><td>The same entity appears under different codes or representations</td><td>Demand histories split and supplier or product totals become unreliable</td><td>Data-cleaning literature; master-data research</td></tr>
+        <tr><td>Unit or pack mismatch</td><td>Quantity is represented in a different unit from the one assumed</td><td>Stock, demand, or order quantities can be wrong by a conversion factor</td><td>ARTS unit-of-measure conversion; Das, Carrel, &amp; Caplice (2021)</td></tr>
+        <tr><td>Currency or valuation mismatch</td><td>Cost or price uses an inconsistent currency or missing conversion</td><td>Budget and economic objective become misleading</td><td>Consistency dimension; retail price/master-data structures</td></tr>
+        <tr><td>Inventory record inaccuracy</td><td>Recorded on-hand differs from physical stock</td><td>Automated replenishment can repeatedly under- or over-order</td><td>Kang &amp; Gershwin (2005); DeHoratius &amp; Raman (2008)</td></tr>
+        <tr><td>Open-order uncertainty</td><td>Quantity, supplier, status, or expected arrival is incomplete or unreliable</td><td>Pipeline inventory is misrepresented and orders may be duplicated</td><td>Inventory-control logic; ARTS receiving/order structures</td></tr>
+        <tr><td>Historical restatement</td><td>Returns, cancellations, corrections, or late postings revise the past</td><td>Forecast training data and replayed decisions can change retrospectively</td><td>Transaction-processing logic; treated as a scenario rather than a population rate</td></tr>
+        <tr><td>Transformation error</td><td>A calculation or mapping creates an implausible field or distribution</td><td>Derived inventory or demand can collapse or inflate at scale</td><td>ETL quality literature; implemented as a stress case</td></tr>
+        <tr><td>Censored demand</td><td>Observed sales fall to zero because stock is unavailable</td><td>Forecasts can interpret a stockout as weak demand</td><td>Nahmias (1994); lost-sales and intermittent-demand literature</td></tr>
+      </tbody>
+      </table></div>
+      <p class="caption">Table 3.2. State-quality failure taxonomy used in the research design.</p>
+
+      <p>The taxonomy is designed to distinguish failures that are easy to catch with deterministic checks from those that require contextual interpretation. Missing dates, duplicate keys, impossible quantities, and inconsistent units are good candidates for rules. A sudden drop in one store's activity is harder: it might be a broken feed, a store closure, or a genuine demand change. The proposed architecture uses deterministic tests first and reserves LLM-based interpretation for the residual ambiguity. This ordering is important both for safety and for managerial efficiency.</p>
+
+      <h3 id="35-a-taxonomy-of-constraints-as-they-arrive">3.5 A Taxonomy of Constraints as They Arrive</h3>
+      <p>Inventory models often represent constraints as clean mathematical parameters. Business processes are less tidy. Some constraints sit in master data, some in supplier terms, and some in planning documents. Retail standards and operations literature also show that the unit in which a retailer sells an item may differ from the unit in which it orders or receives it. ARTS, for example, explicitly models supplier receiving units and conversion rules, while research on pack sizes shows that ordering in cases rather than individual selling units can materially alter inventory and service outcomes (Das et al., 2021).</p>
+
+      <div class="table-wrap"><table>
+      <thead><tr><th>Constraint type</th><th>Typical representation</th><th>Formal issue created</th><th>Research basis</th></tr></thead>
+      <tbody>
+        <tr><td>Pack or case multiple</td><td>Supplier-item master or ordering rule</td><td>Order quantities must be integer multiples</td><td>ARTS receiving units; Das et al. (2021)</td></tr>
+        <tr><td>Minimum order quantity / value</td><td>Supplier terms or contract</td><td>Creates a lower bound and often couples multiple items</td><td>Supplier-constraint and joint-replenishment literature</td></tr>
+        <tr><td>Unit conversion</td><td>Master data or specification</td><td>Ordering, receiving, and selling units must be reconciled</td><td>ARTS unit-of-measure conversion; GS1 product data</td></tr>
+        <tr><td>Assortment eligibility</td><td>Range or assortment plan</td><td>Some item-location pairs should not be replenished</td><td>Rajaram (2001); Mantrala et al. (2009)</td></tr>
+        <tr><td>Lead time and arrival uncertainty</td><td>Supplier terms, order status, historical receipts</td><td>Pipeline stock arrives probabilistically rather than at a fixed date</td><td>Inventory-control literature</td></tr>
+        <tr><td>Supplier capacity</td><td>Allocation or temporary supply limit</td><td>Orders compete for a shared upper bound</td><td>Supply-chain optimization literature</td></tr>
+        <tr><td>Budget / open-to-buy</td><td>Financial planning rule</td><td>Items are coupled through a common spend limit</td><td>Retail planning practice; optimization literature</td></tr>
+        <tr><td>Lifecycle / season rule</td><td>Assortment calendar or product status</td><td>Replenishment may stop even when a local model would otherwise order</td><td>Fashion and assortment-planning literature</td></tr>
+        <tr><td>Transfer restriction</td><td>Network or store-cluster policy</td><td>Only selected location pairs can exchange inventory</td><td>Paterson et al. (2011)</td></tr>
+      </tbody>
+      </table></div>
+      <p class="caption">Table 3.3. Constraint forms represented in the experimental environment.</p>
+
+      <p>The dissertation does not assume that an LLM should infer every business rule from free text. Where a constraint already exists as a structured field, the structured value is preferred. The language model is used when a rule must be extracted or reconciled across documents. Once extracted, the rule is converted into a typed object containing scope, value, unit, validity period, source, and confidence. Unit conversion and feasibility checks are then performed deterministically.</p>
+
+      <h3 id="36-decision-context-specifics">3.6 Decision Context Specifics</h3>
+      <p>The literature suggests several features that make retail replenishment different from a generic forecasting exercise. <strong>Assortment changes</strong> mean that a zero sale does not always mean zero demand; an item may simply not be ranged at that location. <strong>Pack sizes</strong> can force stores to hold more inventory than a continuous optimization model would recommend (Das et al., 2021). <strong>Inventory inaccuracy</strong> means the system's stock position may be uncertain. <strong>Lost sales</strong> mean demand becomes partly unobserved during stockouts. <strong>Transfers</strong> create an alternative to new purchasing. Finally, <strong>managerial overrides</strong> are not necessarily irrational: research on store ordering shows that local managers often modify automated recommendations because the formal model does not capture all operational constraints (van Donselaar et al., 2010).</p>
+      <p>These observations are important for the business-school framing of the study. The aim is not to demonstrate that a more complicated algorithm is always superior. It is to examine how an organization can combine formal decision support with human judgment without losing control over why a decision was made. The architecture is therefore evaluated not only on cost and service, but also on escalation quality, audit time, and calibrated trust.</p>
+
+      <h3 id="37-design-implications">3.7 Design Implications</h3>
+      <p>The literature synthesis leads directly to the design choices in Chapter 4. Table 3.4 makes that link explicit so that the architecture is traceable to prior research rather than to undocumented intuition.</p>
+      <div class="table-wrap"><table>
+      <thead><tr><th>Evidence from literature / standards</th><th>Design implication</th></tr></thead>
+      <tbody>
+        <tr><td>Inventory records can be inaccurate and data quality includes timeliness, completeness, and consistency</td><td>Compute a state certificate before forecasting or ordering; use it in the autonomy decision</td></tr>
+        <tr><td>Retail information is split across master, transaction, and event data</td><td>Use a canonical schema with versioned lineage rather than allowing agents to read heterogeneous systems directly</td></tr>
+        <tr><td>ETL and integration can introduce missing, duplicate, late, or inconsistent data</td><td>Run deterministic checks on freshness, cardinality, referential integrity, and plausibility</td></tr>
+        <tr><td>Some anomalies are contextual rather than purely structural</td><td>Use the LLM for evidence-backed triage after deterministic checks, not instead of them</td></tr>
+        <tr><td>Pack sizes, supplier units, MOQs, and assortment rules alter feasible orders</td><td>Represent constraints as typed objects with units, scope, validity, and provenance</td></tr>
+        <tr><td>LLM rationales may be unfaithful</td><td>Generate explanations from a structured decision trace that can be replayed</td></tr>
+        <tr><td>Automation bias is a known human-factors risk</td><td>Use graded autonomy, explicit holds, and auditable approval status</td></tr>
+      </tbody>
+      </table></div>
+      <p class="caption">Table 3.4. From literature and standards to system design.</p>
+      <hr>
+
+      <h2 id="chapter-4-methodology-and-architecture"><span class="eyebrow">Chapter 4</span>Methodology and Architecture</h2>
+
+      <h3 id="41-research-design">4.1 Research Design</h3>
+      <p>The study adopts a design-science approach because the research question is concerned with both understanding a managerial problem and evaluating an artifact intended to address it (Hevner et al., 2004). The artifact is a hybrid replenishment system that combines deterministic data-quality controls, probabilistic forecasting, formal optimization, LLM-based interpretation, and an explicit autonomy policy. The objective is not to prove that one software architecture is universally optimal. It is to test whether this combination creates measurable value under the kinds of uncertainty and information-quality problems identified in the literature.</p>
+      <p>The evaluation has three complementary parts. First, a closed-loop simulator measures operating outcomes such as cost, service, stockouts, and bullwhip amplification. Second, controlled disturbance experiments test how the system behaves when demand, supply, constraints, or data quality deteriorate. Third, an audit study evaluates whether different explanation formats help human reviewers identify bad decisions and calibrate their trust. This mixed evaluation is appropriate for a business-school dissertation because technical performance alone does not establish organizational usefulness.</p>
+      <p>Development, model selection, and final evaluation are separated. Forecasting models are selected through rolling-origin validation. Autonomy thresholds are tuned on development scenarios rather than on the final test windows. All random seeds, prompt versions, model versions, solver settings, and disturbance parameters are logged so that results can be reproduced.</p>
+
+      <h3 id="42-formal-replenishment-problem">4.2 Formal Replenishment Problem</h3>
+      <p>The quantitative core is a stochastic replenishment model. The formulation is deliberately modular: a simple policy can be used for uncoupled, low-risk items, while a mixed-integer model is available when items are linked by supplier minimums, budgets, capacity, or transfer decisions. The important distinction for this dissertation is between the <em>true state</em> used by the simulator to evaluate an outcome and the <em>observed state</em> made available to the decision system.</p>
+
+      <div class="code-wrap"><pre><code>Indices
+  i   items              l, l' locations             s   suppliers
+  t   periods            w     demand / lead-time scenarios
+  c   location clusters; cl(l) denotes the cluster of location l
+
+State
+  H[i,l,t]       true on-hand inventory
+  Hobs[i,l,t]    observed on-hand inventory presented to the system
+  B[i,l,t]       backorders or lost-demand state
+  O[i,l,s,t]     outstanding supplier orders
+  e[i,l,t]       assortment eligibility in {0,1}
+  q[t]           evidence / state-quality score in [0,1]
+
+Decisions
+  x[i,l,s,t]     supplier order quantity
+  k[i,l,s,t]     integer pack multiplier
+  z[i,l,s,t]     item-line activation
+  y[i,l,l',t]    lateral transfer quantity
+
+Representative constraints
+  x = pack * k
+  x <= M * e                         # order only eligible items
+  supplier / order MOQ constraints
+  unit-of-measure conversion constraints
+  supplier capacity constraints
+  budget constraints
+  transfer restrictions within allowed clusters
+  inventory-balance and receipt equations
+
+Objective
+  minimize expected purchase + holding + shortage + transfer + expedite cost
+           + lambda * CVaR_alpha(total cost)</code></pre></div>
+
+      <p>The CVaR term follows Rockafellar and Uryasev (2000) and gives additional weight to poor tail outcomes rather than optimizing only the average case. This is particularly relevant when evaluating agentic systems because a system with a good mean result but occasional extreme failures may be unacceptable in practice.</p>
+      <p>The design introduces two additional constructs. The first is the <strong>autonomy policy</strong>, which maps the evidence available for a decision into a permission level:</p>
+      <div class="code-wrap"><pre><code>a[t] = pi(q[t], r[t], kappa[t], sigma[t])
+       in {advisory, approval, bounded, full}
+
+q       evidence / state-quality score
+r       business risk of the action
+kappa   confidence in the active constraint set
+sigma   forecast uncertainty</code></pre></div>
+      <p>The second is <strong>safety-adjusted utility</strong>. A policy is not rewarded simply for avoiding all risk through constant escalation. Escalations and holds have business costs as well. The comparison therefore combines expected operating cost, tail risk, the cost of escalation, and the cost of harmful executions.</p>
+      <div class="code-wrap"><pre><code>U = -(expected cost + lambda * CVaR)
+    - cEsc * number of escalations
+    - cHarm * number of harmful executions</code></pre></div>
+      <p>A harmful execution is defined only inside the simulator, where the true state is known. It is an executed order or transfer that violates a true hard constraint or deviates materially from the oracle decision because the system acted on corrupted evidence. This measure is central to RQ2.</p>
+
+      <h3 id="43-blackboard-architecture-over-a-canonical-schema">4.3 Blackboard Architecture over a Canonical Schema</h3>
+      <p>The agents share a typed, versioned decision state rather than exchanging only free-form messages. This pattern is sometimes described as a blackboard architecture: specialist components read from and write to a shared representation of the problem. In this dissertation, that shared representation is the canonical schema developed in Chapter 3.</p>
+      <p>The architectural choice has a governance purpose as well as a technical one. Every object contains units, timestamps, provenance, validity windows, and a decision identifier. Downstream tools consume those structured fields rather than relying on prose. A forecast produced from snapshot A cannot silently be combined with inventory from snapshot B. If evidence from different versions must be combined, the system has to record a reconciliation step.</p>
+      <p>The canonical interface is also what makes the experiment independent of any one retailer's technology stack. In a real deployment, ERP, WMS, POS, e-commerce, and supplier systems would be mapped into this layer. In the experiment, M5 and the simulator are mapped into the same layer. The agents therefore operate on the business concepts defined by the research design rather than on vendor-specific source tables.</p>
+
+      <h3 id="44-agents-and-their-verifiable-outputs">4.4 Agents and Their Verifiable Outputs</h3>
+      <p>Specialization is used only where it creates a clear separation of responsibility. Each agent has a narrowly defined role and must produce a machine-checkable output before the workflow can proceed.</p>
+
+      <div class="table-wrap"><table>
+      <thead><tr><th>Agent</th><th>Business responsibility</th><th>Required verifiable output</th></tr></thead>
+      <tbody>
+        <tr><td>State Reconciliation and Data-Quality Agent</td><td>Establishes whether the decision state is usable</td><td>State certificate with freshness, completeness, consistency, invariant results, and unresolved anomalies</td></tr>
+        <tr><td>Demand Forecast Agent</td><td>Produces the demand distribution used for planning</td><td>Forecast artifact with quantiles/scenarios, calibration metrics, feature window, and model version</td></tr>
+        <tr><td>Supplier and Constraint Agent</td><td>Converts supplier, assortment, and policy rules into structured constraints</td><td>Typed constraint set with scope, unit, source, validity, and confidence</td></tr>
+        <tr><td>Replenishment Optimization Agent</td><td>Generates economically efficient feasible plans</td><td>Candidate actions, objective breakdown, active constraints, solver status, and certificate</td></tr>
+        <tr><td>Risk and Critic Agent</td><td>Independently challenges the proposed action</td><td>Pass, veto, or escalate decision with explicit test results</td></tr>
+        <tr><td>Orchestrator and Autonomy Agent</td><td>Controls workflow and determines what the system is permitted to do</td><td>Committed decision and autonomy level, or an escalation packet</td></tr>
+        <tr><td>Execution and Monitoring Agent</td><td>Executes approved actions and records outcomes</td><td>Idempotent execution receipt and subsequent outcome events</td></tr>
+      </tbody>
+      </table></div>
+      <p class="caption">Table 4.1. Agent roles and required outputs.</p>
+
+      <p>The architecture deliberately avoids giving the LLM final authority over facts that can be checked by code. The State Agent cannot simply declare a feed reliable; it must return the results of the tests. The Optimization Agent cannot claim feasibility without a solver status. The Critic cannot rewrite the proposal in place; it can only raise an objection that causes the proposal to be revised and checked again. This separation is intended to reduce the risk that a persuasive language-model response becomes a substitute for verification.</p>
+
+      <h3 id="45-coordination-protocol">4.5 Coordination Protocol</h3>
+      <p>The workflow follows a simple sequence: <strong>OBSERVE → CERTIFY STATE → FORECAST and GROUND CONSTRAINTS → PROPOSE → VERIFY → COMMIT → EXECUTE → MONITOR</strong>. Forecasting and constraint grounding can run in parallel once the state has been certified. The system does not proceed to an executable proposal when the state contains an unresolved hard failure.</p>
+      <p>Each stage has an explicit entry and exit condition. Typed schemas are validated before a hand-off. Units are normalized. Tool calls use idempotency keys where duplication would be harmful. Timeouts, retry budgets, and maximum dialogue turns prevent open-ended agent conversations. Agents have allowlisted tools and limited write permissions. These controls are ordinary software-engineering mechanisms, but in an agentic architecture they also serve as governance controls because they restrict what the model is capable of changing.</p>
+      <p>If the language model is unavailable, the system can fall back to a deterministic baseline policy, provided the state certificate passes. This is an important operational principle: the organization should not make continuity of routine replenishment dependent on the availability of a generative model.</p>
+
+      <h3 id="46-state-reconciliation-and-the-data-quality-score">4.6 State Reconciliation and the Data-Quality Score</h3>
+      <p>The state certificate is computed over the exact evidence needed for a decision. It therefore does not ask whether the entire enterprise data warehouse is healthy; it asks whether the inventory, open orders, sales history, price, and eligibility used for this order are sufficiently reliable. The certificate covers the following families of checks:</p>
+      <ul>
+        <li><strong>Freshness:</strong> whether each relevant source is recent enough for the decision horizon.</li>
+        <li><strong>Completeness:</strong> whether expected item-location, order, and reference records are present.</li>
+        <li><strong>Continuity:</strong> whether the historical series contains unexpected gaps.</li>
+        <li><strong>Cardinality and uniqueness:</strong> whether duplicate facts or orders are present.</li>
+        <li><strong>Referential integrity:</strong> whether products, suppliers, and locations resolve correctly.</li>
+        <li><strong>Units and ranges:</strong> whether quantities, prices, and conversion factors are plausible and compatible.</li>
+        <li><strong>Cross-source consistency:</strong> whether overlapping sources disagree beyond an allowed tolerance.</li>
+        <li><strong>Movement consistency:</strong> whether the change in stock can be reconciled with sales, receipts, and transfers.</li>
+        <li><strong>Distribution shifts:</strong> whether a transformation failure has created an implausible system-wide change.</li>
+        <li><strong>Censoring flags:</strong> whether sales observations coincide with stockout periods.</li>
+      </ul>
+      <p>Each test returns pass, warning, or hard failure together with evidence. Warnings are combined into a quality score; a hard failure can force a hold regardless of the numerical score. The LLM may then help interpret warnings that require context—for example, whether a sudden disappearance of transactions is more consistent with a closed store or a broken feed—but it cannot directly change the underlying data or override a hard failure. Its interpretation is recorded as a hypothesis, not as a new fact.</p>
+
+      <h3 id="47-constraint-extraction-and-verification">4.7 Constraint Extraction and Verification</h3>
+      <p>The Supplier and Constraint Agent converts relevant rules into a standard representation containing the affected entity, scope, parameter, value, unit, conversion, aggregation level, effective period, source reference, precedence, and confidence. Structured source fields are preferred over generated interpretation. LLM extraction is used mainly for prose or semi-structured documents.</p>
+      <p>The process is <strong>retrieve → extract → normalize → validate → cross-check → commit or escalate</strong>. Normalization and dimensional analysis are deterministic. A case-pack rule must produce an integer-multiple constraint. A supplier unit must convert into the retailer's order unit through an explicit factor. A minimum that applies across a supplier order must not be silently converted into a per-item minimum. If the unit, scope, or validity interval cannot be resolved, the system escalates rather than guessing.</p>
+      <p>This design is deliberately conservative. In business terms, a wrong interpretation of a supplier rule can create a direct financial or contractual consequence. The architecture therefore treats low-confidence constraint extraction as a reason for human review, not as a request for the LLM to "try harder."</p>
+
+      <h3 id="48-forecasting-module">4.8 Forecasting Module</h3>
+      <p>Forecasting models are trained and compared through rolling-origin validation. Candidate models include seasonal naive methods, Croston-style approaches for intermittent demand, LightGBM quantile regression, DeepAR, the Temporal Fusion Transformer, and pretrained Chronos or Moirai models. Model selection can be global, category-specific, or ensemble-based depending on validation performance.</p>
+      <p>The Forecast Agent returns probability information rather than a single best guess: at minimum a median, service-relevant upper quantiles, scenario samples, calibration coverage, and the version of the data used. Where stockout flags indicate censored observations, the pipeline applies a lost-sales correction or marks the forecast as lower-confidence. Higher-level forecasts are reconciled with item-store forecasts so that the hierarchy remains coherent.</p>
+      <p>Importantly, this dissertation does not depend on a claim that a foundation model will outperform established forecasting methods. Time-series foundation models are included as contemporary baselines. The research question concerns the decision system around the forecast, not a competition to identify one universally best forecasting architecture.</p>
+
+      <h3 id="49-optimization-and-policy-tools">4.9 Optimization and Policy Tools</h3>
+      <p>The optimization layer selects the simplest appropriate method. For an uncoupled item with a clear state and straightforward pack constraint, a policy calculator may be preferable to a full mathematical program. When supplier minimums, shared capacity, budgets, or transfers link several items or locations, a mixed-integer model is used.</p>
+      <p>The LLM does not calculate the objective value or certify feasibility. It supplies a validated problem specification to the optimization tool and interprets the result for the workflow. If the model is infeasible, solver diagnostics are used to identify conflicting constraints. The agent may suggest a resolution, but a constraint that comes from an authenticated contract or policy cannot be relaxed automatically. This follows the solver-in-the-loop principle used in work such as OptiRepair (Ao et al., 2026).</p>
+
+      <h3 id="410-evidence-gated-autonomy-and-safety-controls">4.10 Evidence-Gated Autonomy and Safety Controls</h3>
+      <p>The architecture uses four levels of autonomy. <strong>Advisory</strong> means the system proposes an action but cannot submit it. <strong>Approval</strong> means a user must accept or modify the proposal. <strong>Bounded autonomy</strong> allows automatic execution within predefined limits. <strong>Full autonomy</strong> is reserved for simulation or tightly controlled testing.</p>
+      <p>The autonomy level is recomputed for each decision using the evidence-quality score, action risk, constraint confidence, and forecast uncertainty. A routine low-value order with fresh data, stable demand, and high-confidence constraints may qualify for bounded execution. The same item can be downgraded to approval if the inventory snapshot is stale or a supplier rule has changed. A hard state failure results in a hold and an escalation packet.</p>
+      <p>A hold is not assumed to be costless. Delaying an order can itself create a stockout. The policy therefore includes a hold budget and an urgency mechanism: if uncertainty persists, the system escalates rather than simply doing nothing indefinitely. The experiments vary this budget to quantify the trade-off between avoiding a wrong order and delaying a necessary one.</p>
+      <p>Hard controls include spend limits, maximum deviation from a deterministic reference policy, maximum days of supply, eligibility checks, pack-integrality checks, duplicate-order prevention, policy-version pinning, approval requirements for high-risk actions, least-privilege tool access, and immutable execution receipts. External documents are treated as data, not as instructions to the agent.</p>
+
+      <h3 id="411-native-structured-decision-trace-with-lineage">4.11 Native Structured Decision Trace with Lineage</h3>
+      <p>Every recommendation creates a structured decision record. This is not a transcript of hidden reasoning. It is an audit object composed of observable inputs, tool outputs, tests, and approvals. A human-readable explanation is generated from that record after the decision has been assembled.</p>
+      <ol>
+        <li><strong>Identity and timing:</strong> decision identifier, item-location-supplier, timestamp, policy version, and granted autonomy level.</li>
+        <li><strong>Lineage:</strong> state version, source freshness, invariant results, quality score, and unresolved anomalies.</li>
+        <li><strong>Evidence:</strong> source identifiers or hashes, reconciliation results, forecast version, quantiles, and uncertainty status.</li>
+        <li><strong>Constraints:</strong> normalized values, units, scope, source, validity interval, confidence, and whether the constraint was active.</li>
+        <li><strong>Alternatives:</strong> candidate order and transfer quantities, cost and service trade-offs, and rejected options.</li>
+        <li><strong>Verification:</strong> critic tests, stress checks, vetoes, revisions, and residual uncertainty.</li>
+        <li><strong>Commit and execution:</strong> approval or override, idempotency key, execution response, and later outcome events.</li>
+      </ol>
+      <p>A trace is considered complete only if the final action can be reconstructed from the referenced state, constraints, and tools with pinned versions. This requirement turns explainability into a testable property rather than a stylistic feature.</p>
+      <hr>
+
+      <h2 id="chapter-5-experimental-design-and-evaluation-protocol"><span class="eyebrow">Chapter 5</span>Experimental Design and Evaluation Protocol</h2>
+
+      <h3 id="51-data-the-m5-retail-hierarchy">5.1 Data: The M5 Retail Hierarchy</h3>
+      <p>The empirical benchmark is the public M5 retail dataset. It contains daily unit sales for 3,049 items sold across ten stores in three US states from 29 January 2011 to 19 June 2016, together with weekly selling prices and a calendar of events and SNAP-related days (Makridakis et al., 2022a). The bottom-level item-store series form a twelve-level retail hierarchy, making M5 useful for testing both item-level decisions and aggregate consistency.</p>
+      <p>M5 is an appropriate benchmark for three reasons. It is large enough to support heterogeneous demand patterns, it contains the price and calendar information needed for realistic forecasting, and it has a well-documented evaluation tradition. It also has clear limitations for this dissertation: it does not contain inventory, suppliers, purchase orders, lead times, or assortment plans. Those elements are therefore simulated transparently and are not presented as observed facts.</p>
+      <p>The study uses rolling-origin evaluation so that all forecasts and decisions are made using only information that would have been available at that date. The same exogenous random streams are used when comparing policies, which makes differences more directly attributable to the policy rather than to different simulated shocks.</p>
+
+      <h3 id="52-mapping-m5-into-the-canonical-data-model">5.2 Mapping M5 into the Canonical Data Model</h3>
+      <p>M5 is mapped into the Chapter 3 schema so that every policy and every agent interacts with the same business representation. The mapping is a research convenience, not a claim that M5 was originally designed around ARTS or GS1.</p>
+      <div class="table-wrap"><table>
+      <thead><tr><th>Canonical entity</th><th>M5 source</th><th>Research mapping</th></tr></thead>
+      <tbody>
+        <tr><td>Locations</td><td>10 stores in 3 states</td><td>Each store becomes a retail location; state is used as a regional grouping and transfer cluster</td></tr>
+        <tr><td>Product hierarchy</td><td>Categories, departments, items</td><td>Mapped to family/category/product; each M5 item has one experimental variant</td></tr>
+        <tr><td>Prices</td><td>Weekly store-item prices</td><td>Time-valid price records in one currency</td></tr>
+        <tr><td>Sales</td><td>Daily unit sales</td><td>Aggregated item-location-day transaction facts</td></tr>
+        <tr><td>Calendar</td><td>Events and SNAP indicators</td><td>Exogenous forecasting features</td></tr>
+        <tr><td>Suppliers</td><td>Not available</td><td>Synthetic supplier assignments created by department or product group</td></tr>
+        <tr><td>Orders, receipts, transfers</td><td>Not available</td><td>Generated by the simulator as consequences of policy decisions</td></tr>
+        <tr><td>Inventory state</td><td>Not available</td><td>Generated through a warm-up process and updated in closed loop</td></tr>
+        <tr><td>Assortment eligibility</td><td>Not explicit</td><td>Base eligibility derived conservatively from the observed selling period, with optional synthetic rotations</td></tr>
+      </tbody>
+      </table></div>
+      <p class="caption">Table 5.1. Mapping of M5 into the canonical research schema.</p>
+
+      <h3 id="53-disturbance-layers">5.3 Disturbance Layers</h3>
+      <p>Three transparent simulation layers are added around the M5 demand data. Their purpose is not to recreate a particular retailer, but to expose each policy to business conditions that are absent from the public dataset. Every generation rule is versioned and reported so that the experiment can be reproduced.</p>
+      <p><strong>Supply and constraint layer.</strong> Suppliers are assigned at department or product-group level. Lead times vary by supplier and can enter disruption regimes. Pack sizes and minimum-order requirements are sampled from documented ranges chosen to produce both binding and non-binding cases. Selected scenarios introduce shared supplier minimums, order-value thresholds, capacity limits, and unit conversions. These choices are motivated by supplier-constraint research and retail unit-of-measure structures rather than by confidential contracts. Constraints are rendered in both structured and semi-structured formats so that extraction can be evaluated separately from the optimizer.</p>
+      <p><strong>Assortment eligibility layer.</strong> M5 contains item-store series that begin at different points in time. The base experiment treats the period before first observed sale cautiously rather than automatically interpreting every leading zero as demand. An optional assortment scenario introduces explicit validity windows and product rotations. This layer is motivated by the assortment-planning literature, which treats variety, depth, and item availability as managerial decisions rather than purely demand-driven outcomes (Rajaram, 2001; Mantrala et al., 2009).</p>
+      <p><strong>State-quality perturbation layer.</strong> The simulator maintains a true state and exposes an observed state that can be degraded by operators corresponding to Table 3.2: stale data, partial refreshes, missing rows, duplicates, referential mismatches, unit errors, inventory-record deviations, uncertain open orders, historical restatements, and transformation failures. Censoring arises naturally when stockouts prevent demand from being observed as sales.</p>
+      <p><strong>Parameterization and sensitivity.</strong> The study does not claim that a single universal failure rate exists. Some literature provides empirical magnitudes for particular problems—for example inventory record inaccuracy—while other integration failures are documented qualitatively or through case studies. The main experiment therefore uses three scenario bands (low, medium, high) and reports sensitivity across onset frequency, duration, and severity. A separate synthetic stress configuration deliberately exceeds normal ranges to test system boundaries. This makes the conclusions depend on patterns of robustness rather than on one unverified calibration.</p>
+
+      <h3 id="54-inventory-initialization-and-simulation-state">5.4 Inventory Initialization and Simulation State</h3>
+      <p>Because M5 provides sales rather than inventory, a warm-up period is used to create a plausible starting state. Initial stock is based on lead-time demand and a service-level safety factor. Open orders are seeded from the same demand and lead-time process. During each simulated period, the environment updates receipts, sales or lost sales, transfers, true on-hand inventory, open orders, and the versioned observed state presented to the policy.</p>
+      <p>The initialization is not treated as known truth about Walmart or the original M5 stores. It is part of the experimental environment. Robustness checks vary the starting safety factor and warm-up length to ensure that headline conclusions are not artifacts of one initialization choice.</p>
+
+      <h3 id="55-baseline-policies-and-ablations">5.5 Baseline Policies and Ablations</h3>
+      <p>The comparison set is designed to answer not only whether the proposed system performs well, but <em>which part of it creates value</em>. This is important because a simpler deterministic control should be preferred if it produces the same safety benefit.</p>
+      <div class="table-wrap"><table>
+      <thead><tr><th>ID</th><th>Policy or system</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>B1</td><td>Seasonal naive + order-up-to</td><td>Simple, transparent classical benchmark</td></tr>
+        <tr><td>B2</td><td>LightGBM quantile + (s, S)</td><td>Strong feature-based retail baseline</td></tr>
+        <tr><td>B3</td><td>Probabilistic forecast + stochastic optimizer</td><td>Tests the value of formal forecasting and optimization without an LLM</td></tr>
+        <tr><td>B4</td><td>B3 + deterministic state-quality gate</td><td>Measures how much safety can be obtained without agentic reasoning</td></tr>
+        <tr><td>B5</td><td>Time-series foundation model + policy</td><td>Contemporary forecasting baseline</td></tr>
+        <tr><td>B6</td><td>Single LLM agent + same tools</td><td>Controls for the value of specialist roles</td></tr>
+        <tr><td>B7</td><td>Multi-agent with free-form messages</td><td>Tests the value of typed shared state</td></tr>
+        <tr><td>B8</td><td>Typed multi-agent without independent critic</td><td>Measures the contribution of critic review</td></tr>
+        <tr><td>B9</td><td>Typed multi-agent + critic, fixed autonomy</td><td>Isolates the effect of evidence-gated autonomy</td></tr>
+        <tr><td>B10</td><td>Full proposed system</td><td>Typed MAS + critic + evidence-gated autonomy + replayable trace</td></tr>
+      </tbody>
+      </table></div>
+      <p class="caption">Table 5.2. Baselines and ablations.</p>
+
+      <h3 id="56-evaluation-metrics">5.6 Evaluation Metrics</h3>
+      <p>The evaluation deliberately combines technical and managerial outcomes.</p>
+      <ul>
+        <li><strong>Forecast quality:</strong> WRMSSE, weighted pinball loss, CRPS, interval coverage, and calibration error.</li>
+        <li><strong>Inventory outcomes:</strong> total cost and its components, fill rate, cycle service level, stockout rate, inventory turns, days of supply, and transfer volume.</li>
+        <li><strong>Supply-chain dynamics:</strong> bullwhip ratio and upstream order amplification, including repeated runs with identical demand.</li>
+        <li><strong>Evidence handling:</strong> detection precision and recall by failure class, time to detect, harmful-execution rate, escalation precision, hold cost, and calibration between granted autonomy and realized decision quality.</li>
+        <li><strong>Constraint grounding:</strong> exact-match accuracy for scope, value, unit, conversion, aggregation level, and validity interval; false-constraint rate; and the share of extraction errors that reach the solver.</li>
+        <li><strong>Agent reliability:</strong> valid tool-call rate, schema errors, hallucinated fields, constraint violations, latency, token usage, run-to-run variance, and tail regret.</li>
+        <li><strong>Human governance:</strong> review time, detection accuracy, override quality, stated confidence, and perceived workload.</li>
+      </ul>
+      <p>Safety-adjusted utility is used as a summary outcome under disruption because it prevents a policy from appearing superior merely by escalating every difficult decision.</p>
+
+      <h3 id="57-trace-faithfulness-evaluation">5.7 Trace Faithfulness Evaluation</h3>
+      <p>The trace is evaluated as an auditable artifact, not as writing quality. The following measures are used.</p>
+      <div class="table-wrap"><table>
+      <thead><tr><th>Metric</th><th>Operational definition</th></tr></thead>
+      <tbody>
+        <tr><td>Completeness</td><td>Share of mandatory lineage, evidence, constraint, and action fields that are present and valid</td></tr>
+        <tr><td>Lineage correctness</td><td>Whether the state version and quality results match the simulator log</td></tr>
+        <tr><td>Evidence precision</td><td>Share of cited evidence that was actually used by a tool or decision rule</td></tr>
+        <tr><td>Evidence recall</td><td>Share of materially used evidence represented in the trace</td></tr>
+        <tr><td>Contradiction rate</td><td>Inconsistency between the narrative explanation and logged numerical artifacts</td></tr>
+        <tr><td>Replay consistency</td><td>Whether the recorded state, constraints, and tools reproduce the action</td></tr>
+        <tr><td>Counterfactual sensitivity</td><td>Whether changing a claimed decisive factor changes the action in the expected direction</td></tr>
+        <tr><td>Deletion faithfulness</td><td>Whether removing claimed important evidence changes the decision when it should</td></tr>
+        <tr><td>Stability</td><td>Similarity of trace and action across equivalent prompts and repeated runs</td></tr>
+        <tr><td>Human utility</td><td>Audit accuracy, review time, calibrated trust, and quality of overrides</td></tr>
+      </tbody>
+      </table></div>
+      <p class="caption">Table 5.3. Evaluation of the structured decision trace.</p>
+      <p>Counterfactual tests vary one factor at a time, such as supplier capacity, lead time, budget, forecast quantile, assortment eligibility, or evidence-quality score. Deletion tests remove an evidence item from the context and rerun the decision. If the explanation claims that a factor was decisive but the action remains unchanged when it is removed, the explanation is flagged as potentially unfaithful. Replay uses pinned versions and deterministic tool settings where possible to separate trace incompleteness from unavoidable model stochasticity.</p>
+
+      <h3 id="58-stress-tests-and-robustness-scenarios">5.8 Stress Tests and Robustness Scenarios</h3>
+      <p>The stress tests are organized around the decision risks identified in Chapters 2 and 3.</p>
+      <div class="table-wrap"><table>
+      <thead><tr><th>Group</th><th>Example scenario</th><th>Main question</th></tr></thead>
+      <tbody>
+        <tr><td>Demand</td><td>Promotion spike or heavy-tail demand</td><td>Does the policy adapt without generating unstable orders?</td></tr>
+        <tr><td>Supply</td><td>Lead-time shift, supplier capacity cut, temporary supplier failure</td><td>Does the system respect constraints and manage service risk?</td></tr>
+        <tr><td>Constraint semantics</td><td>Changed MOQ, new pack size, unit conversion, assortment change</td><td>Can the agent ground the rule correctly and know when to escalate?</td></tr>
+        <tr><td>State quality</td><td>Stale stock, partial refresh, missing rows, duplicates, inventory-record error</td><td>Does evidence gating prevent an otherwise feasible but harmful order?</td></tr>
+        <tr><td>Transformation</td><td>Systematic unit scaling or derived-field collapse</td><td>Can deterministic checks catch large integration errors before optimization?</td></tr>
+        <tr><td>Adversarial</td><td>Document contains an instruction to ignore policy</td><td>Do tool permissions and input separation resist prompt injection?</td></tr>
+        <tr><td>Network</td><td>Transfers enabled within location clusters</td><td>Does rebalancing reduce unnecessary supplier orders?</td></tr>
+      </tbody>
+      </table></div>
+      <p class="caption">Table 5.4. Main robustness and safety scenarios.</p>
+
+      <h3 id="59-human-audit-study">5.9 Human Audit Study</h3>
+      <p>Subject to institutional approval, the human component uses a within-subject design. Participants with inventory, analytics, operations, or graduate business training review decision packets drawn from the simulator. The sample includes correct decisions and known-bad decisions caused by three broad sources: degraded state, incorrectly grounded constraints, and poor forecasts.</p>
+      <p>Three explanation formats are compared in counterbalanced order: a free-form rationale, a structured trace without lineage, and the full structured trace with lineage. The lineage-less condition is important because it isolates whether the benefit comes from structure in general or specifically from showing where the underlying data came from. Outcomes include review time, accept-or-override accuracy, detection of degraded-state decisions, stated confidence, and perceived workload.</p>
+      <p>The study is not intended to prove how every professional planner would behave. Its purpose is narrower: to test whether the proposed trace format provides measurable support for audit and trust calibration compared with the explanation style commonly produced by LLM systems.</p>
+
+      <h3 id="510-statistical-analysis">5.10 Statistical Analysis</h3>
+      <p>Policies are evaluated on matched time windows and matched random streams. Stochastic scenarios use repeated replications, with the number of replications increased when confidence intervals remain wide. Paired bootstrap confidence intervals are used for cost, service, and harmful-execution outcomes. Paired t-tests or Wilcoxon signed-rank tests are selected after examining the distribution of paired differences, and effect sizes are reported alongside p-values.</p>
+      <p>Mixed-effects models are used where appropriate to estimate policy effects while accounting for heterogeneity across items, stores, categories, scenarios, and failure classes. Tail outcomes are summarized with quantiles and CVaR. Multiple comparisons across ablations are controlled. For the audit study, participant-level random effects are included when the sample permits. The emphasis is on effect magnitude and uncertainty rather than on statistical significance alone.</p>
+      <hr>
+
+      <h2 id="chapter-6-expected-findings-and-implications"><span class="eyebrow">Chapter 6</span>Expected Findings and Managerial Implications</h2>
+
+      <h3 id="61-operational-performance-under-clean-state">6.1 Operational Performance under Clean State</h3>
+      <p>When the observed state is clean, the proposed architecture is not expected to outperform a well-specified stochastic optimizer simply because it contains LLM agents. In fact, one useful result would be to show that the hybrid system stays close to the optimizer on cost and service while adding the ability to interpret constraints, manage exceptions, and produce an auditable record. If the agentic system materially underperforms the deterministic benchmark in clean conditions, that would be evidence against its practical value.</p>
+      <p>The stronger expectation concerns reliability. Because the quantitative decision is anchored in formal tools and checked by an independent critic, the full system should exhibit fewer hard-constraint violations and less run-to-run variation than an LLM-only policy. The key managerial point is that the value proposition of agentic AI does not need to be "better mathematics." Its value can instead lie in coordinating the parts of the process that remain difficult to formalize.</p>
+
+      <h3 id="62-where-failures-originate-evidence-gating-versus-critic-review">6.2 Where Failures Originate: Evidence Gating versus Critic Review</h3>
+      <p>The most important comparison is between the optimizer with no state gate (B3), the same optimizer with a deterministic gate (B4), the multi-agent system with a critic but fixed autonomy (B9), and the full system (B10). The expectation is that a critic is effective when a proposal is internally inconsistent with the state it has been given, but much less effective when the state itself is wrong. An order can be perfectly feasible relative to a stale or inaccurate inventory position and still be harmful in the real environment.</p>
+      <p>If B4 captures most of the benefit on simple failures such as duplicates, missing dates, or impossible units, this would be an important result rather than a disappointment. It would support a staged adoption strategy in which organizations first implement deterministic evidence checks and only then add LLM reasoning to ambiguous cases. The business case for LLM involvement would be strongest if B10 reduces false escalations or missed detections in scenarios that genuinely require cross-source or document-level interpretation.</p>
+
+      <h3 id="63-constraint-grounding">6.3 Constraint Grounding</h3>
+      <p>Constraint extraction is expected to be accurate when the rule is explicit and local—for example, "order in multiples of 12." Performance should decline as the rule becomes more coupled or ambiguous, such as a minimum that applies across several SKUs, a unit conversion that must be inferred from separate master data, or an assortment rule that depends on a validity window. The central safety question is therefore not whether the LLM makes zero mistakes, but whether the validation layer converts uncertain interpretations into escalations before they influence an order.</p>
+      <p>A useful managerial outcome would be a risk map showing which constraint families are suitable for automatic extraction, which need deterministic validation, and which should remain approval-only. Such a map is more actionable than an overall extraction-accuracy score.</p>
+
+      <h3 id="64-specialization-typed-state-and-coordination-cost">6.4 Specialization, Typed State, and Coordination Cost</h3>
+      <p>The ablations should reveal whether role specialization and typed state are worth their complexity. A single agent has fewer hand-offs and may be faster, but it also has more opportunity to mix interpretation, calculation, and judgment in one opaque step. The typed multi-agent design should reduce schema errors and silent contradiction, but it will increase orchestration overhead.</p>
+      <p>The research does not assume that more agents are always better. If one specialist role adds little measurable value, the correct design response is to remove it. This is particularly relevant for managers because multi-agent systems create operating costs in the form of latency, token usage, monitoring effort, and additional failure points. Chapter 6 therefore treats coordination cost as part of the result rather than as an implementation detail.</p>
+
+      <h3 id="65-trace-faithfulness-and-human-audit">6.5 Trace Faithfulness and Human Audit</h3>
+      <p>The structured trace is expected to perform better than free-form rationales on replay and evidence tests because the relevant artifacts are recorded by design. The more interesting question is whether that technical faithfulness helps a human reviewer. Lineage should be particularly valuable when the reason for a poor decision lies upstream of the forecast or optimizer. In those cases, a narrative explanation may rationalize the order while a lineage-bearing trace makes the stale or inconsistent state visible.</p>
+      <p>A positive audit result would not mean that users should trust the system more in general. The goal is <em>calibrated trust</em>: confidence should rise when evidence is strong and fall when the trace exposes uncertainty or a failed check. A good interface should therefore make failure and escalation as visible as success.</p>
+
+      <h3 id="66-transferability-and-managerial-implications">6.6 Transferability and Managerial Implications</h3>
+      <p>The canonical schema is intended to support transfer across organizations at the level of business concepts, not at the level of source-system implementation. A retailer would still have to map its own product, location, supplier, order, and inventory data into the interface. The research therefore supports a staged adoption model rather than a plug-and-play claim.</p>
+      <p>The expected adoption sequence is: <strong>(1) establish data lineage and deterministic state checks; (2) formalize the main supplier and assortment constraints; (3) introduce a structured decision trace; (4) use LLMs for document interpretation and anomaly triage; (5) add bounded autonomy only for decision classes whose measured reliability justifies it.</strong> This sequence has an important business advantage: each stage can create value even if the organization never proceeds to full agentic automation.</p>
+      <hr>
+
+      <h2 id="chapter-7-ethical-safety-and-governance-considerations"><span class="eyebrow">Chapter 7</span>Ethical, Safety, and Governance Considerations</h2>
+
+      <h3 id="71-automation-bias-and-accountability">7.1 Automation Bias and Accountability</h3>
+      <p>A polished AI recommendation can appear more authoritative than it deserves. Human-factors research shows that users may over-rely on automated outputs, especially when the system presents itself with confidence (Parasuraman &amp; Riley, 1997). The design therefore treats explanation as evidence for review rather than as a tool for persuasion. Failed checks, uncertainty, alternatives, and escalation reasons should be shown alongside the recommended action.</p>
+      <p>Accountability also requires a clear record of who or what made the final decision. The trace distinguishes between a system-generated proposal, a human-approved order, a human-modified order, a held decision, and a bounded-autonomous execution. Procurement policy remains an organizational responsibility even when the computational steps are automated.</p>
+
+      <h3 id="72-data-quality-as-a-safety-property">7.2 Data Quality as a Safety Property</h3>
+      <p>Evidence gating shifts some risk from acting on bad information to delaying an action. That trade-off is real. A hold can prevent an over-order, but it can also contribute to a stockout if the issue is not resolved quickly. This is why the architecture includes both a hold budget and an escalation cost in the evaluation. The system should communicate that a decision is <em>held because evidence is insufficient</em>, not present the hold as if the correct business action were known to be "order nothing."</p>
+      <p>The dissertation uses only public benchmark data and synthetic operational layers. No confidential retailer sales, supplier terms, or production telemetry are required for the reported experiment. This improves reproducibility and reduces privacy and commercial-confidentiality concerns.</p>
+
+      <h3 id="73-security-and-prompt-injection">7.3 Security and Prompt Injection</h3>
+      <p>Supplier documents, spreadsheets, and operational notes are untrusted inputs. Research on indirect prompt injection shows that content retrieved by an LLM-enabled application can contain instructions designed to influence the model's behavior (Greshake et al., 2023). The architecture therefore separates data from system instructions, restricts tools by role, validates structured outputs, and requires authenticated sources before a document can change an executable constraint.</p>
+      <p>Execution endpoints use least privilege and idempotency keys. A language model that interprets a contract does not automatically receive permission to submit a purchase order. This separation of interpretation from execution is as important as the prompt-level defenses.</p>
+
+      <h3 id="74-supplier-concentration">7.4 Supplier Concentration</h3>
+      <p>Optimization can unintentionally reinforce supplier concentration when one supplier appears consistently cheaper or more reliable. The issue is secondary in a replenishment study where many products may be effectively single-sourced, but it remains a governance concern. Where supplier choice exists, concentration should be measured and, if diversification is a policy objective, represented explicitly as a constraint rather than expected to emerge from the cost function.</p>
+
+      <h3 id="75-environmental-and-economic-externalities">7.5 Environmental and Economic Externalities</h3>
+      <p>Higher service levels can require more stock, storage, transport, and expedited shipments. Conversely, poor replenishment can create waste through obsolescence or markdowns. Where data are available, environmental costs can be added to the objective or reported separately. The computational cost of agentic AI is also recorded through model calls, token usage, and latency so that the system can be compared with simpler alternatives.</p>
+
+      <h3 id="76-limitations">7.6 Limitations</h3>
+      <p>The study has several limitations. First, M5 is a public grocery and household retail dataset and does not represent every retail format. Supplier, inventory, and assortment structures have to be simulated because the dataset does not contain them. Second, the canonical schema is informed by established standards but is still a research simplification; real implementations may require additional entities and organization-specific rules. Third, the state-quality taxonomy combines empirically documented problems with deliberately constructed stress cases, so the experiment can test robustness but cannot claim a universal real-world incident rate.</p>
+      <p>Fourth, LLM behavior changes as models and providers evolve, which limits exact long-term reproducibility. Fifth, the structured trace can verify observable evidence and tool use but cannot reveal a model's latent internal reasoning. Finally, the human audit study, particularly if conducted with graduate participants rather than experienced retail planners, will provide evidence about the interface rather than a definitive estimate of professional decision behavior.</p>
+      <hr>
+
+      <h2 id="chapter-8-conclusion"><span class="eyebrow">Chapter 8</span>Conclusion</h2>
+
+      <h3 id="81-summary-of-contributions">8.1 Summary of Contributions</h3>
+      <p>This dissertation reframes autonomous replenishment as a question of justified authority. The main challenge is not simply whether an AI system can calculate or suggest an order. It is whether the organization can establish when the system has enough reliable evidence to act, when it should ask for help, and whether the decision can be reconstructed later.</p>
+      <p>The research makes six contributions. It develops a literature- and standards-informed canonical replenishment model; links data quality directly to the level of decision autonomy; combines LLM interpretation with deterministic forecasting, validation, and optimization tools; extends the M5 benchmark with transparent supply, assortment, and evidence-quality disturbances; evaluates explanations through replayable decision traces; and turns the technical results into a staged managerial adoption framework.</p>
+      <p>The broader argument is deliberately conservative. Agentic AI is most useful here not when it replaces forecasting, optimization, or operational controls, but when it connects them. The language model handles ambiguity; formal tools establish quantities and feasibility; governance determines permission to act.</p>
+
+      <h3 id="82-limitations">8.2 Limitations</h3>
+      <p>The conclusions will remain bounded by the public benchmark and simulated operational layers. Results that hold on M5 cannot be assumed to transfer automatically to fashion, luxury, industrial distribution, or other retail settings. The research also does not address the full pre-season buying problem, markdown optimization, or strategic supplier portfolio design. These limitations are deliberate choices to keep the research question testable within a master's dissertation.</p>
+
+      <h3 id="83-future-directions">8.3 Future Directions</h3>
+      <p>A natural next step would be an approval-gated field pilot in which the state certificate and decision trace are introduced before any autonomous execution. Such a pilot could measure how often planners accept, reject, or modify recommendations and could use those outcomes to calibrate autonomy thresholds. A second extension would add pre-season assortment and size-curve decisions, which are especially important in fashion. A third would study whether the autonomy policy itself can be learned from historical decision outcomes while remaining constrained by explicit governance rules.</p>
+      <p>The same architecture may also generalize beyond retail. Procurement, workforce scheduling, maintenance, and other operational decisions share a similar pattern: a decision tool acts on a state assembled by data pipelines, business rules are partly structured and partly textual, and the cost of an automated action depends on whether the evidence was reliable. Evidence-gated autonomy is therefore best understood as a general governance pattern for operational AI, with retail replenishment providing a concrete and measurable test case.</p>
+      <hr>
+<h2 id="references">References</h2><div class="refs">
+<p>Ansari, A. F., Stella, L., Turkmen, C., Zhang, X., Mercado, P., Shen, H., Shchur, O., Rangapuram, S. S., Arango, S. P., Kapoor, S., Zschiegner, J., Maddix, D. C., Wang, H., Mahoney, M. W., Torkkola, K., Wilson, A. G., Bohlke-Schneider, M., &amp; Wang, Y. (2024). Chronos: Learning the language of time series. <em>Transactions on Machine Learning Research</em>. <a href="https://arxiv.org/abs/2403.07815">https://arxiv.org/abs/2403.07815</a></p>
+<p>Ao, R., Simchi-Levi, D., &amp; Wang, X. (2026). OptiRepair: Closed-loop diagnosis and repair of supply chain optimization models with LLM agents. <em>arXiv preprint arXiv:2602.19439</em>. <a href="https://arxiv.org/abs/2602.19439">https://arxiv.org/abs/2602.19439</a></p>
+<p>Arcuschin, I., Janiak, J., Krzyzanowski, R., Rajamanoharan, S., Nanda, N., &amp; Conmy, A. (2025). Chain-of-thought reasoning in the wild is not always faithful. <em>arXiv preprint arXiv:2503.08679</em>. <a href="https://arxiv.org/abs/2503.08679">https://arxiv.org/abs/2503.08679</a></p>
+<p>Chen, F., Drezner, Z., Ryan, J. K., &amp; Simchi-Levi, D. (2000). Quantifying the bullwhip effect in a simple supply chain: The impact of forecasting, lead times, and information. <em>Management Science, 46</em>(3), 436–443. <a href="https://doi.org/10.1287/mnsc.46.3.436.12069">https://doi.org/10.1287/mnsc.46.3.436.12069</a></p>
+<p>Clark, A. J., &amp; Scarf, H. (1960). Optimal policies for a multi-echelon inventory problem. <em>Management Science, 6</em>(4), 475–490. <a href="https://doi.org/10.1287/mnsc.6.4.475">https://doi.org/10.1287/mnsc.6.4.475</a></p>
+<p>Croston, J. D. (1972). Forecasting and stock control for intermittent demands. <em>Operational Research Quarterly, 23</em>(3), 289–303. <a href="https://doi.org/10.1057/jors.1972.50">https://doi.org/10.1057/jors.1972.50</a></p>
+<p>Das, L., Carrel, A. L., &amp; Caplice, C. (2021). Pack size effects on retail store inventory and storage space needs. <em>INFOR: Information Systems and Operational Research, 59</em>(3), 465–494. <a href="https://doi.org/10.1080/03155986.2021.1918487">https://doi.org/10.1080/03155986.2021.1918487</a></p>
+<p>DeHoratius, N., &amp; Raman, A. (2008). Inventory record inaccuracy: An empirical analysis. <em>Management Science, 54</em>(4), 627–641. <a href="https://doi.org/10.1287/mnsc.1070.0789">https://doi.org/10.1287/mnsc.1070.0789</a></p>
+<p>DeHoratius, N., Mersereau, A. J., &amp; Schrage, L. (2008). Retail inventory management when records are inaccurate. <em>Manufacturing &amp; Service Operations Management, 10</em>(2), 257–277. <a href="https://doi.org/10.1287/msom.1070.0203">https://doi.org/10.1287/msom.1070.0203</a></p>
+<p>Gneiting, T., &amp; Raftery, A. E. (2007). Strictly proper scoring rules, prediction, and estimation. <em>Journal of the American Statistical Association, 102</em>(477), 359–378. <a href="https://doi.org/10.1198/016214506000001437">https://doi.org/10.1198/016214506000001437</a></p>
+<p>Greshake, K., Abdelnabi, S., Mishra, S., Endres, C., Holz, T., &amp; Fritz, M. (2023). Not what you've signed up for: Compromising real-world LLM-integrated applications with indirect prompt injection. <em>Proceedings of the 16th ACM Workshop on Artificial Intelligence and Security (AISec '23)</em>, 79–90. <a href="https://doi.org/10.1145/3605764.3623985">https://doi.org/10.1145/3605764.3623985</a></p>
+<p>GS1. (2022). <em>EPCIS and Core Business Vocabulary (CBV), version 2.0</em>. <a href="https://ref.gs1.org/standards/epcis/2.0.0/">https://ref.gs1.org/standards/epcis/2.0.0/</a></p>
+<p>GS1. (2026). <em>Global Data Model standard, version 2.18.0</em>. <a href="https://ref.gs1.org/standards/gdm/">https://ref.gs1.org/standards/gdm/</a></p>
+<p>Hevner, A. R., March, S. T., Park, J., &amp; Ram, S. (2004). Design science in information systems research. <em>MIS Quarterly, 28</em>(1), 75–105. <a href="https://doi.org/10.2307/25148625">https://doi.org/10.2307/25148625</a></p>
+<p>Jannelli, V., Schoepf, S., Bickel, M., Netland, T., &amp; Brintrup, A. (2024). Agentic LLMs in the supply chain: Towards autonomous multi-agent consensus-seeking. <em>arXiv preprint arXiv:2411.10184</em>. <a href="https://arxiv.org/abs/2411.10184">https://arxiv.org/abs/2411.10184</a></p>
+<p>Kang, Y., &amp; Gershwin, S. B. (2005). Information inaccuracy in inventory systems: Stock loss and stockout. <em>IIE Transactions, 37</em>(9), 843–859. <a href="https://doi.org/10.1080/07408170590969861">https://doi.org/10.1080/07408170590969861</a></p>
+<p>Lee, H. L., Padmanabhan, V., &amp; Whang, S. (1997). Information distortion in a supply chain: The bullwhip effect. <em>Management Science, 43</em>(4), 546–558. <a href="https://doi.org/10.1287/mnsc.43.4.546">https://doi.org/10.1287/mnsc.43.4.546</a></p>
+<p>Li, B., Mellou, K., Zhang, B., Pathuri, J., &amp; Menache, I. (2023). Large language models for supply chain optimization. <em>arXiv preprint arXiv:2307.03875</em>. <a href="https://arxiv.org/abs/2307.03875">https://arxiv.org/abs/2307.03875</a></p>
+<p>Lim, B., Arik, S. O., Loeff, N., &amp; Pfister, T. (2021). Temporal Fusion Transformers for interpretable multi-horizon time series forecasting. <em>International Journal of Forecasting, 37</em>(4), 1748–1764. <a href="https://doi.org/10.1016/j.ijforecast.2021.03.012">https://doi.org/10.1016/j.ijforecast.2021.03.012</a></p>
+<p>Liu, B., Jiang, Y., Zhang, X., Liu, Q., Zhang, S., Biswas, J., &amp; Stone, P. (2023). LLM+P: Empowering large language models with optimal planning proficiency. <em>arXiv preprint arXiv:2304.11477</em>. <a href="https://arxiv.org/abs/2304.11477">https://arxiv.org/abs/2304.11477</a></p>
+<p>Liu, X., Yu, H., Zhang, H., Xu, Y., Lei, X., Lai, H., Gu, Y., Ding, H., Men, K., Yang, K., Zhang, S., Deng, X., Zeng, A., Du, Z., Zhang, C., Shen, S., Zhang, T., Su, Y., Sun, H., Huang, M., Dong, Y., &amp; Tang, J. (2024). AgentBench: Evaluating LLMs as agents. <em>International Conference on Learning Representations</em>. <a href="https://openreview.net/forum?id=zAdUB0aCTQ">https://openreview.net/forum?id=zAdUB0aCTQ</a></p>
+<p>Long, C. X., Simchi-Levi, D., Zhu, F., Su, H., Calmon, A. P., &amp; Calmon, F. P. (2026). Reliability and effectiveness of autonomous AI agents in supply chain management. <em>arXiv preprint arXiv:2605.17036</em>. <a href="https://arxiv.org/abs/2605.17036">https://arxiv.org/abs/2605.17036</a></p>
+<p>Ma, C., Zhang, J., Zhu, Z., Yang, C., Yang, Y., Jin, Y., Lan, Z., Kong, L., &amp; He, J. (2024). AgentBoard: An analytical evaluation board of multi-turn LLM agents. <em>Advances in Neural Information Processing Systems, 37</em>. <a href="https://arxiv.org/abs/2401.13178">https://arxiv.org/abs/2401.13178</a></p>
+<p>Makridakis, S., Spiliotis, E., &amp; Assimakopoulos, V. (2022a). M5 accuracy competition: Results, findings, and conclusions. <em>International Journal of Forecasting, 38</em>(4), 1346–1364. <a href="https://doi.org/10.1016/j.ijforecast.2021.11.013">https://doi.org/10.1016/j.ijforecast.2021.11.013</a></p>
+<p>Makridakis, S., Spiliotis, E., Assimakopoulos, V., Chen, Z., Gaba, A., Tsetlin, I., &amp; Winkler, R. L. (2022b). The M5 uncertainty competition: Results, findings and conclusions. <em>International Journal of Forecasting, 38</em>(4), 1365–1385. <a href="https://doi.org/10.1016/j.ijforecast.2021.10.009">https://doi.org/10.1016/j.ijforecast.2021.10.009</a></p>
+<p>Mantrala, M. K., Levy, M., Kahn, B. E., Fox, E. J., Gaidarev, P., Dankworth, B., &amp; Shah, D. (2009). Why is assortment planning so difficult for retailers? A framework and research agenda. <em>Journal of Retailing, 85</em>(1), 71–83. <a href="https://doi.org/10.1016/j.jretai.2008.11.006">https://doi.org/10.1016/j.jretai.2008.11.006</a></p>
+<p>Nahmias, S. (1994). Demand estimation in lost sales inventory systems. <em>Naval Research Logistics, 41</em>(6), 739–757. <a href="https://doi.org/10.1002/1520-6750(199410)41:6&lt;739::AID-NAV3220410605&gt;3.0.CO;2-A">https://doi.org/10.1002/1520-6750(199410)41:6&lt;739::AID-NAV3220410605&gt;3.0.CO;2-A</a></p>
+<p>Object Management Group. (n.d.). <em>ARTS Operational Data Model</em>. Retail Domain Task Force. Accessed 7 October 2026. <a href="https://www.omg.org/retail/operational-data-model.htm">https://www.omg.org/retail/operational-data-model.htm</a></p>
+<p>Parasuraman, R., &amp; Riley, V. (1997). Humans and automation: Use, misuse, disuse, abuse. <em>Human Factors, 39</em>(2), 230–253. <a href="https://doi.org/10.1518/001872097778543886">https://doi.org/10.1518/001872097778543886</a></p>
+<p>Parasuraman, R., Sheridan, T. B., &amp; Wickens, C. D. (2000). A model for types and levels of human interaction with automation. <em>IEEE Transactions on Systems, Man, and Cybernetics, Part A, 30</em>(3), 286–297. <a href="https://doi.org/10.1109/3468.844354">https://doi.org/10.1109/3468.844354</a></p>
+<p>Paterson, C., Kiesmüller, G., Teunter, R., &amp; Glazebrook, K. (2011). Inventory models with lateral transshipments: A review. <em>European Journal of Operational Research, 210</em>(2), 125–136. <a href="https://doi.org/10.1016/j.ejor.2010.05.048">https://doi.org/10.1016/j.ejor.2010.05.048</a></p>
+<p>Quan, Y., &amp; Liu, Z. (2024). InvAgent: A large language model based multi-agent system for inventory management in supply chains. <em>arXiv preprint arXiv:2407.11384</em>. <a href="https://arxiv.org/abs/2407.11384">https://arxiv.org/abs/2407.11384</a></p>
+<p>Rahm, E., &amp; Do, H. H. (2000). Data cleaning: Problems and current approaches. <em>IEEE Data Engineering Bulletin, 23</em>(4), 3–13.</p>
+<p>Rajaram, K. (2001). Assortment planning in fashion retailing: Methodology, application and analysis. <em>European Journal of Operational Research, 129</em>(1), 186–208. <a href="https://doi.org/10.1016/S0377-2217(99)00406-3">https://doi.org/10.1016/S0377-2217(99)00406-3</a></p>
+<p>Rockafellar, R. T., &amp; Uryasev, S. (2000). Optimization of conditional value-at-risk. <em>Journal of Risk, 2</em>(3), 21–41. <a href="https://doi.org/10.21314/JOR.2000.038">https://doi.org/10.21314/JOR.2000.038</a></p>
+<p>Salinas, D., Flunkert, V., Gasthaus, J., &amp; Januschowski, T. (2020). DeepAR: Probabilistic forecasting with autoregressive recurrent networks. <em>International Journal of Forecasting, 36</em>(3), 1181–1191. <a href="https://doi.org/10.1016/j.ijforecast.2019.07.001">https://doi.org/10.1016/j.ijforecast.2019.07.001</a></p>
+<p>Shen, X., Wang, S., Tan, Z., Yao, L., Zhao, X., Xu, K., Wang, X., &amp; Chen, T. (2025). FaithCoT-Bench: Benchmarking instance-level faithfulness of chain-of-thought reasoning. <em>arXiv preprint arXiv:2510.04040</em>. <a href="https://arxiv.org/abs/2510.04040">https://arxiv.org/abs/2510.04040</a></p>
+<p>Simchi-Levi, D., Mellou, K., Menache, I., &amp; Pathuri, J. (2025). Large language models for supply chain decisions. <em>arXiv preprint arXiv:2507.21502</em>. <a href="https://arxiv.org/abs/2507.21502">https://arxiv.org/abs/2507.21502</a></p>
+<p>Souibgui, M., Atigui, F., Zammali, S., Si-Said Cherfi, S., &amp; Ben Yahia, S. (2019). Data quality in ETL process: A preliminary study. <em>Procedia Computer Science, 159</em>, 676–687. <a href="https://doi.org/10.1016/j.procs.2019.09.223">https://doi.org/10.1016/j.procs.2019.09.223</a></p>
+<p>Sterman, J. D. (1989). Modeling managerial behavior: Misperceptions of feedback in a dynamic decision making experiment. <em>Management Science, 35</em>(3), 321–339. <a href="https://doi.org/10.1287/mnsc.35.3.321">https://doi.org/10.1287/mnsc.35.3.321</a></p>
+<p>Syntetos, A. A., &amp; Boylan, J. E. (2005). The accuracy of intermittent demand estimates. <em>International Journal of Forecasting, 21</em>(2), 303–314. <a href="https://doi.org/10.1016/j.ijforecast.2004.10.001">https://doi.org/10.1016/j.ijforecast.2004.10.001</a></p>
+<p>Turpin, M., Michael, J., Perez, E., &amp; Bowman, S. R. (2023). Language models don't always say what they think: Unfaithful explanations in chain-of-thought prompting. <em>Advances in Neural Information Processing Systems, 36</em>. <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/ed3fea9033a80fea1376299fa7863f4a-Abstract-Conference.html">https://proceedings.neurips.cc/paper_files/paper/2023/hash/ed3fea9033a80fea1376299fa7863f4a-Abstract-Conference.html</a></p>
+<p>van Donselaar, K. H., Gaur, V., van Woensel, T., Broekmeulen, R. A. C. M., &amp; Fransoo, J. C. (2010). Ordering behavior in retail stores and implications for automated replenishment. <em>Management Science, 56</em>(5), 766–784. <a href="https://doi.org/10.1287/mnsc.1090.1141">https://doi.org/10.1287/mnsc.1090.1141</a></p>
+<p>Wang, R. Y., &amp; Strong, D. M. (1996). Beyond accuracy: What data quality means to data consumers. <em>Journal of Management Information Systems, 12</em>(4), 5–33. <a href="https://doi.org/10.1080/07421222.1996.11518099">https://doi.org/10.1080/07421222.1996.11518099</a></p>
+<p>Wickramasuriya, S. L., Athanasopoulos, G., &amp; Hyndman, R. J. (2019). Optimal forecast reconciliation for hierarchical and grouped time series through trace minimization. <em>Journal of the American Statistical Association, 114</em>(526), 804–819. <a href="https://doi.org/10.1080/01621459.2018.1448825">https://doi.org/10.1080/01621459.2018.1448825</a></p>
+<p>Woo, G., Liu, C., Kumar, A., Xiong, C., Savarese, S., &amp; Sahoo, D. (2024). Unified training of universal time series forecasting transformers. <em>Proceedings of the 41st International Conference on Machine Learning</em>. <a href="https://arxiv.org/abs/2402.02592">https://arxiv.org/abs/2402.02592</a></p>
+<p>Woodall, P., Borek, A., Oberhofer, M. A., &amp; Gao, J. (2016). Data quality problems in ETL: The state of the practice in large organisations. In <em>Proceedings of the 21st International Conference on Information Quality (ICIQ 2016)</em> (pp. 54–64).</p>
+<p>Wu, Q., Bansal, G., Zhang, J., Wu, Y., Li, B., Zhu, E., Jiang, L., Zhang, X., Zhang, S., Liu, J., Awadallah, A. H., White, R. W., Burger, D., &amp; Wang, C. (2023). AutoGen: Enabling next-gen LLM applications via multi-agent conversation. <em>arXiv preprint arXiv:2308.08155</em>. <a href="https://arxiv.org/abs/2308.08155">https://arxiv.org/abs/2308.08155</a></p>
+<p>Yang, Q., Ge, M., &amp; Helfert, M. (2017). Guidelines of data quality issues for data integration in the context of the TPC-DI benchmark. In <em>Proceedings of the 19th International Conference on Enterprise Information Systems (ICEIS)</em> (pp. 135–144). <a href="https://doi.org/10.5220/0006334301350144">https://doi.org/10.5220/0006334301350144</a></p>
+<p>Yao, S., Zhao, J., Yu, D., Du, N., Shafran, I., Narasimhan, K., &amp; Cao, Y. (2023). ReAct: Synergizing reasoning and acting in language models. <em>International Conference on Learning Representations</em>. <a href="https://openreview.net/forum?id=WE_vluYUL-X">https://openreview.net/forum?id=WE_vluYUL-X</a></p>
+<p>Yoshizato, K., Shimizu, K., Higa, R., &amp; Otsuka, T. (2026). AI agent systems for supply chains: Structured decision prompts and memory retrieval. <em>arXiv preprint arXiv:2602.05524</em>. <a href="https://arxiv.org/abs/2602.05524">https://arxiv.org/abs/2602.05524</a></p>
+<p>Zhao, X., Xie, Y., Chen, C., &amp; Sun, Y. (2025). AIM-Bench: Evaluating decision-making biases of agentic LLM as inventory manager. <em>arXiv preprint arXiv:2508.11416</em>. <a href="https://arxiv.org/abs/2508.11416">https://arxiv.org/abs/2508.11416</a></p>
+<p>Zipkin, P. H. (2000). <em>Foundations of inventory management</em>. McGraw-Hill.</p>
+</div><hr>
+
+      <h2 id="appendix-a-summary-of-revisions-relative-to-the-previous-draft"><span class="eyebrow">Appendix A</span>Summary of Revisions Relative to the Previous Draft</h2>
+      <p>This revision changes the positioning of the dissertation in three important ways. First, the narrative has been rewritten in a more natural academic style suited to a business-school master's dissertation. The technical architecture remains central, but it is now consistently linked to managerial questions of risk, accountability, adoption, and organizational control.</p>
+      <p><strong>Operational grounding.</strong> Chapter 3 no longer relies on participant observation or the author's access to a multi-retailer production platform. Instead, the canonical replenishment model is presented as a research abstraction informed by the ARTS Operational Data Model, GS1 Global Data Model and EPCIS concepts, retail assortment and inventory literature, and published work on data integration and data quality. The chapter explicitly distinguishes between evidence documented in the literature and stress cases introduced by the research design.</p>
+      <p><strong>Canonical schema.</strong> The schema is no longer described as being inherited from a production platform. Its entities are justified from retail standards and research: product, location, supplier, price, sales, inventory, order, receipt, transfer, assortment, and reference data. The schema is positioned as a compact experimental interface rather than a new industry standard.</p>
+      <p><strong>State-quality failures.</strong> The failure taxonomy has been reorganized around established dimensions such as timeliness, completeness, consistency, uniqueness, referential integrity, unit compatibility, inventory record accuracy, and censoring. ETL and data-integration studies are used to motivate stale, missing, duplicate, and inconsistent data. Transformation collapse and historical restatement are retained as explicit stress cases rather than claimed empirical rates.</p>
+      <p><strong>Experimental calibration.</strong> The previous claim that state-quality perturbations were calibrated from proprietary operational telemetry has been removed. The new protocol uses literature-informed scenario design and low/medium/high sensitivity bands. This preserves practical realism while making the study reproducible and avoiding unsupported claims about real-world incident frequencies.</p>
+      <p><strong>Business-school framing.</strong> The research contribution now emphasizes a staged adoption model: deterministic state checks and lineage first, formal constraint representation second, LLM-assisted interpretation third, and bounded autonomy only after reliability has been demonstrated. Expected findings are framed as testable hypotheses and managerial implications rather than as engineering assumptions.</p>
+
+    </article>
+  </main>
+</div>

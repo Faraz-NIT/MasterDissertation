@@ -22,6 +22,7 @@ class SolverConfig(StrictConfig):
     transfer_lead: int = Field(1, ge=1)
     allow_transfers: bool = True
     max_order_units: int = Field(1000, ge=1)
+    unknown_arrival_rng: Literal["v1_order_id", "v2_opportunity"] = "v1_order_id"
 
 class GateConfig(StrictConfig):
     version: str = "gate-v2-spend-deviation-2026-10-06"
@@ -82,6 +83,21 @@ class LLMConfig(StrictConfig):
     seed: int = 42
     on_failure: Literal["hold", "deterministic"] = "hold"
     use_memory: bool = True
+    prompt_profile: Literal["v1", "v2"] = "v1"
+
+class AgentV2Config(StrictConfig):
+    """Opt-in improvement pilot; legacy study behavior remains the default."""
+    enabled: bool = False
+    semantic_retries: int = Field(1, ge=0, le=1)
+    compact_output: bool = False
+    cache_enabled: bool = True
+    cache_path: str | None = None
+    state_recovery: bool = False
+    # A second, simulated raw source measurement exposed before corruption, equally to every arm.
+    expose_source_inventory: bool = False
+    llm_recovery_selection: bool = True
+    llm_numeric_routing: bool = False
+    llm_critic: bool = False
 
 class QualityLayerConfig(StrictConfig):
     version: str = "synthetic-v1-NOT-telemetry-calibrated"
@@ -116,6 +132,7 @@ class ExperimentConfig(StrictConfig):
     gate: GateConfig = Field(default_factory=GateConfig)
     forecast: ForecastConfig = Field(default_factory=ForecastConfig)
     llm: LLMConfig = Field(default_factory=LLMConfig)
+    agent_v2: AgentV2Config = Field(default_factory=AgentV2Config)
     quality: QualityLayerConfig = Field(default_factory=QualityLayerConfig)
     harmful_abs_tolerance: float = Field(12, ge=0)
     harmful_rel_tolerance: float = Field(0.5, ge=0)
@@ -127,7 +144,7 @@ class ExperimentConfig(StrictConfig):
     # What the agents read: 'template' documents carry a machine-readable RULE line (the deterministic parser reads them);
     # 'prose' documents state the same fields in words only, so only a configured model can ground them. Ground truth,
     # the oracle and the deterministic checks always use the template rendering of the same contracts.
-    document_carrier: Literal["template", "prose"] = "template"
+    document_carrier: Literal["template", "prose", "hybrid_prose"] = "template"
     approval_delay: int = Field(1, ge=0)
     @model_validator(mode="after")
     def check(self):
@@ -146,6 +163,16 @@ class ExperimentConfig(StrictConfig):
             raise ValueError("B6-B10 require a real LLM. Use D1 for the explicitly non-LLM demonstration.")
         if self.llm.enabled and not self.llm.model:
             raise ValueError("Set llm.model to an installed/local or provider model identifier")
+        if self.document_carrier == 'hybrid_prose' and not self.agent_v2.enabled:
+            raise ValueError('hybrid_prose requires the version-2 source-grounding pipeline')
+        if self.agent_v2.enabled and self.llm.enabled and self.llm.prompt_profile != 'v2':
+            raise ValueError('Version-2 live agents require llm.prompt_profile=v2 to pin the serving prompt')
+        if self.agent_v2.expose_source_inventory and not self.agent_v2.enabled:
+            raise ValueError('Additional raw source evidence is only available in an explicitly versioned pilot')
+        if self.agent_v2.enabled:
+            if set(self.policies)-{'B4','B10'}:
+                raise ValueError('The version-2 pilot currently supports the matched B4 parser and B10 hybrid arms')
+            self.solver.unknown_arrival_rng='v2_opportunity'
         return self
 
 def load_config(path: str | Path) -> ExperimentConfig:

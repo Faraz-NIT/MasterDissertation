@@ -1,0 +1,1 @@
+{"errors":0,"failures":0,"passed":true,"reader_sha256":"f6c5c86afbc9d3f8710e51cf69248a1e52687c71e011acd36a14f30f616eca71","tests":13,"validated":"Hash tampering, audit chain tampering, read-only preservation, path reference screening, exact grid identities, evaluator context leakage, mismatched horizons and repair attempt/success separation"}

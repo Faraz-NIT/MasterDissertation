@@ -1,0 +1,30 @@
+{
+  "validated_at_utc": "2026-10-07T20:03:01.496849+00:00",
+  "supervisor_tests": {
+    "passed": 8,
+    "failed": 0,
+    "location": "/tmp/test_m5_supervisor.py",
+    "covers": [
+      "read-only preflight does not spawn",
+      "bounded HTTPS range body",
+      "signed URL/log token redaction",
+      "digest validation",
+      "epoch/pause controls",
+      "2GiB disk reserve",
+      "actual ZIP sample"
+    ]
+  },
+  "packed_merge_fixture": {
+    "passed": true,
+    "path": "/tmp/m5_pack_test_merge_h29jztt2",
+    "copied_actual_source": "/workspace/MasterDissertation/results/main_study_stage1_workers/w0/B1__normal__seed0__origin0",
+    "original_objects": 367,
+    "retained_objects": 9,
+    "archive_bytes": 2417610,
+    "days": 28,
+    "repeat_identical_merge": true,
+    "html_report_rendered": true,
+    "experimental_result": false
+  },
+  "study_launches_from_validation": 0
+}

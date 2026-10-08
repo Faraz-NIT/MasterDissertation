@@ -45,7 +45,7 @@ def reconstruct(store,trace,manifest,delete=None):
 def replay(run,day=None,ref=None):
     store,trace,manifest=load_trace(run,day,ref)
     try:
-        refs=trace['references'];raw=Snapshot.model_validate(store.get(refs['observe']))
+        refs=trace['references'];raw=Snapshot.model_validate(store.get(refs.get('reconciled_snapshot',refs['observe'])))
         original_cert=Certificate.model_validate(store.get(refs['certify_state']))
         config=ExperimentConfig.model_validate(manifest['config']);cert=certify(raw,config.gate)
         state_matches=(cert.quality==original_cert.quality and [c.model_dump() for c in cert.checks]==[c.model_dump() for c in original_cert.checks])

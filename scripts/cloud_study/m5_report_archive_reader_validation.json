@@ -1,0 +1,23 @@
+{
+  "copied_fixture": "/tmp/m5_pack_test_5rxflfz3/B1__normal__seed0__origin0",
+  "object_sha256": "fef3bf9da9d25ad0c2de16ceb956f599d765c47e795795354c20e0fc36d431df",
+  "archive_and_loose_equal": true,
+  "unknown_reference_refused": true,
+  "whole_run_restored_by_test": false,
+  "actual_experiment_outputs_modified": false,
+  "packing_summary": {
+    "run": "/tmp/m5_pack_test_5rxflfz3/B1__normal__seed0__origin0",
+    "state": "restored",
+    "verification": "Current archive SHA/size, member inventory, original inventory hash and run provenance checked; selected reads also verify each object's SHA/size",
+    "original_objects": 367,
+    "kept_loose_objects": 9,
+    "trace_decisions": 28,
+    "loose_trace_decisions": 28,
+    "archive_bytes": 2417610,
+    "archive_sha256": "1448e4e47cc6b6975ee9fd2cb35e0e75a425d1115d7ffea5a03abb4325c771cd",
+    "original_object_inventory_sha256": "6da9456503d0c8d4c84b07077fa504bc161e01b24e73e4f91baa005b1c8ce902",
+    "full_traces_available": true,
+    "helper_verification_record": "Every archive entry checked against original bytes, original SHA-256, size and SHA filename before removal; actual SQLite chain verified.",
+    "recovery_instructions": "/workspace/MasterDissertation/.venv/bin/python /workspace/tools/m5_pack_artifacts.py --restore /tmp/m5_pack_test_5rxflfz3/B1__normal__seed0__origin0"
+  }
+}

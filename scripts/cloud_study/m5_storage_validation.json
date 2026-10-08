@@ -1,0 +1,14 @@
+{
+  "dry_run_only": true,
+  "copied_fixture_guard_checks": [
+    "near_end",
+    "merge_in_progress",
+    "inexact_complete",
+    "completed_workers_stopped"
+  ],
+  "production_discovery_stages": [
+    "main_study_stage1",
+    "llm_prose_reference_30series"
+  ],
+  "actual_experiment_outputs_modified": false
+}

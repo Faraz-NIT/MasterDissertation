@@ -5,7 +5,9 @@
 
 The system certifies inventory evidence, grounds supplier constraints, forecasts demand distributions, solves a constrained replenishment problem, independently verifies the proposed action, gates autonomy, and writes a replayable audit record.
 
-**No M5 download, API credentials, proprietary retailer data, or model weights are included.** The included example results are a synthetic software demonstration—not experimental support for the dissertation's hypotheses. Read [implementation scope](docs/IMPLEMENTATION_MATRIX.md) before treating a baseline as a literature reproduction.
+The completed cloud experiments, reports, graphs and complete evidence archives are available in [study_results](study_results/README.md). Download the latest [25-page V2 report](study_results/v2/M5_v2_pilot_report.pdf) or the [small report download ZIP](study_results/M5_report_download.zip). The V2 pilot used all 30 prepared M5 series, 32 runs and 448 decision days. Evidence-based inventory recovery improved cost and service in the derived-field-collapse scenario; the LLM matched the strongest deterministic parser and showed no additional operational advantage. These bounded simulator studies do not establish general LLM superiority or the full dissertation hypotheses.
+
+The study archives include prepared M5 panels. Full raw M5 downloads, API credentials, proprietary retailer data and language-model weights are excluded. The original `examples/validated_demo` results remain a synthetic software demonstration. Read [implementation scope](docs/IMPLEMENTATION_MATRIX.md) before treating a baseline as a literature reproduction.
 
 ## 1. Install and run immediately
 
@@ -36,7 +38,7 @@ data/raw/m5/
 └── sell_prices.csv
 ```
 
-`sales_train_validation.csv` is accepted when the evaluation file is absent. The loader prefers the evaluation file when both exist. Submission/test labels are not required. Respect the dataset's distribution terms; this repository does not redistribute it.
+`sales_train_validation.csv` is accepted when the evaluation file is absent. The loader prefers the evaluation file when both exist. Submission/test labels are not required. Respect the dataset's distribution terms; this repository does not redistribute the full raw competition files. Prepared study panels are included in the evidence archives.
 
 ```bash
 # Begin with one item at two same-cluster stores.

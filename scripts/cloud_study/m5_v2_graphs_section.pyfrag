@@ -1,0 +1,50 @@
+def graphs(out,data):
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    plt.rcParams.update({'font.family':'DejaVu Sans','font.size':9,'axes.spines.top':False,'axes.spines.right':False,'figure.dpi':145})
+    rows=data['aggregates']
+    if not rows:return []
+    scenarios=list(dict.fromkeys(scenario for stage in data['stages'] for scenario in stage['config']['scenarios']))
+    arms=[stage['label'] for stage in data['stages']]
+    colors=['#246f9e','#df8b35','#2b9679','#92549a','#b84c5a','#646d7a']
+    aliases={'parser_no_recovery':'Parser / no recovery','parser_recovery':'Parser / recovery','llm_v2_no_recovery':'LLM / no recovery','llm_v2_recovery':'LLM / recovery'}
+    def label(arm):return aliases.get(arm,arm)
+    costs=[];timelines=[]
+    for scenario in scenarios:
+        chosen=[r for r in rows if r['scenario']==scenario]
+        fig,axes=plt.subplots(1,2,figsize=(9.2,3.5))
+        for ax,key,title in zip(axes,['mean_cost','mean_fill_rate'],['Mean simulated cost (USD)','Mean fill rate']):
+            values=[r[key] for r in chosen]
+            ax.bar(range(len(chosen)),values,color=[colors[arms.index(r['arm'])%len(colors)] for r in chosen])
+            ax.set_xticks(range(len(chosen)),[label(r['arm']) for r in chosen],rotation=22,ha='right',fontsize=8)
+            ax.set_title(title)
+            if key=='mean_fill_rate':ax.set_ylim(0,1.08)
+            elif values:ax.set_ylim(0,max(values)*1.17 if max(values)>0 else 1)
+            for x,value in enumerate(values):
+                if value is not None:ax.text(x,value,f'{value:.3f}',ha='center',va='bottom',fontsize=8)
+        fig.suptitle(scenario.replace('_',' ').capitalize()+' — matched 14-day pilot',fontsize=12)
+        fig.tight_layout(rect=(0,0,1,.94));path=out/f'M5_v2_cost_service_{scenario}.png';fig.savefig(path,bbox_inches='tight');plt.close(fig);costs.append(path)
+        fig,axes=plt.subplots(1,2,figsize=(9.2,3.8))
+        for arm_index,arm in enumerate(arms):
+            ts=[t for t in data['traces'] if t['arm']==arm and t['scenario']==scenario]
+            if not ts:continue
+            by_day=defaultdict(list)
+            for t in ts:by_day[t['day']].append(t)
+            days=sorted(by_day);x=list(range(1,len(days)+1))
+            axes[0].plot(x,[np.mean([t['on_hand'] for t in by_day[d]]) for d in days],marker='.',label=label(arm),color=colors[arm_index%len(colors)])
+            axes[1].plot(x,[np.mean([t['latency_seconds'] for t in by_day[d]]) for d in days],marker='.',label=label(arm),color=colors[arm_index%len(colors)])
+        axes[0].set_title('End-of-day inventory');axes[0].set_ylabel('Mean units');axes[1].set_title('Agent decision latency');axes[1].set_ylabel('Mean seconds')
+        for ax in axes:ax.set_xlabel('Decision day');ax.set_xticks([1,4,7,10,14]);ax.grid(alpha=.2)
+        handles,labels=axes[0].get_legend_handles_labels();fig.legend(handles,labels,loc='lower center',ncol=2,fontsize=8)
+        fig.suptitle(scenario.replace('_',' ').capitalize()+' — inventory and latency',fontsize=12);fig.tight_layout(rect=(0,.12,1,.94));path=out/f'M5_v2_inventory_latency_{scenario}.png';fig.savefig(path,bbox_inches='tight');plt.close(fig);timelines.append(path)
+    fig,axes=plt.subplots(1,3,figsize=(10.5,4.5));group_width=.8;bar_width=group_width/max(len(arms),1)
+    for ax,key,title in zip(axes,['held_decisions','hard_violations','optimizer_decisions'],['Held decisions','Committed-plan violations','Decisions reaching optimizer']):
+        for i,arm in enumerate(arms):
+            values=[sum(r[key] for r in rows if r['arm']==arm and r['scenario']==scenario) for scenario in scenarios]
+            xs=np.arange(len(scenarios))-group_width/2+bar_width*(i+.5)
+            ax.bar(xs,values,width=bar_width*.94,color=colors[i%len(colors)],label=label(arm))
+        ax.set_xticks(range(len(scenarios)),[s.replace('_','\n') for s in scenarios],fontsize=8);ax.set_title(title,fontsize=10);ax.set_ylabel('Total decisions / checks');ax.set_ylim(bottom=0)
+    handles,labels=axes[0].get_legend_handles_labels();fig.legend(handles,labels,loc='lower center',ncol=2,fontsize=8);fig.tight_layout(rect=(0,.12,1,1));safety=out/'M5_v2_execution_safety.png';fig.savefig(safety,bbox_inches='tight');plt.close(fig)
+    # Stable primary positions plus every separate scenario chart in the appendix.
+    return [costs[0],safety,timelines[0],*costs[1:],*timelines[1:]]

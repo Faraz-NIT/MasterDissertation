@@ -1,0 +1,18 @@
+{
+  "status": "VERIFIED",
+  "created_at_utc": "2026-10-08T08:17:03.006937+00:00",
+  "original_study_files": 199102,
+  "original_study_bytes": 4994273539,
+  "all_original_files_restored_and_hash_verified": true,
+  "full_original_v2_zip_preserved": true,
+  "frozen_evaluated_source_hashes_verified": 54,
+  "tests": {
+    "passed": 218,
+    "skipped": 1,
+    "skip_reason": "Optional Anthropic SDK unavailable"
+  },
+  "largest_archive_part_bytes": 50331648,
+  "v2_pdf_sha256": "8d96a031741476621b282cb257e43777c4e4b68078477d638e06dfdbf3ecdb8f",
+  "artifact_whitespace_policy": "Preserve original evidence and helper bytes. Whitespace checks apply to changed application code, tests, delivery scripts and newly written documentation; archival snapshots are excluded.",
+  "base_commit": "bbe3bbcad24291994fbc70fb329f165d2d97bb96"
+}

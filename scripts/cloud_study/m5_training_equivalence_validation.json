@@ -1,0 +1,13 @@
+{
+  "fixture": "/tmp/m5_worker_training_s5q98a5b",
+  "actual_experiment_outputs_modified": false,
+  "worker_roots_checked": 3,
+  "merged_and_worker_model_roots_checked": 5,
+  "models_per_origin": 11,
+  "checks": [
+    "reserialized equal merged and all worker tensors accepted",
+    "changed second worker tensor refused despite unchanged merged first-copy model",
+    "changed second worker LightGBM leaf refused",
+    "missing second worker model refused"
+  ]
+}
