@@ -1,0 +1,55 @@
+{
+  "status": "VERIFIED",
+  "created_at_utc": "2026-10-08T21:45:05.711636+00:00",
+  "scope": "Shared improved-study hybrid agent architecture for M5 and RetailNet",
+  "agent_roles": 7,
+  "llm_roles": "Supplier interpretation and permitted recovery-tool selection",
+  "execution_adapter": "In-process simulator",
+  "visual_review": "PASS; node labels, branches and source-to-tool separation reviewed",
+  "inputs": [
+    {
+      "path": "src/ega/agents/roles.py",
+      "bytes": 9858,
+      "sha256": "cd7f7d3ab9bf21a13609ab26cf27a0111009af6a56fd20fab5af2c1cab7b087b"
+    },
+    {
+      "path": "src/ega/agents/orchestrator.py",
+      "bytes": 13551,
+      "sha256": "d7b42fb38a3dec9cdf87497ba2c0fa8d6e9ad78317c853a253ef679dd74e82e7"
+    },
+    {
+      "path": "src/ega/config.py",
+      "bytes": 9645,
+      "sha256": "90c4fc80639451f70a77c706898212aba4897b520c8b502261a1987946aae773"
+    },
+    {
+      "path": "study_results/business_dissertation/manuscript.md",
+      "bytes": 112393,
+      "sha256": "399d7b9760d8dc56fd6d1caba28a55ce42864ad3ba58f5933a05713976128cf9"
+    }
+  ],
+  "files": [
+    {
+      "path": "study_results/business_dissertation/diagrams/agents_structure.dot",
+      "bytes": 4519,
+      "sha256": "8fe3711d10f3b29136a80bb9941bcdf0630e8bf0e71d2b09c7b041d1062744de"
+    },
+    {
+      "path": "study_results/business_dissertation/diagrams/agents_structure.pdf",
+      "bytes": 29671,
+      "sha256": "3b2c423668488c273e508d0096ef3f3c4b7848f2c7b9f8552a7e4e860e0e859c"
+    },
+    {
+      "path": "study_results/business_dissertation/diagrams/agents_structure.png",
+      "bytes": 641714,
+      "sha256": "58f790720a5c364c04302ef2fc9e9cf4181f617b78b668fc481e8547180c05af"
+    },
+    {
+      "path": "study_results/business_dissertation/diagrams/agents_structure.svg",
+      "bytes": 18024,
+      "sha256": "f42d60d4e9f5aa7ffb36746db3ef907b8d0a5ac836ff934dde73b5203074450f"
+    }
+  ],
+  "experimental_outputs_modified": false,
+  "dissertation_modified": false
+}

@@ -1,0 +1,46 @@
+digraph Replenishment {
+  graph [rankdir=TB, bgcolor="white", pad="0.28", nodesep="0.30", ranksep="0.48", splines=polyline, fontname="Arial", fontsize=23, labelloc=t, label="Evidence-Gated Multi-Agent Replenishment System\nShared architecture for M5 and RetailNet", compound=true, outputorder=edgesfirst];
+  node [shape=box, style="rounded,filled", fontname="Arial", fontsize=15, color="#A7B7C6", fillcolor="#F2F6FA", fontcolor="#19334B", margin="0.17,0.13", penwidth=1.3];
+  edge [fontname="Arial", fontsize=11, color="#60748A", fontcolor="#41586D", arrowsize=0.72, penwidth=1.4];
+
+  orchestrator [fillcolor="#19334B", color="#19334B", fontcolor=white, label=<<B>ORCHESTRATION &amp; AUTONOMY AGENT</B><BR/><FONT POINT-SIZE="13">Coordinates the roles and controls permission to act</FONT>>];
+
+  sales [fillcolor="#F7F8FA", color="#CAD2DB", label=<<B>Historical sales</B><BR/><FONT COLOR="#24548A">M5</FONT> / <FONT COLOR="#27775D">RetailNet</FONT>>];
+  inventory [fillcolor="#F7F8FA", color="#CAD2DB", label=<<B>Inventory &amp; event records</B><BR/><FONT POINT-SIZE="12">Simulated operational evidence</FONT>>];
+  documents [fillcolor="#F7F8FA", color="#CAD2DB", label=<<B>Supplier documents</B><BR/><FONT POINT-SIZE="12">Controlled test inputs</FONT>>];
+  { rank=same; sales; inventory; documents; }
+
+  state [label=<<B>STATE RECONCILIATION AGENT</B><BR/><FONT POINT-SIZE="13">Checks stock, consistency and freshness</FONT><BR/><FONT COLOR="#725292" POINT-SIZE="12">LLM can select a permitted repair tool</FONT><BR/><FONT POINT-SIZE="12">Tools verify, repair and recertify the state</FONT>>];
+  forecast [label=<<B>DEMAND FORECAST AGENT</B><BR/><FONT POINT-SIZE="13">Forecasts demand from historical sales</FONT><BR/><FONT POINT-SIZE="12">Numerical forecasting model</FONT>>];
+  supplier [fillcolor="#F1ECF8", color="#A78CC2", label=<<B>SUPPLIER &amp; CONSTRAINT AGENT</B><BR/><FONT POINT-SIZE="13">Reads pack sizes, limits and supplier rules</FONT><BR/><FONT POINT-SIZE="12">Qwen interpretation + source verification</FONT>>];
+  { rank=same; forecast; supplier; }
+
+  optimizer [label=<<B>REPLENISHMENT OPTIMIZATION AGENT</B><BR/><FONT POINT-SIZE="13">Calculates an order using stock, forecasts and rules</FONT><BR/><FONT POINT-SIZE="12">Deterministic optimization tool</FONT>>];
+  critic [label=<<B>RISK &amp; CRITIC AGENT</B><BR/><FONT POINT-SIZE="13">Independently checks the proposed order</FONT><BR/><FONT POINT-SIZE="12">Feasibility, source integrity and risk checks</FONT>>];
+  gate [shape=diamond, style="filled", fillcolor="#E8EEF4", color="#70879B", fontsize=14, margin="0.12,0.08", label="AUTONOMY GATE\nValid evidence and\npermitted action?"];
+  execute [fillcolor="#E8F4ED", color="#80B494", label=<<B>EXECUTION &amp; MONITORING AGENT</B><BR/><FONT POINT-SIZE="13">Executes the approved order in the simulator</FONT><BR/><FONT POINT-SIZE="12">Records the receipt and monitors outcomes</FONT>>];
+  hold [fillcolor="#FFF1EC", color="#CE9A86", label=<<B>HOLD / FLAG FOR REVIEW</B><BR/><FONT POINT-SIZE="13">No order is executed</FONT>>];
+  { rank=same; execute; hold; }
+
+  audit [fillcolor="#F7F8FA", color="#CAD2DB", label=<<B>SHARED AUDIT TRAIL — EVERY STAGE</B><BR/><FONT POINT-SIZE="12">Sources · model requests and responses · tool results · checks · decisions · receipts</FONT>>];
+  note [shape=plain, fillcolor=white, fontsize=11, fontcolor="#53677B", label="Hybrid agent roles: the LLM interprets evidence and selects allowed tools.\nNumerical tools calculate orders; independent checks govern execution."];
+
+  orchestrator -> inventory [style=dashed, color="#70879B", arrowhead=none, label="coordinates the workflow"];
+  orchestrator -> sales [style=invis];
+  orchestrator -> documents [style=invis];
+  inventory -> state;
+  sales -> forecast;
+  documents -> supplier;
+  state -> forecast [label="certified state"];
+  state -> supplier [label="certified context"];
+  forecast -> optimizer [label="demand forecast"];
+  supplier -> optimizer [label="verified business rules"];
+  optimizer -> critic [label="proposed order"];
+  critic -> gate [label="independent verdict"];
+  state -> gate [style=dashed, color="#AA6C53", label="invalid / stale evidence", constraint=false];
+  gate -> execute [label="PASS", color="#27775D", fontcolor="#27775D"];
+  gate -> hold [label="FAIL / UNCERTAIN", color="#B66B4E", fontcolor="#B66B4E"];
+  execute -> audit [style=dashed, arrowhead=none, color="#8D9BAC"];
+  hold -> audit [style=dashed, arrowhead=none, color="#8D9BAC"];
+  audit -> note [style=invis];
+}
