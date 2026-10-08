@@ -1,0 +1,286 @@
+{
+  "status": "VERIFIED",
+  "main_prose_words_excluding_front_matter_references_appendices": 15997,
+  "chapter_words": {
+    "1. Retail replenishment: why the decision matters": 2236,
+    "2. Data and AI in replenishment: what research shows": 3612,
+    "3. Research framework and study design": 4409,
+    "4. Findings and interpretation": 1380,
+    "5. Business implications and recommendations": 3864,
+    "6. Conclusion and future research": 496
+  },
+  "figures": [
+    {
+      "number": 1,
+      "key": "decision_workflow",
+      "dataset": "M5 + RETAILNET",
+      "title": "From information to an approved order",
+      "caption": "Workflow schematic used to explain both studies. The language model interprets bounded inputs; numerical tools calculate orders and independent checks control execution. This is not an additional experimental result.",
+      "path": "figures/decision_workflow.png",
+      "sha256": "c01125da4521ea7c442215683421a9cc84b55067fab4ec96516092e9ed317476"
+    },
+    {
+      "number": 2,
+      "key": "evidence_layers",
+      "dataset": "M5 + RETAILNET",
+      "title": "Three kinds of information",
+      "caption": "Evidence classification. These categories must be distinguished even when they appear together in a planning record. Natural lost demand is not observed.",
+      "path": "figures/evidence_layers.png",
+      "sha256": "417b3c628c6d74068f0e3f3cd3c1a48d0f1c6946b19108620c406e10715bbf75"
+    },
+    {
+      "number": 3,
+      "key": "panel_profiles",
+      "dataset": "M5 + RETAILNET",
+      "title": "The computational panels",
+      "caption": "Both panels have thirty store\u2013product series. M5 has three selected food products across ten stores; RetailNet has twenty-six products and twenty-nine stores. Full-release validation is separate from panel performance evaluation.",
+      "path": "figures/panel_profiles.png",
+      "sha256": "c648bbf4af595a2070d96c7f08424d472a3cdcb85717ec473a2b719acf7c9eec"
+    },
+    {
+      "number": 4,
+      "key": "retailnet_availability",
+      "dataset": "RETAILNET",
+      "title": "Sales were often availability-constrained",
+      "caption": "Complete pinned release: training and evaluation files. Hourly and daily percentages use different denominators. Operating hours are 06:00\u201321:00. These observations identify availability conditions; they do not quantify true lost demand.",
+      "path": "figures/retailnet_availability.png",
+      "sha256": "30780ce9d657b915b6b348976863ebc2780ec3e5c1c8b2e65e9d8ebf10257ce4"
+    },
+    {
+      "number": 5,
+      "key": "study_map",
+      "dataset": "M5 + RETAILNET",
+      "title": "How the experiments answer different questions",
+      "caption": "Study map. M5 and RetailNet include numerical and matched-reader work. Separate forecasting and fresh-product calculator analyses use RetailNet and contain no language-model calls.",
+      "path": "figures/study_map.png",
+      "sha256": "c72fdb1def3d462f2ccfcbfcc25792cc9d00be08df19bf26aa73b42761c3323e"
+    },
+    {
+      "number": 6,
+      "key": "m5_repair",
+      "dataset": "M5",
+      "title": "Verified repair under an inventory-field fault",
+      "caption": "Improved M5 pilot; thirty series, fourteen days, two shared seeds. Simulated cost uses the M5 study monetary conventions. The matched rule-based reader achieved the same results.",
+      "path": "figures/m5_repair.png",
+      "sha256": "4f6d96609d87d2986c36ce7d36c732935eec73cb9d2c459a6e313537d2f14329"
+    },
+    {
+      "number": 7,
+      "key": "m5_reader_parity",
+      "dataset": "M5",
+      "title": "Reader comparisons lie on the equality line",
+      "caption": "Improved pilot: sixteen matched scenario/seed/recovery comparisons. Some points overlap because outcomes are equal. Exact daily actions also matched; equal cost and service are not evidence of incremental LLM superiority.",
+      "path": "figures/m5_reader_parity.png",
+      "sha256": "cc28adb9f63f78b6668acf74375872a67cf39acd1c06e36bf9459349dfe63d8a"
+    },
+    {
+      "number": 8,
+      "key": "retailnet_forecast",
+      "dataset": "RETAILNET",
+      "title": "Unadjusted-sales LightGBM led the main forecast test",
+      "caption": "Official evaluation, 114 fully stocked panel-days out of 210. Lower WAPE is better. Models were selected before evaluation unsealing. These are numerical methods, not LLM forecasts.",
+      "path": "figures/retailnet_forecast.png",
+      "sha256": "6d81a45e895f3400e488755c5ab6ccd88591d2130aad2425207353957aa35228"
+    },
+    {
+      "number": 9,
+      "key": "retailnet_cap_transfer",
+      "dataset": "RETAILNET",
+      "title": "Approval policy had to fit the new setting",
+      "caption": "Matched cap transition at the original two seeds, 13 and 29, for the LLM-with-repair configuration; the reader counterpart is equal. Original cap 1,500, training-selected cap 1,850. Follow-up is exploratory and reuses the holdout.",
+      "path": "figures/retailnet_cap_transfer.png",
+      "sha256": "2781a296b4bf1ba30ec3a7ed5948d78adf48e568990eb3f08f804656ae4a5669"
+    },
+    {
+      "number": 10,
+      "key": "retailnet_repair",
+      "dataset": "RETAILNET",
+      "title": "Verified repair under an inventory-field fault",
+      "caption": "Exploratory calibrated follow-up; thirty series, seven days, thirty seeds. Reused holdout. Cost is an index, not retailer currency. The matched rule-based reader achieved the same results.",
+      "path": "figures/retailnet_repair.png",
+      "sha256": "416fcf8cfc6a4f6c0a4cdb7acb59465b1244e498fe4b5b8ec8b9ccd080f267a3"
+    },
+    {
+      "number": 11,
+      "key": "retailnet_seed_variation",
+      "dataset": "RETAILNET",
+      "title": "The repair benefit varied across seeds",
+      "caption": "Exploratory follow-up, inventory-field fault, thirty paired seeds. Cost decreased in 26/30 seeds; orange points show the four adverse cost outcomes. Fill increased in 30/30. Simulation seeds are not independent stores or historical weeks.",
+      "path": "figures/retailnet_seed_variation.png",
+      "sha256": "5f2736985990ad2002e693ccda075bbc972c47282c90838a8a8758e00bf91db7"
+    },
+    {
+      "number": 12,
+      "key": "retailnet_conventional_comparison",
+      "dataset": "RETAILNET",
+      "title": "Lower cost came with lower service",
+      "caption": "Normal scenario, the same thirty seeds and seven-day horizon. Conventional optimizer: primary numerical study. Approval workflow: exploratory calibrated follow-up. Both had zero actual committed-rule violations. No overall-winner claim is supported.",
+      "path": "figures/retailnet_conventional_comparison.png",
+      "sha256": "d169381ec275c0c987d6f383d24b8e46be24ad7b50e3ad4d3287d08305ed12dc"
+    },
+    {
+      "number": 13,
+      "key": "retailnet_perishability",
+      "dataset": "RETAILNET",
+      "title": "Fresh-product service and expiry must be read together",
+      "caption": "Separate age-aware calculator analysis, thirty seeds per cell, assumed demand multiplier 1.25. Waste denominator is opening stock plus receipts. Shelf lives are hypothetical. No LLM calls; units and supply differ from the main optimizer study.",
+      "path": "figures/retailnet_perishability.png",
+      "sha256": "6b7b0d5155cf67408bed4ecae8713662122a6ad8f1b70290f69fc14e8ad26c1e"
+    },
+    {
+      "number": 14,
+      "key": "retailnet_stockout_rule",
+      "dataset": "RETAILNET",
+      "title": "A valid stockout flag should inform the decision",
+      "caption": "Sixty separate calculator runs, thirty shared seeds, three-day life and assumed demand multiplier 1.25. Hold-on-stockout is a deliberately defective ablation, not a strong competitor. Neither configuration uses an LLM.",
+      "path": "figures/retailnet_stockout_rule.png",
+      "sha256": "27f3d58aeebc4384feab383a64805d92e01f9c24575ead4eaa24f4f07626289f"
+    },
+    {
+      "number": 15,
+      "key": "cross_dataset_repair",
+      "dataset": "M5 + RETAILNET",
+      "title": "Within-setting repair effects",
+      "caption": "Descriptive comparison, inventory-field-fault scenario. M5: improved pilot. RetailNet original: fixed-cap primary study. RetailNet calibrated: exploratory reused-holdout follow-up. Economic scales and horizons differ; the reader achieves the same effects as the LLM.",
+      "path": "figures/cross_dataset_repair.png",
+      "sha256": "4305ccfd5a744a03cd2a4a985ee9e6491baae8a72f35d1f1220ee2faf271820e"
+    },
+    {
+      "number": 16,
+      "key": "recovery_choices",
+      "dataset": "M5 + RETAILNET",
+      "title": "Tools contained inappropriate recovery requests",
+      "caption": "Request-level observations, shown separately by study. All stale-source repair requests were refused. Cached reader imports are not additional model judgements. Correct formatting does not establish correct tool choice.",
+      "path": "figures/recovery_choices.png",
+      "sha256": "2cdfee398d79e984117eb5792a0a06067d1c8a799379dcb5de9137695e339b17"
+    },
+    {
+      "number": 17,
+      "key": "adoption_path",
+      "dataset": "M5 + RETAILNET",
+      "title": "A proposed route to operational testing",
+      "caption": "Managerial recommendation derived from the findings. This operational pilot was not conducted as part of the dissertation and does not represent an observed deployment result.",
+      "path": "figures/adoption_path.png",
+      "sha256": "2ee8a75a038504bb71103979e700c651fdc9647773005fd40b018b9dafdd3d33"
+    },
+    {
+      "number": 18,
+      "key": "m5_numerical_overview",
+      "dataset": "M5",
+      "title": "Numerical controls: service and active-rule compliance",
+      "caption": "Original numerical study; thirty seeds per policy/scenario and seven days. Cost follows M5 model conventions. Violated checks are not reference-only action deviations and can exceed the number of affected days. These are conventional policies, not the matched LLM-versus-reader experiment.",
+      "path": "figures/m5_numerical_overview.png",
+      "sha256": "27bc8af95aa5681486cee5a71e92321cbd6bf6636ca42922638148c3794ad851"
+    },
+    {
+      "number": 19,
+      "key": "m5_forecast_context",
+      "dataset": "M5",
+      "title": "Historical forecasting context",
+      "caption": "Retained reduced-panel pre-main-study backtests; thirty bottom series and 112 aggregate nodes. The two origins overlap and are descriptive. Lower is better. This is not a full M5 competition ranking or an LLM forecasting result.",
+      "path": "figures/m5_forecast_context.png",
+      "sha256": "61a00f4ef6012c2cd61fc9a908785d246232de90453d07b2b0c08f8ffe3ea3b7"
+    },
+    {
+      "number": 20,
+      "key": "retailnet_mask_recovery",
+      "dataset": "RETAILNET",
+      "title": "Artificial-mask hourly reconstruction",
+      "caption": "Training-validation test on originally fully stocked days; 6,930 hidden target hours and 2-, 4-, 8-hour masks. Lower MAE is better. This does not identify naturally unserved demand and contains no LLM calls.",
+      "path": "figures/retailnet_mask_recovery.png",
+      "sha256": "c0c27b8ea647f43c36c97614cfc26e821e03850908ca8d6e8f14ff08b1e896db"
+    },
+    {
+      "number": 21,
+      "key": "retailnet_numerical_overview",
+      "dataset": "RETAILNET",
+      "title": "Numerical controls: service and active-rule compliance",
+      "caption": "Primary numerical study; thirty seeds per policy/scenario and seven days. Costs are indices. The approval policy retains the original cap. Violated checks are not reference-only action deviations and can exceed the number of affected days. These are conventional policies, not the matched LLM-versus-reader experiment.",
+      "path": "figures/retailnet_numerical_overview.png",
+      "sha256": "2c9b66340ce3682d0ba219a9952ba25e93fdc7798b5377c8bacc54692ccc7443"
+    },
+    {
+      "number": 22,
+      "key": "retailnet_expiry_sensitivity",
+      "dataset": "RETAILNET",
+      "title": "Cost depends on demand and shelf-life assumptions",
+      "caption": "Separate age-aware calculator with raw history and thirty seeds per cell. Neither assumed demand nor shelf life is observed natural ground truth. No LLM calls; this cost index is not pooled with the main optimizer.",
+      "path": "figures/retailnet_expiry_sensitivity.png",
+      "sha256": "6499a55b71dea61496628f9729b7e8ad3a53c7502e610d9e48c5f2c3b0c8c4a8"
+    }
+  ],
+  "tables": 8,
+  "references": 26,
+  "format": {
+    "font": "Times New Roman",
+    "body_points": 12,
+    "line_spacing": 1.5,
+    "margins_inches": 1,
+    "alignment": "justified"
+  },
+  "docx_sha256": "b2381484cb07a70c16a4e303f65d554958cf73151c444f000922b7d29a86787d",
+  "inputs": {
+    "study_results/v2/M5_v2_results.csv": {
+      "sha256": "049ffdde73f1f476807360a8f5e23de1bebf2883110c329531bff8b3ab0dff6f",
+      "bytes": 21665
+    },
+    "study_results/v1/M5_six_hour_results.csv": {
+      "sha256": "156641b3bfe87ccd7f19c289dbea508b11842a92812321427c9ddc91cbb2bc8e",
+      "bytes": 185265
+    },
+    "study_results/freshretailnet/FreshRetailNet_exploratory_gate_transfer_all_runs.csv": {
+      "sha256": "d0d260832ee373350be5ba39645402f9a3a97a8d7ead1c4deaaa44b7cd36cdd1",
+      "bytes": 224560
+    },
+    "study_results/freshretailnet/FreshRetailNet_agent_all_runs.csv": {
+      "sha256": "dbb3c2f15cf58ccec41e282c2a0044b39e6a388af9c332ce042bfbe07b66d2fa",
+      "bytes": 14316
+    },
+    "study_results/freshretailnet/FreshRetailNet_numerical_means.csv": {
+      "sha256": "b12bda18f756a171c6c54f451c40e9874f0c01f45438fb9f81b15967f036b95d",
+      "bytes": 1596
+    },
+    "study_results/freshretailnet/FreshRetailNet_exploratory_repair_paired_seed_effects.csv": {
+      "sha256": "51a06e9edef8eaaf2002336ed71b8a0952b507d43662d1f1c622e5bdbc50ec7c",
+      "bytes": 3776
+    },
+    "study_results/freshretailnet/FreshRetailNet_gate_transition_original_seed_pairs.csv": {
+      "sha256": "8ac80b71920e61f1346a292cc258b29fd1298c7c681608f90b887dc0f5ef9fd8",
+      "bytes": 2365
+    },
+    "study_results/freshretailnet/FreshRetailNet_sensitivity_means.csv": {
+      "sha256": "c11d74d3918f59b412d61df58d260fba0a2dac6d61c717c89309b795f7d111cc",
+      "bytes": 3282
+    },
+    "study_results/freshretailnet/FreshRetailNet_policy_sensitivity_all_runs.csv": {
+      "sha256": "17f2c4e045853e0b43cd44add2303bd2c5211e84fd8f6721fd5f3ec62778b4f1",
+      "bytes": 724600
+    },
+    "results/freshretailnet/forecast/summary.json": {
+      "sha256": "96bc7a4e0c139693770a28c6d85740e456f120c498392138b65b67c754e16a9d",
+      "bytes": 18802
+    },
+    "study_results/freshretailnet/receipts/data/train_validation.json": {
+      "sha256": "c2ea02ecc97947ac40cf287c88b2a18ef39099c73e79f26bc9659827b0648d86",
+      "bytes": 1836
+    },
+    "study_results/freshretailnet/receipts/data/eval_validation.json": {
+      "sha256": "30eeb5a8b335d2886bdaf27fb61a46e7df3bc6bdd0c5b01fbd185bcd046cf72e",
+      "bytes": 762
+    },
+    "study_results/v1/M5_six_hour_study_report_data.json": {
+      "sha256": "7f293b88d7926efb5476ae9c1a9872b29a127ae91631464ef1f0ce564a4bf8a7",
+      "bytes": 4618373
+    }
+  },
+  "manuscript_sha256": "399d7b9760d8dc56fd6d1caba28a55ce42864ad3ba58f5933a05713976128cf9",
+  "appendices_sha256": "e5544c4ef2a3a20b03e7be3d0c6b3bd25c78706f78af818c53ad01c7ac7ef6e5",
+  "figure_register_sha256": "36074d5fec4d05e54a7137f7b2051d163417ea9f2e53e4657df93f479396b0e8",
+  "builder_sha256": "52dee8eb213d8bb41db22af6f81285be6b67db88bdb504a3560c2e0e5604c8a6",
+  "contents_has_verified_pages": true,
+  "built_at_utc": "2026-10-08T21:21:11.937640+00:00",
+  "validated_at_utc": "2026-10-08T21:21:16.864087+00:00",
+  "pdf_sha256": "482b52c59fd2184811a5e5100d7eed26704c9f9596298465364c65fb36202a31",
+  "total_pdf_pages": 67,
+  "main_chapter_pages": 51
+}

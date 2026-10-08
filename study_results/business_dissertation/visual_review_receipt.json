@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "scope": "Selected-page visual review plus automated checks of every PDF page",
+  "reviewed_content": [
+    "Cover and executive summary",
+    "Contents and figure list",
+    "Cloud/model explanation",
+    "M5 repair result",
+    "RetailNet service and waste results",
+    "M5 versus RetailNet comparison",
+    "Conclusion"
+  ],
+  "findings": [],
+  "changes_during_review": [
+    "Removed office theme-font overrides to honour the explicit serif family",
+    "Used black scope notes and dataset-specific caption colours",
+    "Wrapped graph labels to avoid overlap",
+    "Kept the comparison ending on the same page"
+  ],
+  "all_experimental_inputs_unchanged": true
+}

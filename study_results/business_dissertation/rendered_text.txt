@@ -1,0 +1,2245 @@
+LLM Agents for
+Retail Replenishment
+Evidence from M5 and FreshRetailNet-50K
+A comparative study of data quality, verified recovery and business controls
+Master’s dissertation
+emlyon business school
+October 2026
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 2 of 67
+Executive summary
+Retail replenishment depends on more than predicting sales. A useful order also needs a 
+reliable  stock  balance,  the  correct  supplier  rules  and  clear  permission  to  spend.  This 
+dissertation  examines  a  workflow  in  which  a  small  local  language  model  works  with 
+forecasting, planning and independent evidence checks. It asks when that arrangement helps 
+replenishment and whether the language model adds an advantage over a capable rule-based 
+reader.
+The  study  uses  thirty  selected  store–product  series  from  M5  and  thirty  from 
+FreshRetailNet-50K, shortened to RetailNet in the graph labels. The complete RetailNet 
+source  release  was  checked,  but  its  performance  findings  concern  the  selected  panel. 
+Historical  observations  inform  simulations;  inventory,  supply  and  costs  are  disclosed 
+experimental assumptions rather than live retailer outcomes.
+Verified inventory repair was the clearest useful mechanism. In the improved M5 pilot, it 
+reduced mean simulated cost by 10.93% and increased fulfilled demand by seven percentage 
+points. In RetailNet’s exploratory calibrated follow-up, the changes were 11.71% and 12.25 
+points. The original RetailNet spending cap had first held routine orders, showing why 
+business thresholds need to fit a new operating context.
+The language-model and rule-based readers produced the same matched actions, costs and 
+service outcomes. The shared recovery workflow therefore explains the benefit; an additional 
+operational advantage from the LLM was not established. Forecast recovery also had limits, 
+and separate fresh-product calculations showed that improved service could coexist with 
+more expiry.
+The experiments ran on a Linux CPU cloud computer with four allocated cores, 32 GiB of 
+memory and no GPU. Qwen2.5 1.5B was already pretrained and ran locally through Ollama; 
+the forecasting models were fitted to the retail histories. The managerial recommendation is 
+to  begin  with  verified  information,  strong  planning  and  clear  authority,  then  test  any 
+additional language-model value in a controlled operational pilot.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 3 of 67
+Contents
+1. Retail replenishment: why the decision matters.................................................................................6
+1.1 A familiar business problem with difficult consequences...........................................................6
+1.2 Why better forecasts are only part of the answer.........................................................................7
+1.3 The promise of language models in retail operations..................................................................8
+1.4 Why use M5 and FreshRetailNet together?.................................................................................9
+1.5 The research question and the intended contribution.................................................................10
+1.6 How to read this dissertation......................................................................................................11
+2. Data and AI in replenishment: what research shows........................................................................12
+2.1 Replenishment balances service, resources and risk..................................................................12
+2.2 Inventory information is a business input in its own right.........................................................13
+2.3 Sales are not always a complete record of demand...................................................................14
+2.4 Forecasting should be judged against the decision it supports..................................................15
+2.5 What a language model can contribute to a planning workflow................................................16
+2.6 Independent checks are a condition for meaningful autonomy.................................................17
+2.7 Explanation should follow the evidence used in the decision...................................................18
+2.8 Fresh products create an additional service–waste trade-off.....................................................19
+2.9 Evidence, comparison and the gap addressed by this study......................................................20
+3. Research framework and study design.............................................................................................22
+3.1 A controlled study of an operational workflow.........................................................................22
+3.2 The two datasets and the selected panels...................................................................................23
+3.3 What was observed, estimated and simulated............................................................................25
+3.4 Forecasting: learning from history without seeing the answer..................................................26
+3.5 How the replenishment workflow makes a decision.................................................................28
+3.6 The scenarios and completed experimental scope.....................................................................30
+3.7 Training and execution environment.........................................................................................32
+3.8 Reading the outcome measures fairly........................................................................................33
+3.9 Verification, transparency and practical limits..........................................................................35
+4. Findings and interpretation...............................................................................................................36
+4.1 M5: repairing a damaged inventory record helped....................................................................36
+4.2 M5: the language model and the rule-based reader matched.....................................................37
+4.3 RetailNet: forecasting improved, but sales recovery had limits................................................37
+4.4 RetailNet: the original spending limit did not transfer well.......................................................38
+4.5 RetailNet: verified repair improved the exploratory follow-up.................................................39
+4.6 RetailNet: compliance also came with a service trade-off.........................................................41
+4.7 RetailNet: fresh-product decisions require a separate view of waste........................................41
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 4 of 67
+4.8 M5 and RetailNet: a shared mechanism, different conditions...................................................43
+5. Business implications and recommendations...................................................................................44
+5.1 Begin with the decision problem rather than the AI label.........................................................44
+5.2 Identify where a language model might earn its place...............................................................45
+5.3 Treat approval settings as a business policy..............................................................................46
+5.4 Start with a staged and measurable operational pilot.................................................................47
+5.5 Build the business case around measured incremental value....................................................49
+5.6 Fresh retail needs a broader decision view................................................................................50
+5.7 What the limitations mean for interpretation.............................................................................51
+5.8 Who needs to be involved in an adoption decision?..................................................................52
+5.9 The broader contribution to responsible decision support.........................................................53
+6. Conclusion and future research.........................................................................................................55
+6.1 What the study establishes......................................................................................................... 55
+6.2 What a retailer should take forward...........................................................................................55
+References.............................................................................................................................................57
+Appendix A. Evidence guide and completed study register.................................................................59
+A.1 M5 numerical and forecast context...........................................................................................60
+Appendix B. Data sources and model settings.....................................................................................62
+Appendix C. Additional RetailNet analyses.........................................................................................64
+Appendix D. Plain-language metric glossary.......................................................................................66
+Appendix E. Research presentation and AI assistance.........................................................................67
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 5 of 67
+List of figures
+Figure 1. M5 + RETAILNET: From information to an approved order
+Figure 2. M5 + RETAILNET: Three kinds of information
+Figure 3. M5 + RETAILNET: The computational panels
+Figure 4. RETAILNET: Sales were often availability-constrained
+Figure 5. M5 + RETAILNET: How the experiments answer different questions
+Figure 6. M5: Verified repair under an inventory-field fault
+Figure 7. M5: Reader comparisons lie on the equality line
+Figure 8. RETAILNET: Unadjusted-sales LightGBM led the main forecast test
+Figure 9. RETAILNET: Approval policy had to fit the new setting
+Figure 10. RETAILNET: Verified repair under an inventory-field fault
+Figure 11. RETAILNET: The repair benefit varied across seeds
+Figure 12. RETAILNET: Lower cost came with lower service
+Figure 13. RETAILNET: Fresh-product service and expiry must be read together
+Figure 14. RETAILNET: A valid stockout flag should inform the decision
+Figure 15. M5 + RETAILNET: Within-setting repair effects
+Figure 16. M5 + RETAILNET: Tools contained inappropriate recovery requests
+Figure 17. M5 + RETAILNET: A proposed route to operational testing
+Figure 18. M5: Numerical controls: service and active-rule compliance
+Figure 19. M5: Historical forecasting context
+Figure 20. RETAILNET: Artificial-mask hourly reconstruction
+Figure 21. RETAILNET: Numerical controls: service and active-rule compliance
+Figure 22. RETAILNET: Cost depends on demand and shelf-life assumptions
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 6 of 67
+1. Retail replenishment: why the decision matters
+1.1 A familiar business problem with difficult consequences
+A supermarket customer rarely sees the work behind a well-stocked shelf. The product is 
+available, the price is clear, and the purchase takes only a moment. For the retailer, however, 
+that moment depends on a sequence of decisions made hours or days earlier. Someone must 
+estimate demand, check what is already available, consider deliveries that have not arrived, 
+and decide whether another order is needed. Suppliers may sell only in certain pack sizes. 
+Storage space may be limited. Fresh products may lose their value before the next delivery. 
+Replenishment brings these questions together in one practical decision: what should be 
+ordered now, and under what conditions should that order be allowed to proceed?
+Getting this decision wrong creates costs on both sides. Too little stock can leave customers 
+disappointed and sales unrealised. Too much stock occupies space, ties up resources, and can 
+end in markdowns or disposal. These consequences also affect people outside the buying 
+team. Store  employees  must  handle  unexpected  deliveries,  finance  teams  must  explain 
+spending, and suppliers must react to unstable orders. A decision that looks sensible for one 
+product can create difficulties when repeated across a store. This is why replenishment is a 
+useful setting for studying artificial intelligence: it combines prediction, business rules, 
+imperfect information and a decision with immediate consequences.
+The attraction of automation is easy to understand. A computer can review more products 
+than a person can examine individually, apply calculations consistently, and respond quickly 
+to changing information. Yet speed alone does not make an order sensible. An automated 
+system can react confidently to an inventory number that has not been updated, or apply a 
+supplier rule that belongs to an earlier agreement. The problem becomes more serious when 
+the system has permission to act. A mistaken recommendation can be questioned; a mistaken 
+purchase order has already changed the retailer's commitments. The business question is 
+therefore about the conditions under which automation deserves that permission.
+This dissertation examines a replenishment workflow in which an AI language model works 
+alongside forecasting, planning and independent checks. The central idea is that an order 
+should  depend  on  evidence  that  can  be  inspected.  If  relevant  information  is  missing, 
+inconsistent or too old, the workflow should seek a valid correction or hold the order for 
+review. The study tests this idea using M5 retail sales and FreshRetailNet-50K fresh-retail 
+data. The emphasis is on what the completed experiments tell a manager about reliable 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 7 of 67
+decision support, including where the approach helped, where it failed, and what remains to 
+be demonstrated.
+1.2 Why better forecasts are only part of the answer
+Demand forecasting receives much of the attention in retail analytics because it translates 
+uncertainty into a number that planners can use. A forecast can reveal a weekly pattern, 
+identify an unusual increase in sales, or estimate how much demand may occur before 
+another delivery. Improvements in forecasting can matter, but the forecast enters a wider 
+process. An accurate estimate of tomorrow's sales does not repair an incorrect inventory 
+balance. It does not resolve a contradiction between two supplier documents. It also does not 
+decide whether the retailer has enough space or permission to spend. These questions require 
+different information and different forms of judgement.
+Consider an illustrative store that expects to sell twenty units tomorrow. If its inventory 
+system says that forty units are available, a planner may decide to order nothing. If the true 
+available quantity is four, the same forecast leads to a very different decision. The issue is the 
+inventory record, rather than the quality of the forecast. Now imagine that the quantity is 
+accurate but the supplier sells the product only in cartons of twelve. An order for sixteen units 
+may be impossible to place as written. Each example shows how a reasonable calculation can 
+fail  when  an  input  or  a  business  rule  is  misunderstood.  These  examples  explain  the 
+mechanism; they are not additional observations from either dataset.
+The distinction matters when evaluating an AI system. If a new workflow improves service 
+after correcting an inventory record, that improvement should be attributed to the correction 
+and the decision process that used it. It should not automatically be described as evidence that 
+the language model predicted demand more accurately. Similarly, a system that prevents a 
+noncompliant order may have useful controls even if its forecasts are unchanged. A sound 
+evaluation needs to identify which part of the workflow produced the outcome. Without that 
+separation, different forms of improvement become mixed together and managers cannot tell 
+which investment is worth making.
+The study therefore treats forecasting, interpretation and order approval as connected but 
+separate activities. Forecasting models estimate future demand from historical patterns. The 
+language model interprets a bounded part of the written business information and proposes a 
+recovery action when asked. A planning tool calculates an order. Independent checks then 
+examine the evidence and the proposed decision. This division makes the experiment easier 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 8 of 67
+to understand and gives the retailer a clearer way to assign responsibility. It also provides a 
+fairer  test  of  the  language  model,  because  improvements  produced  by  conventional 
+forecasting or deterministic tools can be recognised in their own right.
+Figure 1. M5 + RETAILNET: From information to an approved order
+Source and scope: Workflow schematic used to explain both studies. The language model interprets 
+bounded inputs; numerical tools calculate orders and independent checks control execution. This is not an 
+additional experimental result.
+1.3 The promise of language models in retail operations
+A language model is a system trained to work with text. It can interpret a request, produce a 
+structured response and help connect information written in different forms. This is relevant 
+to retail because operational knowledge does not arrive only as tidy numbers. A buyer may 
+receive a supplier message explaining a new minimum order. A store may report a delivery 
+discrepancy in a note. An internal policy may describe when approval is required. Translating 
+this information into a form that a planning system can use can take time, especially when the 
+language, layout or terminology varies. This is a plausible area of value for a language model.
+The promise should nevertheless be considered alongside the difficulty of verification. A 
+response can be fluent while containing the wrong quantity, the wrong unit, or a rule that the 
+source did not actually state. A system may also choose an action that sounds helpful but 
+relies on evidence that is no longer current. In replenishment, these errors can pass from text 
+interpretation into an order quantity or a spending commitment. The retailer needs more than 
+a persuasive explanation. It needs to know which source supports the response, whether that 
+source  applies  to  the  product  and  decision  date,  and  whether  the  result  survives  an 
+independent check.
+An AI agent, as the term is used here, has a limited operational role rather than unrestricted 
+authority. It receives a defined task, can request an approved tool, and returns information for 
+the  next  stage.  The  full  workflow  contains  several  responsibilities,  but  the  completed 
+experiments do not establish that a larger number of AI agents is inherently better. What 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 9 of 67
+matters is the division of work and the checks between stages. A language model can assist 
+with interpretation while a conventional tool calculates quantities and another tool verifies the 
+conditions for execution. That arrangement allows the model to contribute without becoming 
+the sole source of authority.
+The business opportunity is consequently more specific than replacing the replenishment 
+team with a conversational system. A useful workflow could make business rules easier to 
+process, make exceptions easier to understand and provide a clearer record of how an order 
+was approved. Some of these benefits are proposals for future operational testing, because 
+this research did not measure employee time or user satisfaction. The completed evidence 
+concerns simulated cost, customer-demand fulfilment, permitted actions and the integrity of 
+the  recorded  decisions.  Keeping  those  boundaries  visible  helps  the  dissertation  remain 
+informative without turning a promising concept into an unsupported commercial claim.
+1.4 Why use M5 and FreshRetailNet together?
+The two datasets offer different views of retail activity. M5 is a widely used benchmark based 
+on Walmart sales histories. It provides a relatively long record and has supported extensive 
+research on retail forecasting. FreshRetailNet-50K, released by Dingdong, provides a shorter 
+but richer view of fresh-retail activity, including hourly sales and stockout indicators. The 
+combination is useful because replenishment problems are shaped by what is visible in the 
+data. A long sales history can help identify patterns, while availability information can reveal 
+periods when sales were restricted by the absence of stock.
+That availability distinction is particularly important. Low sales do not always mean that 
+customers wanted less. A product may have sold little because the shelf was empty for part of 
+the day. A model that treats every low sales value as low demand can then recommend 
+smaller future orders, potentially repeating the shortage. FreshRetailNet makes this issue 
+easier to examine because it records whether stock was available during operating hours. It 
+still does not reveal every purchase that a customer would have made if the product had been 
+available.  Availability  is  evidence  about  the  selling  conditions,  rather  than  complete 
+knowledge of lost demand.
+The research uses thirty store–product series from each dataset. A series is simply the sales 
+history of one product at one store. The M5 panel contains three food products across ten 
+stores.  The  FreshRetailNet  panel  contains  thirty  selected  store–product  combinations 
+covering a wider range of products and stores. Both panels support manageable experiments 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 10 of 67
+on the available cloud computer. They do not provide a representative census of their source 
+datasets. In particular, although the complete FreshRetailNet release was checked for data 
+integrity, replenishment performance was evaluated on thirty series, representing 0.06% of its 
+50,000-series population.
+Using both datasets helps test whether the workflow travels beyond one setting, but it does 
+not make their absolute costs directly comparable. The simulation horizons, assortment, sales 
+units  and  economic  assumptions  differ.  M5  costs  are  modelled  using  its  experimental 
+monetary conventions, whereas the main FreshRetailNet costs are an index built around 
+normalized sales. The meaningful comparison concerns mechanisms: whether verified repair 
+helps within each setting, whether a spending rule transfers successfully, and whether the 
+language-model workflow performs differently from a capable alternative. The dissertation 
+returns to these questions after presenting the evidence separately for M5 and RetailNet.
+1.5 The research question and the intended contribution
+The  main  research  question  is:  under  what  conditions  can  a  language-model-assisted 
+workflow support reliable retail replenishment? This wording places reliability alongside 
+performance. A retailer needs orders that help meet demand, but it also needs to understand 
+why those orders are permissible. The question leaves room for a useful result in which the 
+model contributes to interpretation while other tools provide the measurable operational 
+benefit. It also leaves room for negative findings, such as excessive holds, poor recovery 
+choices or an absence of improvement over a simpler system. Those outcomes are part of 
+evaluating the approach rather than reasons to exclude it from the report.
+Three supporting questions guide the analysis. First, does checking and repairing inventory 
+information improve the resulting replenishment decisions? Second, does a language model 
+add a measurable benefit when it is compared with a capable rule-based reader using the 
+same forecasting, planning and recovery tools? Third, what changes when the workflow 
+moves  from  M5  to  fresh-retail  data  with  availability  information  and  perishability 
+assumptions? These questions connect an operational mechanism, an attribution test and a 
+transfer test. Together they offer a clearer account of usefulness than asking whether an AI-
+labelled system wins against a weak or incomplete baseline.
+The contribution is a completed, bounded experimental comparison with an auditable record. 
+The research combines public historical sales with disclosed simulated inventory and supply 
+conditions. It preserves the original experiments alongside later improvements, allowing the 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 11 of 67
+reader to see why a design was changed. It also examines forecasting and fresh-product 
+decision trade-offs separately from the language-model comparison. This is useful because 
+replenishment is a sequence of related decisions, and the same headline result can conceal 
+different explanations. The analysis seeks to make those explanations visible in business 
+language, with graphs carrying much of the numerical detail.
+The dissertation does not present a live retailer deployment. No employees or customers were 
+recruited for a user study, no purchase orders were sent to suppliers, and no financial return 
+was observed in a business. Its conclusions concern the disclosed simulations and the 
+reliability  of  the  implemented  workflow.  These  boundaries  do  not  remove  the  study's 
+practical relevance. They indicate the next step a retailer would need to take: test the 
+mechanism in a controlled operational pilot, establish the true costs of review and integration, 
+and decide whether the added language-model component solves a problem that simpler tools 
+leave unresolved.
+1.6 How to read this dissertation
+The structure follows a progression from the retail problem to the role of data and AI, then to 
+the study design and its findings. Chapter 2 reviews the ideas that inform the evaluation, with 
+particular attention to inventory information, sales during stockouts, automation and the 
+contribution of language models. Chapter 3 explains the datasets, experimental workflow and 
+cloud environment. It distinguishes the pretrained language model from the forecasting 
+models  trained  on  retail  histories,  and  explains  the  controls  needed  to  interpret  the 
+comparisons  fairly.  Detailed  technical  settings  remain  in  the  appendices  and  the 
+accompanying evidence files.
+Chapter 4 presents the findings in three clearly marked parts: M5, RetailNet, and the 
+comparison between them. Each results section begins with the question being answered, 
+followed by a graph and a short interpretation. Chapter 5 considers what the evidence means 
+for managers, including where adoption could start, how performance should be monitored 
+and what limitations should shape a pilot. Chapter 6 provides a concise conclusion and 
+priorities  for  further  research.  Throughout  the  document,  a  result  about  simulation  is 
+described as simulation, and a possible business benefit is distinguished from an outcome that 
+the experiments actually measured.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 12 of 67
+2. Data and AI in replenishment: what research shows
+2.1 Replenishment balances service, resources and risk
+Inventory  management  begins  with  a  trade-off.  Stock  protects  the  business  against 
+uncertainty,  but  holding  it  consumes resources.  When  demand is  stable  and  supply  is 
+predictable, a relatively simple ordering rule may work well. As demand varies, lead times 
+change and products compete for space, the decision becomes harder. Classical inventory 
+research studies how these conditions affect ordering policies and the costs they create (Clark 
+& Scarf, 1960; Zipkin, 2000). The relevance to this dissertation is practical: a replenishment 
+policy should be judged against the objectives and restrictions of the retailer, rather than 
+against forecast accuracy or order volume alone.
+Customer service is one of those objectives, but the phrase can mean several things. A retailer 
+may ask whether a product was available at least once during the day, whether every 
+customer's request was met, or what share of total requested demand was fulfilled. These 
+measures can lead to different judgements about the same inventory policy. A store that sells 
+most of its volume but repeatedly disappoints customers at the end of the day may appear 
+satisfactory under one metric and problematic under another. The main service measure used 
+later is fill rate: the proportion of simulated demand that available stock could satisfy. Its 
+definition is kept consistent within each comparison.
+Ordering decisions can also amplify variation. The bullwhip literature shows how distortions 
+in information and reactions to uncertainty can produce unstable orders further along a supply 
+chain (Lee et al., 1997; Chen et al., 2000). This does not mean that every large order is a 
+mistake. A promotion, a planned closure or a legitimate change in demand may justify it. The 
+point is that a planning system should distinguish an economically justified change from a 
+reaction to faulty information. In the experiments, instability is a secondary diagnostic rather 
+than the main business outcome. Cost, service and compliance remain easier to interpret and 
+more directly connected to the research questions.
+Research on ordering behaviour also reminds us that automated recommendations enter a 
+working organisation. Store managers may revise quantities based on experience, practical 
+handling constraints or concerns that the model does not represent (van Donselaar et al., 
+2010). A design that ignores these conditions can look efficient in a calculation while 
+generating work that employees cannot absorb. This dissertation does not measure those 
+organisational  effects  directly,  but  it  uses  them  to  frame  the  decision  workflow.  A 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 13 of 67
+recommendation needs to communicate which information was used and why an exception 
+was raised. That record can support later review, even though its usability still needs to be 
+tested with people.
+2.2 Inventory information is a business input in its own right
+An inventory record is often treated as a factual starting point: the product has a quantity on 
+hand, and planning begins from that quantity. Retail research gives reasons to question this 
+assumption. DeHoratius and Raman (2008) document inventory record inaccuracy in a retail 
+setting,  while  DeHoratius,  Mersereau  and  Schrage  (2008)  examine  how  inventory 
+management  changes  when  records  are  unreliable.  Errors  may  arise  from  transactions, 
+product handling, counting practices or delays between physical movement and system 
+updates. The planning consequence is straightforward. A system that optimises perfectly 
+around the wrong starting stock can still make a poor order.
+The issue is broader than a number being numerically correct. Wang and Strong (1996) argue 
+that data quality should be understood from the perspective of people who use the data. For 
+replenishment, relevance, completeness and timeliness can matter alongside accuracy. A 
+quantity measured yesterday may have been correct yesterday but be unsuitable for today's 
+decision. A supplier agreement may be authentic but apply to another product. A delivery 
+event may have a valid quantity but the wrong effective date. The workflow therefore needs 
+to ask whether a record supports the current decision, not simply whether the record exists or 
+looks plausible.
+A useful distinction is between a valid observation and a value calculated from observations. 
+Available  stock  may  be  derived  by  combining  receipts,  sales,  adjustments  and  other 
+movements. If that calculation breaks, the underlying transaction history might still support a 
+correction. This is different from a situation in which all relevant information is missing or 
+old. Kang and Gershwin (2005) discuss the connection between inaccurate information, stock 
+loss and stockouts; their work reinforces why the source of an error matters. Repairing a 
+derived balance from reliable records can be justified, whereas inventing a replacement 
+because the result seems reasonable cannot provide the same assurance.
+This distinction informs the experiments' two information disturbances. One disturbance 
+damages a calculated inventory field while current supporting records remain available. The 
+other  removes  the  freshness  of  the  supporting  information  itself.  The  first  creates  an 
+opportunity for verified reconstruction. The second should prevent a confident correction 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 14 of 67
+until  fresh  evidence  is  obtained.  These  are  simulated  disturbances,  introduced  to  test 
+behaviour under known conditions. They should not be mistaken for naturally occurring 
+incidents observed in M5 or FreshRetailNet. Their value is that they allow the same historical 
+demand path to be examined under different information conditions, making the recovery 
+mechanism easier to identify.
+2.3 Sales are not always a complete record of demand
+Sales histories describe purchases that took place. Demand refers to purchases that customers 
+wanted  to  make  under  the  conditions  being  considered.  The  two  coincide  only  when 
+customers can buy what they want and the recorded sales are an adequate measure of their 
+requests. In a stockout, some potential purchases disappear from the sales record. The retailer 
+sees low sales, but may not see the customers who walked away, bought a substitute or 
+returned  later.  Research  on  lost-sales  systems  recognises  this  challenge  because  the 
+unobserved portion of demand affects future planning (Nahmias, 1994). A sales-based model 
+can otherwise confuse restricted availability with weak customer interest.
+FreshRetailNet is useful here because it links sales observations to stockout information 
+during operating hours (Dingdong-Inc, 2025; Wang et al., 2025). That additional information 
+does not solve the problem by itself. Knowing that a product was unavailable for several 
+hours tells the analyst when sales may be restricted, but it does not reveal the amount 
+customers would have purchased. The distinction is important for a business-school reader 
+because a graph of recovered demand can look as factual as a graph of recorded sales. The 
+first depends on assumptions and modelling; the second is part of the published observations. 
+They need different labels and different levels of confidence.
+The study separates recovery of missing sales information from repair of inventory records. 
+Sales recovery estimates what might have been sold during an unavailable period. Inventory 
+repair reconstructs a damaged balance from independent operational evidence. A language 
+model's decision to invoke an inventory-repair tool does not itself estimate lost customer 
+demand. Likewise, a statistical recovery model may adjust a sales history without improving 
+the accuracy of today's stock record. Keeping the two mechanisms separate prevents a vague 
+claim that the system fixes data from concealing substantially different tasks. It also makes it 
+possible to see whether one mechanism helps while another adds little value.
+Evaluating sales recovery requires particular care because naturally lost demand is not 
+released as ground truth. One way to obtain an identifiable test is to start with periods in 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 15 of 67
+which products were available, temporarily hide some observed sales, and compare the 
+estimate with the hidden values. This is the artificial-mask test used later. It provides a direct 
+measure of reconstruction error under a controlled situation. Its limitation is equally clear: 
+artificially  hidden  sales  do  not  reproduce  every  reason  why  a  real  product  becomes 
+unavailable. The method supports a bounded reconstruction comparison, rather than a claim 
+that the study has discovered the retailer's true lost sales.
+Figure 2. M5 + RETAILNET: Three kinds of information
+Source and scope: Evidence classification. These categories must be distinguished even when they appear 
+together in a planning record. Natural lost demand is not observed.
+2.4 Forecasting should be judged against the decision it supports
+Retail forecasting can use simple historical patterns, statistical adjustments or machine-
+learning models. A seasonal reference forecast repeats an earlier comparable period, making 
+it a useful starting point. Methods for intermittent demand address histories with frequent 
+zero sales; Croston (1972) and Syntetos and Boylan (2005) are established contributions in 
+that area. Tree-based machine learning can combine lagged sales and calendar information, 
+while neural models can learn patterns from sequences of observations. These approaches 
+have different demands on data and computation. The purpose of comparing them is to 
+identify useful performance under the study's conditions, rather than to assume that the more 
+complex model should win.
+M5 demonstrates the importance of evaluating forecasting on a defined benchmark and being 
+clear about what the score represents (Makridakis et al., 2022). A retail assortment contains 
+products with very different volumes and patterns, so an average error can conceal where 
+performance is strong or weak. In this dissertation, M5 forecasting evidence provides context 
+for the replenishment work rather than a new claim about winning the full competition. The 
+reduced panel and the recorded test periods differ from a full-benchmark evaluation. The 
+graphs therefore describe the tested panel and the role of each forecast comparison, keeping 
+those findings separate from the language-model results.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 16 of 67
+Forecasting for replenishment also concerns uncertainty. A planner may need to protect 
+service when demand is higher than its central estimate, which is one reason probabilistic 
+forecasting  receives  attention  (Gneiting  &  Raftery,  2007;  Salinas  et  al.,  2020).  For  a 
+nontechnical reader, the distinction is between a single expected value and a range of 
+plausible outcomes. A planning tool can use that range when deciding how much stock 
+provides an acceptable level of protection. The completed system contains such modelling 
+choices, but the main results do not require the reader to follow probability distributions. 
+Their implications appear in cost, fulfilled demand and the number of permitted or held 
+orders.
+The link between forecasting and decisions creates another evaluation question: does a better 
+error score lead to better replenishment? It may, but the relationship is not automatic. An 
+improvement on high-volume days may reduce shortages, while a small upward bias could 
+increase waste for short-lived products. Constraints may also prevent the planner from acting 
+on a forecast improvement. The study addresses this by presenting forecasting tests and 
+inventory  simulations  separately.  This  makes  it  possible  to  recognise  a  forecasting 
+improvement without assuming a commercial gain, or to observe a replenishment gain that 
+comes from corrected inventory information while forecasting remains unchanged.
+2.5 What a language model can contribute to a planning workflow
+Language models have attracted interest in supply-chain tasks because they can connect 
+written descriptions with computational tools. Li et al. (2023) explore their use in supply-
+chain optimization, and tool-based agent research such as ReAct illustrates how a model can 
+combine interpretation with action requests (Yao et al., 2023). The common opportunity is 
+that business information may arrive in language while a planning tool expects structured 
+inputs. A model can potentially help bridge that gap. This is relevant to replenishment when a 
+supplier message describes an order minimum, a unit convention or an approval condition 
+that must be incorporated into a decision.
+The model's role needs to be defined narrowly enough to evaluate. Asking it to produce a 
+complete  order  and  then  explain  its  own  answer  mixes  interpretation,  calculation  and 
+justification. A good result might be produced by any of those activities, and an error may be 
+difficult to trace. The workflow tested here assigns the numerical ordering calculation to a 
+conventional planning tool. The language model handles a bounded interpretation task and, in 
+the recovery configurations, selects a permitted recovery request. Its outputs then pass 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 17 of 67
+through independent checks. This arrangement makes the business contribution more legible 
+and avoids giving fluent text the status of verified arithmetic.
+The strongest comparison is with a capable rule-based reader that can interpret the controlled 
+document formats used in the experiment. Such a reader, called a parser in the technical 
+evidence, follows explicit rules to identify the required values. It does not generate language, 
+but it can be highly reliable when the inputs are well defined. If both readers receive the same 
+sources and tools, a matched comparison can reveal whether the language model adds an 
+operational advantage. A weak comparison would give the AI workflow better information or 
+a recovery tool unavailable to its alternative, then attribute the difference to the AI. This 
+study avoids that unequal arrangement.
+The controlled inputs also define the limits of the comparison. Real supplier communication 
+can include unfamiliar layouts, ambiguous clauses, mixed languages and attachments. A 
+language model might be useful in those situations, but that possibility is not demonstrated by 
+success on a bounded grammar. Conversely, equality with a strong parser in this study does 
+not establish that a parser will always match a language model on all business text. The 
+sensible interpretation is narrower: no additional cost or fill-rate benefit from the language 
+model was observed in the matched operational comparisons that were actually completed. 
+Broader flexibility requires a separate test with appropriately varied documents.
+2.6 Independent checks are a condition for meaningful autonomy
+Automation can operate at several levels, from preparing information to recommending an 
+action or executing it. Parasuraman, Sheridan and Wickens (2000) describe types and levels 
+of human interaction with automation, providing a useful foundation for thinking about this 
+distinction. In replenishment, there is a substantial difference between allowing a system to 
+calculate a candidate order and allowing it to commit that order. The latter creates a business 
+obligation. Permission should therefore depend on whether the evidence and the proposed 
+action satisfy the retailer's requirements, rather than on whether the system can produce an 
+answer quickly.
+The workflow uses what this dissertation calls evidence-gated approval. In plain terms, the 
+system  must  pass  checks  before  an  order  can  proceed.  It  needs  adequate  and  current 
+inventory information, an order that respects active constraints, and spending within the 
+relevant authority. When a check fails, the system can request an allowed correction or hold 
+the order. A hold is recorded as a decision, not treated as missing output. This matters 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 18 of 67
+because a system can appear safe by placing no orders, while its service deteriorates. The 
+evaluation therefore reads the number of holds alongside cost and fulfilled demand to 
+understand whether caution is useful or excessive.
+Independent verification also means that the same language model is not the final judge of its 
+own  interpretation.  The  source  of  a  rule  must  support  the  value  being  used,  and  the 
+supporting evidence must apply to the current task. A recovery request that points to stale 
+information should be refused even if the model describes it confidently. The research's 
+captured requests show why this separation is useful: valid response formatting did not 
+guarantee an appropriate recovery choice. A manager needs to distinguish a message that a 
+system can process from a decision that it should accept. Successful formatting is one 
+operational requirement, but it cannot stand in for substantive correctness.
+Research on automation misuse provides a further reason for caution. People can place 
+excessive trust in automated output or disengage from it when its behaviour is difficult to 
+understand (Parasuraman & Riley, 1997). These risks are relevant to the proposed workflow, 
+but the dissertation does not claim to have measured them. No human-participant experiment 
+was  conducted.  The  managerial  implication  is  a  design  requirement  for  a  later  pilot: 
+reviewers should be able to see the reason for a hold and the evidence behind a repair. 
+Whether the record actually helps them make better or faster decisions remains an empirical 
+question for that pilot.
+2.7 Explanation should follow the evidence used in the decision
+A language model can produce an explanation after an action has been chosen, but a 
+convincing narrative does not necessarily reveal how the action was reached. Research on the 
+faithfulness of model explanations raises this concern directly (Turpin et al., 2023). In a 
+replenishment setting, the reviewer needs a dependable account of which inventory state, 
+business rules and approval checks supported the order. A general statement that the model 
+considered customer demand and supplier limits is insufficient. The record should point to 
+the actual inputs and decisions, so that another person or tool can inspect the relationship 
+between them.
+The implemented workflow keeps a decision record as it operates. Sources, interpreted 
+values,  planned  orders  and  approval  outcomes  are  linked  rather  than  described  only 
+afterward. A record can show, for example, that an inventory balance was repaired using 
+fresh movements, that the order was recomputed, and that spending stayed within the active 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 19 of 67
+limit. This is useful for investigating an outcome or comparing two configurations. It does not 
+make every explanation complete in the philosophical sense, and it does not guarantee that a 
+business user will find the record easy to read. It provides a concrete form of operational 
+accountability that the study can verify.
+For managers, the important distinction is between a reason and a record of support. A reason 
+may say that the order protects service. The supporting record should show what service 
+objective was used, what stock was believed available, and which restrictions were checked. 
+Both can be helpful, but they serve different purposes. The first aids communication; the 
+second enables review. This distinction also shapes the presentation of the dissertation. The 
+results chapter offers short explanations of the main findings, while the appendices and 
+repository preserve the detail needed to investigate the calculations. Readability is improved 
+without removing the possibility of verification.
+2.8 Fresh products create an additional service–waste trade-off
+Fresh inventory loses usable life as time passes. An order that improves availability today 
+may  increase  the  amount  that  expires  later,  particularly  when  demand  is  uncertain  or 
+deliveries arrive in large quantities. Nahmias (1982) reviews the theoretical challenges of 
+perishable inventory, showing why product age and remaining life matter to the ordering 
+problem. This context makes FreshRetailNet a useful complement to M5. Its sales and 
+availability observations come from fresh retail, while the experiments can examine how 
+different  assumed  shelf  lives  influence  a  policy.  Those  assumed  lives  belong  to  the 
+simulation; they are not observed expiry histories supplied by the dataset.
+Product age also exposes a difference between a physical simulation and a planning method. 
+The main FreshRetailNet simulation tracks expiry and uses older stock first, but the inherited 
+optimization tool does not make its decision using a detailed age profile. It can therefore be 
+tested in a world where stock expires without becoming a fully age-aware planner. This is a 
+meaningful limitation, because good replenishment in fresh retail may require knowledge of 
+how long existing stock will remain sellable. The dissertation examines age handling in 
+separate policy calculations instead of implying that the main language-model workflow has 
+already solved this part of the problem.
+The separate calculations help illustrate how forecasting, stockout interpretation and shelf life 
+interact. A recovered sales history may raise expected demand. That change could improve 
+fulfilled demand while increasing the amount ordered and later discarded. An age-aware 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 20 of 67
+calculation can respond to remaining life, but its choices also depend on coverage rules and 
+supply assumptions. Because these choices differ from the main planning experiment, their 
+absolute costs should not be combined. Their contribution is a clearer view of conditional 
+trade-offs: whether an apparent service improvement also changes waste, and how sensitive 
+the answer is to assumptions about demand and shelf life.
+For a retailer, the practical implication is that waste deserves its own measurement rather than 
+being inferred from lower total cost. A cost model can assign a penalty to expiry, but the 
+weight of that penalty is a management choice. Changing it can change which policy looks 
+attractive.  Actual  environmental  benefits  would  also  require  evidence  about  disposal, 
+handling and emissions, none of which this study directly measures. The results therefore 
+discuss simulated expiry and service jointly, while the managerial recommendations ask a 
+future pilot to track real waste quantities and their operational consequences. That is a more 
+useful basis for adoption than treating every forecasting adjustment as a sustainability gain.
+2.9 Evidence, comparison and the gap addressed by this study
+The  literature  suggests  that  replenishment  performance  can  improve  through  several 
+mechanisms: better forecasts, more reliable stock records, clearer interpretation of constraints 
+and more appropriate control over execution. These mechanisms can coexist, which makes 
+attribution difficult. An AI system that contains all four may outperform a simple ordering 
+rule, but the comparison alone does not reveal how much value came from the language 
+model. The present study addresses that gap by holding important components constant in the 
+matched reader comparisons and by separating the main operational experiments from the 
+forecasting and  perishability analyses.  The  aim  is  to make  the  origin of improvement 
+understandable.
+The work also takes a design-science perspective. Hevner et al. (2004) describe research that 
+develops and evaluates an information-system artefact in relation to a relevant problem. Here, 
+the artefact is a replenishment workflow with evidence checks and bounded recovery. Its 
+evaluation  is  computational  and  uses  public  retail  data  alongside  disclosed  simulation 
+assumptions. This perspective supports an applied contribution without requiring the study to 
+claim  a  universal  inventory  theorem  or  a  live  business  deployment.  A  failure  can  be 
+informative if it reveals a design condition, such as an approval limit that holds routine orders 
+when transferred to a different economic scale.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 21 of 67
+Three expectations emerge from this framework. Reliable reconstruction of a damaged 
+inventory balance should help when valid supporting evidence remains available. Replacing 
+the language model with a capable reader should reveal whether the model adds operational 
+value under the tested document conditions. Moving to fresh-retail data should expose 
+additional concerns about availability, shelf life and the transfer of business thresholds. The 
+later spending-limit follow-up was motivated by an observed primary failure and is explicitly 
+treated  as  exploratory.  These  expectations  provide  a  reading  guide;  they  do  not 
+retrospectively turn every analysis into an originally registered, confirmatory hypothesis test.
+The remaining research gap concerns practical adoption. Evidence that a workflow behaves 
+consistently in simulation is necessary but insufficient for a commercial decision. A retailer 
+would also need to examine document variability, user review, integration, operating cost and 
+performance over a longer period. Those questions shape the discussion and future research, 
+while the completed findings remain tied to the study's measured endpoints. This balance is 
+central to the dissertation's purpose. It aims to explain what the experiment establishes in a 
+form  that  a manager can use, while  keeping a clear distinction between demonstrated 
+mechanisms and the wider benefits that still require operational evidence.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 22 of 67
+3. Research framework and study design
+3.1 A controlled study of an operational workflow
+The research evaluates a working replenishment process using historical retail data and a 
+simulated inventory environment. This choice makes it possible to compare decisions under 
+the same customer-demand path while changing the quality of the information or the tools 
+available to the system. The experiment can observe what the planner proposed, what the 
+approval  checks  accepted  and  what  happened  to  simulated  inventory  afterwards.  The 
+approach is suitable for testing a mechanism before a live deployment. It does not recreate 
+every aspect of a store, and its results depend on the assumptions used for supply, costs and 
+customer demand.
+The experiments were completed in stages. M5 provided an initial numerical study and a 
+short language-model feasibility test, followed by an improved matched pilot. FreshRetailNet 
+added  protected  forecasting  tests,  numerical  controls,  matched  reader  comparisons  and 
+separate fresh-product sensitivities. A later FreshRetailNet analysis examined the transfer of 
+the spending limit after the primary workflow held routine orders. The original failure was 
+retained. This order of work matters because the later transfer analysis was motivated by 
+outcomes already seen. Its results are useful for understanding the design, but are reported as 
+exploratory rather than as confirmation on a new, untouched evaluation period.
+Each simulation run follows a defined policy, scenario and random seed. A seed fixes the 
+simulated  randomness,  making  it  possible  to  compare  configurations  facing  equivalent 
+conditions. It is not a new store, customer population or historical week. Repeating a run 
+under several seeds helps examine whether the result depends on one particular sequence of 
+deliveries or fulfilment events. It does not remove the limitations of the selected products or 
+the short evaluation horizon. The study therefore treats the results as descriptive evidence 
+about the implemented system, supported by paired comparisons, rather than as a population 
+estimate for retail replenishment generally.
+The historical sales paths are used as demand proxies in the main simulations. This is a 
+practical way to make policy comparisons repeatable, but it should not be interpreted as 
+observing what customers would have requested under every counterfactual inventory policy. 
+Actual sales can already reflect the availability conditions of the original retailer. The 
+simulations also do not model all customer responses, such as substitution between products 
+or a later purchase at another store. Separate FreshRetailNet calculations vary an assumed 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 23 of 67
+demand multiplier to explore this uncertainty. Those assumptions are disclosed and are not 
+presented as estimates of actual unserved customer demand.
+The study asks whether a workflow makes better and more accountable decisions under those 
+conditions. For that reason, it examines both outcomes and process. Cost and fill rate show 
+the operational effect inside the simulation. Holds and executed orders show how often the 
+workflow acted. Constraint checks show whether committed orders respected the active 
+business rules. Decision records and source checks show whether a reported repair or 
+interpretation was supported by the information actually available. This combination is more 
+informative than ranking systems on a single number, particularly when a cautious workflow 
+can reduce the number of orders while also reducing service.
+3.2 The two datasets and the selected panels
+M5 provides daily sales histories, calendar information and selling prices from a Walmart 
+retail setting. The prepared panel used here spans 1,941 recorded days and includes thirty 
+series: three food products, each observed across ten stores. The panel was chosen to keep the 
+computational  study  feasible  while  retaining  variation  across  stores  and  products.  The 
+original numerical experiments used seven simulated decision days. The improved matched 
+M5 pilot used fourteen days at a single forecast origin. The pilot's thirty series should 
+therefore be understood as a focused test panel, not as an evaluation of the full M5 assortment 
+or the complete competition task.
+The M5 histories provide real sales observations, but they do not supply the inventory 
+movements, supplier contracts or purchase orders needed for the simulated replenishment 
+workflow. Those operational layers were created for the experiment and versioned with the 
+study. The distinction is important because a supplier-rule error in the results belongs to the 
+generated scenario, rather than to a supplier observed in Walmart's data. Similarly, the 
+modelled cost is the consequence of the study's cost conventions and supply process. The 
+purpose is to compare policies in a controlled environment informed by historical sales, not 
+to reconstruct the retailer's actual financial or operational performance.
+FreshRetailNet-50K is a public Dingdong dataset distributed through Hugging Face under a 
+CC BY 4.0 licence. The pinned release contains 4.85 million daily observations across 
+50,000 store–product series. Its training file contains ninety days, from 28 March to 25 June 
+2024; the official evaluation file contains seven days, from 26 June to 2 July 2024. The 
+release also contains hourly sales and availability information. Validation of the downloaded 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 24 of 67
+files found 898 stores, eighteen cities and 865 product identifiers. These counts describe the 
+actual pinned files used for this study and are kept separate from any differences in publisher 
+descriptions.
+The complete release was checked for consistency, including key uniqueness, chronology and 
+agreement between daily and hourly sales. The computational panel was then selected 
+entirely from early training information. Candidate series needed a sufficiently complete 
+history and a sales scale suitable for the bounded experiment. The eligible series were 
+grouped by the proportion of operating hours affected by stockouts, and ten pairs were 
+selected from each of three groups using a reproducible rule. The final thirty pairs cover 
+twenty-six  product  identifiers  and  twenty-nine  stores.  This  purposive  selection  creates 
+variation in availability conditions while remaining small enough for local computation; it is 
+not random population sampling.
+Selection was based on the first sixty-two training dates, so the official evaluation outcomes 
+could not influence which series entered the panel. Later training dates supported validation 
+and model selection. Every main FreshRetailNet simulation run used all thirty selected series. 
+The  data-validation  work  covered  the  entire  source  release,  but  the  forecasting  and 
+replenishment findings concern the panel. That distinction appears in the graph notes and the 
+conclusion because it determines the scope of the evidence. A larger release can improve the 
+usefulness of a source dataset without making a small experiment representative of all the 
+products and stores it contains.
+FreshRetailNet sales are globally normalized amounts rather than released physical quantities 
+with a common retail purchasing unit. The main simulation scales them into integer planning 
+quantities for compatibility with the ordering tools. Prices, suppliers, lead times and costs are 
+simulated, and the resulting cost is an index. The separate fresh-product calculators retain 
+normalized numerical quantities and use different supply and cost conventions. Their findings 
+are analysed within their own comparisons. A lower cost index in one of these experiments 
+cannot be translated directly into a retailer's currency, kilograms of waste or financial return 
+without additional business information.
+Table 1. Dataset profiles and scope
+Feature
+M5
+RetailNet
+Source setting
+Walmart retail sales
+Dingdong fresh retail
+Study panel
+30 series; 3 products; 10 stores
+30 series; 26 products; 29 
+stores
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 25 of 67
+Feature
+M5
+RetailNet
+Prepared history
+1,941 daily positions
+90 training + 7 evaluation days
+Availability information
+No released hourly stockout 
+labels used
+Hourly sales and stockout 
+indicators
+Outcome economics
+Modelled study monetary 
+conventions
+Normalized quantities; 
+simulated cost indices
+Scope reminder
+Reduced panel, not full 
+competition
+Full 50,000-series release 
+validated; 30-series 
+performance panel
+Figure 3. M5 + RETAILNET: The computational panels
+Source and scope: Both panels have thirty store–product series. M5 has three selected food products across 
+ten stores; RetailNet has twenty-six products and twenty-nine stores. Full-release validation is separate 
+from panel performance evaluation.
+3.3 What was observed, estimated and simulated
+The workflow uses three forms of evidence. Observed evidence comes from the public 
+release: historical sales, dates and, for FreshRetailNet, stockout indicators during operating 
+hours.  Estimated  evidence  is  produced  by  a  model,  such  as  a  demand  forecast  or  a 
+reconstructed sales amount for a hidden period. Simulated evidence is generated by the 
+experimental environment, including inventory balances, receipts, supplier restrictions and 
+expiry. Each form serves a purpose, but they answer different questions. The separation 
+prevents a modelled quantity from acquiring the apparent authority of an observed business 
+record simply because it appears in the same table or graph.
+In FreshRetailNet, a stockout indicator represents a valid observation about availability. It 
+does not mean that the observation itself should be rejected as poor data quality. The retailer 
+can have a trustworthy record that reveals an incomplete view of demand. The experiment 
+therefore distinguishes valid stockout information from a broken inventory field. A stockout 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 26 of 67
+signal should inform forecasting or analysis; a broken field may require reconciliation with 
+other records. This distinction is examined in an additional policy calculation that compares 
+correct treatment of a stockout flag with a deliberately defective rule that holds the product 
+whenever the flag appears.
+The main workflow was restricted to information available before each decision. It could use 
+historical  sales,  previously  recorded  availability  and  the  current  operational  snapshot 
+generated for that run. It could not use the next day's realised sales, future actual stockout 
+masks  or  other  evaluator-only  information.  Once  simulation  began,  current  stockout 
+observations came from the policy's own simulated inventory rather than from the future 
+availability path of the original retailer. This matters because different policies can create 
+different stockouts. Feeding all policies the same future real-world mask would give them 
+information about an outcome they had not yet produced.
+Business documents used in the reader tests were generated under controlled formats and 
+contained a defined set of rules. This makes the comparison reproducible and permits exact 
+checks of extracted values, but it limits what can be said about real-world document handling. 
+The experiment did not evaluate a collection of previously unseen supplier emails, scanned 
+agreements or multilingual negotiations. It tested whether the workflow handled the defined 
+inputs and whether the language model added operational value against a reader designed for 
+those inputs. The technical archive preserves the rule sources, requests and responses needed 
+to inspect that distinction in detail.
+3.4 Forecasting: learning from history without seeing the answer
+The  language  model  and  the  forecasting  models  performed  different  jobs.  Qwen,  the 
+language model, was downloaded as an already pretrained model. It was not trained or fine-
+tuned on M5 or FreshRetailNet for this dissertation, and it did not serve as the demand 
+forecaster. Forecasting used historical retail data through numerical models and reference 
+methods. This is an essential distinction when describing the environment in which the study 
+was  trained.  The  cloud  computer  fitted  the  forecasting  models  and  ran  the  pretrained 
+language model locally. It did not perform a new training programme for the language model 
+itself.
+The main planning experiments used a small recurrent neural forecasting model, known 
+technically as a GRU, trained to learn patterns from sales sequences. It had thirty-two hidden 
+units and was fitted for ten training passes, with a fifty-six-day input history. These settings 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 27 of 67
+kept model fitting manageable on the available CPU computer and were held constant where 
+comparisons required it. LightGBM, a tree-based model, supplied the numerical reorder-
+policy forecast. A seasonal reference method provided a simpler comparison. Technical 
+details are included in the appendix, but the business purpose is straightforward: each method 
+turns available sales history into a forecast that a planning rule can use.
+For FreshRetailNet's separate forecast study, model choice was made through four rolling 
+validation periods within the ninety-day training file. Each validation period used earlier data 
+to  predict  the  next  seven  days.  The  candidates  included  a  weekly  seasonal  reference, 
+LightGBM trained on unadjusted sales, and LightGBM trained on sales histories adjusted by 
+two  recovery  methods.  The  selection  rule  used  the  available  validation  evidence, 
+concentrating on days when products were fully stocked. The selected forecasting method 
+was saved before the official seven-day evaluation file was opened. This timing is recorded in 
+the receipts rather than inferred from the final performance numbers.
+The forecast inputs were deliberately limited to information that could be known in advance: 
+earlier sales values and calendar or series identifiers. Future realised weather, promotional 
+conditions and availability observations were not supplied as explanatory features. This 
+choice sacrifices some possible predictive information but provides a clearer test of the 
+implemented forecasting boundary. Additional checks altered future fields and confirmed that 
+the saved predictions were unchanged. These checks support the claim that the code did not 
+use the prohibited future information. They do not guarantee that the reduced feature set is 
+the best possible retail forecasting design.
+The sales-recovery study used controlled artificial masks. It hid blocks of two, four or eight 
+operating hours on validation days that had originally been fully stocked, then compared 
+recovery estimates with the sales that had been hidden. The original complete daily amount 
+was withheld from the recovery inputs, preventing it from revealing the answer indirectly. 
+The test compared zero filling, a historical hourly-profile method and a tree-based recovery 
+method.  Methods  were  selected  using  a  defined  validation  criterion  before  the  final 
+evaluation. This creates an honest reconstruction test while preserving the limitation that 
+naturally lost demand remains unobserved.
+The reported forecasting error is WAPE, which measures total absolute error relative to the 
+total observed target volume. A lower percentage is better, but it should not be read as a 
+probability that the forecast is correct. For example, an error score of forty percent does not 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 28 of 67
+mean that forty percent of forecast days were wrong. It describes the scale of the errors 
+relative to the sales being evaluated. The fully stocked evaluation comparison includes 114 of 
+the 210 panel-days. Other rows can be scored against observed sales as a proxy, but that 
+proxy is not complete demand during real stockouts. Graph captions identify which target is 
+used.
+Figure 4. RETAILNET: Sales were often availability-constrained
+Source and scope: Complete pinned release: training and evaluation files. Hourly and daily percentages use 
+different denominators. Operating hours are 06:00–21:00. These observations identify availability 
+conditions; they do not quantify true lost demand.
+3.5 How the replenishment workflow makes a decision
+At the start of a simulated decision day, the workflow receives an inventory snapshot and the 
+currently relevant rules. It checks whether the records are adequate for planning. A reader 
+interprets the required business values, and a forecasting tool estimates demand. The planning 
+tool calculates a candidate order that takes the active restrictions into account. The approval 
+stage  then  determines  whether  the  evidence  and  the  proposal  meet  the  conditions  for 
+execution. If they do, the simulated order enters the supply process. If they do not, the 
+workflow records a hold or an allowed recovery request. The decision remains traceable even 
+when nothing is ordered.
+The  matched  reader  comparison  uses  four  configurations:  a  rule-based  reader  without 
+recovery, a rule-based reader with recovery, a language-model reader without recovery, and a 
+language-model reader with recovery. All four use the same forecasting and planning tools 
+within the matched experiment. Recovery is therefore available to both readers, rather than 
+being  an  advantage  reserved  for  the  language  model.  The  comparison  separates  two 
+questions: whether recovery changes the outcome, and whether changing the reader changes 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 29 of 67
+the outcome when the rest of the workflow is held constant. This is the main basis for 
+attributing the measured operational benefits.
+The language model's interpretation task was bounded. It returned defined numerical terms, 
+while deterministic tools attached structural metadata and checked the full set of active rules. 
+It could also choose a recovery request from the allowed options. The workflow did not use 
+an additional language-model critic to approve its output, and it did not give the model 
+unrestricted access to retailer systems. Responses were constrained to a defined structure. 
+This improved the ability to process and audit them, but correct structure was not treated as 
+proof that a recovery request was appropriate. Source validity and freshness still had to be 
+checked independently.
+Verified inventory repair required agreement between current independent records. When the 
+calculated stock field was damaged, a current source quantity and the relevant movement 
+ledger had to support reconstruction. The repaired balance then went through the approval 
+process again. This arrangement prevented the workflow from accepting an unsupported 
+replacement merely because it was close to the expected answer. In the stale-information 
+scenario, those conditions were absent and the repair tool refused to proceed. The redundant 
+measurement supporting repair was created inside the simulation; it is not a field that should 
+be attributed to the public FreshRetailNet release.
+The numerical control grid contained four broader policies. A simple seasonal rule and a 
+LightGBM reorder rule supplied familiar reference approaches. A constrained optimization 
+policy used the neural forecast to calculate a feasible order. A fourth policy added evidence 
+and spending approval to that optimizer. These controls explain what happens when the wider 
+workflow changes, but they are not interchangeable with the matched reader comparison. The 
+conventional constrained optimizer already achieved zero actual committed-rule violations in 
+the main FreshRetailNet study. Any safety interpretation of the language-model workflow 
+must recognise that existing capability rather than give the language model exclusive credit.
+Table 2. The matched reader configurations
+Reader
+Recovery permission
+Shared tools
+Rule-based reader
+No repair
+Same forecast, planner and 
+approval checks
+Rule-based reader
+Verified repair allowed
+Same forecast, planner and 
+approval checks
+Qwen language model
+No repair
+Same forecast, planner and 
+approval checks
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 30 of 67
+Reader
+Recovery permission
+Shared tools
+Qwen language model
+Verified repair allowed
+Same forecast, planner and 
+approval checks
+3.6 The scenarios and completed experimental scope
+The matched studies used four operating scenarios. Normal conditions supplied current 
+records and the standard supply restrictions. The inventory-field fault damaged a calculated 
+inventory quantity while preserving independent current records that could support repair. 
+The  stale-feed  scenario  made  the  relevant  information  too  old  for  a  trustworthy 
+reconstruction. A capacity reduction tightened the amount that the supply process could fulfil. 
+These scenarios create different managerial questions. The first tests routine operation; the 
+second tests whether a recoverable error is corrected; the third tests whether the system 
+recognises that a plausible correction lacks current evidence; the fourth tests adaptation to a 
+genuine operating restriction.
+M5's original numerical grid contained 360 runs: four policies, three information scenarios 
+and thirty simulation seeds, each covering seven days. The early language-model feasibility 
+test  added  eight  two-day  runs,  with  four  structured  controls.  That  short  test  exposed 
+difficulties  in  interpreting  the  initial  document  setup  and  did  not  establish  effective 
+autonomous replenishment. The improved M5 pilot then used four matched reader-and-
+recovery configurations, four scenarios and two seeds for fourteen days, producing thirty-two 
+runs. The distinction between these versions is retained because the improved pilot represents 
+a changed workflow, not a reason to erase the initial feasibility limitations or pool unlike 
+settings.
+The FreshRetailNet primary study completed 360 numerical runs and thirty-two matched 
+reader runs. Both used the thirty-series panel over the official seven-day period, with thirty 
+seeds in the numerical grid and two in the primary reader comparison. The original approval 
+settings were retained from M5. They created a transfer failure: routine proposed spending 
+exceeded the autonomous limit, leading the workflow to hold all routine orders in several 
+scenarios. This outcome remained part of the primary results. It revealed a policy-scale 
+mismatch that would have been hidden if the experiment had adjusted the limit silently before 
+presenting the findings.
+A separate exploratory follow-up selected a spending cap using training-only proposed 
+orders. Its formula added a predefined margin to a high training percentile and rounded the 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 31 of 67
+result within a budget ceiling, producing a cap of 1,850 in the main cost-index conventions. It 
+retained the original forecasting model, documents, approval logic and other settings. The 
+follow-up expanded the matched grid to thirty seeds, four configurations and four scenarios, 
+producing 480 runs. Although the calibration itself used training data, the hypothesis arose 
+after the primary evaluation and the official holdout was reused. The follow-up is therefore 
+exploratory throughout the dissertation, including its graphs.
+Additional FreshRetailNet policy calculations produced 1,080 sensitivity runs and sixty 
+stockout-flag ablations. The sensitivity grid varied the forecasting-history treatment, ordering 
+calculator, assumed shelf life and assumed demand multiplier. It included one-, three- and 
+seven-day lives and demand multipliers of 1, 1.25 and 1.5. These values are scenarios rather 
+than claims about actual Dingdong products. The stockout ablation contrasted an availability-
+aware rule with a deliberately defective rule that held a product after a stockout signal. 
+Neither analysis used a language model, and neither should be described as an additional 
+independent trial of language-model decision-making.
+FreshRetailNet therefore contributed 2,012 completed simulation runs and 14,084 simulated 
+run-days, excluding forecasting fits and the training-only spending calibration. That total 
+indicates the breadth of the computational work, but it should not be confused with the 
+number of distinct language-model judgements. The primary and exploratory studies shared 
+cached interpretations when appropriate; repeated seeds could reuse the same checked text 
+result. The actual FreshRetailNet language-model activity comprised 240 fresh calls. Model-
+call  counts,  tokens  and  cache  behaviour  are  preserved  in  the  technical  records.  The 
+operational comparisons use the run grid, while interpretation reliability is discussed with its 
+true request count.
+Table 3. Completed experimental scope
+Study
+Runs
+Days per run
+Simulation seeds
+M5 original numerical 
+study
+360
+7
+30
+M5 initial live / 
+structured feasibility
+8 / 4
+2
+1
+M5 improved matched 
+pilot
+32
+14
+2
+RetailNet primary 
+numerical controls
+360
+7
+30
+RetailNet primary 
+matched readers
+32
+7
+2
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 32 of 67
+Study
+Runs
+Days per run
+Simulation seeds
+RetailNet exploratory 
+calibrated readers
+480
+7
+30
+RetailNet separate 
+policy calculations
+1,140
+7
+30 per cell
+Figure 5. M5 + RETAILNET: How the experiments answer different questions
+Source and scope: Study map. M5 and RetailNet include numerical and matched-reader work. Separate 
+forecasting and fresh-product calculator analyses use RetailNet and contain no language-model calls.
+3.7 Training and execution environment
+The experiments ran on a Linux cloud computer with an allocation equivalent to four CPU 
+cores and 32 GiB of memory. No GPU was available. Data preparation, forecast fitting and 
+language-model inference all ran in this environment. This modest environment shaped the 
+study: a small local language model was selected, the computational panels contained thirty 
+series, and the planned evaluations were bounded by the available runtime. Independent 
+numerical, forecasting and audit work ran in parallel where feasible, while local language-
+model inference was kept serial to avoid competing requests exhausting the limited CPU 
+capacity.
+The language model was Qwen2.5 with approximately 1.5 billion parameters, served locally 
+through Ollama (Qwen Team, 2024). The improved M5 and FreshRetailNet studies used the 
+same  frozen study tag, ega-qwen2.5:1.5b-v2.  The  model  used  a  compressed numerical 
+representation,  labelled  Q4_K_M,  to  reduce  storage  and  support  CPU  execution.  Its 
+generation settings were fixed, including an 8,192-token working context, three CPU threads 
+and a zero-temperature setting. These settings were chosen for repeatability and feasibility, 
+rather than to establish that this is the best available language model for retail operations. The 
+exact model identity and settings are preserved in the appendix and protocol.
+Qwen's general language capabilities came from its existing pretraining. The study did not 
+fine-tune those weights on the retail panels. The trained components were the forecasting 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 33 of 67
+models fitted to historical sales, including the small recurrent network and LightGBM. The 
+software environment included CPU-only PyTorch 2.10.0, LightGBM 4.7.0 and PyArrow 
+21.0.0 for reading the released Parquet files. Python coordinated data preparation, simulation, 
+verification and reporting. A reader does not need these libraries to interpret the results, but 
+recording them helps distinguish the actual experiment from a claim about a larger GPU-
+trained or commercially hosted AI system.
+Local execution avoided paid inference API calls in these experiments. It did not make the 
+system costless. Cloud computing, model setup, document preparation, software integration 
+and human oversight would all matter in a commercial assessment. The study did not assign 
+monetary values to those activities, so it cannot establish a net return on investment from 
+choosing a local language model. The environment is best understood as a feasible research 
+setting  that  supported  a  bounded  comparison.  Its  successful  execution  shows  that  the 
+workflow can be studied on modest computing resources; it does not prove that the same 
+setup would meet a retailer's production throughput requirements.
+Table 4. Model and cloud environment in plain terms
+Component
+Actual study setting
+Cloud computer
+Linux x86_64; four CPU cores allocated; 32 
+GiB memory; no GPU
+Language model
+Pretrained Qwen2.5 1.5B, run locally through 
+Ollama
+LLM training in this project
+None: no retail-data fine-tuning
+Forecast models
+Small GRU neural model, LightGBM and 
+reference methods
+What was fitted
+Numerical forecasting models using historical 
+retail sales
+Main software
+Python; CPU-only PyTorch 2.10.0; LightGBM 
+4.7.0; PyArrow 21.0.0
+Costs not measured
+Cloud, integration, oversight and production 
+operating cost
+3.8 Reading the outcome measures fairly
+The main measures were simulated cost, fill rate, held decisions and actual constraint 
+violations. Cost combines the expenses and penalties defined by the particular simulation. Fill 
+rate expresses how much of the simulated demand was served. A held decision records that 
+the approval conditions prevented execution. An actual violation records a committed order 
+failing an active rule, such as a supplier or capacity restriction. These measures answer 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 34 of 67
+complementary questions. Lower cost is useful only in relation to the resulting service and 
+risks; fewer violations are meaningful only if the policy still acts sufficiently to support 
+replenishment.
+The technical outputs also preserve reference deviations: differences from a clean reference 
+action beyond a stated tolerance. Such a deviation can be a diagnostic of sensitivity to bad 
+information, but it is not automatically a real rule violation or an observed business injury. 
+Some historical exports combine deviations and violations under a broad legacy label. This 
+rewrite uses actual constraint violations for compliance claims and discusses differences from 
+the clean reference separately when relevant. The distinction avoids inflating safety claims or 
+implying that every different order is harmful. The underlying fields remain available in the 
+repository for readers who want to examine the diagnostics.
+Matched comparisons use the same scenario and seed. For recovery, the study compares the 
+configuration with repair permission against its counterpart without it. For the language-
+model question, it compares the model-based reader against the rule-based reader at the same 
+recovery setting. The published cost reduction is calculated from the corresponding mean 
+costs, while the service difference is expressed in percentage points. A percentage-point 
+change is the difference between two percentages; it is not a relative percentage increase. For 
+instance, moving from 89% to 96% fill is a seven-point improvement. This convention keeps 
+the practical magnitude of the service change easy to understand.
+The cross-dataset comparison uses those within-dataset effects. It does not rank M5 and 
+FreshRetailNet by their absolute cost levels or treat the two panels as interchangeable. M5's 
+matched pilot used fourteen days and two seeds. FreshRetailNet's primary comparison used 
+seven days and two seeds, while its exploratory follow-up used seven days and thirty seeds. 
+The economic scales and product selections also differ. For the spending-cap transition, the 
+report preserves an additional comparison at the original two seeds, so the improvement from 
+changing the cap is not confused with the expansion in replication. The thirty-seed follow-up 
+then provides a separate view of variability.
+The findings are descriptive, with individual seed outcomes retained instead of hidden behind 
+only an average. No claim of statistical significance is made from the two-seed M5 pilot, and 
+more FreshRetailNet seeds are not treated as a replacement for a wider assortment or longer 
+time horizon. This distinction is particularly important when interpreting a benefit that varies 
+across seeds. The reported average can be favourable while a few runs experience higher 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 35 of 67
+cost. Those adverse cases remain visible in the graphs and tables. For a manager, they 
+motivate investigating the circumstances of the exceptions before defining an operating 
+policy around the average result.
+3.9 Verification, transparency and practical limits
+Independent audits examined the completed grids and the underlying decision records. They 
+checked the source objects, event links, inventory balances, cost arithmetic, repair conditions 
+and equality of matched actions. They also checked the actual model requests and responses 
+for hidden evaluator information or incorrectly counted calls. Forecast selection timing and 
+future-information boundaries were verified separately, and the policy calculations received 
+their own balance and cost checks. This does not transform the simulations into field 
+evidence. It gives the reader stronger grounds to trust that the reported numbers describe the 
+implemented experiments rather than an incomplete or selectively presented set of runs.
+The  original  logs,  failures,  fitted  forecasting  models,  public  FreshRetailNet  files  and 
+reporting sources were preserved alongside the summaries. Large evidence exports were split 
+into ordinary Git archive parts, and a complete restoration verified each original path against 
+its recorded file hash. Those technical details are not needed to follow the results chapter, but 
+they  support  the  dissertation's  account  of  reproducibility.  The  previous  reports  remain 
+available as historical versions. This new manuscript reorganises and explains the same 
+completed evidence; it does not create additional experimental trials or replace unfavourable 
+primary results with the later exploratory improvements.
+The scope remains deliberately bounded. The simulations use selected panels, short horizons, 
+generated business documents and disclosed economic assumptions. They do not observe live 
+purchasing, labour savings, customer substitution or the full cost of operating the system. The 
+main fresh-retail optimizer is not age-aware, and naturally lost demand remains unknown. 
+These limitations are considered together in Chapter 5 rather than repeated beside every 
+result. The results chapter uses compact source and scope notes so that it can remain readable 
+while allowing a reader to distinguish what was observed, what was estimated, and what was 
+produced by the experimental world.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 36 of 67
+4. Findings and interpretation
+4.1 M5: repairing a damaged inventory record helped
+The main M5 question was whether the workflow could recover useful replenishment when a 
+calculated inventory field became unreliable. The improved pilot gives a clear answer under 
+its tested conditions. Verified repair reduced mean simulated cost from 894.30 to 796.51 and 
+increased fill rate from 89% to 96%. The cost reduction was 10.93%, and the service 
+improvement was seven percentage points. The supporting current records allowed the 
+workflow to reconstruct the balance and continue planning instead of holding otherwise 
+useful orders. The result describes the matched fourteen-day pilot with two seeds and thirty 
+series.
+Figure 6. M5: Verified repair under an inventory-field fault
+Source and scope: Improved M5 pilot; thirty series, fourteen days, two shared seeds. Simulated cost uses 
+the M5 study monetary conventions. The matched rule-based reader achieved the same results.
+Recovery  was  selective.  In  the  stale-feed  scenario,  it  could  not  establish  a  current 
+replacement and did not produce the same improvement. Under normal conditions, there was 
+no damaged balance to repair. The mechanism therefore depended on the presence of valid 
+independent information. This is a useful business distinction: the workflow benefited from 
+correcting a specific recoverable error, not from treating every uncertainty as permission to 
+fill in a plausible number. The first, shorter M5 language-model trial had held all its live 
+decisions; the improved matched pilot demonstrates the changed workflow's feasibility while 
+preserving that earlier limitation.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 37 of 67
+4.2 M5: the language model and the rule-based reader matched
+The M5 comparison also asks who deserves credit for the improvement. The language-model 
+and rule-based readers produced the same costs, fill rates and daily actions in all sixteen 
+matched comparisons. Both had access to the same verified repair tool and planning process. 
+This means that the operational benefit was achieved by the shared recovery workflow. The 
+experiment did not demonstrate an extra cost or service benefit from replacing the capable 
+reader with Qwen. The language-model configurations committed useful actions with zero 
+actual constraint violations, but the matched reader configurations also had zero violations.
+Figure 7. M5: Reader comparisons lie on the equality line
+Source and scope: Improved pilot: sixteen matched scenario/seed/recovery comparisons. Some points 
+overlap because outcomes are equal. Exact daily actions also matched; equal cost and service are not 
+evidence of incremental LLM superiority.
+The result is positive for the feasibility of bounded AI assistance and cautious about its 
+incremental commercial value. Qwen could participate in the workflow, but an organisation 
+whose  documents  already  fit  a  dependable  rule-based  reader  should  not  assume  that 
+introducing the model will improve replenishment outcomes. The study does not answer 
+whether more varied real-world business text would change that conclusion. That question 
+belongs to a separate document-handling and user-workflow evaluation.
+4.3 RetailNet: forecasting improved, but sales recovery had limits
+On fully stocked days in the official RetailNet evaluation period, LightGBM trained on 
+unadjusted sales achieved a WAPE of 38.84%, compared with 42.84% for the weekly 
+seasonal reference. Lower is better. The alternatives trained on recovered histories did not 
+beat the unadjusted-sales model on this main target. The graph presents the tested methods 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 38 of 67
+together so that a modest difference is not mistaken for a decisive improvement from 
+recovery. These were numerical forecasting tests, not language-model forecasts.
+Figure 8. RETAILNET: Unadjusted-sales LightGBM led the main forecast test
+Source and scope: Official evaluation, 114 fully stocked panel-days out of 210. Lower WAPE is better. 
+Models were selected before evaluation unsealing. These are numerical methods, not LLM forecasts.
+The artificial-mask tests also produced a mixed result. The selected tree-based recovery 
+method improved hidden-hour error only slightly and retained substantial downward bias. 
+The hourly-profile method was less accurate at reconstructing individual hours, although it 
+improved daily-total reconstruction compared with zero filling. The lesson is that recovery 
+quality depends on what is being measured. A method useful for a daily total may be weak at 
+identifying the missing hourly pattern. Naturally lost demand during real stockouts remains 
+unknown, so these tests should not be read as a measurement of actual sales that Dingdong 
+could have recovered.
+4.4 RetailNet: the original spending limit did not transfer well
+The primary RetailNet agent workflow retained the M5 autonomous spending cap of 1,500. 
+Routine proposed orders were above that limit. As a result, every day in the normal, 
+inventory-field-fault and stale-feed agent scenarios was held. The workflow complied with its 
+approval policy, but routine replenishment was not effective. This is the main primary 
+transfer finding. A system can follow a rule correctly while the rule itself is unsuitable for the 
+scale of the new setting.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 39 of 67
+Figure 9. RETAILNET: Approval policy had to fit the new setting
+Source and scope: Matched cap transition at the original two seeds, 13 and 29, for the LLM-with-repair 
+configuration; the reader counterpart is equal. Original cap 1,500, training-selected cap 1,850. Follow-up is 
+exploratory and reuses the holdout.
+The separately registered follow-up selected a cap of 1,850 from training-only proposals. The 
+graph compares the transition using the same original two seeds, so that the effect is not 
+confused with the later expansion to thirty seeds. More routine orders became permissible 
+after  the  cap  changed.  The  original  results  were  retained,  and  the  follow-up  remains 
+exploratory because the failure had already been observed and the official holdout was 
+reused. The implication is operational: a shared workflow still needs business thresholds that 
+fit its deployment context.
+4.5 RetailNet: verified repair improved the exploratory follow-up
+In the thirty-seed follow-up, the inventory-field-fault scenario showed the strongest recovery 
+effect. Mean simulated cost fell from 20,500.69 to 18,100.60, a reduction of 11.71%. Fill 
+increased from 66.94% to 79.19%, a gain of 12.25 percentage points. Repair restored the 
+corresponding normal-scenario outcomes within each matched seed. It did not improve the 
+stale-feed scenario, where the source conditions did not support a current reconstruction. The 
+pattern is consistent with the mechanism tested in M5: useful recovery depends on valid 
+evidence remaining available.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 40 of 67
+Figure 10. RETAILNET: Verified repair under an inventory-field fault
+Source and scope: Exploratory calibrated follow-up; thirty series, seven days, thirty seeds. Reused holdout. 
+Cost is an index, not retailer currency. The matched rule-based reader achieved the same results.
+The average improvement did not mean that every cost outcome improved. Fill increased in 
+all thirty seeds, while cost decreased in twenty-six. Four seeds had higher cost after repair. 
+The next graph keeps those cases visible. Additional ordering can increase procurement or 
+inventory expense even when more demand is fulfilled, so the cost and service effects should 
+be read together. These outcomes support a conditional repair benefit, rather than a guarantee 
+that repair always lowers every cost measure.
+Figure 11. RETAILNET: The repair benefit varied across seeds
+Source and scope: Exploratory follow-up, inventory-field fault, thirty paired seeds. Cost decreased in 
+26/30 seeds; orange points show the four adverse cost outcomes. Fill increased in 30/30. Simulation seeds 
+are not independent stores or historical weeks.
+As in M5, the capable reader achieved exactly the same matched outcomes as the language 
+model. All 240 reader comparisons in the exploratory follow-up matched in the audited 
+actions and primary outcomes. The primary fixed-cap comparison also matched in its sixteen 
+pairs.  The  improvement  therefore  supports  verified  recovery  and  appropriate  approval 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 41 of 67
+settings. It does not establish an additional replenishment return from the language model 
+itself.
+4.6 RetailNet: compliance also came with a service trade-off
+Zero  actual  violations  were  recorded  for  the  matched  agent  configurations,  but  the 
+conventional constrained optimizer also had zero actual violations in the primary numerical 
+study. In normal conditions, the thirty-seed conventional optimizer fulfilled about 85.03% of 
+simulated demand, compared with 79.19% for the exploratory calibrated approval workflow. 
+The latter's cost was lower, but its service was also lower and it held some orders. This 
+comparison prevents a claim that the approval workflow was the best overall replenishment 
+policy simply because it remained compliant.
+Figure 12. RETAILNET: Lower cost came with lower service
+Source and scope: Normal scenario, the same thirty seeds and seven-day horizon. Conventional optimizer: 
+primary numerical study. Approval workflow: exploratory calibrated follow-up. Both had zero actual 
+committed-rule violations. No overall-winner claim is supported.
+The business choice depends on the retailer's required service level and the cost of review. A 
+policy that accepts lower service in exchange for tighter authority may be reasonable in one 
+context and unacceptable in another. The experiment makes that trade-off visible but does not 
+choose a universal service target for the retailer. It also distinguishes the conventional 
+optimizer from the simpler ordering rules, which did incur active-rule violations. Existing 
+optimization and independent checks are part of the explanation for compliant behaviour.
+4.7 RetailNet: fresh-product decisions require a separate view of waste
+The separate policy calculations show why service and waste should be considered jointly. 
+Under the default age-aware setting, using the selected recovered history slightly reduced 
+cost and increased fill compared with using raw history, while increasing the fraction of 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 42 of 67
+available stock that expired. Changes in assumed shelf life and demand also changed the 
+outcome.  These  are  numerical  calculator  experiments  with  their  own  unit  and  supply 
+conventions, and contain no language-model calls. Their purpose is to expose the fresh-
+product trade-off, not to add an independent claim about Qwen's performance.
+Figure 13. RETAILNET: Fresh-product service and expiry must be read together
+Source and scope: Separate age-aware calculator analysis, thirty seeds per cell, assumed demand multiplier 
+1.25. Waste denominator is opening stock plus receipts. Shelf lives are hypothetical. No LLM calls; units 
+and supply differ from the main optimizer study.
+A further calculation examined whether a trustworthy stockout flag should automatically stop 
+an order. The availability-aware rule achieved about 92.61% fill in its default setting, 
+compared with 82.46% for the deliberately defective hold-on-stockout rule. The comparison 
+is an ablation of a bad information-handling rule, rather than a contest against a strong 
+replenishment system. It shows that valid evidence of restricted sales should be interpreted 
+appropriately. Treating the stockout observation itself as corrupted data can prevent the 
+replenishment needed to restore availability.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 43 of 67
+Figure 14. RETAILNET: A valid stockout flag should inform the decision
+Source and scope: Sixty separate calculator runs, thirty shared seeds, three-day life and assumed demand 
+multiplier 1.25. Hold-on-stockout is a deliberately defective ablation, not a strong competitor. Neither 
+configuration uses an LLM.
+4.8 M5 and RetailNet: a shared mechanism, different conditions
+The comparison between datasets is clearest when expressed as within-setting changes. M5's 
+improved pilot showed a 10.93% cost reduction and a seven-point fill improvement from 
+verified repair. RetailNet's original fixed-cap agent study showed no repair benefit because 
+the spending check held routine orders. Its exploratory calibrated follow-up showed an 
+11.71% reduction and a 12.25-point increase. The graph preserves all three results, including 
+the initial RetailNet failure, rather than comparing only the successful versions.
+Figure 15. M5 + RETAILNET: Within-setting repair effects
+Source and scope: Descriptive comparison, inventory-field-fault scenario. M5: improved pilot. RetailNet 
+original: fixed-cap primary study. RetailNet calibrated: exploratory reused-holdout follow-up. Economic 
+scales and horizons differ; the reader achieves the same effects as the LLM.
+Both datasets support the same mechanism: current independent records allow useful repair. 
+The effect sizes are descriptive because the panels, horizons and economic scales differ. The 
+rule-based reader matched the LLM in both settings, so an additional LLM advantage 
+remains unproven.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 44 of 67
+5. Business implications and recommendations
+5.1 Begin with the decision problem rather than the AI label
+The experiments suggest that a retailer should begin an automation project by identifying the 
+failure it wants to address. If the main difficulty is a delayed inventory update, adding a more 
+fluent text model may leave the underlying problem unchanged. If the difficulty is extracting 
+relevant  terms  from  varied  supplier  communication,  a  language  model  may  be  worth 
+evaluating.  If  the  difficulty  is  ordering  within  several  simultaneous  restrictions,  an 
+optimization tool may provide the needed capability. These problems can occur together, but 
+they should still be described separately. A project framed only as adopting agentic AI makes 
+it harder to identify success and assign credit for an improvement.
+The  most  convincing  mechanism  demonstrated  here  concerns  inventory  evidence.  The 
+recovery configurations worked when independent current records supported a corrected 
+balance. That result gives a manager a concrete starting point: examine the information used 
+to determine available stock and the evidence needed to reconcile a discrepancy. A retailer 
+could map where records become delayed or inconsistent, identify which sources can validate 
+a correction, and establish who is responsible for the repair. This work may be less visible 
+than launching a conversational interface, but it supports the planning process on which such 
+an interface would rely. Its benefit can be tested without presuming a language-model 
+contribution.
+The  result  also  reinforces  the  value  of a  strong  baseline. The  capable  reader and  the 
+conventional  constrained  optimizer  were  not  obstacles  to  finding  AI  value;  they  were 
+necessary to interpret it. Without them, shared tools could have produced an improvement 
+that looked like a unique language-model advantage. A retailer should apply the same 
+reasoning to vendor claims. It should ask what information each comparison received, which 
+tools were available, whether service changed alongside cost, and whether the claimed 
+improvement remains when a capable existing system is used. This turns a broad technology 
+claim into a decision about a specific operational investment.
+An applied study can still make a contribution when it does not show superiority for its most 
+fashionable component. The experiments demonstrate that a small local language model can 
+participate in a checked workflow, while revealing conditions under which the wider process 
+is useful or ineffective. This is a more actionable outcome than a simple declaration that AI 
+works. It tells managers to distinguish component feasibility from business advantage, to 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 45 of 67
+preserve failed transfer results, and to test recovery against valid sources. Those lessons can 
+guide an operational pilot even if the retailer ultimately chooses a simpler reader for its first 
+deployment.
+5.2 Identify where a language model might earn its place
+The present evidence does not justify replacing a dependable reader solely to improve the 
+measured replenishment outcomes. That does not close the broader question of usefulness. A 
+language model could have value when written inputs vary too much for a small set of rules 
+to remain manageable. Supplier instructions may arrive in different layouts, store notes may 
+use local terminology, and policies may describe exceptions in prose. These are plausible 
+situations for an interpretation tool, but they require direct evaluation. The retailer would 
+need a representative document collection and clear expected outputs before treating general 
+linguistic flexibility as an operating benefit.
+A suitable evaluation would compare the same business tasks under the existing process and 
+the proposed model-assisted process. It could measure extraction completeness, unsupported 
+interpretations, correction time and the proportion of cases needing review. It should also 
+include unfamiliar documents and ambiguous units, because those are the conditions in which 
+the model's proposed flexibility is most relevant. Easy controlled documents can establish a 
+basic capability, but they cannot by themselves determine the cost of maintaining a reader 
+across a changing supplier base. The study's exact matched outcomes are therefore a reason 
+to define the next evaluation more precisely, not a reason to assume that broader text 
+handling has already been proved.
+The model might also help present an exception in language that a buyer understands. For 
+example, it could explain that an order is held because the stock balance conflicts with a fresh 
+movement record, and indicate what evidence a reviewer needs next. Such an interface 
+should remain tied to the verified decision record. A model should not be allowed to invent a 
+business rationale after the fact or conceal a failed check inside a reassuring summary. 
+Whether these explanations improve review speed or understanding must be measured with 
+actual users. The completed experiments provide the record that could support that test, but 
+not a measured usability result.
+The economic decision should then compare any demonstrated linguistic benefit with the 
+additional operating burden. A model-assisted reader requires monitoring, version control, 
+latency management and a process for handling unexpected responses. A rule-based reader 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 46 of 67
+also requires maintenance, especially when formats change. Neither option is universally free 
+or universally superior. The appropriate choice depends on the variation of the inputs and the 
+cost of errors in the retailer's context. The dissertation's recommendation is to let a specific, 
+measured use case determine where Qwen or another model is introduced, while retaining 
+independent evidence checks regardless of the reader selected.
+5.3 Treat approval settings as a business policy
+The spending-cap failure is one of the study's most practical findings. A limit that allowed 
+useful orders in one setting held routine orders after transfer to another. The workflow had no 
+need to hallucinate or miscalculate for this to happen; it correctly applied an unsuitable 
+policy. This shows why governance settings should be treated as management decisions with 
+an economic context. The retailer needs to define what the limit protects, how it relates to 
+normal proposed spending, which products or stores it covers, and what happens when the 
+limit is exceeded. A copied number without that context can turn nominal safety into 
+operational paralysis.
+The training-derived RetailNet follow-up illustrates a possible way to investigate scale, rather 
+than a universal formula for setting authority. Its cap was based on past proposals under the 
+experimental conventions. A real retailer would also need to consider budgets, approval 
+responsibilities, exceptional events and the cost of delayed ordering. A threshold calibrated 
+on a quiet period may be unsuitable during a planned promotion. A threshold adjusted only to 
+maximise service may permit commitments that finance would reject. The business policy 
+should therefore be developed jointly by the people responsible for availability, procurement 
+and financial control, rather than left as an unnoticed parameter in the software.
+The same principle applies to holds. A hold can be an appropriate response when evidence is 
+missing  or  a  proposal  exceeds  authority.  It  becomes  a  problem  when  routine  orders 
+accumulate  without  a  timely  resolution  path.  A  production  workflow  needs  a  named 
+reviewer, a reason code and an expected response time. It should distinguish a missing record 
+that can be obtained quickly from a genuine policy exception requiring a higher authority. 
+The experiments measure holds as an outcome but do not model a real review team resolving 
+them. Adding that team could change both cost and service, which is why its capacity 
+belongs in a later pilot.
+Independent controls remain valuable even when the language model performs a narrow task. 
+In the captured recovery choices, the model sometimes requested a repair against stale 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 47 of 67
+evidence.  The  tools  refused  those  requests,  preventing  an  unsupported  balance  from 
+becoming an accepted input. The graph below shows the request-level distinction rather than 
+presenting valid response formatting as perfect reasoning. A retailer should monitor both how 
+often the model proposes an inappropriate action and how reliably the checking layer 
+contains it. If the latter is effective but the former creates a high review burden, the workflow 
+can remain controlled while still needing redesign for practical use.
+Figure 16. M5 + RETAILNET: Tools contained inappropriate recovery requests
+Source and scope: Request-level observations, shown separately by study. All stale-source repair requests 
+were refused. Cached reader imports are not additional model judgements. Correct formatting does not 
+establish correct tool choice.
+5.4 Start with a staged and measurable operational pilot
+The first stage of a retailer pilot should establish the current process. This includes how 
+inventory  is  updated,  which  supplier  instructions  affect  ordering,  how  exceptions  are 
+reviewed and what the business considers an unacceptable action. The team should identify a 
+bounded assortment and document the performance of the existing policy before introducing 
+the proposed workflow. A credible baseline provides a reference for service, waste and 
+workload. It also reveals whether the organisation has the records needed for verified 
+recovery. Where those records are absent, the initial project may need to improve information 
+capture before adding interpretation or autonomous execution.
+The next stage can operate in shadow mode. The system prepares proposed orders and 
+decisions without sending them to suppliers. Reviewers can compare the proposals with the 
+actual process and investigate the cases in which they differ. This stage should include valid, 
+incomplete  and  stale  inputs,  rather  than  only  clean  records.  It  should  also  collect 
+representative business documents that were not used to design the reader. The objective is to 
+find whether the workflow makes the right distinctions and whether reviewers understand its 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 48 of 67
+records. These are prospective recommendations; the present dissertation did not conduct this 
+operational shadow-mode trial with a retailer.
+Only after that assessment should the organisation consider a restricted execution pilot. 
+Authority could be limited to defined products, spending levels and well-supported routine 
+conditions.  Exceptions  would  continue  to  require  review.  The  pilot  should  preserve  a 
+matched comparison where feasible, so that improvements are not attributed to the AI 
+workflow when they also reflect a new data feed, a different service target or additional 
+staffing. A phased introduction can be easier to manage than an immediate replacement of the 
+whole ordering process. It also allows the business to stop or narrow the pilot if the review 
+burden or service effect differs from expectations.
+The pilot's reporting should place a small set of business outcomes together. Fulfilled 
+demand, actual stockouts, inventory held, expiry and noncompliant orders describe the 
+operational effect. Review time, unresolved holds, system latency and integration effort 
+describe  the  cost  of  operating  the  process.  A  retailer  may  also  need  product-specific 
+measures, because fresh items with short lives face different consequences from slower-
+selling packaged food. The reporting should keep sources and definitions stable so that an 
+apparent improvement cannot be created by changing the denominator or removing difficult 
+cases.  The  appendix  offers  a  concise  measurement  guide  without  implying  that  these 
+outcomes were all collected in the present experiment.
+Failure handling should be agreed before the system has permission to act. A team needs to 
+know what happens when the model is unavailable, a source feed is late, a document cannot 
+be interpreted or the planning tool finds no feasible order. The practical response may be a 
+conventional fallback policy, a manual task or a hold. Whatever is chosen should be visible in 
+the outcome record. Quietly substituting another process makes the service result difficult to 
+interpret and can hide how much of the workload the AI-assisted workflow actually handled. 
+The experiment's explicit records provide a model for this transparency, while the actual 
+fallback design remains a retailer-specific decision.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 49 of 67
+Figure 17. M5 + RETAILNET: A proposed route to operational testing
+Source and scope: Managerial recommendation derived from the findings. This operational pilot was not 
+conducted as part of the dissertation and does not represent an observed deployment result.
+5.5 Build the business case around measured incremental value
+The reported cost reductions concern simulation. They are useful evidence about the recovery 
+mechanism, but they are not a ready-made return-on-investment calculation. The retailer 
+would need to translate its operational outcomes into its own cost structure, including 
+purchase costs, handling, markdowns, waste, lost margins and the consequences of review 
+delays. It would also need to include the cost of software integration and maintaining the 
+checks. A percentage reduction in a modelled cost index cannot establish those cash flows. 
+This distinction protects the business case from using an attractive experimental percentage 
+as though it were a forecast of actual profit.
+The relevant economic question is incremental. If a capable conventional reader receives the 
+same repaired information and achieves the same outcomes, the language-model component 
+needs another source of measurable value to justify its cost. That value might be reduced 
+maintenance across variable documents or faster exception preparation, but it cannot be 
+assumed. A retailer should therefore compare the entire proposed process against its practical 
+alternative, including the people and tools both require. The shared recovery benefit may 
+justify investing in reliable records and approval tools even when the language model is 
+omitted from the first implementation.
+Service targets also belong in the economic assessment. The calibrated RetailNet workflow 
+had lower normal-scenario cost than the conventional constrained optimizer, but also lower 
+fill. A project sponsor could prefer the cheaper policy while a store manager sees the unmet 
+demand as unacceptable. The business case needs to make that trade-off explicit. It should 
+ask whether the required service level is met and how the proposed policy behaves on high-
+demand  or  constrained  days.  Optimising  an  average  cost  without  an  agreed  service 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 50 of 67
+requirement can reward a workflow for doing less replenishment. The paired cost-and-service 
+graphs are intended to prevent that one-sided reading.
+Finally, local inference should be assessed realistically. It can reduce dependence on paid 
+model APIs and keep the study's requests within the cloud environment, but it still consumes 
+computing resources and engineering effort. A small CPU model may also process tasks too 
+slowly for a broad production assortment, even if it is sufficient for a bounded research panel. 
+The appropriate deployment choice depends on throughput, confidentiality, operating cost 
+and the complexity of the task. The present study records the actual modest environment, 
+giving the business a concrete starting point for discussion without claiming that its zero API 
+charge represents zero total operating cost.
+5.6 Fresh retail needs a broader decision view
+FreshRetailNet adds a reminder that reliable data do not eliminate uncertainty about demand. 
+A current stockout observation can be accurate while the amount of lost demand remains 
+unknown. The retailer should preserve that uncertainty rather than replacing it with a point 
+estimate described as fact. Forecasting and recovery methods can be tested on identifiable 
+cases and then assessed for sensitivity in replenishment. If the recommended order changes 
+sharply  with  a  small  adjustment  to  recovered  demand,  the  business  should  investigate 
+whether that sensitivity is acceptable for the product. Such reasoning connects the data issue 
+to an actual stocking decision.
+Fresh products also require attention to age. The main optimization workflow in this study 
+did not use a full stock-age profile, even though expiry occurred in the physical simulation. 
+Its  results  therefore  cannot  establish  that  the  workflow  is  ready  for  all  perishable 
+replenishment decisions. A later system could incorporate remaining life, expected demand 
+before expiry and delivery timing directly into the planning method. That change would need 
+its own matched evaluation. The separate age-aware calculators indicate why this information 
+matters, but they also change the coverage convention and supply assumptions, so they 
+cannot isolate a pure age-awareness effect or be pooled with the main cost results.
+The retailer's environmental objectives should be measured directly. Reduced simulated cost 
+is not the same as reduced physical food waste, and increased fill can come with greater 
+expiry. An operational pilot should record waste quantities, product categories, reasons for 
+disposal and the practices used to manage ageing stock. It may also need to consider whether 
+more  frequent  smaller  deliveries  change  transport  or  handling  burdens.  None  of  these 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 51 of 67
+environmental outcomes was quantified here. They are included in the recommendations 
+because  fresh-retail  adoption  would  otherwise  overlook  consequences  that  a  single 
+replenishment cost figure may not capture.
+A fresh-retail project is therefore best framed around a group of outcomes rather than a single 
+AI performance score. The system should maintain useful availability, manage stock age, 
+respect procurement limits and communicate where demand is uncertain. Different products 
+may require different levels of review or different ordering policies. The dataset helps reveal 
+the importance of these distinctions, while the small selected panel limits the generalisation 
+of their measured effects. A manager can use the study to identify the questions a broader 
+pilot should answer, rather than treating the panel's average result as a policy for every fresh 
+product.
+5.7 What the limitations mean for interpretation
+The first limitation is representativeness. Thirty series offer a manageable study, but do not 
+cover the variety of either source population. The M5 panel concentrates on three food 
+products, and the RetailNet panel was purposefully selected for completeness, scale and 
+availability variation. Repeated seeds examine simulated randomness around those histories; 
+they do not add new assortments or trading periods. A larger validation programme should 
+examine additional products, stores and seasonal conditions. Until then, the results describe 
+the tested panels and mechanisms rather than a forecast of average performance across a 
+retail chain.
+The second limitation concerns the experimental world. Supply, inventory, operating rules 
+and cost penalties were generated for the simulations. Historical sales informed the demand 
+paths, but customer substitution and other responses to counterfactual availability were not 
+fully  modelled.  Naturally  lost  demand  was  not  observed.  These  conditions  make  the 
+comparisons interpretable and repeatable while limiting their commercial meaning. The 
+separate policy sensitivities help reveal how assumptions affect the answer, but cannot 
+remove the need for operational data. A live pilot would be needed to establish whether the 
+mechanism produces the same service and cost effects in an actual ordering process.
+The third limitation concerns the language-model contribution. The inputs used controlled 
+document forms, the model's task was bounded, and interpretation results could be cached 
+across seeds. The capability comparison therefore covers a defined setting, not all supplier 
+communication. A small local model was chosen for the CPU budget, and other models or 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 52 of 67
+document collections could behave differently. The study also did not isolate a benefit from 
+adding more AI roles, nor measure employee trust or review efficiency. Claims about general 
+agent intelligence, faster human work or superior document flexibility would go beyond the 
+endpoints that were evaluated.
+The fourth limitation is the exploratory follow-up. The revised RetailNet spending cap was 
+based on training-only proposals, but the design change followed a primary evaluation failure 
+and reused the holdout. The result should be checked on a new period with the cap-selection 
+procedure fixed in advance. A new evaluation would help distinguish a transferable design 
+improvement from an adjustment that happened to work on the already observed conditions. 
+Preserving the original failure makes this need clear. It also provides a practical lesson for 
+research reporting: a useful improvement can be presented honestly without being relabelled 
+as confirmatory evidence.
+5.8 Who needs to be involved in an adoption decision?
+Replenishment automation crosses responsibilities that are often managed by separate teams. 
+Buying teams understand supplier conditions and commercial commitments. Store operations 
+know how stock is counted, handled and displayed. Finance defines spending authority and 
+evaluates  the  business  case.  Data  and  technology  teams  maintain  the  sources  and 
+computational  process.  A  useful  adoption  decision  should  bring  these  responsibilities 
+together before permission to execute is expanded. The purpose is not to create a large 
+committee for every routine order. It is to agree which team owns each important input, 
+restriction and exception, so that the automated process does not become an unowned layer 
+between existing functions.
+Store teams are especially important when assessing whether the recorded balance represents 
+usable stock. A quantity can exist in the inventory system while being damaged, misplaced or 
+unavailable to customers. Conversely, a delivery can be physically present before its system 
+update has completed. The simulated repair mechanism uses independent records with a 
+defined relationship, but a real retailer must establish what those sources mean on the shop 
+floor. Staff experience can help identify discrepancies that the data design has not captured. 
+Their involvement should inform the pilot's data checks and exception categories, rather than 
+being treated as informal correction work outside the measured process.
+Buying and finance teams should agree how business rules become active and how changes 
+are communicated. If a supplier changes a minimum order or a category receives a temporary 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 53 of 67
+spending restriction, the system needs a dependable effective date and version. A language 
+model may help read the communication, but a named business owner should confirm that 
+the rule applies. The spending-cap transfer result shows why this ownership matters: a 
+technically functioning check can use a limit that no longer reflects the intended operating 
+scale. Clear responsibility for policy updates is therefore part of the workflow, rather than an 
+administrative detail after software deployment.
+Technology teams need an operational view of failure as well as a model-performance view. 
+They should know whether a delayed response prevents an order, whether a stale feed 
+triggers an exception and how the system returns to a verified state. Model updates should be 
+tested against the same representative tasks before use, because a new version can change 
+behaviour even when the business process is unchanged. The retailer should also decide who 
+can access supplier information and who can alter approval conditions. These responsibilities 
+are  familiar  system-management  questions,  but  language-model  assistance  makes  it 
+particularly important to preserve the distinction between interpreting a request and having 
+permission to carry it out.
+For the project sponsor, the adoption decision should rely on a small shared set of outcomes 
+and a clear account of ownership. The sponsor needs to see whether the workflow meets 
+service requirements, reduces the intended failure, and creates an acceptable review burden. 
+The team should be able to explain adverse cases rather than dismiss them as model noise. 
+This study provides examples of both useful repair and unsuitable authority, giving that 
+conversation a concrete  basis. It  does not  substitute for the retailer's judgement about 
+priorities. It helps define the evidence that should support that judgement and the people who 
+need to act when the evidence is incomplete.
+5.9 The broader contribution to responsible decision support
+The study contributes a way to discuss AI-assisted operations without collapsing every 
+component into a single black box. It separates the historical observation, the forecast, the 
+written interpretation, the numerical plan and the authority to execute. This helps identify the 
+source of both benefit and failure. The language model's participation is evaluated against a 
+capable  alternative,  while  record  repair  is  evaluated  against  a  counterpart  lacking  that 
+permission.  The  result  is  an  account  of  which  mechanism  mattered  under  the  tested 
+conditions. For a business-school dissertation, that attribution is valuable because it connects 
+technical design to investment, control and accountability decisions.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 54 of 67
+The cross-dataset work adds a second contribution. It shows that a common process can 
+encounter different information and policy conditions when moved to a new retail setting. 
+FreshRetailNet's availability annotations create a forecasting question that M5 does not 
+resolve in the same way, and its normalized scale exposes an approval-threshold mismatch. 
+These differences are informative rather than inconvenient. They demonstrate why successful 
+transfer cannot be inferred merely from using the same software or model. A business should 
+expect to review assumptions about quantity, information freshness, service and spending 
+authority before giving a shared workflow the same operational permissions.
+The preservation of failures and detailed evidence supports a third contribution. The early M5 
+feasibility limitation and the primary RetailNet spending-cap failure remain visible alongside 
+the improved results. The graphs summarise the evidence, while the repository retains the 
+path to the underlying decisions. This makes the dissertation easier to read without making it 
+less inspectable. It also recognises that an applied research project often learns through design 
+changes. Those changes can inform a future deployment when their timing and conditions are 
+disclosed, rather than hidden behind a single final performance claim.
+Taken together, these contributions support a measured adoption approach. The research 
+gives a reason to invest attention in reliable inventory information, independent checks and 
+appropriately calibrated authority. It shows that a local language model can fit into such a 
+process, while offering no measured reason to claim that the model itself improves cost or fill 
+over the strongest matched reader. The next decision for a retailer is therefore concrete: 
+identify a business-language task that may need the model, test that task against the current 
+alternative,  and  evaluate  the  wider  workflow  under  real  operating  conditions  before 
+expanding its permission to act.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 55 of 67
+6. Conclusion and future research
+6.1 What the study establishes
+This dissertation examined when a language-model-assisted workflow can support reliable 
+replenishment. The most useful result was the role of verified inventory recovery. When 
+current independent records supported a correction, the workflow could repair a damaged 
+stock balance and place useful orders. In M5's improved pilot, this reduced mean simulated 
+cost by 10.93% and increased fill by seven percentage points. In RetailNet's exploratory 
+calibrated follow-up, the corresponding improvements were 11.71% and 12.25 points. These 
+findings concern the selected panels and disclosed simulations, not realised retailer savings.
+The evidence also gives a clear answer about attribution. The capable rule-based reader 
+achieved the same matched actions and operational outcomes as the language model in both 
+settings. Qwen therefore demonstrated a feasible bounded role inside the workflow, but no 
+additional cost or service advantage over that reader was established. The shared planning, 
+repair and approval tools explain the observed benefit. A retailer should evaluate any further 
+language-model investment against a specific document or review task, rather than treat the 
+presence of an LLM as evidence that replenishment has improved.
+The move to RetailNet exposed the importance of context. The original M5 spending cap 
+held routine orders in the primary RetailNet agent study. A training-derived adjustment 
+improved the opportunity to act, but the follow-up reused the evaluation period and remains 
+exploratory. Fresh-retail forecasting and policy calculations also showed that availability 
+information, demand uncertainty and expiry require separate attention. More recovered sales 
+information did not consistently improve the main forecast target, and service improvements 
+could coexist with additional simulated waste. Reliable automation depends on suitable 
+information and business policy as well as computational capability.
+6.2 What a retailer should take forward
+The  practical  recommendation  is  to  develop  replenishment  automation  around  verified 
+records, strong conventional planning and clear authority. A language model can assist where 
+interpretation is genuinely needed, while independent tools check the evidence and control 
+execution. The retailer should measure service alongside cost, investigate held orders, and 
+preserve a review path for unsupported or unusual decisions. The experiment's modest CPU 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 56 of 67
+cloud environment shows that a bounded version can be studied without GPU infrastructure. 
+It does not establish production throughput, human productivity or return on investment.
+Future research should first repeat the calibrated RetailNet workflow on an untouched period 
+with its policy fixed in advance. It should then broaden the product and store panels, evaluate 
+longer horizons and test age-aware planning within a matched operational design. A separate 
+document study should compare readers on varied real business communication, and a user 
+pilot should examine review quality and workload. These priorities follow from the evidence 
+gaps, rather than from an assumption that a larger model or more agents will necessarily 
+solve them.
+The conclusion is therefore encouraging about checked automation and precise about the 
+language model's demonstrated contribution. Better-supported inventory decisions improved 
+simulated replenishment in both datasets. The LLM could participate, while independent 
+records, tools and approval rules remained essential. The commercial case for an additional 
+language-model advantage remains a question for a broader, properly controlled pilot.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 57 of 67
+References
+Chen, F., Drezner, Z., Ryan, J. K., & Simchi-Levi, D. (2000). Quantifying the bullwhip effect 
+in a simple supply chain: The impact of forecasting, lead times, and information. 
+Management Science, 46(3), 436–443. https://doi.org/10.1287/mnsc.46.3.436.12069
+Clark, A. J., & Scarf, H. (1960). Optimal policies for a multi-echelon inventory problem. 
+Management Science, 6(4), 475–490. https://doi.org/10.1287/mnsc.6.4.475
+Croston, J. D. (1972). Forecasting and stock control for intermittent demands. Operational 
+Research Quarterly, 23(3), 289–303. https://doi.org/10.1057/jors.1972.50
+DeHoratius, N., & Raman, A. (2008). Inventory record inaccuracy: An empirical analysis. 
+Management Science, 54(4), 627–641. https://doi.org/10.1287/mnsc.1070.0789
+DeHoratius, N., Mersereau, A. J., & Schrage, L. (2008). Retail inventory management when 
+records are inaccurate. Manufacturing & Service Operations Management, 10(2), 257–
+277. https://doi.org/10.1287/msom.1070.0203
+Dingdong-Inc. (2025). FreshRetailNet-50K (Version 1.0): Dataset card and data dictionary 
+[Data set]. Hugging Face. 
+https://huggingface.co/datasets/Dingdong-Inc/FreshRetailNet-50K
+Gilbert, M. (2025). Predicting temperature variations across Europe using machine learning 
+and geospatial data for climate change impact analysis [Master’s thesis, emlyon business 
+school; user-supplied structural reference].
+Gneiting, T., & Raftery, A. E. (2007). Strictly proper scoring rules, prediction, and 
+estimation. Journal of the American Statistical Association, 102(477), 359–378. 
+https://doi.org/10.1198/016214506000001437
+Hevner, A. R., March, S. T., Park, J., & Ram, S. (2004). Design science in information 
+systems research. MIS Quarterly, 28(1), 75–105. https://doi.org/10.2307/25148625
+Kang, Y., & Gershwin, S. B. (2005). Information inaccuracy in inventory systems: Stock loss 
+and stockout. IIE Transactions, 37(9), 843–859. 
+https://doi.org/10.1080/07408170590969861
+Lee, H. L., Padmanabhan, V., & Whang, S. (1997). Information distortion in a supply chain: 
+The bullwhip effect. Management Science, 43(4), 546–558. 
+https://doi.org/10.1287/mnsc.43.4.546
+Li, B., Mellou, K., Zhang, B., Pathuri, J., & Menache, I. (2023). Large language models for 
+supply chain optimization. arXiv preprint arXiv:2307.03875. 
+https://arxiv.org/abs/2307.03875
+Makridakis, S., Spiliotis, E., & Assimakopoulos, V. (2022). M5 accuracy competition: 
+Results, findings, and conclusions. International Journal of Forecasting, 38(4), 1346–
+1364. https://doi.org/10.1016/j.ijforecast.2021.11.013
+Nahmias, S. (1982). Perishable inventory theory: A review. Operations Research, 30(4), 680–
+708. https://doi.org/10.1287/opre.30.4.680
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 58 of 67
+Nahmias, S. (1994). Demand estimation in lost sales inventory systems. Naval Research 
+Logistics, 41(6), 739–757. https://doi.org/10.1002/1520-6750(199410)41:6<739::AID-
+NAV3220410605>3.0.CO;2-A
+Parasuraman, R., & Riley, V. (1997). Humans and automation: Use, misuse, disuse, abuse. 
+Human Factors, 39(2), 230–253. https://doi.org/10.1518/001872097778543886
+Parasuraman, R., Sheridan, T. B., & Wickens, C. D. (2000). A model for types and levels of 
+human interaction with automation. IEEE Transactions on Systems, Man, and 
+Cybernetics, Part A, 30(3), 286–297. https://doi.org/10.1109/3468.844354
+Qwen Team. (2024). Qwen2.5-1.5B-Instruct [Model card]. Hugging Face. 
+https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct
+Salinas, D., Flunkert, V., Gasthaus, J., & Januschowski, T. (2020). DeepAR: Probabilistic 
+forecasting with autoregressive recurrent networks. International Journal of Forecasting, 
+36(3), 1181–1191. https://doi.org/10.1016/j.ijforecast.2019.07.001
+Syntetos, A. A., & Boylan, J. E. (2005). The accuracy of intermittent demand estimates. 
+International Journal of Forecasting, 21(2), 303–314. 
+https://doi.org/10.1016/j.ijforecast.2004.10.001
+Turpin, M., Michael, J., Perez, E., & Bowman, S. R. (2023). Language models don't always 
+say what they think: Unfaithful explanations in chain-of-thought prompting. Advances in 
+Neural Information Processing Systems, 36. 
+https://proceedings.neurips.cc/paper_files/paper/2023/hash/ed3fea9033a80fea1376299fa7
+863f4a-Abstract-Conference.html
+van Donselaar, K. H., Gaur, V., van Woensel, T., Broekmeulen, R. A. C. M., & Fransoo, J. C. 
+(2010). Ordering behavior in retail stores and implications for automated replenishment. 
+Management Science, 56(5), 766–784. https://doi.org/10.1287/mnsc.1090.1141
+Wang, R. Y., & Strong, D. M. (1996). Beyond accuracy: What data quality means to data 
+consumers. Journal of Management Information Systems, 12(4), 5–33. 
+https://doi.org/10.1080/07421222.1996.11518099
+Wang, Y., Gu, J., Long, L., Li, X., Shen, L., Fu, Z., Zhou, X., & Jiang, X. (2025). 
+FreshRetailNet-50K: A stockout-annotated censored demand dataset for latent demand 
+recovery and forecasting in fresh retail (arXiv:2505.16319). arXiv. 
+https://arxiv.org/abs/2505.16319
+Yao, S., Zhao, J., Yu, D., Du, N., Shafran, I., Narasimhan, K., & Cao, Y. (2023). ReAct: 
+Synergizing reasoning and acting in language models. International Conference on 
+Learning Representations. https://openreview.net/forum?id=WE_vluYUL-X
+Zipkin, P. H. (2000). Foundations of inventory management. McGraw-Hill.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 59 of 67
+Appendix A. Evidence guide and completed study register
+The main chapters explain the completed findings. The repository retains the individual run 
+tables, exact requests and responses, recorded decisions, fitted forecast models and audits. 
+This rewrite changes the structure and presentation of the dissertation; it does not add 
+simulations  or  alter  the  published  experimental  evidence.  The  evidence  commit  is 
+f98e31e5fc8ecab39d058a53da7936a9b0dbfca5 in Faraz-NIT/MasterDissertation.
+The M5 version-1 study contains 360 numerical runs, eight two-day live-prose runs and four 
+two-day  structured  controls.  The  M5  version-2  pilot  contains  thirty-two  fourteen-day 
+matched runs. FreshRetailNet contains 392 primary runs, 480 exploratory cap-transfer runs 
+and 1,140 separate policy calculations. Forecast fits and the training-only cap calibration are 
+separate. A simulation seed is not a new historical period, and a cached interpretation is not a 
+fresh model judgement.
+Table 5. Where to inspect the evidence
+Evidence
+Repository location
+M5 original report and run table
+study_results/v1/
+M5 improved matched results and audit
+study_results/v2/
+RetailNet primary, exploratory and sensitivity 
+tables
+study_results/freshretailnet/
+RetailNet source and independent audit receipts
+study_results/freshretailnet/receipts/
+Complete archived RetailNet records and public 
+source files
+study_results/freshretailnet/archive_parts/
+Restore every original path with hash 
+verification
+scripts/freshretailnet_delivery.py
+Current manuscript, figures and validation
+study_results/business_dissertation/
+Table 6. M5: original numerical means and actual violated checks
+Policy
+Scenario
+Mean cost
+Fill
+Violated checks
+Seasonal rule
+Inventory-field 
+fault
+621.07
+92.77%
+0
+Seasonal rule
+Stale information
+443.18
+90.85%
+0
+Seasonal rule
+Normal
+399.85
+92.05%
+0
+ML reorder rule
+Inventory-field 
+fault
+548.97
+85.18%
+0
+ML reorder rule
+Stale information
+440.07
+77.24%
+0
+ML reorder rule
+Normal
+399.63
+80.97%
+0
+Constrained 
+optimizer
+Inventory-field 
+fault
+497.05
+93.71%
+0
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 60 of 67
+Policy
+Scenario
+Mean cost
+Fill
+Violated checks
+Constrained 
+optimizer
+Stale information
+425.57
+90.29%
+63
+Constrained 
+optimizer
+Normal
+375.36
+93.95%
+0
+Optimizer + 
+approval
+Inventory-field 
+fault
+369.42
+90.50%
+0
+Optimizer + 
+approval
+Stale information
+367.80
+90.55%
+0
+Optimizer + 
+approval
+Normal
+374.00
+93.94%
+0
+Table 7. RetailNet: primary numerical means and actual violated checks
+Policy
+Scenario
+Cost index
+Fill
+Violated checks
+Seasonal rule
+Normal
+18,290.32
+77.56%
+210
+Seasonal rule
+Inventory-field 
+fault
+18,610.24
+78.48%
+266
+Seasonal rule
+Stale information
+19,447.74
+75.65%
+209
+ML reorder rule
+Normal
+19,685.44
+69.74%
+190
+ML reorder rule
+Inventory-field 
+fault
+19,172.46
+72.87%
+204
+ML reorder rule
+Stale information
+22,377.34
+65.31%
+190
+Constrained 
+optimizer
+Normal
+18,794.03
+85.03%
+0
+Constrained 
+optimizer
+Inventory-field 
+fault
+19,026.79
+84.98%
+0
+Constrained 
+optimizer
+Stale information
+19,607.02
+83.28%
+0
+Optimizer + 
+approval
+Normal
+24,013.14
+43.49%
+0
+Optimizer + 
+approval
+Inventory-field 
+fault
+24,013.14
+43.49%
+0
+Optimizer + 
+approval
+Stale information
+24,013.14
+43.49%
+0
+A.1 M5 numerical and forecast context
+The original numerical experiments help explain the range of reference policies. They are not 
+the same study as the improved matched reader pilot. The figures below use the retained 
+numerical and pre-main-study forecasting evidence. Forecast backtests overlap in time and 
+are descriptive; their ranking concerns the reduced panel rather than the complete M5 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 61 of 67
+benchmark. Actual violated checks are reported separately from differences relative to a 
+clean reference action.
+Figure 18. M5: Numerical controls: service and active-rule compliance
+Source and scope: Original numerical study; thirty seeds per policy/scenario and seven days. Cost follows 
+M5 model conventions. Violated checks are not reference-only action deviations and can exceed the 
+number of affected days. These are conventional policies, not the matched LLM-versus-reader experiment.
+Figure 19. M5: Historical forecasting context
+Source and scope: Retained reduced-panel pre-main-study backtests; thirty bottom series and 112 
+aggregate nodes. The two origins overlap and are descriptive. Lower is better. This is not a full M5 
+competition ranking or an LLM forecasting result.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 62 of 67
+Appendix B. Data sources and model settings
+M5 source files are sales_train_evaluation.csv, calendar.csv and sell_prices.csv from the M5 
+competition data. The prepared thirty-series panel uses FOODS_1_001, FOODS_2_001 and 
+FOODS_3_001 across ten stores. Its recorded history has 1,941 daily positions. Sales serve as 
+an  exogenous  demand  proxy;  no  true  lost-demand  observation  is  asserted.  Inventory 
+movements, supply rules and other operational objects were created for the experiment.
+FreshRetailNet-50K  was  downloaded  from  Dingdong-Inc  on  Hugging  Face  at  revision 
+08c1fab7f9257bc73679d415d65d644165d351d4. The source is licensed CC BY 4.0, with 
+attribution to Dingdong and the dataset's authors. Training and evaluation file hashes and 
+validation receipts are retained in the evidence. The release has 4.5 million training rows and 
+350,000 evaluation rows, with the same 50,000 series. The computational panel contains 
+thirty  training-selected  pairs;  release-level  validation  does  not  expand  the  scope  of 
+performance evaluation.
+Availability flag 1 means out of stock. The sixteen operating-hour positions run from 06:00 
+to 21:00. Discounts outside the usual range were retained and flagged, rather than silently 
+removed, and discount was excluded from the forecasting feature set. Daily and hourly sales 
+agreed within numerical precision. Publisher descriptions and pinned-file counts are recorded 
+separately where  they differ. The  experiment does not  claim  access to actual  supplier 
+contracts,  opening  inventory,  shelf-life  labels,  procurement  prices  or  natural  unserved 
+demand.
+The language model in the improved studies was ega-qwen2.5:1.5b-v2, based on pretrained 
+Qwen2.5
+ 
+1.5B,
+ 
+with
+ 
+model
+ 
+digest 
+afc65fa44af0fb5f81dd6d0066bdf668521db7077c36a9635c09d13376fe4c90. It was run using 
+Ollama  on  CPU,  with  Q4_K_M  representation,  an  8,192-token  working  context,  three 
+threads, temperature zero and a fixed generation seed. The earlier M5 feasibility stage used a 
+different frozen study tag and a larger working context; its settings and outcomes remain in 
+the historical protocol. Neither tag represents language-model fine-tuning on the retail panels.
+Forecasting used a small recurrent GRU model with thirty-two hidden units, ten fitting 
+epochs and  a  fifty-six-day history,  alongside  LightGBM  and  simpler  references  in the 
+relevant  analyses.  The  main  FreshRetailNet  neural  forecast  was  trained  on  the  ninety 
+historical training days and saved before evaluation. The cap calibration used an earlier 
+training-only forecast and did not open the official evaluation file. In the separate forecasting 
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 63 of 67
+study,  rolling  validation  endpoints  were  62,  69,  76  and  83,  followed  by  seven-day 
+predictions. Future realised contextual fields were excluded.
+The main FreshRetailNet simulation multiplies normalized sales by 100 to create integer 
+planning quantities. Its default physical shelf life is a simulated three days, using older stock 
+first. The planning optimizer does not use a detailed age profile. The separate calculators 
+retain normalized numerical quantities and use their own supply and cost conventions. Their 
+default illustrative demand multiplier is 1.25, but that multiplier is an assumption rather than 
+an estimate of actual natural lost demand. Their costs and waste measures must therefore be 
+interpreted within that experiment.
+Table 8. Selected implementation settings
+Item
+Setting and interpretation
+Improved-study model tag
+ega-qwen2.5:1.5b-v2
+Working context / CPU threads
+8,192 tokens / three threads
+Generation settings
+Temperature 0; fixed seed 42; structured 
+responses
+Language-model representation
+Q4_K_M; pretrained weights, no project fine-
+tuning
+Main neural forecaster
+GRU; hidden size 32; 10 epochs; lookback 56 
+days
+Primary RetailNet spending cap
+1,500 in main cost-index conventions
+Exploratory calibrated cap
+1,850; training-only formula, reused evaluation 
+period
+Main physical shelf life
+Simulated 3 days; older stock used first
+Separate sensitivity lives
+1, 3 and 7 days; hypothetical
+Separate demand multipliers
+1, 1.25 and 1.5; assumptions, not observed lost 
+demand
+Matched main horizon
+M5 improved: 14 days; RetailNet: 7 days
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 64 of 67
+Appendix C. Additional RetailNet analyses
+The hourly recovery figure shows an identifiable reconstruction test on artificially hidden 
+observed sales. It does not reveal the amount of demand lost during a natural stockout. The 
+primary numerical overview belongs to the fixed-cap study, while the age-aware sensitivity 
+belongs to the separate calculator analysis. These distinctions are preserved in the dataset 
+labels and source notes so that readers can investigate the underlying findings without mixing 
+unlike experiments.
+Figure 20. RETAILNET: Artificial-mask hourly reconstruction
+Source and scope: Training-validation test on originally fully stocked days; 6,930 hidden target hours and 
+2-, 4-, 8-hour masks. Lower MAE is better. This does not identify naturally unserved demand and contains 
+no LLM calls.
+Figure 21. RETAILNET: Numerical controls: service and active-rule compliance
+Source and scope: Primary numerical study; thirty seeds per policy/scenario and seven days. Costs are 
+indices. The approval policy retains the original cap. Violated checks are not reference-only action 
+deviations and can exceed the number of affected days. These are conventional policies, not the matched 
+LLM-versus-reader experiment.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 65 of 67
+Figure 22. RETAILNET: Cost depends on demand and shelf-life assumptions
+Source and scope: Separate age-aware calculator with raw history and thirty seeds per cell. Neither 
+assumed demand nor shelf life is observed natural ground truth. No LLM calls; this cost index is not 
+pooled with the main optimizer.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 66 of 67
+Appendix D. Plain-language metric glossary
+Fill rate is served simulated demand divided by total simulated demand. A higher value 
+means  that  more  of  the  demand  in  that  experimental  world  was  fulfilled.  It  is  not 
+automatically the same as the fraction of days without a stockout.
+WAPE is total absolute forecast error divided by total target sales. A lower percentage means 
+smaller errors relative to the target volume. It is not the percentage of predictions that were 
+incorrect and is not a direct measure of true demand during naturally censored periods.
+Simulated cost combines the purchases, holding costs and penalties specified by a simulation. 
+M5 uses its own modelled monetary conventions. Main RetailNet costs and separate policy-
+calculator costs are indices with different units and assumptions, and should not be pooled or 
+converted into retailer profit.
+A held decision means the workflow did not permit an order to execute. A hold can be 
+justified by missing evidence or approval conditions, but excessive holds can lower service. 
+The real time and cost of human review were not measured here.
+An actual  constraint  violation means  that a  committed order failed an active  business 
+restriction. A reference deviation means that an action differed from a clean reference beyond 
+a tolerance. The latter does not by itself establish a rule breach, customer injury or realised 
+economic harm.
+Expiry share in the main service–waste figure is expired simulated quantity divided by 
+opening stock plus receipts. Other technical exports retain expiry per demand and expiry per 
+served quantity. Their denominators differ, so these values should not be interchanged.
+A percentage change compares a value with its baseline in relative terms. A percentage-point 
+change subtracts one percentage from another. Moving from 89% to 96% fill is a seven-
+percentage-point change.
+An exploratory result comes from an analysis developed after relevant primary outcomes 
+were seen or from reuse of the evaluation period. It can inform design and motivate further 
+research, but should be confirmed on new evidence before being presented as an established 
+deployment effect.
+
+LLM AGENTS FOR RETAIL REPLENISHMENT | M5 & RETAILNET
+Page 67 of 67
+Appendix E. Research presentation and AI assistance
+The  supplied dissertation by Mattéo Gilbert, Predicting Temperature Variations Across 
+Europe Using Machine Learning and Geospatial Data for Climate Change Impact Analysis, 
+was used as a structural reference. Its broad progression from context and the role of data to 
+model development, findings, recommendations and future research informed this rewrite. Its 
+prose, figures, climate findings, acknowledgements, personal details and research claims 
+were not reused. The current retail research remains a different study with its own data and 
+evidence.
+AI assistance was used in software development, analysis support, drafting and editing during 
+this research workflow. Experimental statements are tied to saved datasets, run tables, source 
+receipts and independent checks. Responsibility for the final interpretation, citations and 
+submission remains with the author. No human-participant study, employee interviews or 
+operational deployment took place.
+The main manuscript contains more than 15,000 words before references and appendices. 
+The Word document declares Times New Roman throughout, with twelve-point, justified 
+main text, 1.5 line spacing and one-inch margins. Graphs use explicit M5, RetailNet or 
+combined  dataset  labels.  RetailNet  is  the  shortened  presentation  label  for 
+FreshRetailNet-50K. Detailed run files and the historical reports remain available separately 
+so that the results and conclusion can stay concise.

@@ -1,0 +1,251 @@
+{
+  "status": "VERIFIED",
+  "checked_at_utc": "2026-10-08T21:28:11.205470+00:00",
+  "parent_commit": "f98e31e5fc8ecab39d058a53da7936a9b0dbfca5",
+  "scope": "Every new staged rewrite file, script and report index; receipt itself excluded to avoid a circular hash",
+  "files_verified": 48,
+  "existing_experimental_files_changed": false,
+  "structural_reference_redistributed": false,
+  "files": [
+    {
+      "path": "scripts/build_business_dissertation.py",
+      "bytes": 19446,
+      "sha256": "52dee8eb213d8bb41db22af6f81285be6b67db88bdb504a3560c2e0e5604c8a6"
+    },
+    {
+      "path": "scripts/build_business_figures.py",
+      "bytes": 21836,
+      "sha256": "deb48c74c0da4628d286af4dfc6e14d156a274de1da2dfb4eb18a59a6558632c"
+    },
+    {
+      "path": "scripts/package_business_dissertation.py",
+      "bytes": 2842,
+      "sha256": "a7920d6c5e598d341e1f3e98469a34da3532d7db49b352068f347ff4e7ab26f4"
+    },
+    {
+      "path": "scripts/validate_business_dissertation.py",
+      "bytes": 10800,
+      "sha256": "fb264769a8a6155833f2f6a7b964b8b6dbe4a1204cef7856d580e53feb2175dd"
+    },
+    {
+      "path": "study_results/README.md",
+      "bytes": 6026,
+      "sha256": "5a8ab5d5ec13956e15bbcc92b4c6b5f75ffe05c79e9a77eef3da795bad501ed2"
+    },
+    {
+      "path": "study_results/business_dissertation/LLM_Replenishment_Business_Dissertation.docx",
+      "bytes": 1867478,
+      "sha256": "b2381484cb07a70c16a4e303f65d554958cf73151c444f000922b7d29a86787d"
+    },
+    {
+      "path": "study_results/business_dissertation/LLM_Replenishment_Business_Dissertation.pdf",
+      "bytes": 2404619,
+      "sha256": "482b52c59fd2184811a5e5100d7eed26704c9f9596298465364c65fb36202a31"
+    },
+    {
+      "path": "study_results/business_dissertation/LLM_Replenishment_Dissertation_download.zip",
+      "bytes": 5616591,
+      "sha256": "aec11f42d1407da461d16ed604ff622db3647111eb0c598905f78adc23890692"
+    },
+    {
+      "path": "study_results/business_dissertation/README.md",
+      "bytes": 5396,
+      "sha256": "89976afeefc1d5847dc666ba942e8880ef963a0c14d0e247385af896ea4f54b0"
+    },
+    {
+      "path": "study_results/business_dissertation/appendices.md",
+      "bytes": 9333,
+      "sha256": "e5544c4ef2a3a20b03e7be3d0c6b3bd25c78706f78af818c53ad01c7ac7ef6e5"
+    },
+    {
+      "path": "study_results/business_dissertation/build_manifest.json",
+      "bytes": 15599,
+      "sha256": "fea3b5d91c2f3ffd74a78b4a9184970b8aea92eb2fdb8f7802456c73bc8e040e"
+    },
+    {
+      "path": "study_results/business_dissertation/contents_pages.json",
+      "bytes": 3417,
+      "sha256": "05b150d60e6c9e9f812332d894e0083a9ef83d0dae708a46e6d44be7e3f2ab34"
+    },
+    {
+      "path": "study_results/business_dissertation/contents_update.log",
+      "bytes": 54,
+      "sha256": "c572654f4a88870b26f52817f57f45fc4e8424c14958caee786df78a02c9b98e"
+    },
+    {
+      "path": "study_results/business_dissertation/delivery_manifest.json",
+      "bytes": 7311,
+      "sha256": "8473d8a8b1a852d90b93794d2ae5912dbb78dada8623ba1f45c8b55396e70bcc"
+    },
+    {
+      "path": "study_results/business_dissertation/document_build.log",
+      "bytes": 502,
+      "sha256": "c9f1e1a2c5d3caba1a752bb1dd9a3c35a72775ed6b9e683f43827ed559f6c0cf"
+    },
+    {
+      "path": "study_results/business_dissertation/figure_build.log",
+      "bytes": 49,
+      "sha256": "728dd8fa57e179f762074169a431bef23b4f1eeb103de8fe6de2636699377a47"
+    },
+    {
+      "path": "study_results/business_dissertation/figure_register.json",
+      "bytes": 35094,
+      "sha256": "36074d5fec4d05e54a7137f7b2051d163417ea9f2e53e4657df93f479396b0e8"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/adoption_path.png",
+      "bytes": 85756,
+      "sha256": "2ee8a75a038504bb71103979e700c651fdc9647773005fd40b018b9dafdd3d33"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/cross_dataset_repair.png",
+      "bytes": 99243,
+      "sha256": "4305ccfd5a744a03cd2a4a985ee9e6491baae8a72f35d1f1220ee2faf271820e"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/decision_workflow.png",
+      "bytes": 74706,
+      "sha256": "c01125da4521ea7c442215683421a9cc84b55067fab4ec96516092e9ed317476"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/evidence_layers.png",
+      "bytes": 62859,
+      "sha256": "417b3c628c6d74068f0e3f3cd3c1a48d0f1c6946b19108620c406e10715bbf75"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/m5_forecast_context.png",
+      "bytes": 66385,
+      "sha256": "61a00f4ef6012c2cd61fc9a908785d246232de90453d07b2b0c08f8ffe3ea3b7"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/m5_numerical_overview.png",
+      "bytes": 96506,
+      "sha256": "27bc8af95aa5681486cee5a71e92321cbd6bf6636ca42922638148c3794ad851"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/m5_reader_parity.png",
+      "bytes": 108403,
+      "sha256": "cc28adb9f63f78b6668acf74375872a67cf39acd1c06e36bf9459349dfe63d8a"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/m5_repair.png",
+      "bytes": 78738,
+      "sha256": "4f6d96609d87d2986c36ce7d36c732935eec73cb9d2c459a6e313537d2f14329"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/panel_profiles.png",
+      "bytes": 59214,
+      "sha256": "c648bbf4af595a2070d96c7f08424d472a3cdcb85717ec473a2b719acf7c9eec"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/recovery_choices.png",
+      "bytes": 95156,
+      "sha256": "2cdfee398d79e984117eb5792a0a06067d1c8a799379dcb5de9137695e339b17"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/retailnet_availability.png",
+      "bytes": 85140,
+      "sha256": "30780ce9d657b915b6b348976863ebc2780ec3e5c1c8b2e65e9d8ebf10257ce4"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/retailnet_cap_transfer.png",
+      "bytes": 90455,
+      "sha256": "2781a296b4bf1ba30ec3a7ed5948d78adf48e568990eb3f08f804656ae4a5669"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/retailnet_conventional_comparison.png",
+      "bytes": 88112,
+      "sha256": "d169381ec275c0c987d6f383d24b8e46be24ad7b50e3ad4d3287d08305ed12dc"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/retailnet_expiry_sensitivity.png",
+      "bytes": 105832,
+      "sha256": "6499a55b71dea61496628f9729b7e8ad3a53c7502e610d9e48c5f2c3b0c8c4a8"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/retailnet_forecast.png",
+      "bytes": 83661,
+      "sha256": "6d81a45e895f3400e488755c5ab6ccd88591d2130aad2425207353957aa35228"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/retailnet_mask_recovery.png",
+      "bytes": 71708,
+      "sha256": "c0c27b8ea647f43c36c97614cfc26e821e03850908ca8d6e8f14ff08b1e896db"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/retailnet_numerical_overview.png",
+      "bytes": 105451,
+      "sha256": "2c9b66340ce3682d0ba219a9952ba25e93fdc7798b5377c8bacc54692ccc7443"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/retailnet_perishability.png",
+      "bytes": 135801,
+      "sha256": "6b7b0d5155cf67408bed4ecae8713662122a6ad8f1b70290f69fc14e8ad26c1e"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/retailnet_repair.png",
+      "bytes": 82894,
+      "sha256": "416fcf8cfc6a4f6c0a4cdb7acb59465b1244e498fe4b5b8ec8b9ccd080f267a3"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/retailnet_seed_variation.png",
+      "bytes": 111426,
+      "sha256": "5f2736985990ad2002e693ccda075bbc972c47282c90838a8a8758e00bf91db7"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/retailnet_stockout_rule.png",
+      "bytes": 86911,
+      "sha256": "27f3d58aeebc4384feab383a64805d92e01f9c24575ead4eaa24f4f07626289f"
+    },
+    {
+      "path": "study_results/business_dissertation/figures/study_map.png",
+      "bytes": 72652,
+      "sha256": "c72fdb1def3d462f2ccfcbfcc25792cc9d00be08df19bf26aa73b42761c3323e"
+    },
+    {
+      "path": "study_results/business_dissertation/heading_register.json",
+      "bytes": 6508,
+      "sha256": "ffcbf11d466a0a17cd8512a7869f6bf2b49c8882b3c724a308f122c31b0d8151"
+    },
+    {
+      "path": "study_results/business_dissertation/manuscript.md",
+      "bytes": 112393,
+      "sha256": "399d7b9760d8dc56fd6d1caba28a55ce42864ad3ba58f5933a05713976128cf9"
+    },
+    {
+      "path": "study_results/business_dissertation/pdf_render.log",
+      "bytes": 1897,
+      "sha256": "8284c16ba07e1f0faff7931f3e6024bdd4353943c028c8bb52049ea528b92332"
+    },
+    {
+      "path": "study_results/business_dissertation/references.md",
+      "bytes": 5240,
+      "sha256": "d09ea00aff27a15b92351d7054b50024ce65da7cb3489e5cf28507a6f9e0afd1"
+    },
+    {
+      "path": "study_results/business_dissertation/rendered_text.txt",
+      "bytes": 155227,
+      "sha256": "806667354ce57885d3c9376a4b54d4adfe2e90d9e4675b8284ba949639cdcf2e"
+    },
+    {
+      "path": "study_results/business_dissertation/rewrite_brief.json",
+      "bytes": 8923,
+      "sha256": "99916aadfcf82be86c3e8103cb3275d959de2605988250dea9d60759ee713293"
+    },
+    {
+      "path": "study_results/business_dissertation/validation_execution.log",
+      "bytes": 231,
+      "sha256": "218f60b894044a9ed85792ad9d140259c1465d6776e56fc2ccda254ecb473348"
+    },
+    {
+      "path": "study_results/business_dissertation/validation_receipt.json",
+      "bytes": 2628,
+      "sha256": "bd410c54ec71cfffac32c72bcf40a3223cfdc48538a14f8159533df39e94b242"
+    },
+    {
+      "path": "study_results/business_dissertation/visual_review_receipt.json",
+      "bytes": 692,
+      "sha256": "5d1e66a16f8a154f95fc1d12a462af702731d5e71ed835dc62c77a046b50eaf0"
+    }
+  ]
+}

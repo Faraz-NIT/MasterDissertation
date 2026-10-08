@@ -1,0 +1,89 @@
+{
+  "status": "VERIFIED",
+  "checked_at_utc": "2026-10-08T21:21:16.864087+00:00",
+  "checks": {
+    "main_prose_minimum_15000": true,
+    "word_count_matches_build_manifest": true,
+    "whole_new_main_manuscript_in_word": true,
+    "main_style_font_size_spacing_alignment": true,
+    "all_margins_one_inch": true,
+    "no_theme_font_override": true,
+    "six_main_chapters": true,
+    "brief_results": true,
+    "brief_conclusion": true,
+    "model_and_training_distinction_present": true,
+    "reader_equality_and_exploratory_status_explicit": true,
+    "contents_pages_match_export": true,
+    "all_contents_and_figure_links_resolve": true,
+    "twenty_two_exact_embedded_figures": true,
+    "every_figure_has_dataset_label": true,
+    "eight_explanatory_tables": true,
+    "input_evidence_hashes_unchanged": true,
+    "previous_published_documents_and_graphs_unchanged": true,
+    "headline_m5_effect_recomputed": true,
+    "headline_retailnet_effect_recomputed": true,
+    "matched_readers_equal_in_run_tables": true,
+    "actual_matched_agent_violations_zero": true,
+    "figure_effects_equal_recomputed_means": true,
+    "adverse_seeds_preserved": true,
+    "forecast_values_recomputed": true,
+    "main_author_year_citations_have_references": true,
+    "all_pdf_pages_in_bounds_and_nonblank": true,
+    "all_22_figure_captions_rendered": true
+  },
+  "issues": [],
+  "unmatched_citations": [],
+  "docx_sha256": "b2381484cb07a70c16a4e303f65d554958cf73151c444f000922b7d29a86787d",
+  "pdf_sha256": "482b52c59fd2184811a5e5100d7eed26704c9f9596298465364c65fb36202a31",
+  "main_prose_words": 15997,
+  "main_prose_whitespace_words": 15948,
+  "chapter_words": {
+    "1. Retail replenishment: why the decision matters": 2236,
+    "2. Data and AI in replenishment: what research shows": 3612,
+    "3. Research framework and study design": 4409,
+    "4. Findings and interpretation": 1380,
+    "5. Business implications and recommendations": 3864,
+    "6. Conclusion and future research": 496
+  },
+  "total_pdf_pages": 67,
+  "main_chapter_pages": 51,
+  "main_page_range": [
+    6,
+    56
+  ],
+  "embedded_figures": 22,
+  "tables": 8,
+  "references": 26,
+  "headline_effects": {
+    "M5": {
+      "cost_change_pct": -10.934963793653907,
+      "fill_change_pp": 6.999999999999995
+    },
+    "RetailNet": {
+      "cost_change_pct": -11.707392315520782,
+      "fill_change_pp": 12.251489707475628
+    }
+  },
+  "layout_issues": [],
+  "sparse_pages_for_visual_review": [],
+  "image_pages": [
+    8,
+    15,
+    25,
+    28,
+    32,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    47,
+    49,
+    61,
+    64,
+    65
+  ]
+}

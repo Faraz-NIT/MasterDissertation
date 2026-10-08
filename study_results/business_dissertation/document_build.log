@@ -1,0 +1,14 @@
+{
+  "status": "BUILT_PENDING_RENDER",
+  "main_prose_words_excluding_front_matter_references_appendices": 15997,
+  "chapter_words": {
+    "1. Retail replenishment: why the decision matters": 2236,
+    "2. Data and AI in replenishment: what research shows": 3612,
+    "3. Research framework and study design": 4409,
+    "4. Findings and interpretation": 1380,
+    "5. Business implications and recommendations": 3864,
+    "6. Conclusion and future research": 496
+  },
+  "tables": 8,
+  "references": 26
+}

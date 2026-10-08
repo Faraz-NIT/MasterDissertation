@@ -1,8 +1,15 @@
 # M5 and FreshRetailNet study reports and complete evidence
 
-The latest [dual-benchmark Word dissertation](freshretailnet/Dual_Benchmark_Dissertation_Final.docx)
-and [dissertation PDF](freshretailnet/Dual_Benchmark_Dissertation_Final.pdf) integrate both datasets
-while retaining the original eight-chapter structure. The [FreshRetailNet study folder](freshretailnet/)
+The latest [rewritten Word dissertation](business_dissertation/LLM_Replenishment_Business_Dissertation.docx)
+and [rewritten dissertation PDF](business_dissertation/LLM_Replenishment_Business_Dissertation.pdf)
+present both datasets in six accessible chapters, with 22 explicitly labelled graphs and concise
+results and conclusion chapters. The [download ZIP](business_dissertation/LLM_Replenishment_Dissertation_download.zip)
+includes both documents, the figures, editable manuscript and validation records. See the
+[rewrite guide](business_dissertation/README.md) for formatting, evidence and reproduction details.
+
+The previous [dual-benchmark Word dissertation](freshretailnet/Dual_Benchmark_Dissertation_Final.docx)
+and [previous dissertation PDF](freshretailnet/Dual_Benchmark_Dissertation_Final.pdf) retain the
+original eight-chapter structure. The [FreshRetailNet study folder](freshretailnet/)
 contains its detailed PDF, graphs, individual result tables, M5 comparison, audit receipts and
 complete evidence archives. Use the [FreshRetailNet report download ZIP](freshretailnet/FreshRetailNet_report_download.zip)
 for the documents, tables and new graphs together.
