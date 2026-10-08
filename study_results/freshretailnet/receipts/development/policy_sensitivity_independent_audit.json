@@ -1,0 +1,18 @@
+{
+  "status": "VERIFIED",
+  "utc": "2026-10-08T09:46:05.179217+00:00",
+  "issues": [],
+  "run_count": 1140,
+  "daily_count": 7980,
+  "series_daily_count": 239400,
+  "max_daily_run_total_error": 2.2737367544323206e-13,
+  "max_component_cost_error": 2.2737367544323206e-13,
+  "max_series_mass_error": 1.7763568394002505e-15,
+  "minimum_physical_quantity": 0,
+  "valid_stockout_flag_or_hold_lineage_errors": 0,
+  "keyed_supply_errors": 0,
+  "event_count": 1140,
+  "event_final_sha256": "418d1bbbb9fac89ee557637e98115c45d2ce973a9b3ce49200d14446eb7120ca",
+  "same_aware_F3_F4_replay_identical": true,
+  "audit_method": "Independent CSV arithmetic, per-series physical conservation, keyed supply and prior simulated stockout lineage reconstruction, SHA256 event-chain replay"
+}

@@ -1,0 +1,27 @@
+{
+  "F3_runs": 1080,
+  "F4_runs": 60,
+  "evaluated_target": "Observed sales proxy times assumed multiplier, not recovered real latent demand",
+  "event_chain_final_sha256": "418d1bbbb9fac89ee557637e98115c45d2ce973a9b3ce49200d14446eb7120ca",
+  "event_count": 1140,
+  "future_historical_stockout_used_by_policy": false,
+  "input_hashes_unchanged": {
+    "eval": true,
+    "forecasts": true,
+    "protocol": true,
+    "selection_receipt": true,
+    "source_code": true,
+    "train": true
+  },
+  "maximum_cumulative_mass_balance_error": 9.237055564881302e-14,
+  "maximum_daily_mass_balance_error": 8.881784197001252e-16,
+  "model_calls": 0,
+  "recovery_selected_raw": false,
+  "run_days": 7980,
+  "runs": 1140,
+  "series_days": 239400,
+  "status": "VERIFIED",
+  "true_hard_constraint_violations": 0,
+  "undefined_bullwhip_runs": 0,
+  "violation_scope": "Only nonnegativity and physical balance tested; coupled supplier/budget constraints absent"
+}

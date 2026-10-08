@@ -1,0 +1,202 @@
+{
+  "status": "DEVELOPMENT_DRAFT_SUPERSEDED",
+  "built_utc": "2026-10-08T10:08:39.701288+00:00",
+  "code_sha256": "a43318d33f0f03072c5e79afb0c3e75eb37ea5f7079d68bf9150f91998b61b5d",
+  "inputs": {
+    "/workspace/attachments/05bb558e-50b1-4067-b21f-af48d109fc7e/Evidence_Gated_Autonomy_M5_FreshRetailNet_Full_Dissertation.docx": {
+      "sha256": "d67c5473b9d11a08abe503d70c4ffae5c8e65e97f1ef9b95e4971c40ffc78ea7",
+      "bytes": 117046
+    },
+    "results/freshretailnet/protocol.json": {
+      "sha256": "48832eef82b6f63b8f42952450c7e92982a49f622b0df7f1d963facb620fa2aa",
+      "bytes": 12211
+    },
+    "results/freshretailnet/data/selected_series.csv": {
+      "sha256": "111df956c729280dfa10bff8d54a8189e513a999ef5080b4e52a3c6445400d86",
+      "bytes": 4149
+    },
+    "results/freshretailnet/forecast/forecast_metrics.csv": {
+      "sha256": "95f869d65b15f615a65471f26849b33514a4bab0ff07c2b8eac64cb9e2b1bdab",
+      "bytes": 119545
+    },
+    "results/freshretailnet/forecast/recovery_hour_metrics.csv": {
+      "sha256": "0d5edbd44b41ce30d575e69a96f8828da14678acb765403543a18711d7a916a3",
+      "bytes": 56439
+    },
+    "results/freshretailnet/forecast/selection_receipt.json": {
+      "sha256": "41c81c4ad05b2509d48f7729a9c97e230c91aac4545860d9216940cecf1f54c6",
+      "bytes": 1733
+    },
+    "results/freshretailnet/numerical/summary.csv": {
+      "sha256": "20b6036e3e613e902ddddbbea695f4319a5c212caef4e2ad3083fa2d81061ed9",
+      "bytes": 152856
+    },
+    "results/freshretailnet/policy_sensitivity/runs.csv": {
+      "sha256": "3af33faff453e485f68d3e642d65eb965086b3770e6ceb62482d6e7aa3662ab8",
+      "bytes": 760901
+    },
+    "results/freshretailnet/audit/audit.json": {
+      "sha256": "40825845e5caeec1ba9dc4efee1ee272232a025862d3dd869eeb4b4659930fde",
+      "bytes": 1553237
+    },
+    "study_results/v2/M5_v2_results.csv": {
+      "sha256": "049ffdde73f1f476807360a8f5e23de1bebf2883110c329531bff8b3ab0dff6f",
+      "bytes": 21665
+    },
+    "results/freshretailnet/agents/parser_no_recovery/summary.csv": {
+      "sha256": "328b62457854e8561329c14b4929f114b3a29d9527d59263134892042c0f33d4",
+      "bytes": 3795
+    },
+    "results/freshretailnet/agents/parser_recovery/summary.csv": {
+      "sha256": "bcee5d50ce4dd177e7f22005ee5693d8c1d7fa9f55094b394b34bc3c18e9c0c1",
+      "bytes": 3771
+    },
+    "results/freshretailnet/agents/llm_no_recovery/summary.csv": {
+      "sha256": "144bf1e15c9a989c258385d28f020d6670d2a9fccbe8fe3b789ea8e4b6ffded7",
+      "bytes": 3793
+    },
+    "results/freshretailnet/agents/llm_recovery/summary.csv": {
+      "sha256": "47abe42f8281b4637bb3292c6dfb2b6c2c7ef979e72fff3f8c085005b3aa4103",
+      "bytes": 3781
+    }
+  },
+  "outputs": [
+    {
+      "path": "Dual_Benchmark_Dissertation_Final.docx",
+      "bytes": 4506929,
+      "sha256": "b6ffb7b3f0ce1047ad2294b652e4f09022a2cd47b68dd59e5a3fe7a862ae503f"
+    },
+    {
+      "path": "FreshRetailNet_agent_all_runs.csv",
+      "bytes": 14316,
+      "sha256": "dbb3c2f15cf58ccec41e282c2a0044b39e6a388af9c332ce042bfbe07b66d2fa"
+    },
+    {
+      "path": "FreshRetailNet_agent_means.csv",
+      "bytes": 1957,
+      "sha256": "a6456dd5baecc11c72b228a78c46f9534d334c0a5c01834e856ebcfe74b86f27"
+    },
+    {
+      "path": "FreshRetailNet_numerical_all_runs.csv",
+      "bytes": 150605,
+      "sha256": "0032528ae5cebd41481b64508031c4e86303f50a3dd7238e1a1767d47655da20"
+    },
+    {
+      "path": "FreshRetailNet_numerical_means.csv",
+      "bytes": 1483,
+      "sha256": "bbd7af7f36670c7e83f62331adcc7d8c6f33b1466450fb6d8da1b79f94731d5c"
+    },
+    {
+      "path": "FreshRetailNet_parser_llm_pairs.csv",
+      "bytes": 1280,
+      "sha256": "9224d43528ccbeb2ef776be3f537a035dba61adabb5846afd04a6f3d2a4ebb3b"
+    },
+    {
+      "path": "FreshRetailNet_policy_sensitivity_all_runs.csv",
+      "bytes": 724600,
+      "sha256": "17f2c4e045853e0b43cd44add2303bd2c5211e84fd8f6721fd5f3ec62778b4f1"
+    },
+    {
+      "path": "FreshRetailNet_sensitivity_means.csv",
+      "bytes": 3282,
+      "sha256": "c11d74d3918f59b412d61df58d260fba0a2dac6d61c717c89309b795f7d111cc"
+    },
+    {
+      "path": "FreshRetailNet_source_grounding_audit.csv",
+      "bytes": 1380,
+      "sha256": "65db331276d65a996d8acbc022e59a890f23197b8829c4b08ccac51939493785"
+    },
+    {
+      "path": "FreshRetailNet_study_report.md",
+      "bytes": 57793,
+      "sha256": "4daf71aa16fc6b47c04aadfb55b64014b1425f553dfa9bcd179e63c7d9e75f95"
+    },
+    {
+      "path": "FreshRetailNet_study_report.pdf",
+      "bytes": 1606053,
+      "sha256": "b3aef56c32279c25200942619fcd39f8d22f442e076c40661b93b1c301a42c1e"
+    },
+    {
+      "path": "M5_FreshRetailNet_descriptive_comparison.csv",
+      "bytes": 1377,
+      "sha256": "d87cd2e6e638cb476c644ad1de869ad7a4305e64b3106c39f9e78930daa1e610"
+    },
+    {
+      "path": "dissertation_build_manifest.json",
+      "bytes": 18781,
+      "sha256": "3dfea576cbb80c77ea280f641317c0051e33d3d0e5000b38632dc8b470331a5d"
+    },
+    {
+      "path": "figures/01_source_availability.png",
+      "bytes": 87173,
+      "sha256": "e9e5dfbe3c59a22f77341f5c0dc343b58cad2a472dd4d64ca5e2982769803012"
+    },
+    {
+      "path": "figures/02_artificial_mask_recovery.png",
+      "bytes": 85022,
+      "sha256": "86d9de8d24e3abce3f20bf378e9c1b20bf9820256a0060fa2de71660380e943f"
+    },
+    {
+      "path": "figures/03_forecast_accuracy.png",
+      "bytes": 119194,
+      "sha256": "837388da022cc3e0d6aa612b59ef87abbad5ac90865fa5669dcd2a1579a9accd"
+    },
+    {
+      "path": "figures/04_daily_forecasts.png",
+      "bytes": 223675,
+      "sha256": "5428d8c2d428970448a98305b915840acd1c037f1d2b059639003e1603fc9238"
+    },
+    {
+      "path": "figures/05_numerical_cost_service.png",
+      "bytes": 122641,
+      "sha256": "07641d7adf237396ca492e5a480e300f327c979c71b755b8ba660729e17fc993"
+    },
+    {
+      "path": "figures/06_numerical_safety.png",
+      "bytes": 104019,
+      "sha256": "710404700dd44dd28c415927eeb85584cf27ad55b692c0deccb0842fb82873f4"
+    },
+    {
+      "path": "figures/07_agent_factorial.png",
+      "bytes": 143747,
+      "sha256": "41a8821497a51f8f1b6de5893adefe686dae69338f8e16eee8b355a3f7c3f339"
+    },
+    {
+      "path": "figures/08_m5_fresh_comparison.png",
+      "bytes": 84215,
+      "sha256": "64763a8f4ec31d4b87922cd6e0d54b9077f1a340fd4194ce2bfa6cfc593088ce"
+    },
+    {
+      "path": "figures/09_service_waste_frontier.png",
+      "bytes": 167615,
+      "sha256": "a45b8a08c39c1ea5bc5534ecb8f1ffd61dad899256d242ad00c06c8def4fc8b5"
+    },
+    {
+      "path": "figures/10_sensitivity_costs.png",
+      "bytes": 141486,
+      "sha256": "de8de6cbd28e6a20040f2bc29a9fc03ca3f8ab14be32867e5f6e0af8bb1d4d04"
+    },
+    {
+      "path": "figures/11_local_model_calls.png",
+      "bytes": 50519,
+      "sha256": "4e061fd0db222820aa7015f0032cd65a8dfffdbfb07a480a46de9a6ecb4bb55b"
+    }
+  ],
+  "findings": {
+    "parser_llm_identical_pairs": 16,
+    "parser_llm_total_pairs": 16,
+    "repair_cost_change_pct": 0.0,
+    "repair_fill_change_pp": 0.0,
+    "forecast_selected": "lightgbm_raw",
+    "recovery_selected": "gbm"
+  },
+  "figure_count": 11,
+  "individual_runs": {
+    "numerical": 360,
+    "live_agents": 32,
+    "independent_policy": 1140,
+    "exploratory_gate_transfer": 0
+  },
+  "source_document_preserved": true,
+  "note": "Primary-only render used to check layout before the registered follow-up completed. The broad M5 PNG discovery was subsequently corrected to its authoritative25-figure manifest. This receipt is a development record and is not the delivered report."
+}

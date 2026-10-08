@@ -1,0 +1,28 @@
+{
+  "status": "verified",
+  "audited_at_utc": "2026-10-08T09:46:20.018219+00:00",
+  "audit_scope": "Artifact hashes, temporal separation, independent arithmetic and source freeze; no evaluation target reopen or model refit",
+  "completion_receipt_sha256": "a78945af8b8eeaded9e47806ce533a0e1ca0b2a8bcedadbef5dc6f746f650b90",
+  "receipt_files_verified": 46,
+  "frozen_source_matches": true,
+  "protocol_matches": true,
+  "forecast_metric_rows_recomputed": 536,
+  "recovery_hour_metric_rows_recomputed": 372,
+  "prediction_rows": 4200,
+  "artificial_mask_prediction_rows": 20790,
+  "duplicate_prediction_keys": 0,
+  "eval_open_events": 1,
+  "selection_frozen_utc": "2026-10-08T09:43:20.174213+00:00",
+  "official_eval_unseal_started_utc": "2026-10-08T09:43:29.359630+00:00",
+  "eval_opened_utc": "2026-10-08T09:43:31.140481+00:00",
+  "selection_precedes_unseal_and_open": true,
+  "leakage_checks_passed": 20,
+  "limits": [
+    "Organic stockouts have no released true latent demand.",
+    "Artificial masked hourly scores are conditional on fully stocked days and repeated masks are dependent.",
+    "Hourly MAE chose a strongly downward-biased sparse-demand GBM.",
+    "Recovered forecasts did not beat raw LightGBM on fully-stocked validation or holdout WAPE.",
+    "These numerical F1/F2 stages measure no LLM benefit.",
+    "Native normalized sales and cost-index simulations must not be interpreted as retailer currency/physical units."
+  ]
+}

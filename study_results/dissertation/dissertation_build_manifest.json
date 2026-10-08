@@ -1,0 +1,718 @@
+{
+  "status": "VERIFIED",
+  "created_at_local": "2026-10-08T11:04:47.369551+02:00",
+  "source_docx": "study_results/research_context/Evidence_Gated_Autonomy_Dissertation_Revised.docx",
+  "source_sha256": "aee8a851dc9fd2e03dfe0338f1418a9ece32c240e1ca3b58b95c2d2b654492b5",
+  "output_docx": "study_results/dissertation/Evidence_Gated_Autonomy_Dissertation_Final.docx",
+  "completed_v1_runs": 372,
+  "completed_v2_runs": 32,
+  "completed_runs_in_appendix": 404,
+  "forecast_cases_in_appendix": 16,
+  "figure_count": 25,
+  "figures": [
+    {
+      "number": "6.1",
+      "path": "study_results/v1/M5_six_hour_study_report_six_hour_numeric_30seeds_cost_service.png",
+      "sha256": "957df5df5bc3b0edeaaae3099a9f7a8ba36196d86d641472ea6897063bfa4a28",
+      "caption": "Initial numerical study: cost and service across the three scenarios. Thirty seeds per policy/scenario; seven days; structured rules. These are simulated trade-offs, not LLM outcomes."
+    },
+    {
+      "number": "6.2",
+      "path": "study_results/v2/M5_v2_cost_service_normal.png",
+      "sha256": "44d079aaa750b256d03558b63f33380174980e77c1311cd073f1ee8a9fc38537",
+      "caption": "V2 normal operation: cost and fill by configuration. Each configuration has two seeds and fourteen days. The LLM and parser means are identical."
+    },
+    {
+      "number": "6.3",
+      "path": "study_results/v1/M5_six_hour_study_report_six_hour_numeric_30seeds_violations_holds.png",
+      "sha256": "09590ddd7fe5ec5fd04442ff82620f9bf2992faecfc55c37679500e5bbfcd5f2",
+      "caption": "Initial numerical study: hard violations and held decisions. Holds and violations are different endpoints; reference deviations are reported separately."
+    },
+    {
+      "number": "6.4",
+      "path": "study_results/v2/M5_v2_cost_service_derived_field_collapse.png",
+      "sha256": "30c023b404b631b1b0c707d2b0b84ceaa61b3ee88e6e2f41203c14a40a677d4b",
+      "caption": "V2 derived-field collapse: verified recovery restores cost and service in both parser and LLM configurations. The improvement is attributable to recovery."
+    },
+    {
+      "number": "6.5",
+      "path": "study_results/v2/M5_v2_cost_service_capacity_cut.png",
+      "sha256": "800cff79236a0ac78f572d16a31d8dc4e7fb860388a87ace0eff0b3a8c36ee7d",
+      "caption": "V2 supplier capacity cut: all configurations respect the active constraints. The LLM supplies a checked numeric term, not the final order quantity."
+    },
+    {
+      "number": "6.6",
+      "path": "study_results/v1/M5_six_hour_study_report_live_grounding_quality_coverage.png",
+      "sha256": "fb243e2a34e854ba996841d3258324d03c3f9a4cebe98f21c047c59d0dbe354b",
+      "caption": "Initial live-model grounding: conditional tuple accuracy and document coverage. Accuracy is measured on submitted rules; unprocessed sources do not count as successful extraction."
+    },
+    {
+      "number": "6.7",
+      "path": "study_results/v2/M5_v2_inventory_latency_derived_field_collapse.png",
+      "sha256": "a4147ff0a4a1fee16e9f72d5c4d7e59d400a6f930c7a26f76f082ad300b3cf02",
+      "caption": "V2 derived-field collapse: inventory and decision latency. Service recovery and inference effort should be assessed together; local execution has no priced hosting estimate."
+    },
+    {
+      "number": "6.8",
+      "path": "study_results/v2/M5_v2_execution_safety.png",
+      "sha256": "0ed83bd32cb0366990b1cf00564b3c9e71bd21e5fbf8bf092d39ad834d1433a6",
+      "caption": "V2 execution and safety: nonzero replenishment, holds and committed-plan violations. Zero committed violations does not imply zero semantic model errors."
+    },
+    {
+      "number": "C.1",
+      "path": "study_results/v1/M5_six_hour_study_report_execution_progress.png",
+      "sha256": "210a2b1341f9a4f89e691a8c886e572da5400efaef484f81cf23625b5b02988b",
+      "caption": "Initial study completion by stage. Completed controls are not language-model runs; merged and worker copies are counted once."
+    },
+    {
+      "number": "C.2",
+      "path": "study_results/v1/M5_six_hour_study_report_forecast_backtests.png",
+      "sha256": "d493c8362c5a6b302bd89d0d3eb03ac53be19700e8f9c2d4326ec9df9d557dcc",
+      "caption": "Forecast scores using the preferred pre-study holdout origins where available. Separate origins and models are descriptive; no confidence interval is implied."
+    },
+    {
+      "number": "C.3",
+      "path": "study_results/v1/M5_six_hour_study_report_grounding_latency.png",
+      "sha256": "699de4ff818f4a53a8835f0c68e50d4919286c0ce9ef52decb5d19e67a1bdccc",
+      "caption": "Development extraction timings for the candidate model profiles. Receiving a response does not establish extraction accuracy or policy benefit."
+    },
+    {
+      "number": "C.4",
+      "path": "study_results/v1/M5_six_hour_study_report_six_hour_agentic_prose_cost_service.png",
+      "sha256": "b73636dcefb234deb50ef7f4a03ec94d4237a41cedd89d12284583efefa74f8c",
+      "caption": "Two-day controlled-prose feasibility: all decisions were held. Initial stock served demand; low purchase cost is not an LLM saving."
+    },
+    {
+      "number": "C.5",
+      "path": "study_results/v1/M5_six_hour_study_report_six_hour_agentic_prose_deviations_execution.png",
+      "sha256": "64ba1ef857d1773c2080c175d5cbb08d0087d454dc6c707c4c403288dca4530b",
+      "caption": "Two-day controlled-prose feasibility: reference deviations and execution. No live-model proposal reached the optimizer."
+    },
+    {
+      "number": "C.6",
+      "path": "study_results/v1/M5_six_hour_study_report_six_hour_agentic_prose_outcomes.png",
+      "sha256": "3d6a93d074f033610cb7f38a9188f7a94f8df378197f2b39fec423be3e146594",
+      "caption": "Two-day controlled-prose feasibility summary. The horizon and document carrier differ from the numerical and V2 comparisons."
+    },
+    {
+      "number": "C.7",
+      "path": "study_results/v1/M5_six_hour_study_report_six_hour_agentic_prose_violations_holds.png",
+      "sha256": "6111be50273d077778d9639ed9546c755f4365c0cdb1317bb2bf2b8dfeabc9af",
+      "caption": "Two-day controlled-prose feasibility: violations and holds. A zero violation count in all-held cases does not demonstrate executable replenishment."
+    },
+    {
+      "number": "C.8",
+      "path": "study_results/v1/M5_six_hour_study_report_six_hour_numeric_30seeds_deviations_execution.png",
+      "sha256": "3207cfeb3eea4e581f7c4bae6b502c4f52eeb6fbf711fee112ea1f970179a7d2",
+      "caption": "Thirty-seed numerical benchmark: clean-reference deviations and execution. Reference deviation is not the same as an actual hard violation."
+    },
+    {
+      "number": "C.9",
+      "path": "study_results/v1/M5_six_hour_study_report_six_hour_numeric_outcomes.png",
+      "sha256": "4034f677eadb16aa116fe8bc5c15cd7b5e9187218ca88780fa32b3b4f9460029",
+      "caption": "Initial eight-seed numerical phase only. These 96 runs are a subset of the later verified 360-run union, not additional observations to pool."
+    },
+    {
+      "number": "C.10",
+      "path": "study_results/v1/M5_six_hour_study_report_six_hour_structured_controls_cost_service.png",
+      "sha256": "a17dbf9a59462cb7c4ed4fec0930101e6c810dd49ff4723685f96e74a220d393",
+      "caption": "Two-day structured-rule controls: cost and service. Orders create expenditure for future stock, without a terminal salvage credit."
+    },
+    {
+      "number": "C.11",
+      "path": "study_results/v1/M5_six_hour_study_report_six_hour_structured_controls_deviations_execution.png",
+      "sha256": "1ffe0acbeb363e4d3dc5dac104aa98e88af02f3d0b2e4de291aa162b42198602",
+      "caption": "Two-day structured-rule controls: reference deviations and execution."
+    },
+    {
+      "number": "C.12",
+      "path": "study_results/v1/M5_six_hour_study_report_six_hour_structured_controls_outcomes.png",
+      "sha256": "dff8af172e81296b5d9b46a10a412165f0b675322fb4745f73202de69b4e5643",
+      "caption": "Two-day structured-rule control summary; one seed and two scenarios."
+    },
+    {
+      "number": "C.13",
+      "path": "study_results/v1/M5_six_hour_study_report_six_hour_structured_controls_violations_holds.png",
+      "sha256": "31d34ad2e949feaf38e4910a5cfac32770ee8cfbc8dd30c505372718e35f452f",
+      "caption": "Two-day structured-rule controls: hard violations and holds. These are deterministic controls, not model-generated decisions."
+    },
+    {
+      "number": "C.14",
+      "path": "study_results/v2/M5_v2_cost_service_feed_gap.png",
+      "sha256": "15cff8bd34e35989de5a47d4ce5db63182513cc2009f9a656189aedc17c6732a",
+      "caption": "V2 stale-feed cost and service. Recovery cannot repair absent current evidence; all parser/LLM matched outcomes remain identical."
+    },
+    {
+      "number": "C.15",
+      "path": "study_results/v2/M5_v2_inventory_latency_capacity_cut.png",
+      "sha256": "ffc14f4ff1075d29c8d6321e874b3d586ef4f2473a4f6f6b6e15dfd1690c37e5",
+      "caption": "V2 capacity-cut inventory and latency. Changed constraints are checked before numerical planning."
+    },
+    {
+      "number": "C.16",
+      "path": "study_results/v2/M5_v2_inventory_latency_feed_gap.png",
+      "sha256": "7ba0dcdee17860aee3ca2944001fbe6dd1a15b1cce6743537db6f3dadcff944a",
+      "caption": "V2 stale-feed inventory and latency. Held days must be assessed alongside service loss and review needs."
+    },
+    {
+      "number": "C.17",
+      "path": "study_results/v2/M5_v2_inventory_latency_normal.png",
+      "sha256": "472d63ad343153547aaf7193f4b12298b4a03fe712d37d03ca1a5fc7d805d540",
+      "caption": "V2 normal-operation inventory and latency. A language interface adds inference work without a measured operating advantage on this corpus."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Table 5.2a. Completed scope; every row uses thirty series and one decision origin.",
+      "rows": 4,
+      "columns": [
+        "Stage",
+        "Policies / arms",
+        "Seeds",
+        "Days",
+        "Scenarios",
+        "Runs / traces"
+      ]
+    },
+    {
+      "caption": "Table 5.3. Trace evaluation framework and completed coverage.",
+      "rows": 10,
+      "columns": [
+        "Metric",
+        "Planned operational definition",
+        "Completed evidence"
+      ]
+    },
+    {
+      "caption": "Table 6.1. Initial numerical benchmark. Means across thirty seeds; total holds and violations across each 210-decision cell.",
+      "rows": 12,
+      "columns": [
+        "Policy",
+        "Scenario",
+        "Cost USD",
+        "Fill %",
+        "Bullwhip",
+        "Holds",
+        "Hard violations"
+      ]
+    },
+    {
+      "caption": "Table 6.2. V2 matched outcomes. P0/P1: parser without/with recovery; L0/L1: LLM without/with recovery. Means across two seeds; holds and violations summed over 28 decision days per row.",
+      "rows": 16,
+      "columns": [
+        "Arm",
+        "Scenario",
+        "Cost USD",
+        "Fill %",
+        "Holds",
+        "Hard violations"
+      ]
+    },
+    {
+      "caption": "Table 6.3. Derived-field recovery effect. Parser and LLM configurations have identical values; cost falls 10.93% and fill improves seven percentage points.",
+      "rows": 6,
+      "columns": [
+        "Measure",
+        "No recovery",
+        "Recovery",
+        "Change"
+      ]
+    },
+    {
+      "caption": "Table 6.3a. Collapse-scenario cost components, simulated USD. Means across two fourteen-day runs in each LLM configuration; the parser cost/service outcomes match. Rounded components may differ by one cent from the rounded total.",
+      "rows": 7,
+      "columns": [
+        "Component",
+        "No recovery",
+        "Recovery",
+        "Change"
+      ]
+    },
+    {
+      "caption": "Table 6.4. Grounding and selection outcomes. Targets and denominators differ; the rows are not a common accuracy benchmark.",
+      "rows": 4,
+      "columns": [
+        "Task",
+        "Exposure",
+        "Exactness",
+        "Conditional result",
+        "Failures / boundary"
+      ]
+    },
+    {
+      "caption": "Table 6.5. V2 operating footprint by configuration. Eight runs and 112 decision days per configuration; parser arms have no LLM calls.",
+      "rows": 4,
+      "columns": [
+        "Arm",
+        "Runs",
+        "Days",
+        "Fresh calls",
+        "Tokens",
+        "Holds"
+      ]
+    },
+    {
+      "caption": "Table 6.6. Selected copied-store cached replays. No fresh model calls; original evidence stores remained unchanged.",
+      "rows": 5,
+      "columns": [
+        "Configuration / scenario",
+        "Original result",
+        "State and action match",
+        "Forecast removal"
+      ]
+    },
+    {
+      "caption": "Table 6.7. A conditional business case for LLM-assisted replenishment.",
+      "rows": 5,
+      "columns": [
+        "Value proposition",
+        "Observed evidence",
+        "Management decision",
+        "Still to establish"
+      ]
+    },
+    {
+      "caption": "Table 6.8. Answers to the retained research questions.",
+      "rows": 7,
+      "columns": [
+        "Question",
+        "Completed evidence",
+        "Current answer",
+        "Remaining evidence"
+      ]
+    },
+    {
+      "caption": "Table 6.9. Status of H1\u2013H8. No row constitutes a confirmatory significance claim.",
+      "rows": 8,
+      "columns": [
+        "Hypothesis",
+        "Status",
+        "Reason"
+      ]
+    },
+    {
+      "caption": "Table B.1. Initial numerical study: B1, Derived-field collapse; thirty seeds, seven days.",
+      "rows": 30,
+      "columns": [
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.2. Initial numerical study: B1, Feed gap; thirty seeds, seven days.",
+      "rows": 30,
+      "columns": [
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.3. Initial numerical study: B1, Normal; thirty seeds, seven days.",
+      "rows": 30,
+      "columns": [
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.4. Initial numerical study: B2, Derived-field collapse; thirty seeds, seven days.",
+      "rows": 30,
+      "columns": [
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.5. Initial numerical study: B2, Feed gap; thirty seeds, seven days.",
+      "rows": 30,
+      "columns": [
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.6. Initial numerical study: B2, Normal; thirty seeds, seven days.",
+      "rows": 30,
+      "columns": [
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.7. Initial numerical study: B3, Derived-field collapse; thirty seeds, seven days.",
+      "rows": 30,
+      "columns": [
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.8. Initial numerical study: B3, Feed gap; thirty seeds, seven days.",
+      "rows": 30,
+      "columns": [
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.9. Initial numerical study: B3, Normal; thirty seeds, seven days.",
+      "rows": 30,
+      "columns": [
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.10. Initial numerical study: B4, Derived-field collapse; thirty seeds, seven days.",
+      "rows": 30,
+      "columns": [
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.11. Initial numerical study: B4, Feed gap; thirty seeds, seven days.",
+      "rows": 30,
+      "columns": [
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.12. Initial numerical study: B4, Normal; thirty seeds, seven days.",
+      "rows": 30,
+      "columns": [
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.13. Prose feasibility; two-day window, seed zero. All decisions were held.",
+      "rows": 8,
+      "columns": [
+        "Policy",
+        "Scenario",
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.14. Structured-rule controls; two-day window, seed zero.",
+      "rows": 4,
+      "columns": [
+        "Policy",
+        "Scenario",
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.15. V2 L0 (llm_v2_no_recovery); two seeds, fourteen days.",
+      "rows": 8,
+      "columns": [
+        "Scenario",
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.16. V2 L1 (llm_v2_recovery); two seeds, fourteen days.",
+      "rows": 8,
+      "columns": [
+        "Scenario",
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.17. V2 P0 (parser_no_recovery); two seeds, fourteen days.",
+      "rows": 8,
+      "columns": [
+        "Scenario",
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.18. V2 P1 (parser_recovery); two seeds, fourteen days.",
+      "rows": 8,
+      "columns": [
+        "Scenario",
+        "Seed",
+        "Cost USD",
+        "Fill %",
+        "Stockout %",
+        "Mean stock",
+        "Bullwhip",
+        "Turns",
+        "Holds",
+        "Hard viol.",
+        "Ref. dev."
+      ]
+    },
+    {
+      "caption": "Table B.19. All sixteen recorded forecast backtest cases; thirty bottom series and 112 aggregate nodes. Lower error scores are better; coverage is reported against a 95% interval target.",
+      "rows": 16,
+      "columns": [
+        "Model",
+        "Origin index",
+        "Role",
+        "WRMSSE",
+        "Weighted pinball",
+        "CRPS",
+        "Coverage %"
+      ]
+    },
+    {
+      "caption": "Table D.1. Registered V2 settings and model identities.",
+      "rows": 19,
+      "columns": [
+        "Item",
+        "Evaluated setting"
+      ]
+    },
+    {
+      "caption": "Table D.2. Input and publication provenance. Full hashes identify immutable input bytes; local hashes are not external signatures.",
+      "rows": 7,
+      "columns": [
+        "Artifact",
+        "SHA-256 or Git commit"
+      ]
+    }
+  ],
+  "major_headings": [
+    "Abstract",
+    "Executive Summary",
+    "Chapter 1: Introduction",
+    "Chapter 2: Literature Review",
+    "Chapter 3: Operational Grounding: Replenishment Data in Practice",
+    "Chapter 4: Methodology and Architecture",
+    "Chapter 5: Experimental Design and Evaluation Protocol",
+    "Chapter 6: Experimental Findings and Managerial Implications",
+    "Chapter 7: Ethical, Safety, and Governance Considerations",
+    "Chapter 8: Conclusion",
+    "References",
+    "Appendix A: Summary of Revisions Relative to the Previous Draft",
+    "Appendix B: Complete Run Results and Forecast Scores",
+    "Appendix C: Complete Scientific Graph Collection",
+    "Appendix D: Configuration, Development and Evidence Record"
+  ],
+  "source_headings_after_targeted_renaming": [
+    "Abstract",
+    "Chapter 1: Introduction",
+    "1.1 Replenishment as a Sequential Decision under Uncertainty",
+    "1.2 Two Gaps: Semantic and Evidential",
+    "1.3 Operational Grounding from Retail Standards and Prior Research",
+    "1.4 The Promise and Perils of LLM Agents in Supply Chains",
+    "1.5 Problem Statement and Scope",
+    "1.6 Research Questions and Hypotheses",
+    "1.7 Contributions and Structure",
+    "Chapter 2: Literature Review",
+    "2.1 Inventory Control Theory and the Bullwhip Effect",
+    "2.2 Inventory Record Inaccuracy, Censored Demand, and Data Quality",
+    "2.3 Probabilistic, Hierarchical, and Intermittent Retail Forecasting",
+    "2.4 Tool-Augmented LLMs and Multi-Agent Coordination",
+    "2.5 LLM Agents for Supply-Chain and Inventory Decisions",
+    "2.6 Explainability, Decision Traces, and Faithfulness",
+    "2.7 Human\u2013Automation Interaction and Graded Autonomy",
+    "2.8 Research Gap",
+    "Chapter 3: Operational Grounding: Replenishment Data in Practice",
+    "3.1 Setting and Method",
+    "3.2 The Canonical Replenishment Data Model",
+    "3.3 How Replenishment State Is Produced",
+    "3.4 A Taxonomy of State-Quality Failures",
+    "3.5 A Taxonomy of Constraints as They Arrive",
+    "3.6 Decision Context Specifics",
+    "3.7 Design Implications",
+    "Chapter 4: Methodology and Architecture",
+    "4.1 Research Design",
+    "4.2 Formal Replenishment Problem",
+    "4.3 Blackboard Architecture over a Canonical Schema",
+    "4.4 Agents and Their Verifiable Outputs",
+    "4.5 Coordination Protocol",
+    "4.6 State Reconciliation and the Data-Quality Score",
+    "4.7 Constraint Extraction and Verification",
+    "4.8 Forecasting Module",
+    "4.9 Optimization and Policy Tools",
+    "4.10 Evidence-Gated Autonomy and Safety Controls",
+    "4.11 Native Structured Decision Trace with Lineage",
+    "Chapter 5: Experimental Design and Evaluation Protocol",
+    "5.1 Data: The M5 Retail Hierarchy",
+    "5.2 Mapping M5 into the Canonical Data Model",
+    "5.3 Disturbance Layers",
+    "5.4 Inventory Initialization and Simulation State",
+    "5.5 Baseline Policies and Ablations",
+    "5.6 Evaluation Metrics",
+    "5.7 Trace Faithfulness Evaluation",
+    "5.8 Stress Tests and Robustness Scenarios",
+    "5.9 Human Audit Study",
+    "5.10 Statistical Analysis",
+    "Chapter 6: Experimental Findings and Managerial Implications",
+    "6.1 Operational Performance under Clean State",
+    "6.2 Where Failures Originate: Evidence Gating versus Critic Review",
+    "6.3 Constraint Grounding",
+    "6.4 Specialization, Typed State, and Coordination Cost",
+    "6.5 Trace Faithfulness and Human Audit",
+    "6.6 Transferability and Managerial Implications",
+    "Chapter 7: Ethical, Safety, and Governance Considerations",
+    "7.1 Automation Bias and Accountability",
+    "7.2 Data Quality as a Safety Property",
+    "7.3 Security and Prompt Injection",
+    "7.4 Supplier Concentration",
+    "7.5 Environmental and Economic Externalities",
+    "7.6 Limitations",
+    "Chapter 8: Conclusion",
+    "8.1 Summary of Contributions",
+    "8.2 Limitations",
+    "8.3 Future Directions",
+    "References",
+    "Appendix A: Summary of Revisions Relative to the Previous Draft"
+  ],
+  "original_reference_count": 53,
+  "added_evidence_references": [
+    "M5 replenishment agent version-2 pilot [Simulation report, run tables and evidence]. (2026). MasterDissertation experiment repository. https://github.com/Faraz-NIT/MasterDissertation/blob/main/study_results/v2/M5_v2_pilot_report.md",
+    "Six-hour M5 study: Final snapshot [Simulation report, run tables and evidence]. (2026). MasterDissertation experiment repository. https://github.com/Faraz-NIT/MasterDissertation/blob/main/study_results/v1/M5_six_hour_study_report.md"
+  ],
+  "comparison_note": "No studies or horizons pooled; no significance, field ROI or human-audit claim.",
+  "recovery_cost_reduction_pct": 10.93,
+  "recovery_fill_improvement_pp": 7.0,
+  "rendered_pdf": "study_results/dissertation/Evidence_Gated_Autonomy_Dissertation_Final.pdf",
+  "rendered_pdf_sha256": "212503830615c39cb933805b002ca5a36ad48b2654cd27af38bf07941d67c2e3",
+  "historical_status": "Completed M5 integration retained before FreshRetailNet expansion; newer dual-benchmark document will supersede it"
+}

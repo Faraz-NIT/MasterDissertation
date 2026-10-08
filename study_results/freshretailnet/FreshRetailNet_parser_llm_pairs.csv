@@ -1,0 +1,17 @@
+repair,scenario,seed,parser_cost,llm_cost,cost_difference,fill_difference_pp,violations_difference,holds_difference,cost_fill_identical
+no_recovery,normal,13,22258.56875,22258.56875,0.0,0.0,0.0,0.0,True
+no_recovery,normal,29,24404.01975,24404.01975,0.0,0.0,0.0,0.0,True
+no_recovery,derived_field_collapse,13,22258.56875,22258.56875,0.0,0.0,0.0,0.0,True
+no_recovery,derived_field_collapse,29,24404.01975,24404.01975,0.0,0.0,0.0,0.0,True
+no_recovery,feed_gap,13,22258.56875,22258.56875,0.0,0.0,0.0,0.0,True
+no_recovery,feed_gap,29,24404.01975,24404.01975,0.0,0.0,0.0,0.0,True
+no_recovery,capacity_cut,13,20589.05525,20589.05525,0.0,0.0,0.0,0.0,True
+no_recovery,capacity_cut,29,22556.87825,22556.87825,0.0,0.0,0.0,0.0,True
+recovery,normal,13,22258.56875,22258.56875,0.0,0.0,0.0,0.0,True
+recovery,normal,29,24404.01975,24404.01975,0.0,0.0,0.0,0.0,True
+recovery,derived_field_collapse,13,22258.56875,22258.56875,0.0,0.0,0.0,0.0,True
+recovery,derived_field_collapse,29,24404.01975,24404.01975,0.0,0.0,0.0,0.0,True
+recovery,feed_gap,13,22258.56875,22258.56875,0.0,0.0,0.0,0.0,True
+recovery,feed_gap,29,24404.01975,24404.01975,0.0,0.0,0.0,0.0,True
+recovery,capacity_cut,13,20589.05525,20589.05525,0.0,0.0,0.0,0.0,True
+recovery,capacity_cut,29,22556.87825,22556.87825,0.0,0.0,0.0,0.0,True

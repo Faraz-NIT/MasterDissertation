@@ -1,0 +1,74 @@
+{
+  "status": "VERIFIED",
+  "docx": "results/freshretailnet/report/Dual_Benchmark_Dissertation_Final.docx",
+  "docx_sha256": "79b77a5e7f48adf53cbafd2cfa621c2166774a40050b25e1316895ad299b2048",
+  "source_docx_sha256": "d67c5473b9d11a08abe503d70c4ffae5c8e65e97f1ef9b95e4971c40ffc78ea7",
+  "chapters": [
+    "CHAPTER 1  Introduction",
+    "CHAPTER 2  Literature Review",
+    "CHAPTER 3  Operational Grounding: Replenishment Data in Practice",
+    "CHAPTER 4  Methodology and Architecture",
+    "CHAPTER 5  Experimental Design and Evaluation Protocol",
+    "CHAPTER 6  Experimental Findings and Managerial Implications",
+    "CHAPTER 7  Ethical, Safety, and Governance Considerations",
+    "CHAPTER 8  Conclusion"
+  ],
+  "paragraphs": 655,
+  "tables": 63,
+  "inline_images": 40,
+  "media_files": 40,
+  "original_references": 59,
+  "issues": [],
+  "pdf_checks": [
+    {
+      "file": "results/freshretailnet/report/Dual_Benchmark_Dissertation_Final.pdf",
+      "sha256": "29e4edb75ab5dcb2e998108153f2f937aa6ce3b1548a5b8179f0e91593d057ad",
+      "pages": 115,
+      "image_pages": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        54,
+        55,
+        56,
+        60,
+        61,
+        64,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96
+      ],
+      "issues": []
+    },
+    {
+      "file": "results/freshretailnet/report/FreshRetailNet_study_report.pdf",
+      "sha256": "8133d37189cbcb40b9e6452c4599a2f8e8dd0cc608de3a728a4dfa9cf39fcf74",
+      "pages": 50,
+      "image_pages": [
+        5,
+        7,
+        9,
+        10,
+        13,
+        16,
+        17,
+        22,
+        23,
+        24,
+        27,
+        28,
+        30
+      ],
+      "issues": []
+    }
+  ]
+}

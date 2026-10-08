@@ -1,0 +1,272 @@
+{
+  "source": "/workspace/attachments/05bb558e-50b1-4067-b21f-af48d109fc7e/Evidence_Gated_Autonomy_M5_FreshRetailNet_Full_Dissertation.docx",
+  "source_sha256": "d67c5473b9d11a08abe503d70c4ffae5c8e65e97f1ef9b95e4971c40ffc78ea7",
+  "output_sha256": "79b77a5e7f48adf53cbafd2cfa621c2166774a40050b25e1316895ad299b2048",
+  "paragraphs": 655,
+  "tables": 63,
+  "inline_figures": 40,
+  "fresh_figures": 15,
+  "m5_figures": 25,
+  "eight_original_chapters_preserved": true,
+  "embedded_figures": [
+    {
+      "key": "01_source_availability",
+      "title": "Historical availability is observable; lost demand is not",
+      "caption": "Training population rates use 72 million operating-hour flags and 4.5 million daily rows. The selected-panel rate uses its first 62 training days. Daily and hourly percentages have different denominators. None measures the quantity of naturally lost demand.",
+      "path": "/workspace/MasterDissertation/results/freshretailnet/report/figures/01_source_availability.png",
+      "sha256": "7f903c9451125ea0b79a8e30697db94ba6374455ec8b391fa0aa7e2f959350d1"
+    },
+    {
+      "key": "02_artificial_mask_recovery",
+      "title": "Recovery accuracy where a target can actually be checked",
+      "caption": "Originally observed sales are hidden in 2-, 4- or 8-hour validation blocks. Models fit only earlier data. The target is deliberately withheld sales, rather than unobserved natural stockout demand. Mask cases overlap and are not independent retailers.",
+      "path": "/workspace/MasterDissertation/results/freshretailnet/report/figures/02_artificial_mask_recovery.png",
+      "sha256": "f2f471542693944afdc198d5608114c29949cf965e9c999e9da2fa4b3d719c3a"
+    },
+    {
+      "key": "03_forecast_accuracy",
+      "title": "Forecast quality depends on which sales are observable",
+      "caption": "All four frozen forecasts cover the same 30 series and seven-day holdout. All-day sales can be censored; fully stocked days are conditionally observable. Future masks, weather, promotion and actual sales are never forecast features.",
+      "path": "/workspace/MasterDissertation/results/freshretailnet/report/figures/03_forecast_accuracy.png",
+      "sha256": "425d97c742e09c0861a4c497a415e51cab6ee9a4e237d26e1220cf318626c24e"
+    },
+    {
+      "key": "04_daily_forecasts",
+      "title": "The holdout forecast is made before the seven-day window",
+      "caption": "Panel aggregate predictions are made at the final training origin. Later forecast lags use predictions. Globally normalized sales are neither physical quantities nor a currency.",
+      "path": "/workspace/MasterDissertation/results/freshretailnet/report/figures/04_daily_forecasts.png",
+      "sha256": "b463a5598ba96a8b0c41442b02e013f55d9e100325b48a20e8680a1e9e42f05a"
+    },
+    {
+      "key": "15_forecast_censor_strata",
+      "title": "Historical censoring changes the forecasting problem",
+      "caption": "Ten series per stratum, defined before evaluation using the first 62 training days. Errors are weighted by the sum of actual scored sales within each group. Evaluation availability selects the fully stocked scoring subset only; it does not change membership or forecasts. These small strata are descriptive.",
+      "path": "/workspace/MasterDissertation/results/freshretailnet/report/figures/15_forecast_censor_strata.png",
+      "sha256": "c399f5ba37da072de861796d6650751c09ea151e158ea7c33b7d2123ebf5cf1e"
+    },
+    {
+      "key": "05_numerical_cost_service",
+      "title": "Conventional policies establish a demanding baseline",
+      "caption": "Thirty seeds per policy and scenario. Error bars show one standard deviation across conditional simulation seeds. B1: seasonal base-stock; B2: LightGBM (s,S); B3: native GRU-NB with MILP; B4: B3 with an evidence gate. Physical stock expires by FIFO, while the inherited MILP remains age-unaware.",
+      "path": "/workspace/MasterDissertation/results/freshretailnet/report/figures/05_numerical_cost_service.png",
+      "sha256": "5b9bdf0d5be3c4d72a90bf9c2b47bd86c7f9483c712313c091b75d7422c681f2"
+    },
+    {
+      "key": "06_numerical_safety",
+      "title": "A safe hold has a service cost that should be measured",
+      "caption": "Counts are summed across 30 runs per cell. Hard violations use actual active constraints and differ from clean-reference deviations. Holds count decision days. A low violation count should be assessed alongside service.",
+      "path": "/workspace/MasterDissertation/results/freshretailnet/report/figures/06_numerical_safety.png",
+      "sha256": "c95a92fce4c39e57526a67fdf3ff663f3b4e90b2d677e856341155ca02c5936f"
+    },
+    {
+      "key": "09_service_waste_frontier",
+      "title": "Fresh retail exposes a service\u2013waste trade-off",
+      "caption": "Independent calculator experiment, with 30 shared seeds per cell and demand multiplier 1. Shelf lives are hypothetical. Quantity and economic conventions differ from the core MILP experiment, so their absolute results are not pooled.",
+      "path": "/workspace/MasterDissertation/results/freshretailnet/report/figures/09_service_waste_frontier.png",
+      "sha256": "3bc496e8f7d36e9a5dff1b52089bb1a9cf8fb7dfcd0912bc02b4f07485da3d85"
+    },
+    {
+      "key": "10_sensitivity_costs",
+      "title": "Demand recovery must earn its keep under different assumptions",
+      "caption": "Relative change from raw to recovered forecast history within each common-demand cell. Thirty seeds, shelf lives 1/3/7 days and demand multipliers 1/1.25/1.5. Negative values mean lower assumed indexed cost. They are not measured profit or purchasing savings.",
+      "path": "/workspace/MasterDissertation/results/freshretailnet/report/figures/10_sensitivity_costs.png",
+      "sha256": "f58443da9e8454be088804a3e5da0788708c56887eed2eb066b034b7555ad063"
+    },
+    {
+      "key": "07_agent_factorial",
+      "title": "The LLM shares the same forecasts, tools and safeguards",
+      "caption": "Four matched controller/repair configurations, four scenarios and two seeds, each using seven days. Repair is verified inventory-record reconciliation. It is not statistical recovery of censored customer demand. All configurations share the numerical tools and source evidence.",
+      "path": "/workspace/MasterDissertation/results/freshretailnet/report/figures/07_agent_factorial.png",
+      "sha256": "06c896dac553d6ad3a1b93ba9a83864f13a8fb1dcd6dedd685c3a96bf5892981"
+    },
+    {
+      "key": "11_local_model_calls",
+      "title": "Inference is an additional operating burden",
+      "caption": "Primary registered study physical attempts from the independent audit. The exploratory follow-up has separate counts. Cache imports and typed extraction outputs are not additional calls. Local API charges are zero; CPU hosting and oversight costs are unpriced.",
+      "path": "/workspace/MasterDissertation/results/freshretailnet/report/figures/11_local_model_calls.png",
+      "sha256": "8a7a348a215d56ff7e99cf25cdff309a9d681a72b9cb1f977e8b13fb35758be7"
+    },
+    {
+      "key": "12_gate_portability",
+      "title": "A spending threshold needs calibration to its new scale",
+      "caption": "The right panel compares the same original seeds, 13 and 29, with 14 normal parser decision days under each cap. Full 30-seed means appear in the following figure. The fixed-gate failure motivated this exploratory follow-up after primary evaluation began. Seven historical calibration proposals use training-only dates and a separately fitted model. The cap formula was registered before calibration. Reusing the official evaluation window means the follow-up is not confirmatory.",
+      "path": "/workspace/MasterDissertation/results/freshretailnet/report/figures/12_gate_portability.png",
+      "sha256": "3278b4e0627ac04bc0ea04a12d8d8d51eedc6a0c3337e4b8d49acb164c770723"
+    },
+    {
+      "key": "13_calibrated_agent_factorial",
+      "title": "Exploratory calibrated transfer: useful execution and fair attribution",
+      "caption": "30 paired simulator seeds per configuration and scenario, all 30 series and seven days. The original saved forecast, prompts, model and numerical tools are retained. Only the spending threshold and its version change semantically. This follow-up was chosen after inspecting primary portability and reuses the holdout.",
+      "path": "/workspace/MasterDissertation/results/freshretailnet/report/figures/13_calibrated_agent_factorial.png",
+      "sha256": "3c0bdb14344944af86b4d0e73bea2bd1f632fc272f5393af89839b3fdfe2ac01"
+    },
+    {
+      "key": "14_calibrated_paired_effects",
+      "title": "Record-repair benefit should survive individual paired seeds",
+      "caption": "Each point is a matched simulator seed in the exploratory follow-up, with a short line for its mean. Seeds vary a shared assumed environment, not independent retailers or historical forecast origins. The graph makes adverse and null effects visible without a confirmatory population claim.",
+      "path": "/workspace/MasterDissertation/results/freshretailnet/report/figures/14_calibrated_paired_effects.png",
+      "sha256": "c17030f4f2781426e395d6decbf572e4c6c2f505147c296d02c3292c5186af45"
+    },
+    {
+      "key": "08_m5_fresh_comparison",
+      "title": "Two information environments; two separately estimated effects",
+      "caption": "Separate within-dataset repair effects under an inventory-field fault. M5 uses 14 days and FreshRetailNet seven; their quantity units, expiry assumptions and economics differ. The calibrated result is an exploratory reused-holdout follow-up with 30 simulator seeds; the other bars have two. These bars do not estimate a commercial return or the causal effect of changing datasets.",
+      "path": "/workspace/MasterDissertation/results/freshretailnet/report/figures/08_m5_fresh_comparison.png",
+      "sha256": "1d41957f93cf3ff3881a63a9d7dbcc3ac9a7c7eb1a77d3564cf9e9b491906b92"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v1/M5_six_hour_study_report_six_hour_numeric_30seeds_cost_service.png",
+      "sha256": "957df5df5bc3b0edeaaae3099a9f7a8ba36196d86d641472ea6897063bfa4a28",
+      "key": "m5_M5_six_hour_study_report_six_hour_numeric_30seeds_cost_service"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v2/M5_v2_cost_service_normal.png",
+      "sha256": "44d079aaa750b256d03558b63f33380174980e77c1311cd073f1ee8a9fc38537",
+      "key": "m5_M5_v2_cost_service_normal"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v1/M5_six_hour_study_report_six_hour_numeric_30seeds_violations_holds.png",
+      "sha256": "09590ddd7fe5ec5fd04442ff82620f9bf2992faecfc55c37679500e5bbfcd5f2",
+      "key": "m5_M5_six_hour_study_report_six_hour_numeric_30seeds_violations_holds"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v2/M5_v2_cost_service_derived_field_collapse.png",
+      "sha256": "30c023b404b631b1b0c707d2b0b84ceaa61b3ee88e6e2f41203c14a40a677d4b",
+      "key": "m5_M5_v2_cost_service_derived_field_collapse"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v2/M5_v2_cost_service_capacity_cut.png",
+      "sha256": "800cff79236a0ac78f572d16a31d8dc4e7fb860388a87ace0eff0b3a8c36ee7d",
+      "key": "m5_M5_v2_cost_service_capacity_cut"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v1/M5_six_hour_study_report_live_grounding_quality_coverage.png",
+      "sha256": "fb243e2a34e854ba996841d3258324d03c3f9a4cebe98f21c047c59d0dbe354b",
+      "key": "m5_M5_six_hour_study_report_live_grounding_quality_coverage"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v2/M5_v2_inventory_latency_derived_field_collapse.png",
+      "sha256": "a4147ff0a4a1fee16e9f72d5c4d7e59d400a6f930c7a26f76f082ad300b3cf02",
+      "key": "m5_M5_v2_inventory_latency_derived_field_collapse"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v2/M5_v2_execution_safety.png",
+      "sha256": "0ed83bd32cb0366990b1cf00564b3c9e71bd21e5fbf8bf092d39ad834d1433a6",
+      "key": "m5_M5_v2_execution_safety"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v1/M5_six_hour_study_report_execution_progress.png",
+      "sha256": "210a2b1341f9a4f89e691a8c886e572da5400efaef484f81cf23625b5b02988b",
+      "key": "m5_M5_six_hour_study_report_execution_progress"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v1/M5_six_hour_study_report_forecast_backtests.png",
+      "sha256": "d493c8362c5a6b302bd89d0d3eb03ac53be19700e8f9c2d4326ec9df9d557dcc",
+      "key": "m5_M5_six_hour_study_report_forecast_backtests"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v1/M5_six_hour_study_report_grounding_latency.png",
+      "sha256": "699de4ff818f4a53a8835f0c68e50d4919286c0ce9ef52decb5d19e67a1bdccc",
+      "key": "m5_M5_six_hour_study_report_grounding_latency"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v1/M5_six_hour_study_report_six_hour_agentic_prose_cost_service.png",
+      "sha256": "b73636dcefb234deb50ef7f4a03ec94d4237a41cedd89d12284583efefa74f8c",
+      "key": "m5_M5_six_hour_study_report_six_hour_agentic_prose_cost_service"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v1/M5_six_hour_study_report_six_hour_agentic_prose_deviations_execution.png",
+      "sha256": "64ba1ef857d1773c2080c175d5cbb08d0087d454dc6c707c4c403288dca4530b",
+      "key": "m5_M5_six_hour_study_report_six_hour_agentic_prose_deviations_execution"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v1/M5_six_hour_study_report_six_hour_agentic_prose_outcomes.png",
+      "sha256": "3d6a93d074f033610cb7f38a9188f7a94f8df378197f2b39fec423be3e146594",
+      "key": "m5_M5_six_hour_study_report_six_hour_agentic_prose_outcomes"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v1/M5_six_hour_study_report_six_hour_agentic_prose_violations_holds.png",
+      "sha256": "6111be50273d077778d9639ed9546c755f4365c0cdb1317bb2bf2b8dfeabc9af",
+      "key": "m5_M5_six_hour_study_report_six_hour_agentic_prose_violations_holds"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v1/M5_six_hour_study_report_six_hour_numeric_30seeds_deviations_execution.png",
+      "sha256": "3207cfeb3eea4e581f7c4bae6b502c4f52eeb6fbf711fee112ea1f970179a7d2",
+      "key": "m5_M5_six_hour_study_report_six_hour_numeric_30seeds_deviations_execution"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v1/M5_six_hour_study_report_six_hour_numeric_outcomes.png",
+      "sha256": "4034f677eadb16aa116fe8bc5c15cd7b5e9187218ca88780fa32b3b4f9460029",
+      "key": "m5_M5_six_hour_study_report_six_hour_numeric_outcomes"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v1/M5_six_hour_study_report_six_hour_structured_controls_cost_service.png",
+      "sha256": "a17dbf9a59462cb7c4ed4fec0930101e6c810dd49ff4723685f96e74a220d393",
+      "key": "m5_M5_six_hour_study_report_six_hour_structured_controls_cost_service"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v1/M5_six_hour_study_report_six_hour_structured_controls_deviations_execution.png",
+      "sha256": "1ffe0acbeb363e4d3dc5dac104aa98e88af02f3d0b2e4de291aa162b42198602",
+      "key": "m5_M5_six_hour_study_report_six_hour_structured_controls_deviations_execution"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v1/M5_six_hour_study_report_six_hour_structured_controls_outcomes.png",
+      "sha256": "dff8af172e81296b5d9b46a10a412165f0b675322fb4745f73202de69b4e5643",
+      "key": "m5_M5_six_hour_study_report_six_hour_structured_controls_outcomes"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v1/M5_six_hour_study_report_six_hour_structured_controls_violations_holds.png",
+      "sha256": "31d34ad2e949feaf38e4910a5cfac32770ee8cfbc8dd30c505372718e35f452f",
+      "key": "m5_M5_six_hour_study_report_six_hour_structured_controls_violations_holds"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v2/M5_v2_cost_service_feed_gap.png",
+      "sha256": "15cff8bd34e35989de5a47d4ce5db63182513cc2009f9a656189aedc17c6732a",
+      "key": "m5_M5_v2_cost_service_feed_gap"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v2/M5_v2_inventory_latency_capacity_cut.png",
+      "sha256": "ffc14f4ff1075d29c8d6321e874b3d586ef4f2473a4f6f6b6e15dfd1690c37e5",
+      "key": "m5_M5_v2_inventory_latency_capacity_cut"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v2/M5_v2_inventory_latency_feed_gap.png",
+      "sha256": "7ba0dcdee17860aee3ca2944001fbe6dd1a15b1cce6743537db6f3dadcff944a",
+      "key": "m5_M5_v2_inventory_latency_feed_gap"
+    },
+    {
+      "path": "/workspace/MasterDissertation/study_results/v2/M5_v2_inventory_latency_normal.png",
+      "sha256": "472d63ad343153547aaf7193f4b12298b4a03fe712d37d03ca1a5fc7d805d540",
+      "key": "m5_M5_v2_inventory_latency_normal"
+    }
+  ],
+  "claims": {
+    "parser_llm_identical_pairs": 16,
+    "parser_llm_total_pairs": 16,
+    "repair_cost_change_pct": 0.0,
+    "repair_fill_change_pp": 0.0,
+    "forecast_selected": "lightgbm_raw",
+    "recovery_selected": "gbm",
+    "exploratory_followup": {
+      "runs": 480,
+      "decisions": 3360,
+      "seeds": 30,
+      "training_selected_cap": 1850.0,
+      "identical_cost_fill_pairs": 240,
+      "parser_llm_pairs": 240,
+      "repair_collapse_cost_change_pct": -11.707392315520782,
+      "repair_collapse_fill_change_pp": 12.251489707475628,
+      "calibrated_normal_vs_B3": {
+        "seeds": 30,
+        "b3_cost": 18794.032883333333,
+        "calibrated_cost": 18100.596516666665,
+        "cost_change_pct": -3.6896624102515707,
+        "b3_fill": 0.8502708559046588,
+        "calibrated_fill": 0.7919239797760924,
+        "fill_change_pp": -5.834687612856637,
+        "b3_held_days": 0,
+        "calibrated_held_days": 57
+      }
+    }
+  }
+}

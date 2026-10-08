@@ -1,0 +1,326 @@
+{
+  "status": "VERIFIED",
+  "files": [
+    {
+      "path": "Dual_Benchmark_Dissertation_Final.docx",
+      "bytes": 3945047,
+      "sha256": "79b77a5e7f48adf53cbafd2cfa621c2166774a40050b25e1316895ad299b2048"
+    },
+    {
+      "path": "Dual_Benchmark_Dissertation_Final.pdf",
+      "bytes": 8453936,
+      "sha256": "29e4edb75ab5dcb2e998108153f2f937aa6ce3b1548a5b8179f0e91593d057ad"
+    },
+    {
+      "path": "Dual_Benchmark_Dissertation_Final_rendered_text.txt",
+      "bytes": 266169,
+      "sha256": "39524c5c72a64443c3f701106f9ffafc2cd221ca96e7f04accca7d574213e803"
+    },
+    {
+      "path": "FreshRetailNet_agent_all_runs.csv",
+      "bytes": 14316,
+      "sha256": "dbb3c2f15cf58ccec41e282c2a0044b39e6a388af9c332ce042bfbe07b66d2fa"
+    },
+    {
+      "path": "FreshRetailNet_agent_means.csv",
+      "bytes": 1957,
+      "sha256": "a6456dd5baecc11c72b228a78c46f9534d334c0a5c01834e856ebcfe74b86f27"
+    },
+    {
+      "path": "FreshRetailNet_calibrated_vs_B3_normal_seed_pairs.csv",
+      "bytes": 3372,
+      "sha256": "976b050df78417e238a3f2f895e54cf5354ff73823bda4270c340fcd50b333dc"
+    },
+    {
+      "path": "FreshRetailNet_exploratory_gate_transfer_all_runs.csv",
+      "bytes": 224560,
+      "sha256": "d0d260832ee373350be5ba39645402f9a3a97a8d7ead1c4deaaa44b7cd36cdd1"
+    },
+    {
+      "path": "FreshRetailNet_exploratory_gate_transfer_means.csv",
+      "bytes": 1365,
+      "sha256": "69807552da16b138c00d09fa4e995c62808e7e3545955df65d563c35efd9952b"
+    },
+    {
+      "path": "FreshRetailNet_exploratory_gate_transfer_parser_llm_pairs.csv",
+      "bytes": 17546,
+      "sha256": "40ccdf7828e5c79beddc55e79b7861482d4977aa92fe95a9b0eb0127bb205f46"
+    },
+    {
+      "path": "FreshRetailNet_exploratory_repair_paired_seed_effects.csv",
+      "bytes": 3776,
+      "sha256": "51a06e9edef8eaaf2002336ed71b8a0952b507d43662d1f1c622e5bdbc50ec7c"
+    },
+    {
+      "path": "FreshRetailNet_exploratory_source_grounding_audit.csv",
+      "bytes": 1349,
+      "sha256": "3fb88f48a9140e953e3d14d863edbf8761e3816b3dcc40fccd46853eeae9b167"
+    },
+    {
+      "path": "FreshRetailNet_forecast_by_training_censor_stratum.csv",
+      "bytes": 2515,
+      "sha256": "2a8b71f48e98c676685e150c2950937cbaa722106e5717f801fc077831e2fdd2"
+    },
+    {
+      "path": "FreshRetailNet_gate_transition_original_seed_pairs.csv",
+      "bytes": 2365,
+      "sha256": "8ac80b71920e61f1346a292cc258b29fd1298c7c681608f90b887dc0f5ef9fd8"
+    },
+    {
+      "path": "FreshRetailNet_numerical_all_runs.csv",
+      "bytes": 150605,
+      "sha256": "0032528ae5cebd41481b64508031c4e86303f50a3dd7238e1a1767d47655da20"
+    },
+    {
+      "path": "FreshRetailNet_numerical_means.csv",
+      "bytes": 1596,
+      "sha256": "b12bda18f756a171c6c54f451c40e9874f0c01f45438fb9f81b15967f036b95d"
+    },
+    {
+      "path": "FreshRetailNet_parser_llm_pairs.csv",
+      "bytes": 1280,
+      "sha256": "9224d43528ccbeb2ef776be3f537a035dba61adabb5846afd04a6f3d2a4ebb3b"
+    },
+    {
+      "path": "FreshRetailNet_policy_sensitivity_all_runs.csv",
+      "bytes": 724600,
+      "sha256": "17f2c4e045853e0b43cd44add2303bd2c5211e84fd8f6721fd5f3ec62778b4f1"
+    },
+    {
+      "path": "FreshRetailNet_report_download.zip",
+      "bytes": 12417530,
+      "sha256": "aae89ffa61b884ba7a97f6135ef0e194c9cd98ffee536e48e61cbdafdc30e010"
+    },
+    {
+      "path": "FreshRetailNet_sensitivity_means.csv",
+      "bytes": 3282,
+      "sha256": "c11d74d3918f59b412d61df58d260fba0a2dac6d61c717c89309b795f7d111cc"
+    },
+    {
+      "path": "FreshRetailNet_source_grounding_audit.csv",
+      "bytes": 1380,
+      "sha256": "65db331276d65a996d8acbc022e59a890f23197b8829c4b08ccac51939493785"
+    },
+    {
+      "path": "FreshRetailNet_study_report.md",
+      "bytes": 76194,
+      "sha256": "e60c0bc8b372163f1d1641a5252168feeb803d0b97186021f8bc2f27e1b73d6e"
+    },
+    {
+      "path": "FreshRetailNet_study_report.pdf",
+      "bytes": 2577216,
+      "sha256": "8133d37189cbcb40b9e6452c4599a2f8e8dd0cc608de3a728a4dfa9cf39fcf74"
+    },
+    {
+      "path": "FreshRetailNet_study_report_rendered_text.txt",
+      "bytes": 69414,
+      "sha256": "543f26981ed96ad8e565a9d3209ed69f3e8d06100bd50c386f7d0a4d4709da3f"
+    },
+    {
+      "path": "FreshRetailNet_worked_record_repair_case.json",
+      "bytes": 11880,
+      "sha256": "4b6965a4ac94ede66063525a0a35e67e8c136b7afaf0cebdcdafdb58e313b15d"
+    },
+    {
+      "path": "M5_FreshRetailNet_descriptive_comparison.csv",
+      "bytes": 2181,
+      "sha256": "d9ac307fd720bc295ff718033bcd1e48213f4fce39bb0320b01703ea20775d02"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5917,
+      "sha256": "d856349d1085094840e0c1cb5fbb42da464460c2d859a05796000789b303afde"
+    },
+    {
+      "path": "dissertation_build_manifest.json",
+      "bytes": 17948,
+      "sha256": "c52ba5cd893b20432b0263f1edc5a5a2a1ceb095b1f25de3d49ebf793bb4220a"
+    },
+    {
+      "path": "document_integrity_receipt.json",
+      "bytes": 1766,
+      "sha256": "5d2bf32c0da005b0d43ce18c627cf6eefaf01963489479684a218f74122232a2"
+    },
+    {
+      "path": "figures/01_source_availability.png",
+      "bytes": 101518,
+      "sha256": "7f903c9451125ea0b79a8e30697db94ba6374455ec8b391fa0aa7e2f959350d1"
+    },
+    {
+      "path": "figures/02_artificial_mask_recovery.png",
+      "bytes": 95913,
+      "sha256": "f2f471542693944afdc198d5608114c29949cf965e9c999e9da2fa4b3d719c3a"
+    },
+    {
+      "path": "figures/03_forecast_accuracy.png",
+      "bytes": 143385,
+      "sha256": "425d97c742e09c0861a4c497a415e51cab6ee9a4e237d26e1220cf318626c24e"
+    },
+    {
+      "path": "figures/04_daily_forecasts.png",
+      "bytes": 229706,
+      "sha256": "b463a5598ba96a8b0c41442b02e013f55d9e100325b48a20e8680a1e9e42f05a"
+    },
+    {
+      "path": "figures/05_numerical_cost_service.png",
+      "bytes": 143558,
+      "sha256": "5b9bdf0d5be3c4d72a90bf9c2b47bd86c7f9483c712313c091b75d7422c681f2"
+    },
+    {
+      "path": "figures/06_numerical_safety.png",
+      "bytes": 120167,
+      "sha256": "c95a92fce4c39e57526a67fdf3ff663f3b4e90b2d677e856341155ca02c5936f"
+    },
+    {
+      "path": "figures/07_agent_factorial.png",
+      "bytes": 169941,
+      "sha256": "06c896dac553d6ad3a1b93ba9a83864f13a8fb1dcd6dedd685c3a96bf5892981"
+    },
+    {
+      "path": "figures/08_m5_fresh_comparison.png",
+      "bytes": 104658,
+      "sha256": "1d41957f93cf3ff3881a63a9d7dbcc3ac9a7c7eb1a77d3564cf9e9b491906b92"
+    },
+    {
+      "path": "figures/09_service_waste_frontier.png",
+      "bytes": 269262,
+      "sha256": "3bc496e8f7d36e9a5dff1b52089bb1a9cf8fb7dfcd0912bc02b4f07485da3d85"
+    },
+    {
+      "path": "figures/10_sensitivity_costs.png",
+      "bytes": 165810,
+      "sha256": "f58443da9e8454be088804a3e5da0788708c56887eed2eb066b034b7555ad063"
+    },
+    {
+      "path": "figures/11_local_model_calls.png",
+      "bytes": 56767,
+      "sha256": "8a7a348a215d56ff7e99cf25cdff309a9d681a72b9cb1f977e8b13fb35758be7"
+    },
+    {
+      "path": "figures/12_gate_portability.png",
+      "bytes": 158975,
+      "sha256": "3278b4e0627ac04bc0ea04a12d8d8d51eedc6a0c3337e4b8d49acb164c770723"
+    },
+    {
+      "path": "figures/13_calibrated_agent_factorial.png",
+      "bytes": 199757,
+      "sha256": "3c0bdb14344944af86b4d0e73bea2bd1f632fc272f5393af89839b3fdfe2ac01"
+    },
+    {
+      "path": "figures/14_calibrated_paired_effects.png",
+      "bytes": 141075,
+      "sha256": "c17030f4f2781426e395d6decbf572e4c6c2f505147c296d02c3292c5186af45"
+    },
+    {
+      "path": "figures/15_forecast_censor_strata.png",
+      "bytes": 232001,
+      "sha256": "c399f5ba37da072de861796d6650751c09ea151e158ea7c33b7d2123ebf5cf1e"
+    },
+    {
+      "path": "receipts/agents/execution_complete.json",
+      "bytes": 136,
+      "sha256": "aa3b85fcf6af4b5e9cb18098d32cf9e425e443868fee4d9042e278a54f98c11f"
+    },
+    {
+      "path": "receipts/audit/audit.json",
+      "bytes": 1553237,
+      "sha256": "40825845e5caeec1ba9dc4efee1ee272232a025862d3dd869eeb4b4659930fde"
+    },
+    {
+      "path": "receipts/data/eval_validation.json",
+      "bytes": 762,
+      "sha256": "30eeb5a8b335d2886bdaf27fb61a46e7df3bc6bdd0c5b01fbd185bcd046cf72e"
+    },
+    {
+      "path": "receipts/data/selected_series.csv",
+      "bytes": 4149,
+      "sha256": "111df956c729280dfa10bff8d54a8189e513a999ef5080b4e52a3c6445400d86"
+    },
+    {
+      "path": "receipts/data/selection.json",
+      "bytes": 698,
+      "sha256": "5c97780ad649ff3f0dcaa752d856331af6bb14a4d7ba01f45267ca1c21dd84d3"
+    },
+    {
+      "path": "receipts/data/train_validation.json",
+      "bytes": 1836,
+      "sha256": "c2ea02ecc97947ac40cf287c88b2a18ef39099c73e79f26bc9659827b0648d86"
+    },
+    {
+      "path": "receipts/development/policy_sensitivity_independent_audit.json",
+      "bytes": 772,
+      "sha256": "a22414fb3b86f82ef777892712da315a872f189bc45995cb8dece5bb0f25e0f8"
+    },
+    {
+      "path": "receipts/forecast/independent_audit.json",
+      "bytes": 1445,
+      "sha256": "0e48d1ac8a8af6d0579bbd9d00bec1869a9651048abdb3553e257aef04d094e2"
+    },
+    {
+      "path": "receipts/gate_transfer/audit.json",
+      "bytes": 6762930,
+      "sha256": "b291faae6ce80e5ddf5eb93b602f5b1bd74c0460e3130ae0eccc454ba8fe2c9a"
+    },
+    {
+      "path": "receipts/gate_transfer/audit_independent/audit.json",
+      "bytes": 8165566,
+      "sha256": "439b5feffcc0f3448816d1795e12098af39b467f8be13f3251b6743bd6b72c0e"
+    },
+    {
+      "path": "receipts/gate_transfer/calibration/selection_receipt.json",
+      "bytes": 12721,
+      "sha256": "7135b7afe7a5715e2c8208f14b26c2acfda148aab509d60907503a12f7a61cf5"
+    },
+    {
+      "path": "receipts/gate_transfer/execution_complete.json",
+      "bytes": 308,
+      "sha256": "966e7ffac21ba6d04153b8fd9ffecfd811b6be41da15387bdc839c7946b3263d"
+    },
+    {
+      "path": "receipts/gate_transfer/protocol.json",
+      "bytes": 13891,
+      "sha256": "9083c6a999751da08e551f55624d1e2b17a77991985a3b1fd385c78f00474b1e"
+    },
+    {
+      "path": "receipts/numerical/execution_complete.json",
+      "bytes": 103,
+      "sha256": "ee91da23546dbe0efd105f653a643867b79f97d0dad40236727c8e65c15a6eb6"
+    },
+    {
+      "path": "receipts/policy_sensitivity/audit.json",
+      "bytes": 944,
+      "sha256": "a10ef3f612ad2c6b61c74929c676485a637421c06db56351baf2f35d72d961f2"
+    },
+    {
+      "path": "receipts/protocol.json",
+      "bytes": 12211,
+      "sha256": "48832eef82b6f63b8f42952450c7e92982a49f622b0df7f1d963facb620fa2aa"
+    },
+    {
+      "path": "receipts/setup/download_receipt.json",
+      "bytes": 885,
+      "sha256": "b06c1088aea41c30057627e6d07ee30811b5c4295a2badc65b923ff8f7d1ce64"
+    },
+    {
+      "path": "render_history/primary_draft_receipt.json",
+      "bytes": 7492,
+      "sha256": "8cf56736a294c188633ff3de0070c5d214dfd95c13d8a740db43ddb1eac9a14b"
+    },
+    {
+      "path": "report_manifest.json",
+      "bytes": 15834,
+      "sha256": "89f62ea3bfd7f8fdcf57f5ae43beb0aed7808a053e1656d2d6cd1754fe311d4b"
+    },
+    {
+      "path": "report_validation.json",
+      "bytes": 1462,
+      "sha256": "38be800ec25d9c43614fc97654440d2ce357ab87508eb10a29d3ab57c9fb78d6"
+    },
+    {
+      "path": "visual_qa_receipt.json",
+      "bytes": 1653,
+      "sha256": "377fdf734c8d360342b4d78630483045c0775dee8b25465306f5b7e57bffdea1"
+    }
+  ],
+  "report_manifest_sha256": "89f62ea3bfd7f8fdcf57f5ae43beb0aed7808a053e1656d2d6cd1754fe311d4b"
+}

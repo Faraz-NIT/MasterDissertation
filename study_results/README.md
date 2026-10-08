@@ -1,4 +1,17 @@
-# M5 cloud study reports and complete evidence
+# M5 and FreshRetailNet study reports and complete evidence
+
+The latest [dual-benchmark Word dissertation](freshretailnet/Dual_Benchmark_Dissertation_Final.docx)
+and [dissertation PDF](freshretailnet/Dual_Benchmark_Dissertation_Final.pdf) integrate both datasets
+while retaining the original eight-chapter structure. The [FreshRetailNet study folder](freshretailnet/)
+contains its detailed PDF, graphs, individual result tables, M5 comparison, audit receipts and
+complete evidence archives. Use the [FreshRetailNet report download ZIP](freshretailnet/FreshRetailNet_report_download.zip)
+for the documents, tables and new graphs together.
+
+The earlier [M5-only Word dissertation](dissertation/Evidence_Gated_Autonomy_Dissertation_Final.docx)
+and [M5-only PDF](dissertation/Evidence_Gated_Autonomy_Dissertation_Final.pdf) remain as historical versions.
+The original M5 evidence archives below are unchanged.
+
+## M5 reports
 
 Start with the [final V2 PDF](v2/M5_v2_pilot_report.pdf), or download the [small report ZIP](M5_report_download.zip) containing the PDF, result tables and nine graphs. The [HTML report](v2/M5_v2_pilot_report.html) and [Markdown report](v2/M5_v2_pilot_report.md) contain the same report narrative. On GitHub, open the PDF and use **Download raw file** to save it to your computer.
 

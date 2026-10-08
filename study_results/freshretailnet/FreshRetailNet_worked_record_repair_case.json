@@ -1,0 +1,328 @@
+{
+  "audit_case": {
+    "all_sources_match_ledgers": true,
+    "applied": true,
+    "arm": "llm_recovery",
+    "certification_recomputed_exact": true,
+    "changed_quantities": 27,
+    "day": 92,
+    "decision_day": 92,
+    "hard_fail_after": false,
+    "hard_fail_before": true,
+    "only_permitted_fields_changed": true,
+    "problems": [],
+    "rows": [
+      {
+        "changed": true,
+        "ledger_expected": 2.0,
+        "quantity_after": 2.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0074@S0851",
+        "source_ledger_agreement": true,
+        "source_quantity": 2.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 30.0,
+        "quantity_after": 30.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0190@S0191",
+        "source_ledger_agreement": true,
+        "source_quantity": 30.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 223.0,
+        "quantity_after": 223.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0210@S0054",
+        "source_ledger_agreement": true,
+        "source_quantity": 223.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 72.0,
+        "quantity_after": 72.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0218@S0137",
+        "source_ledger_agreement": true,
+        "source_quantity": 72.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 14.0,
+        "quantity_after": 14.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0218@S0482",
+        "source_ledger_agreement": true,
+        "source_quantity": 14.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 171.0,
+        "quantity_after": 171.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0247@S0020",
+        "source_ledger_agreement": true,
+        "source_quantity": 171.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 102.0,
+        "quantity_after": 102.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0295@S0202",
+        "source_ledger_agreement": true,
+        "source_quantity": 102.0
+      },
+      {
+        "changed": false,
+        "ledger_expected": 0.0,
+        "quantity_after": 0.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0363@S0021",
+        "source_ledger_agreement": true,
+        "source_quantity": 0.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 74.0,
+        "quantity_after": 74.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0379@S0877",
+        "source_ledger_agreement": true,
+        "source_quantity": 74.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 256.0,
+        "quantity_after": 256.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0402@S0861",
+        "source_ledger_agreement": true,
+        "source_quantity": 256.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 444.0,
+        "quantity_after": 444.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0422@S0173",
+        "source_ledger_agreement": true,
+        "source_quantity": 444.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 48.0,
+        "quantity_after": 48.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0473@S0231",
+        "source_ledger_agreement": true,
+        "source_quantity": 48.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 101.0,
+        "quantity_after": 101.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0560@S0805",
+        "source_ledger_agreement": true,
+        "source_quantity": 101.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 112.0,
+        "quantity_after": 112.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0577@S0521",
+        "source_ledger_agreement": true,
+        "source_quantity": 112.0
+      },
+      {
+        "changed": false,
+        "ledger_expected": 0.0,
+        "quantity_after": 0.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0620@S0484",
+        "source_ledger_agreement": true,
+        "source_quantity": 0.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 99.0,
+        "quantity_after": 99.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0635@S0156",
+        "source_ledger_agreement": true,
+        "source_quantity": 99.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 214.0,
+        "quantity_after": 214.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0635@S0219",
+        "source_ledger_agreement": true,
+        "source_quantity": 214.0
+      },
+      {
+        "changed": false,
+        "ledger_expected": 0.0,
+        "quantity_after": 0.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0650@S0423",
+        "source_ledger_agreement": true,
+        "source_quantity": 0.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 130.0,
+        "quantity_after": 130.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0653@S0202",
+        "source_ledger_agreement": true,
+        "source_quantity": 130.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 288.0,
+        "quantity_after": 288.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0682@S0301",
+        "source_ledger_agreement": true,
+        "source_quantity": 288.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 180.0,
+        "quantity_after": 180.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0715@S0413",
+        "source_ledger_agreement": true,
+        "source_quantity": 180.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 20.0,
+        "quantity_after": 20.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0729@S0474",
+        "source_ledger_agreement": true,
+        "source_quantity": 20.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 138.0,
+        "quantity_after": 138.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0738@S0181",
+        "source_ledger_agreement": true,
+        "source_quantity": 138.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 96.0,
+        "quantity_after": 96.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0769@S0298",
+        "source_ledger_agreement": true,
+        "source_quantity": 96.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 94.0,
+        "quantity_after": 94.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0802@S0259",
+        "source_ledger_agreement": true,
+        "source_quantity": 94.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 140.0,
+        "quantity_after": 140.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0802@S0355",
+        "source_ledger_agreement": true,
+        "source_quantity": 140.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 196.0,
+        "quantity_after": 196.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0810@S0410",
+        "source_ledger_agreement": true,
+        "source_quantity": 196.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 50.0,
+        "quantity_after": 50.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0834@S0334",
+        "source_ledger_agreement": true,
+        "source_quantity": 50.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 250.0,
+        "quantity_after": 250.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0834@S0649",
+        "source_ledger_agreement": true,
+        "source_quantity": 250.0
+      },
+      {
+        "changed": true,
+        "ledger_expected": 221.0,
+        "quantity_after": 221.0,
+        "quantity_before": 0.0,
+        "series_id": "FRN_0843@S0300",
+        "source_ledger_agreement": true,
+        "source_quantity": 221.0
+      }
+    ],
+    "run": "B10__derived_field_collapse__seed13__origin0",
+    "source_stage_dates": {
+      "inventory": 92,
+      "open_orders": 92,
+      "prices": 92,
+      "products": 92,
+      "sales": 92
+    },
+    "status": "applied",
+    "truth_access": "Observed input, recorded reconciliation output and recertification only. No clean snapshot, post-decision true problem or oracle enters this recovery assessment."
+  },
+  "selected_row": {
+    "changed": true,
+    "ledger_expected": 444.0,
+    "quantity_after": 444.0,
+    "quantity_before": 0.0,
+    "series_id": "FRN_0422@S0173",
+    "source_ledger_agreement": true,
+    "source_quantity": 444.0
+  },
+  "decision": {
+    "arm": "llm_recovery",
+    "run": "B10__derived_field_collapse__seed13__origin0",
+    "day": 92,
+    "physical_mass_balance_valid": true,
+    "batch_stock_balance_valid": true,
+    "cost_accounting_valid": true,
+    "true_constraints_recomputed": true,
+    "recomputed_hard_violations": 0,
+    "committed": false,
+    "actual_transfer_out_units": 0.0,
+    "age_expired_units": 411.0,
+    "capacity_overflow_units": 0.0,
+    "in_transit_expired_units": 0.0,
+    "source_quantity_ledger_checked_rows": 30,
+    "source_quantity_ledger_mismatch_rows": 0,
+    "proposed_spend": 1657.6,
+    "autonomy_level": "approval",
+    "autonomy_reasons": "[\"Spend exceeds autonomous cap\"]",
+    "autonomous_cap": 1500.0,
+    "action_signature": "{\"orders\": [{\"quantity\": 83, \"series_id\": \"FRN_0074@S0851\", \"supplier\": \"SYNTHETIC_MG_6\"}, {\"quantity\": 162, \"series_id\": \"FRN_0190@S0191\", \"supplier\": \"SYNTHETIC_MG_6\"}, {\"quantity\": 65, \"series_id\": \"FRN_0210@S0054\", \"supplier\": \"SYNTHETIC_MG_6\"}, {\"quantity\": 206, \"series_id\": \"FRN_0218@S0137\", \"supplier\": \"SYNTHETIC_MG_6\"}, {\"quantity\": 92, \"series_id\": \"FRN_0218@S0482\", \"supplier\": \"SYNTHETIC_MG_6\"}, {\"quantity\": 13, \"series_id\": \"FRN_0247@S0020\", \"supplier\": \"SYNTHETIC_MG_5\"}, {\"quantity\": 162, \"series_id\": \"FRN_0295@S0202\", \"supplier\": \"SYNTHETIC_MG_5\"}, {\"quantity\": 94, \"series_id\": \"FRN_0363@S0021\", \"supplier\": \"SYNTHETIC_MG_6\"}, {\"quantity\": 96, \"series_id\": \"FRN_0379@S0877\", \"supplier\": \"SYNTHETIC_MG_2\"}, {\"quantity\": 88, \"series_id\": \"FRN_0402@S0861\", \"supplier\": \"SYNTHETIC_MG_5\"}, {\"quantity\": 138, \"series_id\": \"FRN_0422@S0173\", \"supplier\": \"SYNTHETIC_MG_5\"}, {\"quantity\": 132, \"series_id\": \"FRN_0473@S0231\", \"supplier\": \"SYNTHETIC_MG_1\"}, {\"quantity\": 149, \"series_id\": \"FRN_0560@S0805\", \"supplier\": \"SYNTHETIC_MG_5\"}, {\"quantity\": 114, \"series_id\": \"FRN_0577@S0521\", \"supplier\": \"SYNTHETIC_MG_6\"}, {\"quantity\": 96, \"series_id\": \"FRN_0620@S0484\", \"supplier\": \"SYNTHETIC_MG_3\"}, {\"quantity\": 150, \"series_id\": \"FRN_0635@S0156\", \"supplier\": \"SYNTHETIC_MG_5\"}, {\"quantity\": 90, \"series_id\": \"FRN_0650@S0423\", \"supplier\": \"SYNTHETIC_MG_6\"}, {\"quantity\": 68, \"series_id\": \"FRN_0653@S0202\", \"supplier\": \"SYNTHETIC_MG_1\"}, {\"quantity\": 102, \"series_id\": \"FRN_0682@S0301\", \"supplier\": \"SYNTHETIC_MG_6\"}, {\"quantity\": 72, \"series_id\": \"FRN_0715@S0413\", \"supplier\": \"SYNTHETIC_MG_6\"}, {\"quantity\": 60, \"series_id\": \"FRN_0729@S0474\", \"supplier\": \"SYNTHETIC_MG_6\"}, {\"quantity\": 114, \"series_id\": \"FRN_0738@S0181\", \"supplier\": \"SYNTHETIC_MG_6\"}, {\"quantity\": 120, \"series_id\": \"FRN_0769@S0298\", \"supplier\": \"SYNTHETIC_MG_6\"}, {\"quantity\": 150, \"series_id\": \"FRN_0802@S0259\", \"supplier\": \"SYNTHETIC_MG_0\"}, {\"quantity\": 52, \"series_id\": \"FRN_0802@S0355\", \"supplier\": \"SYNTHETIC_MG_0\"}, {\"quantity\": 84, \"series_id\": \"FRN_0834@S0334\", \"supplier\": \"SYNTHETIC_MG_0\"}, {\"quantity\": 114, \"series_id\": \"FRN_0834@S0649\", \"supplier\": \"SYNTHETIC_MG_0\"}, {\"quantity\": 126, \"series_id\": \"FRN_0843@S0300\", \"supplier\": \"SYNTHETIC_MG_6\"}], \"transfers\": []}"
+  }
+}

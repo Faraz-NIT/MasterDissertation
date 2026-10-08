@@ -1,0 +1,10 @@
+{
+  "status": "VERIFIED",
+  "source_files": 1144299,
+  "unique_archive_members": 126398,
+  "source_bytes": 7405231373,
+  "archive_bytes": 938211671,
+  "parts": 19,
+  "maximum_part_bytes": 50331648,
+  "archive_sha256": "b106ee92d7ee32693941c2f8daab4ef2eaf2802b36903ca01a0ebf89acb0b7f2"
+}

@@ -1,0 +1,14 @@
+{
+  "status": "VERIFIED",
+  "verified_at_utc": "2026-10-08T12:04:57.217628+00:00",
+  "destination": "/tmp/freshretailnet-restored-linked",
+  "inventory_sha256": "4d4144aa6e40639eeba611e82f0a8fc592a87b2ee8016b5f909ec1192673a155",
+  "archives": {
+    "complete": "b106ee92d7ee32693941c2f8daab4ef2eaf2802b36903ca01a0ebf89acb0b7f2"
+  },
+  "files": 1144299,
+  "source_bytes": 7405231373,
+  "unique_contents": 126398,
+  "hardlinked_aliases_created": 1017901,
+  "mode": "Identical files share hardlinks; use as read-only evidence"
+}

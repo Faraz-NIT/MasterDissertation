@@ -1,0 +1,13 @@
+dataset,scenario,series,seeds,days,repair_cost_change_pct,repair_fill_change_pp,repair_holds_change_per_run,parser_llm_pairs,cost_fill_identical_pairs,mean_llm_minus_parser_cost_pct,comparison_type
+M5,normal,30,2,14,0.0,0.0,0.0,4,4,0.0,Within-dataset relative effect; cross-dataset descriptive; economic units and horizons differ
+M5,derived_field_collapse,30,2,14,-10.934963793653907,6.999999999999995,-5.0,4,4,0.0,Within-dataset relative effect; cross-dataset descriptive; economic units and horizons differ
+M5,feed_gap,30,2,14,0.0,0.0,0.0,4,4,0.0,Within-dataset relative effect; cross-dataset descriptive; economic units and horizons differ
+M5,capacity_cut,30,2,14,0.0,0.0,0.0,4,4,0.0,Within-dataset relative effect; cross-dataset descriptive; economic units and horizons differ
+FreshRetailNet (fixed gate),normal,30,2,7,0.0,0.0,0.0,4,4,0.0,Within-dataset relative effect; cross-dataset descriptive; economic units and horizons differ
+FreshRetailNet (fixed gate),derived_field_collapse,30,2,7,0.0,0.0,0.0,4,4,0.0,Within-dataset relative effect; cross-dataset descriptive; economic units and horizons differ
+FreshRetailNet (fixed gate),feed_gap,30,2,7,0.0,0.0,0.0,4,4,0.0,Within-dataset relative effect; cross-dataset descriptive; economic units and horizons differ
+FreshRetailNet (fixed gate),capacity_cut,30,2,7,0.0,0.0,0.0,4,4,0.0,Within-dataset relative effect; cross-dataset descriptive; economic units and horizons differ
+FreshRetailNet (calibrated gate),normal,30,30,7,0.0,0.0,0.0,60,60,0.0,Exploratory follow-up after primary portability failure; reused holdout; no confirmatory dataset effect
+FreshRetailNet (calibrated gate),derived_field_collapse,30,30,7,-11.707392315520782,12.251489707475628,-1.6,60,60,0.0,Exploratory follow-up after primary portability failure; reused holdout; no confirmatory dataset effect
+FreshRetailNet (calibrated gate),feed_gap,30,30,7,0.0,0.0,0.0,60,60,0.0,Exploratory follow-up after primary portability failure; reused holdout; no confirmatory dataset effect
+FreshRetailNet (calibrated gate),capacity_cut,30,30,7,0.0,0.0,0.0,60,60,0.0,Exploratory follow-up after primary portability failure; reused holdout; no confirmatory dataset effect

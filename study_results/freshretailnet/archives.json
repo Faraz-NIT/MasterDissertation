@@ -1,0 +1,121 @@
+{
+  "format": "freshretailnet-git-delivery-v1",
+  "created_at_utc": "2026-10-08T12:01:39.080712+00:00",
+  "scope": "Every FreshRetailNet results file, complete pinned public raw release, prepared30-series panel, frozen models, traces, requests/responses, audits, development failures, reporting sources and tests",
+  "license": "Dingdong-Inc/FreshRetailNet-50K CC-BY-4.0; publisher attribution/source revisions in research/",
+  "excluded": [
+    "Ollama model weights and runtime binaries",
+    "Virtual environment",
+    "Authentication files and compiled/runtime caches outside the study"
+  ],
+  "archives": {
+    "complete": {
+      "filename": "FreshRetailNet_complete_evidence.zip",
+      "bytes": 938211671,
+      "sha256": "b106ee92d7ee32693941c2f8daab4ef2eaf2802b36903ca01a0ebf89acb0b7f2",
+      "parts": [
+        {
+          "path": "archive_parts/complete.zip.part001",
+          "bytes": 50331648,
+          "sha256": "80976ca85292f82b1acd53884b24cd492a0c82d469231b9aa17094d7b272b553"
+        },
+        {
+          "path": "archive_parts/complete.zip.part002",
+          "bytes": 50331648,
+          "sha256": "275757da84e58baea3f72125a19083d2f69f24c0475a2e733b757f6e9b39cca2"
+        },
+        {
+          "path": "archive_parts/complete.zip.part003",
+          "bytes": 50331648,
+          "sha256": "c2988defd496d91f8cd28d161e63e8e8af8ba8dee28ecf2b856cd3c0abb0c726"
+        },
+        {
+          "path": "archive_parts/complete.zip.part004",
+          "bytes": 50331648,
+          "sha256": "3b5ff052028a84d464f76547377c466787579f15819a89478dc026085c1bd840"
+        },
+        {
+          "path": "archive_parts/complete.zip.part005",
+          "bytes": 50331648,
+          "sha256": "ba325aa4f60bf9acba64930a7aeddbfd748e02965c25d67beb758c1989dfe6ca"
+        },
+        {
+          "path": "archive_parts/complete.zip.part006",
+          "bytes": 50331648,
+          "sha256": "1b1604906fdf74704db411cb159069b7961a59d9f8338555805bbfa022704759"
+        },
+        {
+          "path": "archive_parts/complete.zip.part007",
+          "bytes": 50331648,
+          "sha256": "34ad1e31428cf4c244d848c6c8d3e39d362307c8ce155fa32d64029a796269d1"
+        },
+        {
+          "path": "archive_parts/complete.zip.part008",
+          "bytes": 50331648,
+          "sha256": "0b3bf64bd62d4c76270a3155e8a62ffcab144c17f2f3d320cd303f9dad707bb3"
+        },
+        {
+          "path": "archive_parts/complete.zip.part009",
+          "bytes": 50331648,
+          "sha256": "0c0c7b705d1ea0e300e910b6515355b13952586579681eab335b3459891a7499"
+        },
+        {
+          "path": "archive_parts/complete.zip.part010",
+          "bytes": 50331648,
+          "sha256": "4f580ceadd186f41679985c8fd84379b95f41d904171aee6f9577c597b831e4d"
+        },
+        {
+          "path": "archive_parts/complete.zip.part011",
+          "bytes": 50331648,
+          "sha256": "1be927c02ca3c252e682ff3ad02809de88363616a76229aacacad37b8aa92421"
+        },
+        {
+          "path": "archive_parts/complete.zip.part012",
+          "bytes": 50331648,
+          "sha256": "fab5f872171374d1e0570ff38ae65017d17f7601d82b75cb64acd3d47e38e7a2"
+        },
+        {
+          "path": "archive_parts/complete.zip.part013",
+          "bytes": 50331648,
+          "sha256": "3310052407b4faa71fb98f6455f196e34507e62d2121662699ed2728738c1ced"
+        },
+        {
+          "path": "archive_parts/complete.zip.part014",
+          "bytes": 50331648,
+          "sha256": "debecc0e2c146494fc0cf3bd64f4574767677ad3aa08992db11aeb93eeb335ec"
+        },
+        {
+          "path": "archive_parts/complete.zip.part015",
+          "bytes": 50331648,
+          "sha256": "4041ad78c64889da528d0a10ed04252d039e67c32476e6b3cc10b5d9bd415992"
+        },
+        {
+          "path": "archive_parts/complete.zip.part016",
+          "bytes": 50331648,
+          "sha256": "92ffb85e487d6f21b494f12ad85d664d1429f7891cc9cc7799af991b91949196"
+        },
+        {
+          "path": "archive_parts/complete.zip.part017",
+          "bytes": 50331648,
+          "sha256": "9132b84508ca7ed754b795173105055e11140ad1622f72052a02a17263e16813"
+        },
+        {
+          "path": "archive_parts/complete.zip.part018",
+          "bytes": 50331648,
+          "sha256": "e9e39840bf00586a1854fed0c66378870c5437f27f6a36d3b5be49f90b4938d9"
+        },
+        {
+          "path": "archive_parts/complete.zip.part019",
+          "bytes": 32242007,
+          "sha256": "34a4671d029057fb4f790ba86766fb19f2ed4e8f48a20d2a12a23414dff3287b"
+        }
+      ]
+    }
+  },
+  "inventory": {
+    "path": "file_inventory.json.gz",
+    "sha256": "4d4144aa6e40639eeba611e82f0a8fc592a87b2ee8016b5f909ec1192673a155",
+    "files": 1144299,
+    "source_bytes": 7405231373
+  }
+}

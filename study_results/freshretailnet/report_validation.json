@@ -1,0 +1,42 @@
+{
+  "status": "VERIFIED",
+  "checked_utc": "2026-10-08T11:57:26.770817+00:00",
+  "checks": {
+    "all_eight_chapters": true,
+    "literature_preserved": true,
+    "references_preserved": true,
+    "primary_all_392_individual_rows": true,
+    "all_figures_embedded_exactly": true,
+    "figure_count": true,
+    "m5_404_individual_rows": true,
+    "source_doc_unchanged": true,
+    "no_compact_drafting_tokens": true,
+    "input_hashes_unchanged": true,
+    "registered_transfer_rows_complete": true,
+    "registered_transfer_owner_audit_verified": true,
+    "registered_transfer_independent_audit_verified": true,
+    "FreshRetailNet_study_report_nonempty_pages_and_content_bounds": true,
+    "Dual_Benchmark_Dissertation_Final_nonempty_pages_and_content_bounds": true,
+    "word_source_epoch_removed": true,
+    "all_checks_passed": true
+  },
+  "rendered": {
+    "FreshRetailNet_study_report.pdf": {
+      "pages": 50,
+      "sha256": "8133d37189cbcb40b9e6452c4599a2f8e8dd0cc608de3a728a4dfa9cf39fcf74",
+      "bytes": 2577216,
+      "layout_findings": []
+    },
+    "Dual_Benchmark_Dissertation_Final.pdf": {
+      "pages": 115,
+      "sha256": "29e4edb75ab5dcb2e998108153f2f937aa6ce3b1548a5b8179f0e91593d057ad",
+      "bytes": 8453936,
+      "layout_findings": []
+    }
+  },
+  "docx_sha256": "79b77a5e7f48adf53cbafd2cfa621c2166774a40050b25e1316895ad299b2048",
+  "paragraphs": 655,
+  "tables": 63,
+  "inline_figures": 40,
+  "reference_paragraphs_preserved": 60
+}

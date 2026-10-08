@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-10-08T11:56:38.422579+00:00",
+  "scope": "Selected-page visual review, supplemented by automated checks of every page; not a manual reading of every page",
+  "final_selected_word_pages": [
+    59,
+    60,
+    75,
+    76
+  ],
+  "additional_content_reviewed": [
+    "Cover and executive summary",
+    "Experimental tables and annotated graphs",
+    "Exploratory calibration and paired effects",
+    "Chapter 8 conclusion",
+    "Landscape historical M5 individual-run tables"
+  ],
+  "changes_from_first_render": [
+    "Kept new table captions with their first table row after finding two orphan captions",
+    "Used larger FreshRetailNet graph text and a vertical service\u2013waste layout with a shared legend"
+  ],
+  "visual_findings": [],
+  "automated_validation_status": "VERIFIED",
+  "all_automated_checks_passed": true,
+  "rendered_files": {
+    "FreshRetailNet_study_report.pdf": {
+      "pages": 50,
+      "sha256": "8133d37189cbcb40b9e6452c4599a2f8e8dd0cc608de3a728a4dfa9cf39fcf74",
+      "bytes": 2577216,
+      "layout_findings": []
+    },
+    "Dual_Benchmark_Dissertation_Final.pdf": {
+      "pages": 115,
+      "sha256": "29e4edb75ab5dcb2e998108153f2f937aa6ce3b1548a5b8179f0e91593d057ad",
+      "bytes": 8453936,
+      "layout_findings": []
+    }
+  },
+  "docx_sha256": "79b77a5e7f48adf53cbafd2cfa621c2166774a40050b25e1316895ad299b2048",
+  "figures": 40,
+  "tables": 63,
+  "preserved_reference_paragraphs": 60,
+  "experimental_data_changed_during_reporting": false,
+  "note": "Root will replace the independent document-integrity receipt and run the final manifest validation after this handover."
+}

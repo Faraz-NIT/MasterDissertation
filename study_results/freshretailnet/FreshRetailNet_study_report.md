@@ -1,0 +1,1146 @@
+# FreshRetailNet bounded replenishment study
+
+Built from saved evidence on 2026-10-08T11:52:06.999132+00:00.
+
+
+## Executive findings
+
+
+The FreshRetailNet study is complete on a frozen panel of 30 store–product series. It adds 360 conventional replenishment runs, 32 matched parser and LLM runs, and 1,140 independent policy experiments to the existing M5 evidence. Each main simulation run uses all 30 series. The source contains 50,000 series, so this panel covers 0.06% of the release. It supports a bounded engineering conclusion rather than a population estimate.
+
+
+The original gate did not transfer successfully. Its inherited autonomous spending cap was 1,500 cost-index points, while a clean proposed FreshRetailNet order could require about 1,656 points. In the primary normal parser condition, 14 of 14 decision days were held. This failure is reported before any repair: an architecture can be computationally feasible and still be commercially inactive if its threshold is carried into a new quantity scale without checking.
+
+
+The central attribution check found identical cost and fill in 16 of 16 matched parser–LLM scenario and seed pairs. The language model was able to participate in a verified replenishment workflow. The tested supplier grammar did not, however, demonstrate an additional economic benefit from choosing an LLM over a capable parser.
+
+
+Under an injected inventory-field failure, verified record repair changed mean LLM-arm cost from 23,331.29 to 23,331.29 (+0.00%) and fill from 45.2% to 45.2% (+0.00 percentage points). The parser received the same repair tools. Any shared improvement belongs to the recovery architecture, rather than to the language model alone.
+
+
+Fresh retail adds a second problem: a trustworthy stockout record can still leave demand partly unobserved. This study evaluates recovery on artificially hidden sales, forecasts a protected seven-day holdout, and examines perishability inside disclosed simulators. It does not measure true lost demand during natural stockouts, real retailer profit, actual waste savings, or changes in human trust.
+
+
+The calibrated controller still fills 79.19% of normal simulated demand, compared with 85.03% for conventional B3 over the same 30 seeds. Its lower indexed cost comes with lower service and remaining holds. Calibration improves an unusable gate; it does not demonstrate a dominant LLM policy.
+
+
+In that exploratory follow-up, the original normal-operation seed pair changed from 45.2% to 80.2% fill, with held days 14 to 3. This is a verified cap-transfer effect, not an incremental LLM advantage: parser–LLM cost and fill are equal in 240/240 follow-up pairs.
+
+
+A separately registered follow-up used a training-only spending-cap formula and 30 simulation seeds per cell, producing 480 additional runs. It is exploratory because the fixed-gate failure motivated it after primary observations, and it reuses the holdout. Its complete outputs appear separately; none replaces the primary failure.
+
+
+## 1. Study scope, timing and evidence boundaries
+
+
+The protocol was registered after the request at 2026-10-08T09:19:34+00:00. The experiment cutoff was 2026-10-08T13:25:00+00:00, leaving reporting and publication time before 2026-10-08T14:19:34+00:00. The experiment was frozen at 2026-10-08T09:43:01.674587+00:00. Panel and model selection used training data only. This report consumes the saved outputs and does not restart an experiment.
+
+
+The evidence has four distinct meanings. Observed fields are released sales, identifiers and hourly stockout annotations. Derived fields include historical censoring summaries and source validation. Inferred fields are recovered demand estimates and forecasts. Simulated fields include stock balances, purchasing, suppliers, lead times, expiry and alternative-policy outcomes. A correctly recorded stockout is therefore different from a deliberately corrupted inventory record.
+
+
+For compatibility with inherited integer-order tools, the core simulator represents quantities as 100 times the published globally normalized sales amount. These are scaled model quantities, not kilograms, cartons or original physical units. Its legacy schemas contain USD tags, but all FreshRetailNet results are reported as a simulated cost index. The independent age-aware experiment uses continuous normalized quantities and its own dimensionless economics.
+
+
+Completed scope
+
+| Experiment | Series | Seeds | Days | Runs / decisions |
+| --- | --- | --- | --- | --- |
+| Core numerical policies | 30 | 30 | 7 | 360 / 2520 |
+| Matched parser/LLM factorial | 30 | 2 | 7 | 32 / 224 |
+| Age-aware sensitivity grid | 30 | 30 | 7 | 1,080 runs |
+| Stockout-gate mechanism ablation | 30 | 30 | 7 | 60 runs |
+| Forecast final holdout | 30 | Not simulation seeds | 7 | 210 targets × 4 methods |
+
+
+## 2. Source validation and computational panel
+
+
+The pinned dataset revision is 08c1fab7f9257bc73679d415d65d644165d351d4. Source checks covered 4,500,000 training rows, 50,000 store–product series, 865 products, 898 stores and 18 cities. The downloaded files contain 865 distinct product IDs, resolving the card and paper counting discrepancy for this revision. Daily sales agree with the sum of hourly sales within 7.11e-15. Duplicate keys, hierarchy conflicts, invalid stockout encodings and inconsistent stockout counts were absent.
+
+
+The publisher’s implementation and the released arrays confirm that 1 means out of stock. Its 16 operating-hour slots run from 06:00 through 21:00. The training hourly stockout share is 19.877%, while 44.267% of daily rows contain at least one stockout hour. These are different denominators. There are 16,073 training rows with discount values outside [0,1]; the sales records were retained and discount was excluded from forecasting features.
+
+
+Panel selection used only the first 62 training days. Eligible series needed 62 complete daily rows and mean normalized daily sales between 0.02 and 1.0. Of 37,097 eligible series, three equal-rank historical censoring strata were formed. Ten series were then chosen by deterministic SHA-256 ranking from each stratum. This balances historical censoring exposure for a computational experiment; it does not produce a representative sample of stores or products.
+
+
+After the forecast selection receipt was frozen, evaluation integrity checks examined all 350,000 released rows. They retain all 50,000 series for seven days, with no duplicate keys or stock-flag alignment failures. Thus the complete source check covers 4,850,000 rows. Holdout profiling does not change the training-selected modeling panel.
+
+
+Selected panel by first 62-day censoring stratum
+
+| Stratum | Series | Mean hourly stockout share | Mean normalized sales |
+| --- | --- | --- | --- |
+| 0 | 10 | 12.43% | 0.6318 |
+| 1 | 10 | 18.31% | 0.6352 |
+| 2 | 10 | 33.61% | 0.4843 |
+
+
+![Historical availability is observable; lost demand is not](figures/01_source_availability.png)
+
+Training population rates use 72 million operating-hour flags and 4.5 million daily rows. The selected-panel rate uses its first 62 training days. Daily and hourly percentages have different denominators. None measures the quantity of naturally lost demand.
+
+
+## 3. F1: demand recovery where a target is identifiable
+
+
+Availability flags tell us when demand could have been hidden, but the public data do not tell us how much was lost. The identifiable test therefore hides contiguous blocks of 2, 4 or 8 operating hours on originally fully stocked validation days. The hidden values provide a measurable target. The original daily total is also withheld from reconstruction, so it cannot reveal the sum of the hidden observations.
+
+
+The test compares no recovery, an in-stock hourly profile, and a historical LightGBM regression. Models are fitted before each validation origin. The regression won the registered hidden-hour MAE criterion: 0.04230 against 0.04302 for zero imputation, a modest 1.67% improvement. Its hidden-hour WAPE was nevertheless 98.33% and signed relative bias was −83.10%. Sparse hourly outcomes make small MAE compatible with substantial under-recovery; this is not evidence that naturally lost demand has been reconstructed accurately.
+
+
+Aggregation tells a different story. The hourly profile’s daily reconstruction WAPE was 19.62%, compared with 29.26% for no recovery, a 32.96% reduction. Its daily signed bias was +3.07%. The learned method’s daily WAPE was 25.80% and bias −24.32%. The hourly profile had worse hidden-hour WAPE, at 135.18%, but better daily reconstruction. A planner should therefore inspect the outcome needed for the decision rather than assume that one recovery leaderboard answers every question.
+
+
+There were 495 originally fully stocked validation days, each masked at three durations: 1,485 dependent mask cases. Each method produced 6,930 hidden-hour predictions. These repeated masks are not 6,930 independent businesses. Estimated additions on natural stockout hours remain in separate inferred fields; they are not observed customer demand. The methods are point estimators, so no interval calibration claim is made.
+
+
+Pooled artificial-mask operating-hour recovery
+
+| Method | N predictions | MAE | WAPE | Signed bias |
+| --- | --- | --- | --- | --- |
+| Hourly LightGBM | 6930 | 0.04230 | 98.33% | -83.10% |
+| Hourly profile | 6930 | 0.05815 | 135.18% | 10.50% |
+| No recovery | 6930 | 0.04302 | 100.00% | -100.00% |
+
+
+Pooled daily reconstruction from artificial masks
+
+| Method | Masked cases | WAPE | Signed bias |
+| --- | --- | --- | --- |
+| Hourly LightGBM | 1485 | 25.80% | -24.32% |
+| Hourly profile | 1485 | 19.62% | 3.07% |
+| No recovery | 1485 | 29.26% | -29.26% |
+
+
+![Recovery accuracy where a target can actually be checked](figures/02_artificial_mask_recovery.png)
+
+Originally observed sales are hidden in 2-, 4- or 8-hour validation blocks. Models fit only earlier data. The target is deliberately withheld sales, rather than unobserved natural stockout demand. Mask cases overlap and are not independent retailers.
+
+
+## 4. F2: forecasting censored and fully stocked outcomes
+
+
+Four expanding validation origins at training day indices 62, 69, 76 and 83 each forecast seven days. Recovery models, profiles and forecasting models are refitted from each allowable prefix. The final models use all 90 training days, after which the official seven-day evaluation split is opened once. Forecasts use historical sales lags, calendar date, day of week and series identity. Future actual sales, availability, weather and promotions are excluded.
+
+
+Validation selected raw-history LightGBM on fully stocked daily WAPE, at 40.52%. On the untouched final holdout, its corresponding WAPE was 38.84%, against 42.84% for seasonal naive: a 9.33% relative reduction. Learned-recovery LightGBM scored 38.95%, and profile-recovery LightGBM scored 40.07%. These results provide no substantial forecasting advantage from the selected recovery step on the fully stocked holdout.
+
+
+The fully stocked holdout contains 114 of 210 daily observations. Against all recorded sales, WAPE was 40.41% for raw LightGBM, 40.26% for learned-recovery LightGBM, 40.61% for profile recovery and 45.63% for seasonal naive. The small ordering change across scoring subsets matters: all recorded sales can be censored, while fully stocked outcomes are observable but conditionally selected. Neither target reveals natural lost demand.
+
+
+All 20 leakage checks left forecasts bitwise unchanged after future sales, hourly sales, availability and contextual fields were altered. Final selection was saved before the evaluation read. This verifies the implemented feature boundary; it does not by itself validate the demand and commercial assumptions used later in simulation. No LLM is involved in these recovery or forecast comparisons.
+
+
+Final seven-day forecast scores
+
+| Method | Target | N | WAPE | Bias |
+| --- | --- | --- | --- | --- |
+| LightGBM, learned recovery | All sales | 210 | 40.26% | -1.16% |
+| LightGBM, learned recovery | Fully stocked | 114 | 38.95% | 7.11% |
+| LightGBM, profile | All sales | 210 | 40.61% | 6.96% |
+| LightGBM, profile | Fully stocked | 114 | 40.07% | 11.49% |
+| LightGBM, raw | All sales | 210 | 40.41% | -2.86% |
+| LightGBM, raw | Fully stocked | 114 | 38.84% | 5.93% |
+| Seasonal naive | All sales | 210 | 45.63% | 2.61% |
+| Seasonal naive | Fully stocked | 114 | 42.84% | 13.02% |
+
+
+![Forecast quality depends on which sales are observable](figures/03_forecast_accuracy.png)
+
+All four frozen forecasts cover the same 30 series and seven-day holdout. All-day sales can be censored; fully stocked days are conditionally observable. Future masks, weather, promotion and actual sales are never forecast features.
+
+
+![The holdout forecast is made before the seven-day window](figures/04_daily_forecasts.png)
+
+Panel aggregate predictions are made at the final training origin. Later forecast lags use predictions. Globally normalized sales are neither physical quantities nor a currency.
+
+
+![Historical censoring changes the forecasting problem](figures/15_forecast_censor_strata.png)
+
+Ten series per stratum, defined before evaluation using the first 62 training days. Errors are weighted by the sum of actual scored sales within each group. Evaluation availability selects the fully stocked scoring subset only; it does not change membership or forecasts. These small strata are descriptive.
+
+
+## 5. Core numerical replenishment: cost, service and safety
+
+
+The core policies are B1 seasonal base-stock, B2 LightGBM (s,S), B3 native GRU negative-binomial forecasting with MILP, and B4 the same system with an evidence gate. Each policy and scenario uses 30 simulation seeds, one decision origin, seven days and all 30 series. The opportunity random streams are shared across competing policies rather than being keyed to their names.
+
+
+The FreshRetailNet physical environment ages stock and serves it by FIFO under a hypothetical three-day shelf life. The inherited MILP is age-unaware: its objective does not optimize age buckets. These are useful controls, but they cannot be described as a full comparison of perishable MILP policies. The independent calculator experiment later examines expiry-aware decisions explicitly.
+
+
+The cost index combines assumed purchasing, ordering and transfers, holding, shortage penalties and expiry. Opening stock comes from the disclosed warm-up convention and is not charged again. There is no terminal salvage credit. A seven-day result is sensitive to these conventions. Fill, stockouts and expiry are outcomes in an assumed counterfactual world, rather than observed results of a purchase change at Dingdong.
+
+
+There were 1,269 active-rule violations in committed requested plans from the naive B1/B2 policies. The conventional B3 MILP already had 0 violations, as did the gated agent configurations. This safety difference cannot be credited uniquely to either the LLM or the gate. The physical environment clamps supplier fulfillment; a requested-plan violation is not evidence of negative physical stock.
+
+
+The violation total counts failed constraint checks across 1,173 committed decision days, rather than that many distinct purchase decisions. A plan can violate more than one rule. The audited family breakdown below shows which checks failed.
+
+
+The inherited harmful_execution field combines two tests: violating an actual active constraint, or departing sufficiently from a clean-evidence reference plan. The default quantity-distance thresholds are 12 model units and 50% relative difference. A reference-only flag does not establish a realized harmful order, but it remains a diagnostic rather than being discarded. B3 has 380 such flagged action-days out of 630, while its actual constraint violations are zero.
+
+
+The original gate did not transfer successfully. Its inherited autonomous spending cap was 1,500 cost-index points, while a clean proposed FreshRetailNet order could require about 1,656 points. In the primary normal parser condition, 14 of 14 decision days were held. This failure is reported before any repair: an architecture can be computationally feasible and still be commercially inactive if its threshold is carried into a new quantity scale without checking.
+
+
+Core numerical means; counts summed across 30 seeds
+
+| Scenario | Policy | Cost index | Fill | Stockout | Violations | Held days |
+| --- | --- | --- | --- | --- | --- | --- |
+| Normal | B1 | 18,290.32 | 77.6% | 28.8% | 210 | 0 |
+| Inventory-field fault | B1 | 18,610.24 | 78.5% | 27.1% | 266 | 0 |
+| Stale feed | B1 | 19,447.74 | 75.7% | 30.0% | 209 | 0 |
+| Normal | B2 | 19,685.44 | 69.7% | 35.6% | 190 | 0 |
+| Inventory-field fault | B2 | 19,172.46 | 72.9% | 32.1% | 204 | 0 |
+| Stale feed | B2 | 22,377.34 | 65.3% | 39.3% | 190 | 0 |
+| Normal | B3 | 18,794.03 | 85.0% | 20.1% | 0 | 0 |
+| Inventory-field fault | B3 | 19,026.79 | 85.0% | 20.0% | 0 | 0 |
+| Stale feed | B3 | 19,607.02 | 83.3% | 21.7% | 0 | 0 |
+| Normal | B4 | 24,013.14 | 43.5% | 57.7% | 0 | 210 |
+| Inventory-field fault | B4 | 24,013.14 | 43.5% | 57.7% | 0 | 210 |
+| Stale feed | B4 | 24,013.14 | 43.5% | 57.7% | 0 | 210 |
+
+
+Actual violations and clean-reference flags are different endpoints
+
+| Policy | Rule checks violated | Reference-only flagged days | Nonzero action days | Held days |
+| --- | --- | --- | --- | --- |
+| B1 | 685 | 7 | 630 | 0 |
+| B2 | 584 | 80 | 630 | 0 |
+| B3 | 0 | 380 | 630 | 0 |
+| B4 | 0 | 0 | 0 | 630 |
+
+
+Failed active constraint checks in naive requested plans
+
+| Policy | Supplier capacity | Maximum order | Budget | Total checks |
+| --- | --- | --- | --- | --- |
+| B1 | 623 | 14 | 48 | 685 |
+| B2 | 550 | 0 | 34 | 584 |
+
+
+![Conventional policies establish a demanding baseline](figures/05_numerical_cost_service.png)
+
+Thirty seeds per policy and scenario. Error bars show one standard deviation across conditional simulation seeds. B1: seasonal base-stock; B2: LightGBM (s,S); B3: native GRU-NB with MILP; B4: B3 with an evidence gate. Physical stock expires by FIFO, while the inherited MILP remains age-unaware.
+
+
+![A safe hold has a service cost that should be measured](figures/06_numerical_safety.png)
+
+Counts are summed across 30 runs per cell. Hard violations use actual active constraints and differ from clean-reference deviations. Holds count decision days. A low violation count should be assessed alongside service.
+
+
+## 6. Live LLM factorial: contribution and safeguards
+
+
+The live factorial crosses a capable deterministic parser with local Qwen2.5-1.5B, and verified inventory-record repair off with repair on. It contains 32 runs and 224 decision days across four scenarios and seeds 13 and 29. The model uses Q4_K_M quantization, temperature 0, an 8,192-token context, model seed 42 and three CPU threads. The parser and LLM receive the same source evidence, supplier grammar, forecasts, optimizer and independent checking tools.
+
+
+The original gate did not transfer successfully. Its inherited autonomous spending cap was 1,500 cost-index points, while a clean proposed FreshRetailNet order could require about 1,656 points. In the primary normal parser condition, 14 of 14 decision days were held. This failure is reported before any repair: an architecture can be computationally feasible and still be commercially inactive if its threshold is carried into a new quantity scale without checking.
+
+
+Cost and fill were exactly equal in 16/16 matched parser–LLM comparisons. This shows that the model can fit into a bounded replenishment process on the tested grammar. It does not establish an additional economic return from the language layer. Checked source interpretation, bounded execution and refusal to bypass a failed certificate should be evaluated separately from profit or service superiority.
+
+
+For the inventory-field fault, enabling repair changed the LLM-arm mean cost by +0.00% and fill by +0.00 percentage points. The capable parser has access to the same verified repair. This is record reconciliation: it checks a derived stock field against fresh source and movement evidence. Statistical demand recovery, measured earlier, estimates sales that were not observed; the two operations should not share a single “AI recovery” benefit label.
+
+
+A semantic mistake can be blocked by an independent verifier before it becomes an unsafe committed order. Accordingly, the audit reports wrong selector choices, attempts, cache imports, holds and actual committed-plan violations separately. Zero committed violations must not be translated into a claim of zero model errors. Reused cached responses are not fresh independent trials.
+
+
+In the primary live study, 24 physical extraction calls returned 38 exact numerical terms out of 38. That is the bounded numerical head, not the whole supplier corpus. Twelve fresh recovery selections were instruction-compliant in six cases; six wrong selections were refused by independent checks. Across 224 agent decisions, 188 attempted source grounding and all 188 source sets were exact. Each set has 163 clauses, yielding 30,644 checked active clauses; 36 state-gated decisions did not attempt grounding. Exact conditional source coverage must not be relabelled unconditional model accuracy.
+
+
+The primary agent configurations made 40 nonzero action-days and held 184 decision-days in total. The nonzero actions occur under capacity cuts, whose smaller orders can pass the inherited spending cap. Normal, field-fault and stale-feed scenarios are fully held. These successful bounded actions demonstrate feasibility in a narrow condition, while the normal-operation failure motivates the explicitly separate transfer follow-up.
+
+
+All 40 primary nonzero agent action-days carry a reference-distance flag, with zero actual constraint violations. The legacy composite therefore labels them harmful_execution even though the flag arises from plan distance alone. The report retains those counts and makes no claim of zero modeled risk or zero disagreement with the reference. Feasibility, clean-reference agreement and achieved service are distinct endpoints.
+
+
+A concrete simulator case shows both the value and the limit of this design. On decision day 92, the damaged derived inventory for FRN_0422@S0173 was 0, while fresh source and movement balance both showed 444. The model selected the permitted reconciliation tool. Independent checks restored 444 scaled model units, changed 27 permitted quantities and removed the integrity hard failure. The resulting order was still held: proposed spending of 1,657.60 exceeded the 1,500 autonomous cap. Correct exception handling can repair evidence without making the operating policy usable.
+
+
+Agent factorial means; two seeds per row
+
+| Arm | Scenario | Cost index | Fill | Held days | Violations | Freshcalls |
+| --- | --- | --- | --- | --- | --- | --- |
+| Parser | Normal | 23,331.29 | 45.2% | 14 | 0 | 0 |
+| Parser | Inventory-field fault | 23,331.29 | 45.2% | 14 | 0 | 0 |
+| Parser | Stale feed | 23,331.29 | 45.2% | 14 | 0 | 0 |
+| Parser | Capacity cut | 21,572.97 | 57.4% | 4 | 0 | 0 |
+| Parser + repair | Normal | 23,331.29 | 45.2% | 14 | 0 | 0 |
+| Parser + repair | Inventory-field fault | 23,331.29 | 45.2% | 14 | 0 | 0 |
+| Parser + repair | Stale feed | 23,331.29 | 45.2% | 14 | 0 | 0 |
+| Parser + repair | Capacity cut | 21,572.97 | 57.4% | 4 | 0 | 0 |
+| LLM | Normal | 23,331.29 | 45.2% | 14 | 0 | 7 |
+| LLM | Inventory-field fault | 23,331.29 | 45.2% | 14 | 0 | 0 |
+| LLM | Stale feed | 23,331.29 | 45.2% | 14 | 0 | 0 |
+| LLM | Capacity cut | 21,572.97 | 57.4% | 4 | 0 | 5 |
+| LLM + repair | Normal | 23,331.29 | 45.2% | 14 | 0 | 7 |
+| LLM + repair | Inventory-field fault | 23,331.29 | 45.2% | 14 | 0 | 6 |
+| LLM + repair | Stale feed | 23,331.29 | 45.2% | 14 | 0 | 6 |
+| LLM + repair | Capacity cut | 21,572.97 | 57.4% | 4 | 0 | 5 |
+
+
+Primary execution and reference-distance flags
+
+| Arm | True rule checks violated | Reference-only flagged days | Nonzero action days | Held days |
+| --- | --- | --- | --- | --- |
+| LLM | 0 | 10 | 10 | 46 |
+| LLM + repair | 0 | 10 | 10 | 46 |
+| Parser | 0 | 10 | 10 | 46 |
+| Parser + repair | 0 | 10 | 10 | 46 |
+
+
+![The LLM shares the same forecasts, tools and safeguards](figures/07_agent_factorial.png)
+
+Four matched controller/repair configurations, four scenarios and two seeds, each using seven days. Repair is verified inventory-record reconciliation. It is not statistical recovery of censored customer demand. All configurations share the numerical tools and source evidence.
+
+
+![Inference is an additional operating burden](figures/11_local_model_calls.png)
+
+Primary registered study physical attempts from the independent audit. The exploratory follow-up has separate counts. Cache imports and typed extraction outputs are not additional calls. Local API charges are zero; CPU hosting and oversight costs are unpriced.
+
+
+## 6a. Exploratory spending-cap portability follow-up
+
+
+The original gate did not transfer successfully. Its inherited autonomous spending cap was 1,500 cost-index points, while a clean proposed FreshRetailNet order could require about 1,656 points. In the primary normal parser condition, 14 of 14 decision days were held. This failure is reported before any repair: an architecture can be computationally feasible and still be commercially inactive if its threshold is carried into a new quantity scale without checking.
+
+
+The failure led to a separately registered follow-up. Its hypothesis was chosen after the primary study had started; the official holdout had already been used. The study therefore labels all subsequent transfer results exploratory. The original fixed-gate outputs are unchanged and remain in the report and archive.
+
+
+Cap calibration uses seven earlier historical dates, training a separate GRU through day 75 and simulating June 12–18 (indices 76–82). The rule was fixed before those proposals were generated: min(0.8 × budget, ceil(1.10 × the seven-proposal 95th percentile / 50) × 50). The historical 95th percentile was 1,659.635; the selected cap was 1,850, below the 2,400 maximum. The independent two-person threshold remains 2,500. All seven proposals were included, including 2 days held by the unchanged extra-spend risk rule. Proposal values, dates, model identity and selection timestamps are saved.
+
+
+The transfer experiment contains 480 runs and 3,360 decision days: four configurations, four scenarios and 30 seeds. It uses the primary saved GRU tensors and the same simulator, supplier sources, LLM, prompts, constraints and checking tools. Only the spending cap and its version change semantically; output locations, cache and spend ledger are separately named for delivery and audit.
+
+
+Cost and fill were identical in 240/240 parser–LLM pairs. Under the inventory-field fault, verified repair changed mean LLM cost by -11.71% and fill by +12.25 percentage points. These results distinguish fixing an unusable operating threshold from the value of the language model. They are not an untouched confirmation, and any shared repair benefit remains attributable to the architecture.
+
+
+For a business, this is an implementation lesson as much as a modeling result. A limit calibrated for unit sales in one retailer can produce systematic holds after quantity normalization changes. Conservative caps remain valuable, but the business must verify that legitimate orders can pass them. That review should use historical proposals and explicit risk budgets, rather than repeatedly adjusting limits until a favourable holdout result appears.
+
+
+The paired seed results show the benefit and its limits. Under the inventory-field fault, indexed cost falls in 26/30 seeds and rises in 4; fill improves in 30/30. Verified repair restores the normal-case economic and service results for every seed. The stale-feed condition is unchanged because fresh source evidence is unavailable. These are conditional simulator effects; the same recovery benefit occurs with the capable parser.
+
+
+Calibration restores useful execution, but the remaining gate still carries an opportunity cost. Over the same 30 seeds, normal-operation fill is 79.19% for the calibrated controller and 85.03% for conventional B3, a -5.83-point change. Mean indexed cost is 18,100.60 against 18,794.03 (-3.69%), with 57 held days against 0. Both use the same saved forecaster, simulator and numerical tools and both have zero actual constraint violations. Lower indexed spending accompanies lower service; these values do not establish overall LLM superiority. The parser gives the same calibrated result, and this comparison remains exploratory.
+
+
+Reference-only deviations are retained separately from actual active-rule violations in this follow-up as well. The legacy harmful_execution composite includes either endpoint. Its label alone cannot identify realized injury, waste or economic harm; outcomes and the underlying reason for each flag must be inspected.
+
+
+The independent follow-up audit verifies 480 runs and 3,360 physical decision records. It captures 204 fresh attempts and 308,841 tokens, with 0 client/schema errors. There are 0 actual committed requested-plan violations. Selector compliance remains a separate table entry, so a blocked semantic error is not counted as a successful choice.
+
+
+The bounded numerical head returns 38/38 exact submitted terms in 24 fresh extraction responses. Separately, 90/180 fresh recovery selections follow the instruction. The 90 stale-feed mis-selections are refused by independent checks. A zero client/schema-error count therefore coexists with substantive reasoning errors; safe final execution depends on the wider control process.
+
+
+Grounding was attempted on 2,820 of 3,360 follow-up decision days; 2,820 of those attempted source sets were exact. Each available set has 163 clauses, yielding 459,660 exact active-rule records. The other 540 days were state-gated before grounding and remain in the denominator of all decision days. These records combine a bounded model extraction head with deterministic parsing and verification; full-set agreement is not the model’s accuracy on every clause.
+
+
+On the original matched seeds 13 and 29 in normal operation, cap transfer changed mean LLM cost from 23,331.29 to 18,454.95 (-20.90%) and fill from 45.2% to 80.2% (+35.05 points). Held decision days changed from 14 to 3. These paired values isolate the cap change more clearly than comparing the primary two-seed mean with all 30 follow-up seeds, but the question remains exploratory.
+
+
+Exploratory transfer means; primary results remain separate
+
+| Arm | Scenario | Runs | Cost index | Fill | Held days | Violations |
+| --- | --- | --- | --- | --- | --- | --- |
+| LLM | Capacity cut | 30 | 16,942.51 | 75.9% | 15 | 0 |
+| LLM | Inventory-field fault | 30 | 20,500.69 | 66.9% | 105 | 0 |
+| LLM | Stale feed | 30 | 20,500.69 | 66.9% | 105 | 0 |
+| LLM | Normal | 30 | 18,100.60 | 79.2% | 57 | 0 |
+| LLM + repair | Capacity cut | 30 | 16,942.51 | 75.9% | 15 | 0 |
+| LLM + repair | Inventory-field fault | 30 | 18,100.60 | 79.2% | 57 | 0 |
+| LLM + repair | Stale feed | 30 | 20,500.69 | 66.9% | 105 | 0 |
+| LLM + repair | Normal | 30 | 18,100.60 | 79.2% | 57 | 0 |
+| Parser | Capacity cut | 30 | 16,942.51 | 75.9% | 15 | 0 |
+| Parser | Inventory-field fault | 30 | 20,500.69 | 66.9% | 105 | 0 |
+| Parser | Stale feed | 30 | 20,500.69 | 66.9% | 105 | 0 |
+| Parser | Normal | 30 | 18,100.60 | 79.2% | 57 | 0 |
+| Parser + repair | Capacity cut | 30 | 16,942.51 | 75.9% | 15 | 0 |
+| Parser + repair | Inventory-field fault | 30 | 18,100.60 | 79.2% | 57 | 0 |
+| Parser + repair | Stale feed | 30 | 20,500.69 | 66.9% | 105 | 0 |
+| Parser + repair | Normal | 30 | 18,100.60 | 79.2% | 57 | 0 |
+
+
+Training-only proposed spending; all seven days retained
+
+| Historical decision | Spending index |
+| --- | --- |
+| 76 | 1,658.700 |
+| 77 | 1,657.600 |
+| 78 | 1,659.800 |
+| 79 | 1,657.050 |
+| 80 | 1,649.900 |
+| 81 | 1,506.350 |
+| 82 | 1,659.250 |
+
+
+Remaining clean-operation gate trade-off; 30 paired seeds, exploratory
+
+| Controller | Runs | Cost index | Fill | Held days | True violations |
+| --- | --- | --- | --- | --- | --- |
+| Conventional B3 MILP | 30 | 18,794.03 | 85.03% | 0 | 0 |
+| Calibrated LLM with the shared gate | 30 | 18,100.60 | 79.19% | 57 | 0 |
+
+
+Exploratory actual violations versus clean-reference distance
+
+| Arm | True rule checks violated | Reference-only flagged days | Nonzero action days | Held days |
+| --- | --- | --- | --- | --- |
+| LLM | 0 | 265 | 558 | 282 |
+| LLM + repair | 0 | 311 | 606 | 234 |
+| Parser | 0 | 265 | 558 | 282 |
+| Parser + repair | 0 | 311 | 606 | 234 |
+
+
+Independent audit of the exploratory transfer
+
+| Measure | Recorded count |
+| --- | --- |
+| Completed runs | 480 |
+| Decision days | 3360 |
+| Fresh model attempts | 204 |
+| Recorded model tokens | 308841 |
+| Client or schema errors | 0 |
+| Violated active-rule checks in requested plans | 0 |
+| Held decision days | 1032 |
+| Instruction-compliant recovery selections | 90 |
+| Incorrect recovery selections | 90 |
+| Matched parser–LLM pairs | 240 |
+| Pairs with identical primary outcomes | 240 |
+| Pairs with identical daily actions | 240 |
+| Verified physical stock balances | 3360 |
+| Forbidden model-context findings | 0 |
+
+
+Exploratory source grounding; conditional coverage is explicit
+
+| Configuration | Grounding attempted | Exact full source sets | State-gated days | False clauses | Omitted clauses |
+| --- | --- | --- | --- | --- | --- |
+| Parser | 660 | 660 | 180 | 0 | 0 |
+| Parser + repair | 750 | 750 | 90 | 0 | 0 |
+| LLM | 660 | 660 | 180 | 0 | 0 |
+| LLM + repair | 750 | 750 | 90 | 0 | 0 |
+
+
+Gate transfer on the same two original seeds; exploratory holdout reuse
+
+| Arm | Scenario | Cost change | Fill change (pp) | Held days before/after |
+| --- | --- | --- | --- | --- |
+| LLM | Capacity cut | -21.24% | +18.64 | 4/1 |
+| LLM | Inventory-field fault | -14.97% | +23.62 | 14/7 |
+| LLM | Stale feed | -14.97% | +23.62 | 14/7 |
+| LLM | Normal | -20.90% | +35.05 | 14/3 |
+| LLM + repair | Capacity cut | -21.24% | +18.64 | 4/1 |
+| LLM + repair | Inventory-field fault | -20.90% | +35.05 | 14/3 |
+| LLM + repair | Stale feed | -14.97% | +23.62 | 14/7 |
+| LLM + repair | Normal | -20.90% | +35.05 | 14/3 |
+| Parser | Capacity cut | -21.24% | +18.64 | 4/1 |
+| Parser | Inventory-field fault | -14.97% | +23.62 | 14/7 |
+| Parser | Stale feed | -14.97% | +23.62 | 14/7 |
+| Parser | Normal | -20.90% | +35.05 | 14/3 |
+| Parser + repair | Capacity cut | -21.24% | +18.64 | 4/1 |
+| Parser + repair | Inventory-field fault | -20.90% | +35.05 | 14/3 |
+| Parser + repair | Stale feed | -14.97% | +23.62 | 14/7 |
+| Parser + repair | Normal | -20.90% | +35.05 | 14/3 |
+
+
+![A spending threshold needs calibration to its new scale](figures/12_gate_portability.png)
+
+The right panel compares the same original seeds, 13 and 29, with 14 normal parser decision days under each cap. Full 30-seed means appear in the following figure. The fixed-gate failure motivated this exploratory follow-up after primary evaluation began. Seven historical calibration proposals use training-only dates and a separately fitted model. The cap formula was registered before calibration. Reusing the official evaluation window means the follow-up is not confirmatory.
+
+
+![Exploratory calibrated transfer: useful execution and fair attribution](figures/13_calibrated_agent_factorial.png)
+
+30 paired simulator seeds per configuration and scenario, all 30 series and seven days. The original saved forecast, prompts, model and numerical tools are retained. Only the spending threshold and its version change semantically. This follow-up was chosen after inspecting primary portability and reuses the holdout.
+
+
+![Record-repair benefit should survive individual paired seeds](figures/14_calibrated_paired_effects.png)
+
+Each point is a matched simulator seed in the exploratory follow-up, with a short line for its mean. Seeds vary a shared assumed environment, not independent retailers or historical forecast origins. The graph makes adverse and null effects visible without a confirmatory population claim.
+
+
+## 7. Independent age-aware policy and stockout-gate sensitivity
+
+
+The independent sensitivity grid crosses raw and validation-selected recovered forecast histories, order-up-to and age-aware calculators, shelf lives of 1, 3 and 7 days, demand multipliers of 1, 1.25 and 1.5, and 30 seeds. This gives 1,080 runs. Another 60 runs compare a censoring-aware gate with an intentionally defective rule that holds each series after a valid prior stockout. At the origin, that flag comes from the final training day; later it comes from the policy’s own preceding simulated shortage. The rule therefore tests a feedback mechanism, using no future released mask. It is not the primary strong-parser comparator.
+
+
+Within each cell, both policies receive the same observed-sales demand proxy multiplied by the same registered scenario factor. A recovered estimate from one competing arm is never treated as ground truth. Orders change counterfactual availability and stockouts. Published stockout flags remain evidence about the original retailer’s observations, rather than outcomes that are forced onto every new stocking policy.
+
+
+This simulator uses continuous normalized quantities, explicit FIFO expiry and inventory conservation. Opening stock is two days of raw historical mean demand, spread across age buckets and supplied as the initial condition. Expected receipts are 98% of ordered quantity; keyed lead-time probabilities are 90%, 8% and 2% for one, two and three days. Unit purchase, shortage and expiry indices are 1, 5 and 1, with holding 0.015 and fixed order cost 0.02 per line. Receipt day counts as a usable life day. Terminal inventory and paid pipeline are recorded without a salvage credit. Where target calculations extend beyond the seven reported days, the frozen forecast repeats by weekday; no later observed outcome is added.
+
+
+The calculators also differ in target timing. The simple order-up-to rule covers today and tomorrow against current stock and pipeline. The age-aware rule projects stock surviving today’s service and expiry, then covers up to two future days subject to shelf life. Their contrast is therefore not a pure isolated effect of adding age information. Their cost coefficients and quantity conventions also differ from the core MILP, so absolute costs are not pooled across experiments.
+
+
+At the default three-day shelf life and 1.25 demand multiplier, age-aware raw forecasts cost 303.3008 with 92.0804% fill and 7.5433% expired quantity per demand. Learned-recovery forecasts cost 300.5691 with 92.6071% fill and 8.0615% expiry per demand: cost fell about 0.90% and fill rose 0.53 points, while expiry rose 0.52 points. Some other cells increased cost. Recovery is therefore a trade-off, rather than an unconditional improvement.
+
+
+The same default censoring-aware gate cost 300.5691 with 92.6071% fill and no held series-days. The deliberately naive stockout-hold gate cost 365.9235 with 82.4591% fill and a mean of 56.9333 held series-days. This benefit belongs to interpreting valid availability evidence correctly. It uses no live language inference and cannot be reported as an LLM gain.
+
+
+Independent sensitivity means; full grid in CSV
+
+| Calculator | History | Life | Demand× | Cost index | Fill | Expiry share |
+| --- | --- | --- | --- | --- | --- | --- |
+| age_aware | raw | 1 | 1.0 | 444.2409 | 87.0% | 45.1% |
+| age_aware | raw | 1 | 1.25 | 490.2626 | 82.1% | 35.3% |
+| age_aware | raw | 1 | 1.5 | 571.9640 | 76.2% | 28.0% |
+| age_aware | raw | 3 | 1.0 | 250.8000 | 96.5% | 12.0% |
+| age_aware | raw | 3 | 1.25 | 303.3008 | 92.1% | 6.6% |
+| age_aware | raw | 3 | 1.5 | 387.9095 | 86.5% | 4.0% |
+| age_aware | raw | 7 | 1.0 | 208.4383 | 96.4% | 0.7% |
+| age_aware | raw | 7 | 1.25 | 278.1695 | 92.1% | 0.6% |
+| age_aware | raw | 7 | 1.5 | 372.4381 | 86.5% | 0.5% |
+| age_aware | selected_recovery | 1 | 1.0 | 445.3558 | 87.5% | 45.5% |
+| age_aware | selected_recovery | 1 | 1.25 | 489.5699 | 82.7% | 35.6% |
+| age_aware | selected_recovery | 1 | 1.5 | 570.7272 | 76.7% | 28.3% |
+| age_aware | selected_recovery | 3 | 1.0 | 251.1878 | 96.7% | 12.4% |
+| age_aware | selected_recovery | 3 | 1.25 | 300.5691 | 92.6% | 7.0% |
+| age_aware | selected_recovery | 3 | 1.5 | 383.2645 | 87.1% | 4.3% |
+| age_aware | selected_recovery | 7 | 1.0 | 206.3261 | 96.7% | 0.7% |
+| age_aware | selected_recovery | 7 | 1.25 | 273.6730 | 92.6% | 0.5% |
+| age_aware | selected_recovery | 7 | 1.5 | 366.4855 | 87.1% | 0.5% |
+| order_up_to | raw | 1 | 1.0 | 472.5299 | 79.4% | 46.2% |
+| order_up_to | raw | 1 | 1.25 | 534.9456 | 74.6% | 36.8% |
+| order_up_to | raw | 1 | 1.5 | 625.4762 | 69.2% | 29.6% |
+| order_up_to | raw | 3 | 1.0 | 233.4785 | 91.6% | 6.9% |
+| order_up_to | raw | 3 | 1.25 | 325.7840 | 84.4% | 4.1% |
+| order_up_to | raw | 3 | 1.5 | 454.8281 | 76.1% | 3.2% |
+| order_up_to | raw | 7 | 1.0 | 216.0284 | 91.6% | 0.8% |
+| order_up_to | raw | 7 | 1.25 | 314.9469 | 84.5% | 0.6% |
+| order_up_to | raw | 7 | 1.5 | 445.4677 | 76.3% | 0.6% |
+| order_up_to | selected_recovery | 1 | 1.0 | 472.4809 | 80.0% | 46.4% |
+| order_up_to | selected_recovery | 1 | 1.25 | 534.1117 | 75.1% | 37.1% |
+| order_up_to | selected_recovery | 1 | 1.5 | 626.0210 | 69.5% | 30.1% |
+| order_up_to | selected_recovery | 3 | 1.0 | 232.0698 | 92.1% | 7.5% |
+| order_up_to | selected_recovery | 3 | 1.25 | 321.5021 | 85.0% | 4.4% |
+| order_up_to | selected_recovery | 3 | 1.5 | 448.5044 | 76.8% | 3.3% |
+| order_up_to | selected_recovery | 7 | 1.0 | 213.4033 | 92.1% | 0.8% |
+| order_up_to | selected_recovery | 7 | 1.25 | 310.4848 | 85.0% | 0.6% |
+| order_up_to | selected_recovery | 7 | 1.5 | 439.5487 | 76.9% | 0.6% |
+
+
+![Fresh retail exposes a service–waste trade-off](figures/09_service_waste_frontier.png)
+
+Independent calculator experiment, with 30 shared seeds per cell and demand multiplier 1. Shelf lives are hypothetical. Quantity and economic conventions differ from the core MILP experiment, so their absolute results are not pooled.
+
+
+![Demand recovery must earn its keep under different assumptions](figures/10_sensitivity_costs.png)
+
+Relative change from raw to recovered forecast history within each common-demand cell. Thirty seeds, shelf lives 1/3/7 days and demand multipliers 1/1.25/1.5. Negative values mean lower assumed indexed cost. They are not measured profit or purchasing savings.
+
+
+## 8. M5 versus FreshRetailNet: a short descriptive comparison
+
+
+Both panels contain 30 series, but their markets, products, dates, horizons, quantity units and economics differ. M5 supplies a long daily-unit sales hierarchy. FreshRetailNet supplies 90 training days of globally normalized sales with real hourly availability annotations. M5’s matched agent runs last 14 days; the new runs last seven. Absolute cost levels cannot therefore form a meaningful commercial ranking.
+
+
+The compact comparison reports separately estimated within-dataset contrasts. In M5, parser and LLM cost and fill were identical in all 16 matched pairs. Record repair under the injected field fault reduced mean cost from 894.30 to 796.51, or 10.93%, and raised fill from 89% to 96%, or seven points. The corresponding FreshRetailNet contrasts appear below. These are descriptive engineering effects, not an estimate of what changing datasets does to a retailer’s profit.
+
+
+FreshRetailNet adds an information question that M5 cannot identify directly: a correct record can show constrained availability without showing how much demand was lost. That supports demand-visibility and perishability controls. It does not turn the language model into a better numerical forecaster. Additional semantic value would need fair, independently held-out tests of difficult supplier and exception language.
+
+
+Within-dataset inventory-repair contrasts
+
+| Dataset | Scenario | Days | Cost change | Fill change(pp) | Identical parser/LLM pairs |
+| --- | --- | --- | --- | --- | --- |
+| M5 | Normal | 14 | 0.00% | 0.00 | 4/4 |
+| M5 | Inventory-field fault | 14 | -10.93% | 7.00 | 4/4 |
+| M5 | Stale feed | 14 | 0.00% | 0.00 | 4/4 |
+| M5 | Capacity cut | 14 | 0.00% | 0.00 | 4/4 |
+| FreshRetailNet (fixed gate) | Normal | 7 | 0.00% | 0.00 | 4/4 |
+| FreshRetailNet (fixed gate) | Inventory-field fault | 7 | 0.00% | 0.00 | 4/4 |
+| FreshRetailNet (fixed gate) | Stale feed | 7 | 0.00% | 0.00 | 4/4 |
+| FreshRetailNet (fixed gate) | Capacity cut | 7 | 0.00% | 0.00 | 4/4 |
+| FreshRetailNet (calibrated gate) | Normal | 7 | 0.00% | 0.00 | 60/60 |
+| FreshRetailNet (calibrated gate) | Inventory-field fault | 7 | -11.71% | 12.25 | 60/60 |
+| FreshRetailNet (calibrated gate) | Stale feed | 7 | 0.00% | 0.00 | 60/60 |
+| FreshRetailNet (calibrated gate) | Capacity cut | 7 | 0.00% | 0.00 | 60/60 |
+
+
+![Two information environments; two separately estimated effects](figures/08_m5_fresh_comparison.png)
+
+Separate within-dataset repair effects under an inventory-field fault. M5 uses 14 days and FreshRetailNet seven; their quantity units, expiry assumptions and economics differ. The calibrated result is an exploratory reused-holdout follow-up with 30 simulator seeds; the other bars have two. These bars do not estimate a commercial return or the causal effect of changing datasets.
+
+
+## 9. What the results mean for a business
+
+
+The business case supported by this evidence is for a controlled replenishment process. A retailer needs dependable stock evidence, a clearly labelled estimate when availability hides demand, typed supplier rules and checks before spending. An LLM can participate inside that process. The experiments have not established that it should replace the conventional numerical tools or a capable rules engine.
+
+
+Useful language tasks remain plausible: translating supplier clauses into checkable fields, requesting a permitted exception tool, and producing a decision packet connected to its sources. The study demonstrates bounded feasibility for a controlled synthetic grammar. It does not measure planner time savings, human trust, unfamiliar natural-contract performance or production ROI. Those are distinct investment tests.
+
+
+A sensible deployment starts in shadow mode with actual inventories and supplier documents, then moves to reviewed orders and spending caps. Compare exception-resolution quality and delay against the existing system. Expand autonomy only where the measured additional benefit covers error, oversight, hosting and integration costs. Where a capable parser gives the same business outcome more cheaply, it remains a reasonable default.
+
+
+Answers to the retained research questions
+
+| Question | Completed answer | Scope limit |
+| --- | --- | --- |
+| RQ1: performance | Conventional policies and matched parser/LLM outcomes are reported for each core scenario. | All single-agent and free-form architectures remain unexecuted. |
+| RQ2: evidence gate | M5 detects known faults; FreshRetailNet exposes spending-cap portability and delay costs. | Effects depend on thresholds and simulator assumptions. |
+| RQ3: censored demand | Recovery is measurable on masking; final forecast benefit is mixed; default service/expiry trade-off is small. | Natural unserved demand has no identified target. |
+| RQ4: availability vs error | The explicit stockout-gate ablation shows a valid observation need not justify an integrity hold. | The naive comparator is a mechanism test, not a capable production parser. |
+| RQ5: semantic value | Cost and fill match the capable parser on the disclosed synthetic grammar. | Unfamiliar, conflicting natural documents are not tested. |
+| RQ6: agent organization | Typed outputs and independent checks are operationally audited. | No head-to-head test isolates additional agent roles. |
+| RQ7: trace quality | Source-linked records, physical balances and attempts are machine-audited. | Human diagnosis and trust were not measured. |
+| RQ8: generalizability | Within-dataset effects and scale-transfer failure are compared descriptively. | One small panel and origin cannot establish retailer-wide external validity. |
+
+
+Hypotheses: descriptive evidence status, without confirmatory tests
+
+| Hypothesis | Status | Reason |
+| --- | --- | --- |
+| H1 | Descriptively consistent | Matched grammar outcomes show no additional LLM cost/fill advantage; this is not a noninferiority test. |
+| H2 | Mechanism verified; incremental benefit bounded | Detected evidence faults trigger holds or verified repair. Conventional MILP already has zero actual rule violations; cap portability restricts useful execution. |
+| H3 | Mixed and conditional | Recovery selection, forecast accuracy and service–expiry trade-offs differ; natural demand recovery is not proved. |
+| H4 | Supported within the targeted ablation | Holding on valid stockout observations worsens simulated service against the censoring-aware rule. |
+| H5 | Supported on templates; remaining clause untested | The capable parser matches the LLM. Gains on unfamiliar documents were not evaluated. |
+| H6 | Untested as a comparative hypothesis | No free-form multi-agent baseline isolates typed-state or specialization effects. |
+| H7 | Untested | No participant study measures fault diagnosis, acceptance or trust. |
+| H8 | Conditional engineering evidence | Known-fault controls are useful, but the transferred cap fails until a separately calibrated exploratory follow-up. |
+
+
+## 10. Audit, limitations and reproducibility
+
+
+The independent audit reads run folders, decision objects, grounding outputs and model request/response records. It verifies source hashes and event chains, matched comparisons, inventory-repair lineage and exclusion of future or evaluator-only information. Exact requests are written before HTTP calls. Development failures, setup receipts and any partial directories remain in the evidence archive.
+
+
+The primary registered study audit captured 36 physical API attempts and 37506 tokens. There were 0 client or schema error events and 1269 committed true-constraint violations. Instruction-compliant selector responses and semantic selector errors are reported separately below; successful final safety is not a substitute for reliable tool choice. The exploratory follow-up has its own audit and operating counts in its preceding section.
+
+
+Thirty seeds describe simulator variability conditional on one panel, one origin and assumed economics. The live factorial has two seeds and reused cached evidence. The short forecasting holdout and its conditionally stocked subset restrict generalization. No confirmatory p-value, noninferiority claim, participant result or retailer return is asserted.
+
+
+The wider dissertation proposes additional B1–B11 architectures, a semantic difficulty ladder, free-form multi-agent alternatives, prompt-injection testing and a human study. Those remain unevaluated unless their own saved executions exist. This bounded study completes the registered controls and specified F1–F6 subtests; it does not silently promote the whole proposed research program into a completed result.
+
+
+Data attribution: Dingdong-Inc, FreshRetailNet-50K, CC BY 4.0; Wang et al. (2025), pinned dataset revision 08c1fab7f9257bc73679d415d65d644165d351d4. M5 retains its competition provenance. The supplied literature review and references are preserved in the updated Word dissertation.
+
+
+The overall audit's 1,269 requested-plan violations are concentrated in naive numerical B1/B2. The live LLM arms have 0; the conventional MILP B3 also has zero. An operational architecture should report feasibility and service together rather than claim a language-specific safety benefit from this difference.
+
+
+Primary registered study audit: distinct operational counts
+
+| Measure | Recorded count |
+| --- | --- |
+| Completed runs | 392 |
+| Decision days | 2744 |
+| Conventional core runs | 360 |
+| Matched controller runs | 32 |
+| Fresh model attempts | 36 |
+| Fresh model responses | 36 |
+| Recorded model tokens | 37506 |
+| Client or schema errors | 0 |
+| Fresh numerical-extraction responses | 24 |
+| Fresh recovery selections | 12 |
+| Violated active-rule checks in requested plans | 1269 |
+| Held decision days | 814 |
+| Instruction-compliant recovery selections | 6 |
+| Incorrect recovery selections | 6 |
+| Matched parser–LLM pairs | 16 |
+| Pairs with identical primary outcomes | 16 |
+| Pairs with identical daily actions | 16 |
+| Verified physical stock balances | 2744 |
+| Forbidden model-context findings | 0 |
+
+
+Source grounding coverage; full columns in the audit CSV
+
+| Configuration | Grounding attempted | Exact full source sets | State-gated days | False clauses | Omitted clauses |
+| --- | --- | --- | --- | --- | --- |
+| numerical | 2340 | 2340 | 180 | 0 | 0 |
+| Parser | 44 | 44 | 12 | 0 | 0 |
+| Parser + repair | 50 | 50 | 6 | 0 | 0 |
+| LLM | 44 | 44 | 12 | 0 | 0 |
+| LLM + repair | 50 | 50 | 6 | 0 | 0 |
+
+
+## Appendix A. Artifact guide and exact run-level results
+
+
+The accompanying files preserve every completed individual run. Numerical, live-agent and independent-policy CSVs have 360, 32 and 1,140 rows respectively. Forecast files contain series/day predictions, observable targets and flags used only for scoring. Artificial-mask files retain each hidden target. Audit files contain model calls, grounding, selector and decision records.
+
+
+The report directory contains FreshRetailNet_numerical_all_runs.csv, FreshRetailNet_agent_all_runs.csv and FreshRetailNet_policy_sensitivity_all_runs.csv, as well as their descriptive means and matched contrasts. M5_FreshRetailNet_descriptive_comparison.csv records the compatible relative comparisons. The full evidence archive adds raw objects, saved models, frozen code, source receipts and failed attempts.
+
+
+Selected computational panel
+
+| Series | Stratum | Train mean sales | Train stockout share |
+| --- | --- | --- | --- |
+| FRN_0247@S0020 | 2 | 0.38677 | 22.28% |
+| FRN_0363@S0021 | 2 | 0.39774 | 26.31% |
+| FRN_0210@S0054 | 2 | 0.33565 | 23.69% |
+| FRN_0218@S0137 | 1 | 0.90758 | 17.34% |
+| FRN_0635@S0156 | 1 | 0.81226 | 18.25% |
+| FRN_0422@S0173 | 1 | 0.93710 | 20.26% |
+| FRN_0738@S0181 | 2 | 0.28823 | 23.69% |
+| FRN_0190@S0191 | 0 | 0.83548 | 8.87% |
+| FRN_0295@S0202 | 1 | 0.37645 | 18.95% |
+| FRN_0653@S0202 | 0 | 0.35194 | 14.82% |
+| FRN_0635@S0219 | 1 | 0.42403 | 17.84% |
+| FRN_0473@S0231 | 0 | 0.51613 | 15.02% |
+| FRN_0802@S0259 | 0 | 0.84839 | 15.93% |
+| FRN_0769@S0298 | 0 | 0.70000 | 12.80% |
+| FRN_0843@S0300 | 2 | 0.54355 | 32.66% |
+| FRN_0682@S0301 | 0 | 0.96290 | 9.78% |
+| FRN_0834@S0334 | 2 | 0.51290 | 60.38% |
+| FRN_0802@S0355 | 1 | 0.72097 | 16.43% |
+| FRN_0810@S0410 | 0 | 0.48903 | 9.98% |
+| FRN_0715@S0413 | 2 | 0.35452 | 23.69% |
+| FRN_0650@S0423 | 0 | 0.45597 | 14.72% |
+| FRN_0729@S0474 | 0 | 0.49355 | 10.99% |
+| FRN_0218@S0482 | 0 | 0.66452 | 11.39% |
+| FRN_0620@S0484 | 1 | 0.60774 | 19.35% |
+| FRN_0577@S0521 | 1 | 0.42242 | 17.34% |
+| FRN_0834@S0649 | 2 | 0.92419 | 45.77% |
+| FRN_0560@S0805 | 1 | 0.57726 | 17.74% |
+| FRN_0074@S0851 | 2 | 0.55387 | 22.18% |
+| FRN_0402@S0861 | 1 | 0.56629 | 19.56% |
+| FRN_0379@S0877 | 2 | 0.54516 | 55.44% |
+
+
+## Appendix B. Core individual runs — Normal
+
+
+All 30 seeds per policy
+
+| Policy | Seed | Cost | Fill | Stockout | Held | Violations |
+| --- | --- | --- | --- | --- | --- | --- |
+| B1 | 0 | 17,735.329 | 78.80% | 27.62% | 0 | 7 |
+| B1 | 1 | 16,579.451 | 81.03% | 27.62% | 0 | 6 |
+| B1 | 2 | 17,420.022 | 79.04% | 28.57% | 0 | 7 |
+| B1 | 3 | 18,125.015 | 77.93% | 30.00% | 0 | 6 |
+| B1 | 4 | 19,701.915 | 74.99% | 30.95% | 0 | 7 |
+| B1 | 5 | 17,780.512 | 77.92% | 29.05% | 0 | 7 |
+| B1 | 6 | 19,138.125 | 75.20% | 31.90% | 0 | 7 |
+| B1 | 7 | 18,583.141 | 77.28% | 29.05% | 0 | 7 |
+| B1 | 8 | 17,731.543 | 78.18% | 29.05% | 0 | 7 |
+| B1 | 9 | 20,937.615 | 70.63% | 35.71% | 0 | 7 |
+| B1 | 10 | 16,176.249 | 81.99% | 23.33% | 0 | 7 |
+| B1 | 11 | 19,119.515 | 75.78% | 31.43% | 0 | 7 |
+| B1 | 12 | 19,894.785 | 73.82% | 30.00% | 0 | 7 |
+| B1 | 13 | 18,242.236 | 77.23% | 29.52% | 0 | 7 |
+| B1 | 14 | 19,224.607 | 76.77% | 30.00% | 0 | 7 |
+| B1 | 15 | 18,838.073 | 76.21% | 26.67% | 0 | 8 |
+| B1 | 16 | 18,331.092 | 76.75% | 26.67% | 0 | 7 |
+| B1 | 17 | 17,990.827 | 78.62% | 31.43% | 0 | 7 |
+| B1 | 18 | 18,288.650 | 77.44% | 30.95% | 0 | 7 |
+| B1 | 19 | 16,198.008 | 82.75% | 24.76% | 0 | 7 |
+| B1 | 20 | 18,173.944 | 78.53% | 26.19% | 0 | 7 |
+| B1 | 21 | 18,464.016 | 76.82% | 27.14% | 0 | 7 |
+| B1 | 22 | 17,714.833 | 79.14% | 25.24% | 0 | 7 |
+| B1 | 23 | 18,081.225 | 77.84% | 29.52% | 0 | 7 |
+| B1 | 24 | 17,709.263 | 78.39% | 29.52% | 0 | 7 |
+| B1 | 25 | 18,315.159 | 76.78% | 26.67% | 0 | 8 |
+| B1 | 26 | 17,002.835 | 81.65% | 23.81% | 0 | 7 |
+| B1 | 27 | 18,872.682 | 77.91% | 29.52% | 0 | 7 |
+| B1 | 28 | 19,199.945 | 75.61% | 33.81% | 0 | 7 |
+| B1 | 29 | 19,139.064 | 75.72% | 28.10% | 0 | 7 |
+| B2 | 0 | 18,714.549 | 73.04% | 32.86% | 0 | 6 |
+| B2 | 1 | 19,450.479 | 70.16% | 36.67% | 0 | 4 |
+| B2 | 2 | 18,221.380 | 71.89% | 33.33% | 0 | 7 |
+| B2 | 3 | 20,319.804 | 68.74% | 35.71% | 0 | 6 |
+| B2 | 4 | 20,524.152 | 68.68% | 35.24% | 0 | 7 |
+| B2 | 5 | 20,375.280 | 67.35% | 37.14% | 0 | 5 |
+| B2 | 6 | 20,247.988 | 69.68% | 36.19% | 0 | 7 |
+| B2 | 7 | 20,150.511 | 68.26% | 35.71% | 0 | 7 |
+| B2 | 8 | 20,921.230 | 65.55% | 38.10% | 0 | 7 |
+| B2 | 9 | 22,216.301 | 64.51% | 38.10% | 0 | 7 |
+| B2 | 10 | 18,691.531 | 72.37% | 33.81% | 0 | 6 |
+| B2 | 11 | 19,969.856 | 68.91% | 35.71% | 0 | 4 |
+| B2 | 12 | 20,875.138 | 67.17% | 38.57% | 0 | 7 |
+| B2 | 13 | 19,058.313 | 71.17% | 37.14% | 0 | 5 |
+| B2 | 14 | 21,143.615 | 67.12% | 36.67% | 0 | 6 |
+| B2 | 15 | 20,538.898 | 66.91% | 37.62% | 0 | 7 |
+| B2 | 16 | 19,760.069 | 69.79% | 32.38% | 0 | 6 |
+| B2 | 17 | 17,376.287 | 75.41% | 33.81% | 0 | 7 |
+| B2 | 18 | 19,133.461 | 69.75% | 35.24% | 0 | 6 |
+| B2 | 19 | 17,718.816 | 74.84% | 30.95% | 0 | 6 |
+| B2 | 20 | 20,228.331 | 69.08% | 38.57% | 0 | 7 |
+| B2 | 21 | 20,047.329 | 68.73% | 37.14% | 0 | 6 |
+| B2 | 22 | 19,655.185 | 70.05% | 34.76% | 0 | 6 |
+| B2 | 23 | 18,658.486 | 71.88% | 33.81% | 0 | 7 |
+| B2 | 24 | 20,149.638 | 68.19% | 39.05% | 0 | 7 |
+| B2 | 25 | 18,722.456 | 71.34% | 32.86% | 0 | 6 |
+| B2 | 26 | 19,227.461 | 71.22% | 34.76% | 0 | 7 |
+| B2 | 27 | 18,135.282 | 73.70% | 34.29% | 0 | 7 |
+| B2 | 28 | 20,076.943 | 68.79% | 37.62% | 0 | 7 |
+| B2 | 29 | 20,254.479 | 67.94% | 35.24% | 0 | 7 |
+| B3 | 0 | 18,834.188 | 85.17% | 19.52% | 0 | 0 |
+| B3 | 1 | 18,489.906 | 86.17% | 17.14% | 0 | 0 |
+| B3 | 2 | 18,667.147 | 84.51% | 17.62% | 0 | 0 |
+| B3 | 3 | 19,054.028 | 83.53% | 24.29% | 0 | 0 |
+| B3 | 4 | 20,285.256 | 81.83% | 26.19% | 0 | 0 |
+| B3 | 5 | 19,219.266 | 84.43% | 20.95% | 0 | 0 |
+| B3 | 6 | 17,918.294 | 88.27% | 16.19% | 0 | 0 |
+| B3 | 7 | 18,421.132 | 85.98% | 18.57% | 0 | 0 |
+| B3 | 8 | 18,481.642 | 85.25% | 20.95% | 0 | 0 |
+| B3 | 9 | 20,756.792 | 80.59% | 27.62% | 0 | 0 |
+| B3 | 10 | 18,482.335 | 86.34% | 18.10% | 0 | 0 |
+| B3 | 11 | 20,111.100 | 81.98% | 21.43% | 0 | 0 |
+| B3 | 12 | 20,453.425 | 82.34% | 21.90% | 0 | 0 |
+| B3 | 13 | 17,996.392 | 85.59% | 19.52% | 0 | 0 |
+| B3 | 14 | 19,358.248 | 83.05% | 22.86% | 0 | 0 |
+| B3 | 15 | 17,988.876 | 86.53% | 15.71% | 0 | 0 |
+| B3 | 16 | 18,656.536 | 84.80% | 19.05% | 0 | 0 |
+| B3 | 17 | 17,781.322 | 87.27% | 20.00% | 0 | 0 |
+| B3 | 18 | 20,510.611 | 80.13% | 24.76% | 0 | 0 |
+| B3 | 19 | 16,054.654 | 91.33% | 16.67% | 0 | 0 |
+| B3 | 20 | 18,379.175 | 85.74% | 20.48% | 0 | 0 |
+| B3 | 21 | 19,573.899 | 83.19% | 23.81% | 0 | 0 |
+| B3 | 22 | 18,493.814 | 85.83% | 17.62% | 0 | 0 |
+| B3 | 23 | 17,458.419 | 88.26% | 17.14% | 0 | 0 |
+| B3 | 24 | 18,711.980 | 85.16% | 20.48% | 0 | 0 |
+| B3 | 25 | 18,223.855 | 86.36% | 15.71% | 0 | 0 |
+| B3 | 26 | 18,638.899 | 85.59% | 20.00% | 0 | 0 |
+| B3 | 27 | 18,396.860 | 85.75% | 18.57% | 0 | 0 |
+| B3 | 28 | 18,730.647 | 85.91% | 20.48% | 0 | 0 |
+| B3 | 29 | 19,692.291 | 83.95% | 19.05% | 0 | 0 |
+| B4 | 0 | 24,488.115 | 42.27% | 60.95% | 7 | 0 |
+| B4 | 1 | 25,521.012 | 39.25% | 60.95% | 7 | 0 |
+| B4 | 2 | 23,654.760 | 43.89% | 56.67% | 7 | 0 |
+| B4 | 3 | 23,251.410 | 45.19% | 59.05% | 7 | 0 |
+| B4 | 4 | 24,019.237 | 44.22% | 55.24% | 7 | 0 |
+| B4 | 5 | 24,508.003 | 41.92% | 60.95% | 7 | 0 |
+| B4 | 6 | 22,696.454 | 47.58% | 52.86% | 7 | 0 |
+| B4 | 7 | 23,110.907 | 45.83% | 54.76% | 7 | 0 |
+| B4 | 8 | 25,396.775 | 39.78% | 60.95% | 7 | 0 |
+| B4 | 9 | 26,169.138 | 38.52% | 61.90% | 7 | 0 |
+| B4 | 10 | 23,095.977 | 45.08% | 56.19% | 7 | 0 |
+| B4 | 11 | 23,592.960 | 45.42% | 56.19% | 7 | 0 |
+| B4 | 12 | 25,421.616 | 40.38% | 60.95% | 7 | 0 |
+| B4 | 13 | 22,258.569 | 47.43% | 53.33% | 7 | 0 |
+| B4 | 14 | 25,075.476 | 40.86% | 60.95% | 7 | 0 |
+| B4 | 15 | 23,274.089 | 45.64% | 55.24% | 7 | 0 |
+| B4 | 16 | 24,461.748 | 42.52% | 57.62% | 7 | 0 |
+| B4 | 17 | 24,095.772 | 43.55% | 56.67% | 7 | 0 |
+| B4 | 18 | 23,666.492 | 44.01% | 56.67% | 7 | 0 |
+| B4 | 19 | 22,742.703 | 45.99% | 55.24% | 7 | 0 |
+| B4 | 20 | 24,289.215 | 42.78% | 61.43% | 7 | 0 |
+| B4 | 21 | 24,624.152 | 42.41% | 59.05% | 7 | 0 |
+| B4 | 22 | 22,626.153 | 46.72% | 55.24% | 7 | 0 |
+| B4 | 23 | 23,949.690 | 43.01% | 59.52% | 7 | 0 |
+| B4 | 24 | 22,468.061 | 47.18% | 57.62% | 7 | 0 |
+| B4 | 25 | 24,722.401 | 41.14% | 55.71% | 7 | 0 |
+| B4 | 26 | 23,381.589 | 45.43% | 56.67% | 7 | 0 |
+| B4 | 27 | 22,401.393 | 47.23% | 53.81% | 7 | 0 |
+| B4 | 28 | 27,026.395 | 36.69% | 61.90% | 7 | 0 |
+| B4 | 29 | 24,404.020 | 42.93% | 57.62% | 7 | 0 |
+
+
+## Appendix B. Core individual runs — Inventory-field fault
+
+
+All 30 seeds per policy
+
+| Policy | Seed | Cost | Fill | Stockout | Held | Violations |
+| --- | --- | --- | --- | --- | --- | --- |
+| B1 | 0 | 17,611.796 | 80.89% | 23.81% | 0 | 9 |
+| B1 | 1 | 17,589.209 | 80.09% | 26.67% | 0 | 7 |
+| B1 | 2 | 18,685.214 | 78.41% | 25.71% | 0 | 10 |
+| B1 | 3 | 17,961.443 | 80.07% | 29.05% | 0 | 9 |
+| B1 | 4 | 19,659.989 | 76.54% | 28.10% | 0 | 10 |
+| B1 | 5 | 17,568.577 | 80.82% | 29.05% | 0 | 8 |
+| B1 | 6 | 18,918.969 | 76.56% | 29.52% | 0 | 10 |
+| B1 | 7 | 18,806.993 | 78.62% | 26.67% | 0 | 10 |
+| B1 | 8 | 19,059.460 | 75.85% | 31.90% | 0 | 9 |
+| B1 | 9 | 21,289.694 | 71.65% | 33.33% | 0 | 8 |
+| B1 | 10 | 17,013.616 | 81.32% | 23.33% | 0 | 8 |
+| B1 | 11 | 18,275.851 | 78.94% | 29.52% | 0 | 9 |
+| B1 | 12 | 19,382.016 | 77.21% | 28.10% | 0 | 9 |
+| B1 | 13 | 18,608.672 | 77.57% | 28.57% | 0 | 9 |
+| B1 | 14 | 19,359.835 | 79.00% | 26.19% | 0 | 8 |
+| B1 | 15 | 18,303.688 | 79.36% | 24.76% | 0 | 12 |
+| B1 | 16 | 19,139.488 | 75.91% | 27.62% | 0 | 9 |
+| B1 | 17 | 19,185.711 | 77.25% | 30.95% | 0 | 8 |
+| B1 | 18 | 18,520.027 | 78.35% | 28.10% | 0 | 7 |
+| B1 | 19 | 17,086.143 | 82.92% | 20.48% | 0 | 9 |
+| B1 | 20 | 19,148.857 | 79.62% | 24.76% | 0 | 8 |
+| B1 | 21 | 17,851.136 | 79.99% | 25.24% | 0 | 8 |
+| B1 | 22 | 17,942.610 | 79.55% | 24.29% | 0 | 10 |
+| B1 | 23 | 19,336.243 | 76.16% | 28.57% | 0 | 8 |
+| B1 | 24 | 17,585.124 | 80.62% | 25.71% | 0 | 9 |
+| B1 | 25 | 19,130.153 | 77.19% | 25.71% | 0 | 10 |
+| B1 | 26 | 16,293.325 | 85.01% | 20.00% | 0 | 8 |
+| B1 | 27 | 18,338.343 | 80.33% | 25.24% | 0 | 9 |
+| B1 | 28 | 20,166.117 | 75.06% | 30.95% | 0 | 8 |
+| B1 | 29 | 20,488.995 | 73.67% | 30.95% | 0 | 10 |
+| B2 | 0 | 19,224.390 | 73.48% | 31.43% | 0 | 6 |
+| B2 | 1 | 18,885.377 | 73.69% | 34.29% | 0 | 7 |
+| B2 | 2 | 18,694.716 | 73.38% | 30.95% | 0 | 7 |
+| B2 | 3 | 19,100.233 | 73.24% | 32.86% | 0 | 8 |
+| B2 | 4 | 19,636.017 | 72.01% | 30.95% | 0 | 8 |
+| B2 | 5 | 19,643.144 | 71.80% | 33.81% | 0 | 6 |
+| B2 | 6 | 19,168.154 | 72.87% | 32.86% | 0 | 7 |
+| B2 | 7 | 19,560.190 | 72.15% | 33.33% | 0 | 8 |
+| B2 | 8 | 20,989.762 | 66.70% | 36.67% | 0 | 8 |
+| B2 | 9 | 21,858.340 | 66.05% | 35.71% | 0 | 8 |
+| B2 | 10 | 18,715.354 | 72.90% | 33.81% | 0 | 7 |
+| B2 | 11 | 18,352.859 | 73.56% | 30.00% | 0 | 5 |
+| B2 | 12 | 19,607.219 | 72.28% | 33.33% | 0 | 6 |
+| B2 | 13 | 18,729.918 | 73.90% | 31.90% | 0 | 7 |
+| B2 | 14 | 20,543.536 | 70.27% | 34.29% | 0 | 6 |
+| B2 | 15 | 18,394.891 | 74.70% | 30.48% | 0 | 7 |
+| B2 | 16 | 19,953.326 | 71.05% | 31.43% | 0 | 8 |
+| B2 | 17 | 16,720.617 | 79.08% | 29.52% | 0 | 5 |
+| B2 | 18 | 19,900.279 | 69.34% | 32.86% | 0 | 6 |
+| B2 | 19 | 16,832.209 | 79.17% | 25.71% | 0 | 7 |
+| B2 | 20 | 19,189.160 | 74.64% | 32.38% | 0 | 7 |
+| B2 | 21 | 19,267.769 | 73.14% | 33.81% | 0 | 6 |
+| B2 | 22 | 18,473.638 | 74.54% | 30.48% | 0 | 7 |
+| B2 | 23 | 19,915.621 | 70.34% | 33.81% | 0 | 8 |
+| B2 | 24 | 19,043.478 | 72.56% | 35.71% | 0 | 7 |
+| B2 | 25 | 18,339.779 | 75.53% | 26.19% | 0 | 7 |
+| B2 | 26 | 18,807.756 | 74.88% | 30.48% | 0 | 6 |
+| B2 | 27 | 17,459.968 | 77.19% | 29.05% | 0 | 5 |
+| B2 | 28 | 19,465.057 | 72.23% | 32.86% | 0 | 5 |
+| B2 | 29 | 20,701.076 | 69.50% | 32.86% | 0 | 9 |
+| B3 | 0 | 19,159.301 | 84.76% | 20.48% | 0 | 0 |
+| B3 | 1 | 18,207.028 | 86.83% | 17.62% | 0 | 0 |
+| B3 | 2 | 18,910.859 | 84.39% | 17.14% | 0 | 0 |
+| B3 | 3 | 18,824.738 | 84.91% | 23.81% | 0 | 0 |
+| B3 | 4 | 20,468.676 | 82.03% | 24.76% | 0 | 0 |
+| B3 | 5 | 19,807.642 | 83.44% | 21.43% | 0 | 0 |
+| B3 | 6 | 18,098.312 | 88.55% | 14.76% | 0 | 0 |
+| B3 | 7 | 19,213.589 | 85.01% | 18.57% | 0 | 0 |
+| B3 | 8 | 19,358.964 | 83.92% | 21.90% | 0 | 0 |
+| B3 | 9 | 20,934.487 | 80.31% | 26.19% | 0 | 0 |
+| B3 | 10 | 18,774.688 | 86.04% | 17.62% | 0 | 0 |
+| B3 | 11 | 20,378.474 | 82.13% | 21.43% | 0 | 0 |
+| B3 | 12 | 19,802.567 | 84.18% | 21.43% | 0 | 0 |
+| B3 | 13 | 18,029.206 | 85.94% | 20.00% | 0 | 0 |
+| B3 | 14 | 20,067.941 | 82.05% | 24.29% | 0 | 0 |
+| B3 | 15 | 18,315.320 | 86.83% | 15.24% | 0 | 0 |
+| B3 | 16 | 18,836.141 | 84.45% | 19.52% | 0 | 0 |
+| B3 | 17 | 17,830.934 | 87.53% | 20.48% | 0 | 0 |
+| B3 | 18 | 19,853.349 | 81.93% | 22.86% | 0 | 0 |
+| B3 | 19 | 16,183.520 | 91.47% | 15.71% | 0 | 0 |
+| B3 | 20 | 18,550.147 | 85.44% | 20.00% | 0 | 0 |
+| B3 | 21 | 19,678.908 | 83.43% | 23.33% | 0 | 0 |
+| B3 | 22 | 18,593.378 | 86.19% | 18.10% | 0 | 0 |
+| B3 | 23 | 18,055.491 | 87.26% | 18.10% | 0 | 0 |
+| B3 | 24 | 18,953.864 | 85.31% | 20.48% | 0 | 0 |
+| B3 | 25 | 18,434.459 | 86.27% | 15.71% | 0 | 0 |
+| B3 | 26 | 18,888.526 | 86.04% | 19.52% | 0 | 0 |
+| B3 | 27 | 18,410.566 | 85.89% | 18.10% | 0 | 0 |
+| B3 | 28 | 19,522.936 | 84.32% | 22.38% | 0 | 0 |
+| B3 | 29 | 20,659.723 | 82.44% | 20.00% | 0 | 0 |
+| B4 | 0 | 24,488.115 | 42.27% | 60.95% | 7 | 0 |
+| B4 | 1 | 25,521.012 | 39.25% | 60.95% | 7 | 0 |
+| B4 | 2 | 23,654.760 | 43.89% | 56.67% | 7 | 0 |
+| B4 | 3 | 23,251.410 | 45.19% | 59.05% | 7 | 0 |
+| B4 | 4 | 24,019.237 | 44.22% | 55.24% | 7 | 0 |
+| B4 | 5 | 24,508.003 | 41.92% | 60.95% | 7 | 0 |
+| B4 | 6 | 22,696.454 | 47.58% | 52.86% | 7 | 0 |
+| B4 | 7 | 23,110.907 | 45.83% | 54.76% | 7 | 0 |
+| B4 | 8 | 25,396.775 | 39.78% | 60.95% | 7 | 0 |
+| B4 | 9 | 26,169.138 | 38.52% | 61.90% | 7 | 0 |
+| B4 | 10 | 23,095.977 | 45.08% | 56.19% | 7 | 0 |
+| B4 | 11 | 23,592.960 | 45.42% | 56.19% | 7 | 0 |
+| B4 | 12 | 25,421.616 | 40.38% | 60.95% | 7 | 0 |
+| B4 | 13 | 22,258.569 | 47.43% | 53.33% | 7 | 0 |
+| B4 | 14 | 25,075.476 | 40.86% | 60.95% | 7 | 0 |
+| B4 | 15 | 23,274.089 | 45.64% | 55.24% | 7 | 0 |
+| B4 | 16 | 24,461.748 | 42.52% | 57.62% | 7 | 0 |
+| B4 | 17 | 24,095.772 | 43.55% | 56.67% | 7 | 0 |
+| B4 | 18 | 23,666.492 | 44.01% | 56.67% | 7 | 0 |
+| B4 | 19 | 22,742.703 | 45.99% | 55.24% | 7 | 0 |
+| B4 | 20 | 24,289.215 | 42.78% | 61.43% | 7 | 0 |
+| B4 | 21 | 24,624.152 | 42.41% | 59.05% | 7 | 0 |
+| B4 | 22 | 22,626.153 | 46.72% | 55.24% | 7 | 0 |
+| B4 | 23 | 23,949.690 | 43.01% | 59.52% | 7 | 0 |
+| B4 | 24 | 22,468.061 | 47.18% | 57.62% | 7 | 0 |
+| B4 | 25 | 24,722.401 | 41.14% | 55.71% | 7 | 0 |
+| B4 | 26 | 23,381.589 | 45.43% | 56.67% | 7 | 0 |
+| B4 | 27 | 22,401.393 | 47.23% | 53.81% | 7 | 0 |
+| B4 | 28 | 27,026.395 | 36.69% | 61.90% | 7 | 0 |
+| B4 | 29 | 24,404.020 | 42.93% | 57.62% | 7 | 0 |
+
+
+## Appendix B. Core individual runs — Stale feed
+
+
+All 30 seeds per policy
+
+| Policy | Seed | Cost | Fill | Stockout | Held | Violations |
+| --- | --- | --- | --- | --- | --- | --- |
+| B1 | 0 | 19,512.420 | 76.23% | 29.52% | 0 | 7 |
+| B1 | 1 | 17,789.008 | 78.99% | 29.52% | 0 | 6 |
+| B1 | 2 | 18,464.022 | 76.88% | 27.62% | 0 | 7 |
+| B1 | 3 | 18,885.500 | 77.44% | 29.52% | 0 | 7 |
+| B1 | 4 | 21,575.320 | 71.89% | 34.29% | 0 | 7 |
+| B1 | 5 | 18,314.971 | 77.65% | 30.95% | 0 | 7 |
+| B1 | 6 | 20,251.288 | 72.72% | 31.43% | 0 | 7 |
+| B1 | 7 | 19,261.653 | 76.31% | 29.52% | 0 | 7 |
+| B1 | 8 | 20,248.948 | 72.98% | 33.33% | 0 | 7 |
+| B1 | 9 | 21,721.574 | 70.06% | 36.67% | 0 | 7 |
+| B1 | 10 | 17,104.856 | 80.92% | 24.76% | 0 | 7 |
+| B1 | 11 | 19,604.691 | 74.55% | 33.33% | 0 | 7 |
+| B1 | 12 | 22,158.547 | 69.08% | 32.38% | 0 | 7 |
+| B1 | 13 | 19,903.064 | 73.67% | 31.90% | 0 | 7 |
+| B1 | 14 | 20,886.125 | 74.43% | 29.52% | 0 | 7 |
+| B1 | 15 | 19,400.510 | 75.49% | 30.00% | 0 | 8 |
+| B1 | 16 | 20,417.276 | 71.54% | 30.00% | 0 | 5 |
+| B1 | 17 | 19,236.356 | 77.49% | 30.48% | 0 | 7 |
+| B1 | 18 | 19,505.589 | 75.26% | 32.38% | 0 | 7 |
+| B1 | 19 | 17,243.807 | 81.15% | 26.19% | 0 | 7 |
+| B1 | 20 | 18,857.179 | 77.74% | 26.19% | 0 | 7 |
+| B1 | 21 | 19,556.668 | 75.18% | 29.52% | 0 | 7 |
+| B1 | 22 | 18,601.854 | 78.16% | 26.67% | 0 | 7 |
+| B1 | 23 | 19,337.286 | 74.87% | 31.90% | 0 | 7 |
+| B1 | 24 | 19,385.310 | 74.23% | 32.38% | 0 | 7 |
+| B1 | 25 | 18,607.195 | 77.44% | 26.67% | 0 | 8 |
+| B1 | 26 | 18,492.408 | 78.89% | 24.29% | 0 | 7 |
+| B1 | 27 | 19,230.189 | 77.53% | 28.10% | 0 | 7 |
+| B1 | 28 | 19,309.966 | 76.31% | 30.95% | 0 | 7 |
+| B1 | 29 | 20,568.612 | 74.55% | 30.48% | 0 | 7 |
+| B2 | 0 | 23,223.296 | 65.09% | 37.14% | 0 | 7 |
+| B2 | 1 | 21,682.569 | 66.33% | 39.52% | 0 | 6 |
+| B2 | 2 | 21,849.802 | 64.26% | 40.00% | 0 | 7 |
+| B2 | 3 | 22,811.511 | 64.25% | 40.48% | 0 | 8 |
+| B2 | 4 | 22,376.619 | 65.28% | 39.52% | 0 | 7 |
+| B2 | 5 | 21,317.351 | 64.60% | 40.48% | 0 | 3 |
+| B2 | 6 | 21,716.401 | 66.17% | 39.52% | 0 | 8 |
+| B2 | 7 | 23,160.512 | 62.08% | 40.48% | 0 | 7 |
+| B2 | 8 | 25,032.830 | 59.20% | 43.33% | 0 | 6 |
+| B2 | 9 | 24,327.803 | 63.19% | 40.95% | 0 | 7 |
+| B2 | 10 | 21,270.958 | 67.97% | 38.57% | 0 | 6 |
+| B2 | 11 | 22,663.677 | 62.45% | 40.48% | 0 | 3 |
+| B2 | 12 | 24,527.174 | 60.83% | 43.33% | 0 | 7 |
+| B2 | 13 | 21,185.771 | 67.82% | 36.67% | 0 | 6 |
+| B2 | 14 | 24,928.814 | 62.76% | 41.43% | 0 | 7 |
+| B2 | 15 | 22,112.482 | 65.63% | 40.48% | 0 | 7 |
+| B2 | 16 | 22,560.230 | 62.85% | 38.57% | 0 | 6 |
+| B2 | 17 | 20,873.872 | 71.40% | 38.10% | 0 | 7 |
+| B2 | 18 | 22,333.899 | 63.95% | 37.62% | 0 | 4 |
+| B2 | 19 | 20,311.691 | 69.85% | 34.76% | 0 | 6 |
+| B2 | 20 | 21,149.794 | 69.26% | 38.10% | 0 | 7 |
+| B2 | 21 | 24,461.539 | 60.01% | 45.24% | 0 | 6 |
+| B2 | 22 | 21,273.712 | 67.88% | 37.14% | 0 | 5 |
+| B2 | 23 | 21,481.098 | 65.38% | 42.38% | 0 | 7 |
+| B2 | 24 | 22,977.143 | 62.41% | 42.86% | 0 | 6 |
+| B2 | 25 | 20,330.263 | 71.55% | 33.33% | 0 | 7 |
+| B2 | 26 | 22,702.083 | 65.02% | 38.57% | 0 | 6 |
+| B2 | 27 | 20,486.263 | 71.82% | 34.29% | 0 | 7 |
+| B2 | 28 | 23,435.644 | 64.00% | 40.48% | 0 | 7 |
+| B2 | 29 | 22,755.512 | 66.08% | 36.67% | 0 | 7 |
+| B3 | 0 | 20,299.390 | 81.93% | 23.33% | 0 | 0 |
+| B3 | 1 | 19,181.198 | 84.36% | 19.52% | 0 | 0 |
+| B3 | 2 | 19,816.853 | 81.88% | 20.48% | 0 | 0 |
+| B3 | 3 | 20,192.821 | 81.83% | 25.71% | 0 | 0 |
+| B3 | 4 | 20,119.272 | 81.46% | 27.62% | 0 | 0 |
+| B3 | 5 | 18,839.755 | 84.72% | 21.43% | 0 | 0 |
+| B3 | 6 | 19,174.011 | 85.43% | 18.57% | 0 | 0 |
+| B3 | 7 | 18,986.265 | 85.21% | 19.05% | 0 | 0 |
+| B3 | 8 | 20,914.570 | 80.35% | 24.29% | 0 | 0 |
+| B3 | 9 | 20,949.736 | 80.29% | 28.10% | 0 | 0 |
+| B3 | 10 | 18,760.641 | 84.71% | 20.00% | 0 | 0 |
+| B3 | 11 | 20,951.077 | 81.03% | 21.90% | 0 | 0 |
+| B3 | 12 | 21,062.438 | 80.61% | 24.29% | 0 | 0 |
+| B3 | 13 | 18,908.825 | 83.84% | 21.43% | 0 | 0 |
+| B3 | 14 | 20,392.447 | 81.27% | 25.71% | 0 | 0 |
+| B3 | 15 | 18,900.140 | 85.14% | 16.19% | 0 | 0 |
+| B3 | 16 | 19,650.705 | 82.26% | 19.52% | 0 | 0 |
+| B3 | 17 | 18,012.580 | 86.77% | 21.43% | 0 | 0 |
+| B3 | 18 | 21,277.099 | 78.80% | 25.24% | 0 | 0 |
+| B3 | 19 | 17,616.039 | 88.01% | 18.10% | 0 | 0 |
+| B3 | 20 | 18,487.261 | 85.48% | 20.48% | 0 | 0 |
+| B3 | 21 | 20,091.646 | 82.37% | 24.76% | 0 | 0 |
+| B3 | 22 | 19,692.357 | 83.04% | 19.52% | 0 | 0 |
+| B3 | 23 | 18,598.392 | 85.74% | 19.05% | 0 | 0 |
+| B3 | 24 | 19,229.893 | 83.89% | 21.43% | 0 | 0 |
+| B3 | 25 | 19,035.589 | 84.51% | 17.14% | 0 | 0 |
+| B3 | 26 | 20,289.185 | 81.74% | 23.81% | 0 | 0 |
+| B3 | 27 | 18,815.932 | 85.06% | 18.57% | 0 | 0 |
+| B3 | 28 | 19,332.990 | 84.30% | 23.33% | 0 | 0 |
+| B3 | 29 | 20,631.400 | 82.26% | 20.95% | 0 | 0 |
+| B4 | 0 | 24,488.115 | 42.27% | 60.95% | 7 | 0 |
+| B4 | 1 | 25,521.012 | 39.25% | 60.95% | 7 | 0 |
+| B4 | 2 | 23,654.760 | 43.89% | 56.67% | 7 | 0 |
+| B4 | 3 | 23,251.410 | 45.19% | 59.05% | 7 | 0 |
+| B4 | 4 | 24,019.237 | 44.22% | 55.24% | 7 | 0 |
+| B4 | 5 | 24,508.003 | 41.92% | 60.95% | 7 | 0 |
+| B4 | 6 | 22,696.454 | 47.58% | 52.86% | 7 | 0 |
+| B4 | 7 | 23,110.907 | 45.83% | 54.76% | 7 | 0 |
+| B4 | 8 | 25,396.775 | 39.78% | 60.95% | 7 | 0 |
+| B4 | 9 | 26,169.138 | 38.52% | 61.90% | 7 | 0 |
+| B4 | 10 | 23,095.977 | 45.08% | 56.19% | 7 | 0 |
+| B4 | 11 | 23,592.960 | 45.42% | 56.19% | 7 | 0 |
+| B4 | 12 | 25,421.616 | 40.38% | 60.95% | 7 | 0 |
+| B4 | 13 | 22,258.569 | 47.43% | 53.33% | 7 | 0 |
+| B4 | 14 | 25,075.476 | 40.86% | 60.95% | 7 | 0 |
+| B4 | 15 | 23,274.089 | 45.64% | 55.24% | 7 | 0 |
+| B4 | 16 | 24,461.748 | 42.52% | 57.62% | 7 | 0 |
+| B4 | 17 | 24,095.772 | 43.55% | 56.67% | 7 | 0 |
+| B4 | 18 | 23,666.492 | 44.01% | 56.67% | 7 | 0 |
+| B4 | 19 | 22,742.703 | 45.99% | 55.24% | 7 | 0 |
+| B4 | 20 | 24,289.215 | 42.78% | 61.43% | 7 | 0 |
+| B4 | 21 | 24,624.152 | 42.41% | 59.05% | 7 | 0 |
+| B4 | 22 | 22,626.153 | 46.72% | 55.24% | 7 | 0 |
+| B4 | 23 | 23,949.690 | 43.01% | 59.52% | 7 | 0 |
+| B4 | 24 | 22,468.061 | 47.18% | 57.62% | 7 | 0 |
+| B4 | 25 | 24,722.401 | 41.14% | 55.71% | 7 | 0 |
+| B4 | 26 | 23,381.589 | 45.43% | 56.67% | 7 | 0 |
+| B4 | 27 | 22,401.393 | 47.23% | 53.81% | 7 | 0 |
+| B4 | 28 | 27,026.395 | 36.69% | 61.90% | 7 | 0 |
+| B4 | 29 | 24,404.020 | 42.93% | 57.62% | 7 | 0 |
+
+
+## Appendix C. Live-agent individual runs
+
+
+All 32 live factorial runs
+
+| Arm | Scenario | Seed | Cost | Fill | Held | Violations |
+| --- | --- | --- | --- | --- | --- | --- |
+| LLM | Capacity cut | 13 | 20,589.055 | 59.41% | 2 | 0 |
+| LLM | Capacity cut | 29 | 22,556.878 | 55.46% | 2 | 0 |
+| LLM | Inventory-field fault | 13 | 22,258.569 | 47.43% | 7 | 0 |
+| LLM | Inventory-field fault | 29 | 24,404.020 | 42.93% | 7 | 0 |
+| LLM | Stale feed | 13 | 22,258.569 | 47.43% | 7 | 0 |
+| LLM | Stale feed | 29 | 24,404.020 | 42.93% | 7 | 0 |
+| LLM | Normal | 13 | 22,258.569 | 47.43% | 7 | 0 |
+| LLM | Normal | 29 | 24,404.020 | 42.93% | 7 | 0 |
+| LLM + repair | Capacity cut | 13 | 20,589.055 | 59.41% | 2 | 0 |
+| LLM + repair | Capacity cut | 29 | 22,556.878 | 55.46% | 2 | 0 |
+| LLM + repair | Inventory-field fault | 13 | 22,258.569 | 47.43% | 7 | 0 |
+| LLM + repair | Inventory-field fault | 29 | 24,404.020 | 42.93% | 7 | 0 |
+| LLM + repair | Stale feed | 13 | 22,258.569 | 47.43% | 7 | 0 |
+| LLM + repair | Stale feed | 29 | 24,404.020 | 42.93% | 7 | 0 |
+| LLM + repair | Normal | 13 | 22,258.569 | 47.43% | 7 | 0 |
+| LLM + repair | Normal | 29 | 24,404.020 | 42.93% | 7 | 0 |
+| Parser | Capacity cut | 13 | 20,589.055 | 59.41% | 2 | 0 |
+| Parser | Capacity cut | 29 | 22,556.878 | 55.46% | 2 | 0 |
+| Parser | Inventory-field fault | 13 | 22,258.569 | 47.43% | 7 | 0 |
+| Parser | Inventory-field fault | 29 | 24,404.020 | 42.93% | 7 | 0 |
+| Parser | Stale feed | 13 | 22,258.569 | 47.43% | 7 | 0 |
+| Parser | Stale feed | 29 | 24,404.020 | 42.93% | 7 | 0 |
+| Parser | Normal | 13 | 22,258.569 | 47.43% | 7 | 0 |
+| Parser | Normal | 29 | 24,404.020 | 42.93% | 7 | 0 |
+| Parser + repair | Capacity cut | 13 | 20,589.055 | 59.41% | 2 | 0 |
+| Parser + repair | Capacity cut | 29 | 22,556.878 | 55.46% | 2 | 0 |
+| Parser + repair | Inventory-field fault | 13 | 22,258.569 | 47.43% | 7 | 0 |
+| Parser + repair | Inventory-field fault | 29 | 24,404.020 | 42.93% | 7 | 0 |
+| Parser + repair | Stale feed | 13 | 22,258.569 | 47.43% | 7 | 0 |
+| Parser + repair | Stale feed | 29 | 24,404.020 | 42.93% | 7 | 0 |
+| Parser + repair | Normal | 13 | 22,258.569 | 47.43% | 7 | 0 |
+| Parser + repair | Normal | 29 | 24,404.020 | 42.93% | 7 | 0 |
