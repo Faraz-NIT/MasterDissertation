@@ -1,0 +1,26 @@
+digraph SimpleAgents {
+  graph [rankdir=TB, bgcolor="white", pad="0.22", nodesep="0.36", ranksep="0.34", splines=ortho, fontname="Arial", outputorder=edgesfirst];
+  node [shape=box, style="rounded,filled", fontname="Arial", fontsize=16, fontcolor="#364352", fillcolor="#F4F7FA", color="#BDC8D2", penwidth=1.0, width=3.0, height=0.62, margin="0.16,0.10"];
+  edge [color="#8B9AA8", penwidth=1.2, arrowsize=0.65];
+
+  data [fillcolor="#FAFAFA", label="M5 / RetailNet data"];
+  orchestrator [fillcolor="#EDF3F8", label="Orchestrator agent"];
+  state [label="State reconciliation agent"];
+  forecast [label="Demand forecast agent"];
+  supplier [fillcolor="#F5F0F8", label="Supplier & constraint agent\n(LLM-supported)"];
+  optimizer [label="Replenishment planning agent"];
+  risk [label="Risk & approval agent"];
+  execution [fillcolor="#F0F7F2", label="Execution & monitoring agent"];
+  hold [fillcolor="#FBF5F0", width=1.5, label="Hold / review"];
+
+  data -> orchestrator -> state;
+  state -> forecast;
+  state -> supplier;
+  { rank=same; forecast; supplier; }
+  forecast -> optimizer;
+  supplier -> optimizer;
+  optimizer -> risk;
+  risk -> execution;
+  risk -> hold;
+  { rank=same; execution; hold; }
+}

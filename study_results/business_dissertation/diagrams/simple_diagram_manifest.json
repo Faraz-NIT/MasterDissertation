@@ -1,0 +1,28 @@
+{
+  "status": "VERIFIED",
+  "purpose": "Simplified light block diagram requested by the user",
+  "visual_review": "PASS: short labels, light fills and clear flow",
+  "note": "Risk and approval are condensed into one block; the execution adapter is a simulator",
+  "files": [
+    {
+      "path": "agents_structure_simple.dot",
+      "bytes": 1201,
+      "sha256": "501456a991c82602aa3b4c2748e3060e82341343df3a8dab3451fb1e6a16e105"
+    },
+    {
+      "path": "agents_structure_simple.pdf",
+      "bytes": 12756,
+      "sha256": "add74f49e664c89f33b2046a1903a71b0df4db46dd9e584ab790f6fb7cefb5b8"
+    },
+    {
+      "path": "agents_structure_simple.png",
+      "bytes": 164379,
+      "sha256": "21036d41231a52fe2e589e3fa5edafc9c5ec9a4e0f17b33f71665671d7aab630"
+    },
+    {
+      "path": "agents_structure_simple.svg",
+      "bytes": 8128,
+      "sha256": "0d2a14e8c246da3298a7d1601cf3dbd02977dd977c499f0f8f615b6229ad2ed6"
+    }
+  ]
+}
