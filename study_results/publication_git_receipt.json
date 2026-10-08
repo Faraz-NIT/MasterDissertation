@@ -1,0 +1,11 @@
+{
+  "status": "PUSH_VERIFIED",
+  "repository": "Faraz-NIT/MasterDissertation",
+  "branch": "main",
+  "study_commit": "9b8e6c80344ab38f2c4f2b7cdf71eec6a0ea381f",
+  "remote_commit_after_study_push": "9b8e6c80344ab38f2c4f2b7cdf71eec6a0ea381f",
+  "verified_at_utc": "2026-10-08T08:19:58.325077+00:00",
+  "pdf": "study_results/v2/M5_v2_pilot_report.pdf",
+  "small_download_zip": "study_results/M5_report_download.zip",
+  "complete_results_and_logs": "study_results/README.md"
+}
