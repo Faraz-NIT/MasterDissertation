@@ -1,0 +1,25 @@
+{
+  "at_utc": "2026-10-08T23:51:15.351336+00:00",
+  "provisional_only": true,
+  "completed_runs": 495,
+  "diagnostics": [
+    {
+      "dataset": "M5",
+      "completed_llm_days": 581,
+      "exact_supplier_reading_pct": 100.0,
+      "correct_priority_pct": 99.31,
+      "held_days": 0,
+      "schema_failures": 0,
+      "committed_violations": 0
+    },
+    {
+      "dataset": "RetailNet",
+      "completed_llm_days": 574,
+      "exact_supplier_reading_pct": 100.0,
+      "correct_priority_pct": 87.11,
+      "held_days": 0,
+      "schema_failures": 0,
+      "committed_violations": 0
+    }
+  ]
+}

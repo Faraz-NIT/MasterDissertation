@@ -1,0 +1,5 @@
+dataset,origin,target,model,wape_pct,mae,observations
+M5,1927,Published sales proxy; no recovery,"Shared LightGBM, not LLM",60.135546671966935,1.6007509804585485,210
+M5,1934,Published sales proxy; no recovery,"Shared LightGBM, not LLM",54.87542467426524,1.4110823487668205,210
+RetailNet,83,Published sales proxy; no recovery,"Shared LightGBM, not LLM",37.59587098253331,25.137315450750013,210
+RetailNet,90,Published sales proxy; no recovery,"Shared LightGBM, not LLM",39.9830387949807,29.901601155960563,210

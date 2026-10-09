@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "command": ".venv/bin/python -m pytest -q tests/test_ollama_clean_study.py",
+  "exit_code": 0,
+  "tests": 5,
+  "output": "5 passed in 0.05s",
+  "coverage": [
+    "Budget, capacity, carton and minimum-order invariants",
+    "Source mismatches and duplicate supplier identities",
+    "FIFO sales and expiry stock conservation",
+    "Matched opportunity-keyed supply draws",
+    "Age-aware stock projection"
+  ]
+}

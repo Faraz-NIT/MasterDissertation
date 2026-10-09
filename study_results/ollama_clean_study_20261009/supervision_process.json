@@ -1,0 +1,8 @@
+{
+  "at_utc": "2026-10-09T00:29:12.396391+00:00",
+  "pid": 19261,
+  "detached": true,
+  "stdout": "study_results/ollama_clean_study_20261009/logs/supervisor_detached.log",
+  "reason": "Reconnect monitoring after cloud tool-session transition; primary detached worker survived unchanged",
+  "evaluated_code_or_protocol_changed": false
+}

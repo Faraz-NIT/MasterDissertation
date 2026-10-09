@@ -1,0 +1,136 @@
+{
+  "figures": [
+    {
+      "name": "01_agent_workflow",
+      "title": "M5 + RetailNet \u2014 the new no-repair agent workflow",
+      "dataset": "M5 + RetailNet",
+      "caption": "Three separate fresh Ollama calls per portfolio decision. Current contract fields are independently verified; numerical tools compute quantities and the execution gate controls permission. No repair mechanism is used.",
+      "path": "figures/01_agent_workflow.png",
+      "sha256": "dbcc86054a58ae3f117c2c8a3365b9c712702b378fbfefd6a356b4c449b5e220"
+    },
+    {
+      "name": "02_dataset_profiles",
+      "title": "M5 + RetailNet \u2014 test-week sales profiles",
+      "caption": "Solid lines: recorded sales across each 30-series panel. Dashed lines: the shared numerical LightGBM forecast, fitted afresh at each weekly origin. The axes use different quantity conventions; heights must not be interpreted as comparable commercial demand. The LLM does not produce these forecasts.",
+      "dataset": "M5 + RetailNet",
+      "path": "figures/02_dataset_profiles.png",
+      "sha256": "0099b0c46d64a72d4fe2f123a64f7595614c77a8db636777b3aec7dd4f0dad8a"
+    },
+    {
+      "name": "03_fill_rate",
+      "title": "M5 \u2014 customer-demand fulfilment",
+      "caption": "Means across 30 paired simulation seeds, with both test weeks aggregated within seed. Error bars: 95% bootstrap intervals. Higher is better.",
+      "dataset": "M5",
+      "path": "figures/03_fill_rate.png",
+      "sha256": "7a6049a02204f9950fbb318387a039e594a4f3ec35045a1062fc4d0a58c97639"
+    },
+    {
+      "name": "04_fill_rate",
+      "title": "RetailNet \u2014 customer-demand fulfilment",
+      "caption": "Means across 30 paired simulation seeds, with both test weeks aggregated within seed. Error bars: 95% bootstrap intervals. Higher is better.",
+      "dataset": "RetailNet",
+      "path": "figures/04_fill_rate.png",
+      "sha256": "47220d5a77e088a03fb014b995308dd15a6c87f9e74a3edc5eecb8a5cccc6339"
+    },
+    {
+      "name": "05_operating_cost",
+      "title": "M5 \u2014 inventory operating cost",
+      "caption": "Means across 30 paired simulation seeds, with both test weeks aggregated within seed. Error bars: 95% bootstrap intervals. Lower is better.",
+      "dataset": "M5",
+      "path": "figures/05_operating_cost.png",
+      "sha256": "6c392a7726e270655adcac3ad9394e283dbf79380fdafea99cc4e3bbf35876cb"
+    },
+    {
+      "name": "06_operating_cost",
+      "title": "RetailNet \u2014 inventory operating cost",
+      "caption": "Means across 30 paired simulation seeds, with both test weeks aggregated within seed. Error bars: 95% bootstrap intervals. Lower is better.",
+      "dataset": "RetailNet",
+      "path": "figures/06_operating_cost.png",
+      "sha256": "81ef61f60ef53fc89e262e1c1c8c08d0604f9a79b59ab8c9c7d0984787ec1470"
+    },
+    {
+      "name": "07_daily_service",
+      "title": "M5 \u2014 daily service",
+      "caption": "Daily demand-weighted fulfilment, pooling both weekly windows and 30 seeds within each scenario. The daily plots are descriptive; days are not treated as independent replications.",
+      "dataset": "M5",
+      "path": "figures/07_daily_service.png",
+      "sha256": "c0c1d74bb0e1a348ceab7e4eebcc9b3ecbefe731de0679452303c5519b0b185f"
+    },
+    {
+      "name": "08_daily_service",
+      "title": "RetailNet \u2014 daily service",
+      "caption": "Daily demand-weighted fulfilment, pooling both weekly windows and 30 seeds within each scenario. The daily plots are descriptive; days are not treated as independent replications.",
+      "dataset": "RetailNet",
+      "path": "figures/08_daily_service.png",
+      "sha256": "fd39cd7f12af3140727fb466bb946138de21dd72ef0d468508da8b19855cc377"
+    },
+    {
+      "name": "09_retailnet_expiry",
+      "title": "RetailNet \u2014 fresh-stock expiry",
+      "caption": "Means across 30 paired simulation seeds, with both test weeks aggregated within seed. Error bars: 95% bootstrap intervals. Lower is better.",
+      "dataset": "RetailNet",
+      "path": "figures/09_retailnet_expiry.png",
+      "sha256": "c031b84a5600a5eaf3546e0f3cdc71d70f25cb4f1bed18b5164dd0701dee4d96"
+    },
+    {
+      "name": "10_cost_components",
+      "title": "M5 + RetailNet \u2014 operating-cost components",
+      "caption": "The primary index includes holding, unmet-demand penalties and expiry. Acquisition spend is reported separately. Ratios here use pooled demand; policy-mean tables use the mean of per-seed ratios.",
+      "dataset": "M5 + RetailNet",
+      "path": "figures/10_cost_components.png",
+      "sha256": "ec600ae738fd09389ec603e0d4f3c37e1c61129f0c3849a5040804b5a131a76c"
+    },
+    {
+      "name": "11_source_accuracy",
+      "title": "M5 + RetailNet \u2014 LLM supplier-reading accuracy",
+      "caption": "Exactly 13 numerical fields are scored per supplier call: four fields for each of three suppliers, plus the daily budget. Supplier identity/coverage must also be correct for a complete extraction. This is controlled language, not an unrestricted commercial document corpus.",
+      "dataset": "M5 + RetailNet",
+      "path": "figures/11_source_accuracy.png",
+      "sha256": "53d86b23ff01c104cf3007cc037355547263016f6e6c278ccf9e0a1dfe68373f"
+    },
+    {
+      "name": "12_model_latency",
+      "title": "M5 + RetailNet \u2014 local model latency",
+      "caption": "Bars show median recorded call time; upper whiskers show the 95th percentile, not a confidence interval. The local model was warm following development. Hardware and integration costs were not monetised.",
+      "dataset": "M5 + RetailNet",
+      "path": "figures/12_model_latency.png",
+      "sha256": "e2d280923309d6b44613d3306d5597a8c1cdff98d7d120121df7f510ffe33291"
+    },
+    {
+      "name": "13_paired_effects",
+      "title": "M5 + RetailNet \u2014 paired service effects",
+      "caption": "Thirty paired simulation seeds, with two weeks aggregated inside seed; 95% bootstrap intervals. The structured comparator uses the same numerical tool and current rules, isolating the model-assisted interpretation/routing layer.",
+      "dataset": "M5 + RetailNet",
+      "path": "figures/13_paired_effects.png",
+      "sha256": "047dd4e5860d81bd0c7f110590d8c7b2fb1efc9af174509f9bcd70ef798dbc79"
+    },
+    {
+      "name": "14_paired_effects",
+      "title": "M5 + RetailNet \u2014 paired operating-cost effects",
+      "caption": "Thirty paired simulation seeds, with two weeks aggregated inside seed; 95% bootstrap intervals. Cost changes are means of paired seed-relative percentages. The structured comparator uses the same numerical tool and current rules, isolating the model-assisted interpretation/routing layer.",
+      "dataset": "M5 + RetailNet",
+      "path": "figures/14_paired_effects.png",
+      "sha256": "4708d89d379123e129bfa1dd83ee975d99e8b7c7c980ae0fbe8ae420dff86a6d"
+    },
+    {
+      "name": "15_holds",
+      "title": "M5 + RetailNet \u2014 held decisions",
+      "caption": "A hold is an unexecuted decision, not a successful zero-order recommendation. The same deterministic budget, capacity, pack and minimum-order checks govern all arms.",
+      "dataset": "M5 + RetailNet",
+      "path": "figures/15_holds.png",
+      "sha256": "c1759b9b6df1ef6a0e569f0078ac0a8de7756d64d4d6f2b90dca8a1d561365b7"
+    }
+  ],
+  "source_files": {
+    "llm_diagnostics.csv": "b8ff6c090e5b3f8249ffdaf88113348bbc4d75b1ac283a05d8f5bbf83c5707b0",
+    "policy_means.csv": "ca706c93fa4c22a44f03ffa5d84d83392f91f2a9d5033cdc7a3ab7410295d528",
+    "paired_effects.csv": "cbd0b88084631f436fa36974ca42053d7457b07e01844f1190028327af4ed1c8",
+    "daily_results.csv": "aa5c6d0bddc4db0d3c63ae1d1b35a5390caec738d532d1d779bce79640721b58",
+    "shared_forecast_context.csv": "1811a330007b475a2fbb29e0870337c795b7fefd0584a485ef8fda73fa2192a7",
+    "run_results.csv": "49183009a2a13e183a9522b6f6fdf90339cce271c327cfb6e16c44b15131164d",
+    "seed_results.csv": "911219cf0b75cfed522cb0ef7073a7600f9bada306382f78890eceef359c23b2",
+    "model_calls.csv": "acaad2d5033f90be023bdbee63d45506799a22b31c60172a5d76834d56a3dfbb",
+    "matched_actions.csv": "b1b3137286121a1ef1bbad555310fcb3563827450629023af470ec74a7e74a2d",
+    "source_accuracy_by_case.csv": "d381d567f09ab2f52adec09f6202199fe4a01d65c12d07880865c0b6f3adfc0a"
+  }
+}

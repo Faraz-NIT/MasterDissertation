@@ -1,0 +1,30 @@
+{
+  "status": "VERIFIED",
+  "at_utc": "2026-10-09T01:18:01.477938+00:00",
+  "execution_complete": true,
+  "runs": 1080,
+  "portfolio_days": 7560,
+  "series_days": 226800,
+  "fresh_primary_model_calls": 7560,
+  "unique_model_response_timestamps": 7560,
+  "issues": [],
+  "checks": [
+    "Frozen source and data hashes",
+    "Exact registered matched grid",
+    "Same recorded demand for every arm",
+    "Physical sales, stock and FIFO balance",
+    "Independent FIFO/supplier ledger replay from matched opening states",
+    "Independent operating-cost recalculation",
+    "Independent executed pack, MOQ, capacity and budget checks",
+    "Held actions never executed",
+    "Every referenced model-call byte hash",
+    "Native model and generation settings",
+    "Unique fresh response timestamps",
+    "Exactly three role calls per LLM portfolio decision",
+    "Source-field accuracy independently counted",
+    "Per-run metrics recomputed from decision logs",
+    "Full inventory and pipeline conservation",
+    "Master summary byte values match local run files"
+  ],
+  "protocol_sha256": "313022ff110d796bd2bf91839f8168761ae6a5899fe5119d3f772b6f4e2188bb"
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "dataset": "M5",
+    "comparison": "conventional",
+    "fill_effect_pp": {
+      "mean": 25.282492113581426,
+      "ci_low": 24.908057142669,
+      "ci_high": 25.645530064573084,
+      "seeds": 30
+    },
+    "cost_effect_pct": {
+      "mean": -70.34015310484513,
+      "ci_low": -71.22469212930469,
+      "ci_high": -69.43590018448401,
+      "seeds": 30
+    }
+  },
+  {
+    "dataset": "M5",
+    "comparison": "structured_planner",
+    "fill_effect_pp": {
+      "mean": -0.008385907612452984,
+      "ci_low": -0.029129449045277218,
+      "ci_high": 0.007296546320366322,
+      "seeds": 30
+    },
+    "cost_effect_pct": {
+      "mean": 0.06246080076782438,
+      "ci_low": -0.06643450050742983,
+      "ci_high": 0.23420380672357877,
+      "seeds": 30
+    }
+  },
+  {
+    "dataset": "RetailNet",
+    "comparison": "conventional",
+    "fill_effect_pp": {
+      "mean": 0.7834977187459621,
+      "ci_low": 0.6839090697196182,
+      "ci_high": 0.8749454120501559,
+      "seeds": 30
+    },
+    "cost_effect_pct": {
+      "mean": -4.524242491426887,
+      "ci_low": -5.033924395208413,
+      "ci_high": -3.977648744854384,
+      "seeds": 30
+    }
+  },
+  {
+    "dataset": "RetailNet",
+    "comparison": "structured_planner",
+    "fill_effect_pp": {
+      "mean": -0.2010113671845082,
+      "ci_low": -0.2307243428417657,
+      "ci_high": -0.1688068137389105,
+      "seeds": 30
+    },
+    "cost_effect_pct": {
+      "mean": 1.0123759037894102,
+      "ci_low": 0.8452325791982017,
+      "ci_high": 1.172168871701773,
+      "seeds": 30
+    }
+  }
+]

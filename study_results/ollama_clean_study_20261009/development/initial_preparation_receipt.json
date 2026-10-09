@@ -1,0 +1,44 @@
+{
+  "status": "VERIFIED",
+  "prepared_at_utc": "2026-10-08T22:27:31.359665+00:00",
+  "no_previous_results_or_forecasts_loaded": true,
+  "panels": [
+    {
+      "dataset": "M5",
+      "series": 30,
+      "products": 30,
+      "stores": 10,
+      "history_days": 1934,
+      "evaluation_days": 7,
+      "selection": "Training-only volume strata, ten hash-ranked FOODS pairs per stratum",
+      "eligible_series": 9950,
+      "selection_last_day_exclusive": 1878,
+      "quantity": "Published unit sales",
+      "raw_files": {
+        "sales_train_evaluation.csv": "4b4a47c44c38380d2a9168216fea8c9ff2f31b1ddb772f8a0995952a038b8aa0",
+        "calendar.csv": "f9295292394975908e04ac77898c2304cbd499a2c466b2b9ce6f04079675bf16"
+      }
+    },
+    {
+      "dataset": "Dingdong-Inc/FreshRetailNet-50K",
+      "label": "RetailNet",
+      "series": 30,
+      "products": 29,
+      "stores": 29,
+      "training_days": 90,
+      "evaluation_days": 7,
+      "source_train_rows_checked": 4500000,
+      "source_eval_rows_checked": 350000,
+      "selection_last_day_exclusive": 62,
+      "selection": "Training-only volume strata, ten hash-ranked pairs per stratum",
+      "eligible_series": 37097,
+      "quantity": "Published normalized sales multiplied by 100; not physical units",
+      "raw_files": {
+        "train.parquet": "6706832db892bbae4969c19d87e07975d2543d2ba7d7d4756360654785de5a3d",
+        "eval.parquet": "1b118840664280c6b88bffc84c80ee1f54c05d911e354b7599e5da10995e960e"
+      },
+      "release_revision": "08c1fab7f9257bc73679d415d65d644165d351d4",
+      "license": "CC-BY-4.0"
+    }
+  ]
+}

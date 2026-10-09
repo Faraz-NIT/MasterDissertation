@@ -1,0 +1,66 @@
+{
+  "role": "planner",
+  "seconds": 0.6340466930014372,
+  "request": {
+    "model": "qwen2.5:1.5b",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You coordinate replenishment using a numerical tool. Call constrained_order. Use balanced for routine trading and service_first when an announced demand surge makes availability the priority. Return only JSON."
+      },
+      {
+        "role": "user",
+        "content": "Routine trading. Forecast total 185 units. Inventory 290 units. Budget 320. Verified supplier rules available. No demand surge."
+      }
+    ],
+    "stream": false,
+    "format": {
+      "type": "object",
+      "properties": {
+        "tool": {
+          "type": "string",
+          "enum": [
+            "constrained_order"
+          ]
+        },
+        "priority": {
+          "type": "string",
+          "enum": [
+            "balanced",
+            "service_first"
+          ]
+        }
+      },
+      "required": [
+        "tool",
+        "priority"
+      ],
+      "additionalProperties": false
+    },
+    "options": {
+      "temperature": 0,
+      "seed": 20261009,
+      "num_ctx": 4096,
+      "num_thread": 3,
+      "num_predict": 512
+    },
+    "keep_alive": "2h"
+  },
+  "response": {
+    "model": "qwen2.5:1.5b",
+    "created_at": "2026-10-08T22:21:36.694879429Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\n  \"tool\": \"constrained_order\",\n  \"priority\": \"balanced\"\n}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 632714160,
+    "load_duration": 6082898,
+    "prompt_eval_count": 81,
+    "prompt_eval_cached_count": 3,
+    "prompt_eval_duration": 318118000,
+    "eval_count": 19,
+    "eval_duration": 300617000
+  }
+}

@@ -1,0 +1,721 @@
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 101, "runs_complete": 0}
+{"phase": "case_complete", "runs_complete": 3, "fresh_calls": 21, "elapsed_seconds": 25.618962610999006}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 101, "runs_complete": 3}
+{"phase": "case_complete", "runs_complete": 6, "fresh_calls": 42, "elapsed_seconds": 50.925042582999595}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 101, "runs_complete": 6}
+{"phase": "case_complete", "runs_complete": 9, "fresh_calls": 63, "elapsed_seconds": 77.00209553699824}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 101, "runs_complete": 9}
+{"phase": "case_complete", "runs_complete": 12, "fresh_calls": 84, "elapsed_seconds": 103.45300873299857}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 101, "runs_complete": 12}
+{"phase": "case_complete", "runs_complete": 15, "fresh_calls": 105, "elapsed_seconds": 128.58350977200098}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 101, "runs_complete": 15}
+{"phase": "case_complete", "runs_complete": 18, "fresh_calls": 126, "elapsed_seconds": 153.78704068799925}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 101, "runs_complete": 18}
+{"phase": "case_complete", "runs_complete": 21, "fresh_calls": 147, "elapsed_seconds": 182.0628582040008}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 101, "runs_complete": 21}
+{"phase": "case_complete", "runs_complete": 24, "fresh_calls": 168, "elapsed_seconds": 208.89708936199895}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 101, "runs_complete": 24}
+{"phase": "case_complete", "runs_complete": 27, "fresh_calls": 189, "elapsed_seconds": 235.5830873369996}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 101, "runs_complete": 27}
+{"phase": "case_complete", "runs_complete": 30, "fresh_calls": 210, "elapsed_seconds": 262.721503271001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 101, "runs_complete": 30}
+{"phase": "case_complete", "runs_complete": 33, "fresh_calls": 231, "elapsed_seconds": 290.90506902299967}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 101, "runs_complete": 33}
+{"phase": "case_complete", "runs_complete": 36, "fresh_calls": 252, "elapsed_seconds": 319.3584665519993}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 102, "runs_complete": 36}
+{"phase": "case_complete", "runs_complete": 39, "fresh_calls": 273, "elapsed_seconds": 345.15079128199795}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 102, "runs_complete": 39}
+{"phase": "case_complete", "runs_complete": 42, "fresh_calls": 294, "elapsed_seconds": 370.55474537400005}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 102, "runs_complete": 42}
+{"phase": "case_complete", "runs_complete": 45, "fresh_calls": 315, "elapsed_seconds": 397.3927585630008}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 102, "runs_complete": 45}
+{"phase": "case_complete", "runs_complete": 48, "fresh_calls": 336, "elapsed_seconds": 424.7669386609996}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 102, "runs_complete": 48}
+{"phase": "case_complete", "runs_complete": 51, "fresh_calls": 357, "elapsed_seconds": 451.05089683299957}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 102, "runs_complete": 51}
+{"phase": "case_complete", "runs_complete": 54, "fresh_calls": 378, "elapsed_seconds": 476.1729801729998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 102, "runs_complete": 54}
+{"phase": "case_complete", "runs_complete": 57, "fresh_calls": 399, "elapsed_seconds": 502.7994621760008}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 102, "runs_complete": 57}
+{"phase": "case_complete", "runs_complete": 60, "fresh_calls": 420, "elapsed_seconds": 529.3301607779977}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 102, "runs_complete": 60}
+{"phase": "case_complete", "runs_complete": 63, "fresh_calls": 441, "elapsed_seconds": 554.1848922600002}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 102, "runs_complete": 63}
+{"phase": "case_complete", "runs_complete": 66, "fresh_calls": 462, "elapsed_seconds": 582.0710401840006}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 102, "runs_complete": 66}
+{"phase": "case_complete", "runs_complete": 69, "fresh_calls": 483, "elapsed_seconds": 609.8706055679977}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 102, "runs_complete": 69}
+{"phase": "case_complete", "runs_complete": 72, "fresh_calls": 504, "elapsed_seconds": 637.801031564999}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 103, "runs_complete": 72}
+{"phase": "case_complete", "runs_complete": 75, "fresh_calls": 525, "elapsed_seconds": 663.616454160001}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 103, "runs_complete": 75}
+{"phase": "case_complete", "runs_complete": 78, "fresh_calls": 546, "elapsed_seconds": 689.1111023890007}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 103, "runs_complete": 78}
+{"phase": "case_complete", "runs_complete": 81, "fresh_calls": 567, "elapsed_seconds": 716.4835895680008}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 103, "runs_complete": 81}
+{"phase": "case_complete", "runs_complete": 84, "fresh_calls": 588, "elapsed_seconds": 744.8291185859998}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 103, "runs_complete": 84}
+{"phase": "case_complete", "runs_complete": 87, "fresh_calls": 609, "elapsed_seconds": 771.304504462998}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 103, "runs_complete": 87}
+{"phase": "case_complete", "runs_complete": 90, "fresh_calls": 630, "elapsed_seconds": 796.7593850880003}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 103, "runs_complete": 90}
+{"phase": "case_complete", "runs_complete": 93, "fresh_calls": 651, "elapsed_seconds": 825.7856180960007}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 103, "runs_complete": 93}
+{"phase": "case_complete", "runs_complete": 96, "fresh_calls": 672, "elapsed_seconds": 854.0765491470011}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 103, "runs_complete": 96}
+{"phase": "case_complete", "runs_complete": 99, "fresh_calls": 693, "elapsed_seconds": 882.0054474239987}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 103, "runs_complete": 99}
+{"phase": "case_complete", "runs_complete": 102, "fresh_calls": 714, "elapsed_seconds": 908.9868675350008}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 103, "runs_complete": 102}
+{"phase": "case_complete", "runs_complete": 105, "fresh_calls": 735, "elapsed_seconds": 937.19141734}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 103, "runs_complete": 105}
+{"phase": "case_complete", "runs_complete": 108, "fresh_calls": 756, "elapsed_seconds": 965.5979545869995}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 104, "runs_complete": 108}
+{"phase": "case_complete", "runs_complete": 111, "fresh_calls": 777, "elapsed_seconds": 990.8130134569983}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 104, "runs_complete": 111}
+{"phase": "case_complete", "runs_complete": 114, "fresh_calls": 798, "elapsed_seconds": 1015.4505626959981}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 104, "runs_complete": 114}
+{"phase": "case_complete", "runs_complete": 117, "fresh_calls": 819, "elapsed_seconds": 1040.9341845819981}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 104, "runs_complete": 117}
+{"phase": "case_complete", "runs_complete": 120, "fresh_calls": 840, "elapsed_seconds": 1066.307927744001}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 104, "runs_complete": 120}
+{"phase": "case_complete", "runs_complete": 123, "fresh_calls": 861, "elapsed_seconds": 1091.6553297249993}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 104, "runs_complete": 123}
+{"phase": "case_complete", "runs_complete": 126, "fresh_calls": 882, "elapsed_seconds": 1117.265081302001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 104, "runs_complete": 126}
+{"phase": "case_complete", "runs_complete": 129, "fresh_calls": 903, "elapsed_seconds": 1145.233830811001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 104, "runs_complete": 129}
+{"phase": "case_complete", "runs_complete": 132, "fresh_calls": 924, "elapsed_seconds": 1172.930659357}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 104, "runs_complete": 132}
+{"phase": "case_complete", "runs_complete": 135, "fresh_calls": 945, "elapsed_seconds": 1200.4452384399992}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 104, "runs_complete": 135}
+{"phase": "case_complete", "runs_complete": 138, "fresh_calls": 966, "elapsed_seconds": 1226.945077106}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 104, "runs_complete": 138}
+{"phase": "case_complete", "runs_complete": 141, "fresh_calls": 987, "elapsed_seconds": 1254.7477657769996}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 104, "runs_complete": 141}
+{"phase": "case_complete", "runs_complete": 144, "fresh_calls": 1008, "elapsed_seconds": 1280.8285673659993}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 105, "runs_complete": 144}
+{"phase": "case_complete", "runs_complete": 147, "fresh_calls": 1029, "elapsed_seconds": 1305.952671662999}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 105, "runs_complete": 147}
+{"phase": "case_complete", "runs_complete": 150, "fresh_calls": 1050, "elapsed_seconds": 1331.1894687599997}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 105, "runs_complete": 150}
+{"phase": "case_complete", "runs_complete": 153, "fresh_calls": 1071, "elapsed_seconds": 1359.5762543249984}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 105, "runs_complete": 153}
+{"phase": "case_complete", "runs_complete": 156, "fresh_calls": 1092, "elapsed_seconds": 1386.5930477179973}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 105, "runs_complete": 156}
+{"phase": "case_complete", "runs_complete": 159, "fresh_calls": 1113, "elapsed_seconds": 1411.4663866910014}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 105, "runs_complete": 159}
+{"phase": "case_complete", "runs_complete": 162, "fresh_calls": 1134, "elapsed_seconds": 1436.708455611999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 105, "runs_complete": 162}
+{"phase": "case_complete", "runs_complete": 165, "fresh_calls": 1155, "elapsed_seconds": 1462.960040144997}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 105, "runs_complete": 165}
+{"phase": "case_complete", "runs_complete": 168, "fresh_calls": 1176, "elapsed_seconds": 1491.0572251189988}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 105, "runs_complete": 168}
+{"phase": "case_complete", "runs_complete": 171, "fresh_calls": 1197, "elapsed_seconds": 1519.0022460630025}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 105, "runs_complete": 171}
+{"phase": "case_complete", "runs_complete": 174, "fresh_calls": 1218, "elapsed_seconds": 1544.4998891239993}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 105, "runs_complete": 174}
+{"phase": "case_complete", "runs_complete": 177, "fresh_calls": 1239, "elapsed_seconds": 1571.2111812629992}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 105, "runs_complete": 177}
+{"phase": "case_complete", "runs_complete": 180, "fresh_calls": 1260, "elapsed_seconds": 1598.2171121879983}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 106, "runs_complete": 180}
+{"phase": "case_complete", "runs_complete": 183, "fresh_calls": 1281, "elapsed_seconds": 1624.0160738770028}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 106, "runs_complete": 183}
+{"phase": "case_complete", "runs_complete": 186, "fresh_calls": 1302, "elapsed_seconds": 1649.7384651089997}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 106, "runs_complete": 186}
+{"phase": "case_complete", "runs_complete": 189, "fresh_calls": 1323, "elapsed_seconds": 1677.6651791700024}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 106, "runs_complete": 189}
+{"phase": "case_complete", "runs_complete": 192, "fresh_calls": 1344, "elapsed_seconds": 1706.0145355140012}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 106, "runs_complete": 192}
+{"phase": "case_complete", "runs_complete": 195, "fresh_calls": 1365, "elapsed_seconds": 1732.0240940609983}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 106, "runs_complete": 195}
+{"phase": "case_complete", "runs_complete": 198, "fresh_calls": 1386, "elapsed_seconds": 1758.2761396629976}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 106, "runs_complete": 198}
+{"phase": "case_complete", "runs_complete": 201, "fresh_calls": 1407, "elapsed_seconds": 1784.3421146910005}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 106, "runs_complete": 201}
+{"phase": "case_complete", "runs_complete": 204, "fresh_calls": 1428, "elapsed_seconds": 1813.8666965409975}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 106, "runs_complete": 204}
+{"phase": "case_complete", "runs_complete": 207, "fresh_calls": 1449, "elapsed_seconds": 1839.441544626996}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 106, "runs_complete": 207}
+{"phase": "case_complete", "runs_complete": 210, "fresh_calls": 1470, "elapsed_seconds": 1865.0039938500013}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 106, "runs_complete": 210}
+{"phase": "case_complete", "runs_complete": 213, "fresh_calls": 1491, "elapsed_seconds": 1891.0698205889967}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 106, "runs_complete": 213}
+{"phase": "case_complete", "runs_complete": 216, "fresh_calls": 1512, "elapsed_seconds": 1918.736332782999}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 107, "runs_complete": 216}
+{"phase": "case_complete", "runs_complete": 219, "fresh_calls": 1533, "elapsed_seconds": 1943.6793788489995}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 107, "runs_complete": 219}
+{"phase": "case_complete", "runs_complete": 222, "fresh_calls": 1554, "elapsed_seconds": 1969.1639652170015}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 107, "runs_complete": 222}
+{"phase": "case_complete", "runs_complete": 225, "fresh_calls": 1575, "elapsed_seconds": 1995.0328203179997}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 107, "runs_complete": 225}
+{"phase": "case_complete", "runs_complete": 228, "fresh_calls": 1596, "elapsed_seconds": 2021.385942994999}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 107, "runs_complete": 228}
+{"phase": "case_complete", "runs_complete": 231, "fresh_calls": 1617, "elapsed_seconds": 2047.2382923910009}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 107, "runs_complete": 231}
+{"phase": "case_complete", "runs_complete": 234, "fresh_calls": 1638, "elapsed_seconds": 2071.9427450760013}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 107, "runs_complete": 234}
+{"phase": "case_complete", "runs_complete": 237, "fresh_calls": 1659, "elapsed_seconds": 2099.4188445739965}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 107, "runs_complete": 237}
+{"phase": "case_complete", "runs_complete": 240, "fresh_calls": 1680, "elapsed_seconds": 2128.090540344998}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 107, "runs_complete": 240}
+{"phase": "case_complete", "runs_complete": 243, "fresh_calls": 1701, "elapsed_seconds": 2154.361760787997}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 107, "runs_complete": 243}
+{"phase": "case_complete", "runs_complete": 246, "fresh_calls": 1722, "elapsed_seconds": 2179.640714297999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 107, "runs_complete": 246}
+{"phase": "case_complete", "runs_complete": 249, "fresh_calls": 1743, "elapsed_seconds": 2205.442418365001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 107, "runs_complete": 249}
+{"phase": "case_complete", "runs_complete": 252, "fresh_calls": 1764, "elapsed_seconds": 2232.204382480002}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 108, "runs_complete": 252}
+{"phase": "case_complete", "runs_complete": 255, "fresh_calls": 1785, "elapsed_seconds": 2258.476572067997}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 108, "runs_complete": 255}
+{"phase": "case_complete", "runs_complete": 258, "fresh_calls": 1806, "elapsed_seconds": 2284.982853837002}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 108, "runs_complete": 258}
+{"phase": "case_complete", "runs_complete": 261, "fresh_calls": 1827, "elapsed_seconds": 2312.736547657001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 108, "runs_complete": 261}
+{"phase": "case_complete", "runs_complete": 264, "fresh_calls": 1848, "elapsed_seconds": 2340.393671310998}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 108, "runs_complete": 264}
+{"phase": "case_complete", "runs_complete": 267, "fresh_calls": 1869, "elapsed_seconds": 2366.907749559996}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 108, "runs_complete": 267}
+{"phase": "case_complete", "runs_complete": 270, "fresh_calls": 1890, "elapsed_seconds": 2393.1477013099975}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 108, "runs_complete": 270}
+{"phase": "case_complete", "runs_complete": 273, "fresh_calls": 1911, "elapsed_seconds": 2421.4348467679993}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 108, "runs_complete": 273}
+{"phase": "case_complete", "runs_complete": 276, "fresh_calls": 1932, "elapsed_seconds": 2450.338283009998}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 108, "runs_complete": 276}
+{"phase": "case_complete", "runs_complete": 279, "fresh_calls": 1953, "elapsed_seconds": 2475.607538991}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 108, "runs_complete": 279}
+{"phase": "case_complete", "runs_complete": 282, "fresh_calls": 1974, "elapsed_seconds": 2502.492343062}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 108, "runs_complete": 282}
+{"phase": "case_complete", "runs_complete": 285, "fresh_calls": 1995, "elapsed_seconds": 2530.152238193001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 108, "runs_complete": 285}
+{"phase": "case_complete", "runs_complete": 288, "fresh_calls": 2016, "elapsed_seconds": 2557.192654661001}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 109, "runs_complete": 288}
+{"phase": "case_complete", "runs_complete": 291, "fresh_calls": 2037, "elapsed_seconds": 2583.3111079150003}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 109, "runs_complete": 291}
+{"phase": "case_complete", "runs_complete": 294, "fresh_calls": 2058, "elapsed_seconds": 2609.058334901998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 109, "runs_complete": 294}
+{"phase": "case_complete", "runs_complete": 297, "fresh_calls": 2079, "elapsed_seconds": 2635.532008641003}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 109, "runs_complete": 297}
+{"phase": "case_complete", "runs_complete": 300, "fresh_calls": 2100, "elapsed_seconds": 2663.130122149003}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 109, "runs_complete": 300}
+{"phase": "case_complete", "runs_complete": 303, "fresh_calls": 2121, "elapsed_seconds": 2689.282697052}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 109, "runs_complete": 303}
+{"phase": "case_complete", "runs_complete": 306, "fresh_calls": 2142, "elapsed_seconds": 2715.589604689998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 109, "runs_complete": 306}
+{"phase": "case_complete", "runs_complete": 309, "fresh_calls": 2163, "elapsed_seconds": 2744.845366749996}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 109, "runs_complete": 309}
+{"phase": "case_complete", "runs_complete": 312, "fresh_calls": 2184, "elapsed_seconds": 2773.576817762001}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 109, "runs_complete": 312}
+{"phase": "case_complete", "runs_complete": 315, "fresh_calls": 2205, "elapsed_seconds": 2799.899768788}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 109, "runs_complete": 315}
+{"phase": "case_complete", "runs_complete": 318, "fresh_calls": 2226, "elapsed_seconds": 2825.771039254996}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 109, "runs_complete": 318}
+{"phase": "case_complete", "runs_complete": 321, "fresh_calls": 2247, "elapsed_seconds": 2852.815879605998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 109, "runs_complete": 321}
+{"phase": "case_complete", "runs_complete": 324, "fresh_calls": 2268, "elapsed_seconds": 2881.9672176150016}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 110, "runs_complete": 324}
+{"phase": "case_complete", "runs_complete": 327, "fresh_calls": 2289, "elapsed_seconds": 2908.263396487997}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 110, "runs_complete": 327}
+{"phase": "case_complete", "runs_complete": 330, "fresh_calls": 2310, "elapsed_seconds": 2933.800911536997}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 110, "runs_complete": 330}
+{"phase": "case_complete", "runs_complete": 333, "fresh_calls": 2331, "elapsed_seconds": 2961.3309802350013}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 110, "runs_complete": 333}
+{"phase": "case_complete", "runs_complete": 336, "fresh_calls": 2352, "elapsed_seconds": 2987.271230395996}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 110, "runs_complete": 336}
+{"phase": "case_complete", "runs_complete": 339, "fresh_calls": 2373, "elapsed_seconds": 3013.0504906899987}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 110, "runs_complete": 339}
+{"phase": "case_complete", "runs_complete": 342, "fresh_calls": 2394, "elapsed_seconds": 3039.066286887999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 110, "runs_complete": 342}
+{"phase": "case_complete", "runs_complete": 345, "fresh_calls": 2415, "elapsed_seconds": 3068.5978865769976}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 110, "runs_complete": 345}
+{"phase": "case_complete", "runs_complete": 348, "fresh_calls": 2436, "elapsed_seconds": 3096.968034675996}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 110, "runs_complete": 348}
+{"phase": "case_complete", "runs_complete": 351, "fresh_calls": 2457, "elapsed_seconds": 3122.8902882349976}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 110, "runs_complete": 351}
+{"phase": "case_complete", "runs_complete": 354, "fresh_calls": 2478, "elapsed_seconds": 3148.686472186}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 110, "runs_complete": 354}
+{"phase": "case_complete", "runs_complete": 357, "fresh_calls": 2499, "elapsed_seconds": 3176.015304479002}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 110, "runs_complete": 357}
+{"phase": "case_complete", "runs_complete": 360, "fresh_calls": 2520, "elapsed_seconds": 3202.1208033589974}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 111, "runs_complete": 360}
+{"phase": "case_complete", "runs_complete": 363, "fresh_calls": 2541, "elapsed_seconds": 3226.9197282010027}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 111, "runs_complete": 363}
+{"phase": "case_complete", "runs_complete": 366, "fresh_calls": 2562, "elapsed_seconds": 3251.984688016997}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 111, "runs_complete": 366}
+{"phase": "case_complete", "runs_complete": 369, "fresh_calls": 2583, "elapsed_seconds": 3278.182485027999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 111, "runs_complete": 369}
+{"phase": "case_complete", "runs_complete": 372, "fresh_calls": 2604, "elapsed_seconds": 3306.126325014997}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 111, "runs_complete": 372}
+{"phase": "case_complete", "runs_complete": 375, "fresh_calls": 2625, "elapsed_seconds": 3331.734225780001}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 111, "runs_complete": 375}
+{"phase": "case_complete", "runs_complete": 378, "fresh_calls": 2646, "elapsed_seconds": 3357.694735228997}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 111, "runs_complete": 378}
+{"phase": "case_complete", "runs_complete": 381, "fresh_calls": 2667, "elapsed_seconds": 3384.9234805319975}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 111, "runs_complete": 381}
+{"phase": "case_complete", "runs_complete": 384, "fresh_calls": 2688, "elapsed_seconds": 3411.488187637002}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 111, "runs_complete": 384}
+{"phase": "case_complete", "runs_complete": 387, "fresh_calls": 2709, "elapsed_seconds": 3436.7803902580017}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 111, "runs_complete": 387}
+{"phase": "case_complete", "runs_complete": 390, "fresh_calls": 2730, "elapsed_seconds": 3461.2259733759965}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 111, "runs_complete": 390}
+{"phase": "case_complete", "runs_complete": 393, "fresh_calls": 2751, "elapsed_seconds": 3487.1365015890005}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 111, "runs_complete": 393}
+{"phase": "case_complete", "runs_complete": 396, "fresh_calls": 2772, "elapsed_seconds": 3513.4731027470007}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 112, "runs_complete": 396}
+{"phase": "case_complete", "runs_complete": 399, "fresh_calls": 2793, "elapsed_seconds": 3537.785078470999}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 112, "runs_complete": 399}
+{"phase": "case_complete", "runs_complete": 402, "fresh_calls": 2814, "elapsed_seconds": 3563.834711589003}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 112, "runs_complete": 402}
+{"phase": "case_complete", "runs_complete": 405, "fresh_calls": 2835, "elapsed_seconds": 3590.999017277998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 112, "runs_complete": 405}
+{"phase": "case_complete", "runs_complete": 408, "fresh_calls": 2856, "elapsed_seconds": 3619.4538275409977}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 112, "runs_complete": 408}
+{"phase": "case_complete", "runs_complete": 411, "fresh_calls": 2877, "elapsed_seconds": 3645.6157046749977}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 112, "runs_complete": 411}
+{"phase": "case_complete", "runs_complete": 414, "fresh_calls": 2898, "elapsed_seconds": 3673.0888070699984}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 112, "runs_complete": 414}
+{"phase": "case_complete", "runs_complete": 417, "fresh_calls": 2919, "elapsed_seconds": 3701.796814655998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 112, "runs_complete": 417}
+{"phase": "case_complete", "runs_complete": 420, "fresh_calls": 2940, "elapsed_seconds": 3730.6608976359967}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 112, "runs_complete": 420}
+{"phase": "case_complete", "runs_complete": 423, "fresh_calls": 2961, "elapsed_seconds": 3757.231532091999}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 112, "runs_complete": 423}
+{"phase": "case_complete", "runs_complete": 426, "fresh_calls": 2982, "elapsed_seconds": 3783.717414394003}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 112, "runs_complete": 426}
+{"phase": "case_complete", "runs_complete": 429, "fresh_calls": 3003, "elapsed_seconds": 3811.3573064019984}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 112, "runs_complete": 429}
+{"phase": "case_complete", "runs_complete": 432, "fresh_calls": 3024, "elapsed_seconds": 3839.943046366996}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 113, "runs_complete": 432}
+{"phase": "case_complete", "runs_complete": 435, "fresh_calls": 3045, "elapsed_seconds": 3864.797753900002}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 113, "runs_complete": 435}
+{"phase": "case_complete", "runs_complete": 438, "fresh_calls": 3066, "elapsed_seconds": 3889.511422171996}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 113, "runs_complete": 438}
+{"phase": "case_complete", "runs_complete": 441, "fresh_calls": 3087, "elapsed_seconds": 3915.941087549003}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 113, "runs_complete": 441}
+{"phase": "case_complete", "runs_complete": 444, "fresh_calls": 3108, "elapsed_seconds": 3942.4951530599974}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 113, "runs_complete": 444}
+{"phase": "case_complete", "runs_complete": 447, "fresh_calls": 3129, "elapsed_seconds": 3968.692266119997}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 113, "runs_complete": 447}
+{"phase": "case_complete", "runs_complete": 450, "fresh_calls": 3150, "elapsed_seconds": 3995.906674271002}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 113, "runs_complete": 450}
+{"phase": "case_complete", "runs_complete": 453, "fresh_calls": 3171, "elapsed_seconds": 4023.163983554001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 113, "runs_complete": 453}
+{"phase": "case_complete", "runs_complete": 456, "fresh_calls": 3192, "elapsed_seconds": 4049.8199490529987}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 113, "runs_complete": 456}
+{"phase": "case_complete", "runs_complete": 459, "fresh_calls": 3213, "elapsed_seconds": 4074.448612349999}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 113, "runs_complete": 459}
+{"phase": "case_complete", "runs_complete": 462, "fresh_calls": 3234, "elapsed_seconds": 4098.762769284}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 113, "runs_complete": 462}
+{"phase": "case_complete", "runs_complete": 465, "fresh_calls": 3255, "elapsed_seconds": 4124.558752405002}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 113, "runs_complete": 465}
+{"phase": "case_complete", "runs_complete": 468, "fresh_calls": 3276, "elapsed_seconds": 4151.213503121999}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 114, "runs_complete": 468}
+{"phase": "case_complete", "runs_complete": 471, "fresh_calls": 3297, "elapsed_seconds": 4177.208503466998}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 114, "runs_complete": 471}
+{"phase": "case_complete", "runs_complete": 474, "fresh_calls": 3318, "elapsed_seconds": 4203.204254291999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 114, "runs_complete": 474}
+{"phase": "case_complete", "runs_complete": 477, "fresh_calls": 3339, "elapsed_seconds": 4230.243264726003}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 114, "runs_complete": 477}
+{"phase": "case_complete", "runs_complete": 480, "fresh_calls": 3360, "elapsed_seconds": 4257.866693430002}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 114, "runs_complete": 480}
+{"phase": "case_complete", "runs_complete": 483, "fresh_calls": 3381, "elapsed_seconds": 4285.536131917001}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 114, "runs_complete": 483}
+{"phase": "case_complete", "runs_complete": 486, "fresh_calls": 3402, "elapsed_seconds": 4312.560142416998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 114, "runs_complete": 486}
+{"phase": "case_complete", "runs_complete": 489, "fresh_calls": 3423, "elapsed_seconds": 4340.787617266}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 114, "runs_complete": 489}
+{"phase": "case_complete", "runs_complete": 492, "fresh_calls": 3444, "elapsed_seconds": 4369.160048269998}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 114, "runs_complete": 492}
+{"phase": "case_complete", "runs_complete": 495, "fresh_calls": 3465, "elapsed_seconds": 4395.690807529998}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 114, "runs_complete": 495}
+{"phase": "case_complete", "runs_complete": 498, "fresh_calls": 3486, "elapsed_seconds": 4421.171862286999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 114, "runs_complete": 498}
+{"phase": "case_complete", "runs_complete": 501, "fresh_calls": 3507, "elapsed_seconds": 4448.119332416001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 114, "runs_complete": 501}
+{"phase": "case_complete", "runs_complete": 504, "fresh_calls": 3528, "elapsed_seconds": 4476.284812278998}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 115, "runs_complete": 504}
+{"phase": "case_complete", "runs_complete": 507, "fresh_calls": 3549, "elapsed_seconds": 4500.668289568999}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 115, "runs_complete": 507}
+{"phase": "case_complete", "runs_complete": 510, "fresh_calls": 3570, "elapsed_seconds": 4526.067841132997}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 115, "runs_complete": 510}
+{"phase": "case_complete", "runs_complete": 513, "fresh_calls": 3591, "elapsed_seconds": 4553.631142736998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 115, "runs_complete": 513}
+{"phase": "case_complete", "runs_complete": 516, "fresh_calls": 3612, "elapsed_seconds": 4579.839652614002}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 115, "runs_complete": 516}
+{"phase": "case_complete", "runs_complete": 519, "fresh_calls": 3633, "elapsed_seconds": 4606.642351954}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 115, "runs_complete": 519}
+{"phase": "case_complete", "runs_complete": 522, "fresh_calls": 3654, "elapsed_seconds": 4633.037264834002}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 115, "runs_complete": 522}
+{"phase": "case_complete", "runs_complete": 525, "fresh_calls": 3675, "elapsed_seconds": 4660.621546081002}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 115, "runs_complete": 525}
+{"phase": "case_complete", "runs_complete": 528, "fresh_calls": 3696, "elapsed_seconds": 4688.2401819889965}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 115, "runs_complete": 528}
+{"phase": "case_complete", "runs_complete": 531, "fresh_calls": 3717, "elapsed_seconds": 4714.627656439003}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 115, "runs_complete": 531}
+{"phase": "case_complete", "runs_complete": 534, "fresh_calls": 3738, "elapsed_seconds": 4741.197107267999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 115, "runs_complete": 534}
+{"phase": "case_complete", "runs_complete": 537, "fresh_calls": 3759, "elapsed_seconds": 4769.287654051001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 115, "runs_complete": 537}
+{"phase": "case_complete", "runs_complete": 540, "fresh_calls": 3780, "elapsed_seconds": 4798.918279832997}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 116, "runs_complete": 540}
+{"phase": "case_complete", "runs_complete": 543, "fresh_calls": 3801, "elapsed_seconds": 4824.662542748996}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 116, "runs_complete": 543}
+{"phase": "case_complete", "runs_complete": 546, "fresh_calls": 3822, "elapsed_seconds": 4848.9632902289995}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 116, "runs_complete": 546}
+{"phase": "case_complete", "runs_complete": 549, "fresh_calls": 3843, "elapsed_seconds": 4875.340906052999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 116, "runs_complete": 549}
+{"phase": "case_complete", "runs_complete": 552, "fresh_calls": 3864, "elapsed_seconds": 4902.382015649997}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 116, "runs_complete": 552}
+{"phase": "case_complete", "runs_complete": 555, "fresh_calls": 3885, "elapsed_seconds": 4927.498708755997}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 116, "runs_complete": 555}
+{"phase": "case_complete", "runs_complete": 558, "fresh_calls": 3906, "elapsed_seconds": 4952.751548559998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 116, "runs_complete": 558}
+{"phase": "case_complete", "runs_complete": 561, "fresh_calls": 3927, "elapsed_seconds": 4978.643856804996}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 116, "runs_complete": 561}
+{"phase": "case_complete", "runs_complete": 564, "fresh_calls": 3948, "elapsed_seconds": 5004.333183501996}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 116, "runs_complete": 564}
+{"phase": "case_complete", "runs_complete": 567, "fresh_calls": 3969, "elapsed_seconds": 5030.035601710999}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 116, "runs_complete": 567}
+{"phase": "case_complete", "runs_complete": 570, "fresh_calls": 3990, "elapsed_seconds": 5056.693558319999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 116, "runs_complete": 570}
+{"phase": "case_complete", "runs_complete": 573, "fresh_calls": 4011, "elapsed_seconds": 5083.813986903002}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 116, "runs_complete": 573}
+{"phase": "case_complete", "runs_complete": 576, "fresh_calls": 4032, "elapsed_seconds": 5111.429042326996}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 117, "runs_complete": 576}
+{"phase": "case_complete", "runs_complete": 579, "fresh_calls": 4053, "elapsed_seconds": 5137.413394262996}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 117, "runs_complete": 579}
+{"phase": "case_complete", "runs_complete": 582, "fresh_calls": 4074, "elapsed_seconds": 5162.245311688999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 117, "runs_complete": 582}
+{"phase": "case_complete", "runs_complete": 585, "fresh_calls": 4095, "elapsed_seconds": 5189.711715189002}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 117, "runs_complete": 585}
+{"phase": "case_complete", "runs_complete": 588, "fresh_calls": 4116, "elapsed_seconds": 5216.622780178997}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 117, "runs_complete": 588}
+{"phase": "case_complete", "runs_complete": 591, "fresh_calls": 4137, "elapsed_seconds": 5242.7965551199995}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 117, "runs_complete": 591}
+{"phase": "case_complete", "runs_complete": 594, "fresh_calls": 4158, "elapsed_seconds": 5267.504389266}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 117, "runs_complete": 594}
+{"phase": "case_complete", "runs_complete": 597, "fresh_calls": 4179, "elapsed_seconds": 5293.680754274999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 117, "runs_complete": 597}
+{"phase": "case_complete", "runs_complete": 600, "fresh_calls": 4200, "elapsed_seconds": 5320.332692847998}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 117, "runs_complete": 600}
+{"phase": "case_complete", "runs_complete": 603, "fresh_calls": 4221, "elapsed_seconds": 5344.913369664999}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 117, "runs_complete": 603}
+{"phase": "case_complete", "runs_complete": 606, "fresh_calls": 4242, "elapsed_seconds": 5370.015026507001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 117, "runs_complete": 606}
+{"phase": "case_complete", "runs_complete": 609, "fresh_calls": 4263, "elapsed_seconds": 5397.554674274001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 117, "runs_complete": 609}
+{"phase": "case_complete", "runs_complete": 612, "fresh_calls": 4284, "elapsed_seconds": 5427.209773004}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 118, "runs_complete": 612}
+{"phase": "case_complete", "runs_complete": 615, "fresh_calls": 4305, "elapsed_seconds": 5452.426494782998}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 118, "runs_complete": 615}
+{"phase": "case_complete", "runs_complete": 618, "fresh_calls": 4326, "elapsed_seconds": 5477.638984615998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 118, "runs_complete": 618}
+{"phase": "case_complete", "runs_complete": 621, "fresh_calls": 4347, "elapsed_seconds": 5505.105720732001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 118, "runs_complete": 621}
+{"phase": "case_complete", "runs_complete": 624, "fresh_calls": 4368, "elapsed_seconds": 5533.2670824350025}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 118, "runs_complete": 624}
+{"phase": "case_complete", "runs_complete": 627, "fresh_calls": 4389, "elapsed_seconds": 5558.9617250389965}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 118, "runs_complete": 627}
+{"phase": "case_complete", "runs_complete": 630, "fresh_calls": 4410, "elapsed_seconds": 5584.299645399002}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 118, "runs_complete": 630}
+{"phase": "case_complete", "runs_complete": 633, "fresh_calls": 4431, "elapsed_seconds": 5612.736873263002}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 118, "runs_complete": 633}
+{"phase": "case_complete", "runs_complete": 636, "fresh_calls": 4452, "elapsed_seconds": 5641.1159339749975}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 118, "runs_complete": 636}
+{"phase": "case_complete", "runs_complete": 639, "fresh_calls": 4473, "elapsed_seconds": 5666.697598734998}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 118, "runs_complete": 639}
+{"phase": "case_complete", "runs_complete": 642, "fresh_calls": 4494, "elapsed_seconds": 5693.838959687}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 118, "runs_complete": 642}
+{"phase": "case_complete", "runs_complete": 645, "fresh_calls": 4515, "elapsed_seconds": 5722.334595876}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 118, "runs_complete": 645}
+{"phase": "case_complete", "runs_complete": 648, "fresh_calls": 4536, "elapsed_seconds": 5751.329424446001}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 119, "runs_complete": 648}
+{"phase": "case_complete", "runs_complete": 651, "fresh_calls": 4557, "elapsed_seconds": 5776.900537450001}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 119, "runs_complete": 651}
+{"phase": "case_complete", "runs_complete": 654, "fresh_calls": 4578, "elapsed_seconds": 5801.783045722001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 119, "runs_complete": 654}
+{"phase": "case_complete", "runs_complete": 657, "fresh_calls": 4599, "elapsed_seconds": 5828.887066615}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 119, "runs_complete": 657}
+{"phase": "case_complete", "runs_complete": 660, "fresh_calls": 4620, "elapsed_seconds": 5854.999682161997}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 119, "runs_complete": 660}
+{"phase": "case_complete", "runs_complete": 663, "fresh_calls": 4641, "elapsed_seconds": 5881.306915489}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 119, "runs_complete": 663}
+{"phase": "case_complete", "runs_complete": 666, "fresh_calls": 4662, "elapsed_seconds": 5905.989249456998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 119, "runs_complete": 666}
+{"phase": "case_complete", "runs_complete": 669, "fresh_calls": 4683, "elapsed_seconds": 5932.963842536996}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 119, "runs_complete": 669}
+{"phase": "case_complete", "runs_complete": 672, "fresh_calls": 4704, "elapsed_seconds": 5959.368565476001}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 119, "runs_complete": 672}
+{"phase": "case_complete", "runs_complete": 675, "fresh_calls": 4725, "elapsed_seconds": 5985.044638311996}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 119, "runs_complete": 675}
+{"phase": "case_complete", "runs_complete": 678, "fresh_calls": 4746, "elapsed_seconds": 6011.241965035002}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 119, "runs_complete": 678}
+{"phase": "case_complete", "runs_complete": 681, "fresh_calls": 4767, "elapsed_seconds": 6040.171380379001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 119, "runs_complete": 681}
+{"phase": "case_complete", "runs_complete": 684, "fresh_calls": 4788, "elapsed_seconds": 6067.531541255998}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 120, "runs_complete": 684}
+{"phase": "case_complete", "runs_complete": 687, "fresh_calls": 4809, "elapsed_seconds": 6092.227273089}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 120, "runs_complete": 687}
+{"phase": "case_complete", "runs_complete": 690, "fresh_calls": 4830, "elapsed_seconds": 6117.006519361999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 120, "runs_complete": 690}
+{"phase": "case_complete", "runs_complete": 693, "fresh_calls": 4851, "elapsed_seconds": 6142.817388813997}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 120, "runs_complete": 693}
+{"phase": "case_complete", "runs_complete": 696, "fresh_calls": 4872, "elapsed_seconds": 6168.912991759997}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 120, "runs_complete": 696}
+{"phase": "case_complete", "runs_complete": 699, "fresh_calls": 4893, "elapsed_seconds": 6193.646909908999}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 120, "runs_complete": 699}
+{"phase": "case_complete", "runs_complete": 702, "fresh_calls": 4914, "elapsed_seconds": 6218.876148626998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 120, "runs_complete": 702}
+{"phase": "case_complete", "runs_complete": 705, "fresh_calls": 4935, "elapsed_seconds": 6246.033769045996}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 120, "runs_complete": 705}
+{"phase": "case_complete", "runs_complete": 708, "fresh_calls": 4956, "elapsed_seconds": 6273.961469965998}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 120, "runs_complete": 708}
+{"phase": "case_complete", "runs_complete": 711, "fresh_calls": 4977, "elapsed_seconds": 6300.065989828003}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 120, "runs_complete": 711}
+{"phase": "case_complete", "runs_complete": 714, "fresh_calls": 4998, "elapsed_seconds": 6326.438612549999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 120, "runs_complete": 714}
+{"phase": "case_complete", "runs_complete": 717, "fresh_calls": 5019, "elapsed_seconds": 6355.264775407999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 120, "runs_complete": 717}
+{"phase": "case_complete", "runs_complete": 720, "fresh_calls": 5040, "elapsed_seconds": 6382.574741964996}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 121, "runs_complete": 720}
+{"phase": "case_complete", "runs_complete": 723, "fresh_calls": 5061, "elapsed_seconds": 6408.891189683996}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 121, "runs_complete": 723}
+{"phase": "case_complete", "runs_complete": 726, "fresh_calls": 5082, "elapsed_seconds": 6434.432503391003}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 121, "runs_complete": 726}
+{"phase": "case_complete", "runs_complete": 729, "fresh_calls": 5103, "elapsed_seconds": 6463.226114086003}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 121, "runs_complete": 729}
+{"phase": "case_complete", "runs_complete": 732, "fresh_calls": 5124, "elapsed_seconds": 6490.6897137789965}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 121, "runs_complete": 732}
+{"phase": "case_complete", "runs_complete": 735, "fresh_calls": 5145, "elapsed_seconds": 6515.219303292}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 121, "runs_complete": 735}
+{"phase": "case_complete", "runs_complete": 738, "fresh_calls": 5166, "elapsed_seconds": 6539.886739110003}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 121, "runs_complete": 738}
+{"phase": "case_complete", "runs_complete": 741, "fresh_calls": 5187, "elapsed_seconds": 6567.022908183}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 121, "runs_complete": 741}
+{"phase": "case_complete", "runs_complete": 744, "fresh_calls": 5208, "elapsed_seconds": 6593.160727068}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 121, "runs_complete": 744}
+{"phase": "case_complete", "runs_complete": 747, "fresh_calls": 5229, "elapsed_seconds": 6619.665731669}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 121, "runs_complete": 747}
+{"phase": "case_complete", "runs_complete": 750, "fresh_calls": 5250, "elapsed_seconds": 6646.677570334996}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 121, "runs_complete": 750}
+{"phase": "case_complete", "runs_complete": 753, "fresh_calls": 5271, "elapsed_seconds": 6674.9114805980025}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 121, "runs_complete": 753}
+{"phase": "case_complete", "runs_complete": 756, "fresh_calls": 5292, "elapsed_seconds": 6701.591306134}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 122, "runs_complete": 756}
+{"phase": "case_complete", "runs_complete": 759, "fresh_calls": 5313, "elapsed_seconds": 6726.2342653880005}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 122, "runs_complete": 759}
+{"phase": "case_complete", "runs_complete": 762, "fresh_calls": 5334, "elapsed_seconds": 6750.826218348997}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 122, "runs_complete": 762}
+{"phase": "case_complete", "runs_complete": 765, "fresh_calls": 5355, "elapsed_seconds": 6777.150436681}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 122, "runs_complete": 765}
+{"phase": "case_complete", "runs_complete": 768, "fresh_calls": 5376, "elapsed_seconds": 6803.667945436002}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 122, "runs_complete": 768}
+{"phase": "case_complete", "runs_complete": 771, "fresh_calls": 5397, "elapsed_seconds": 6828.014445942998}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 122, "runs_complete": 771}
+{"phase": "case_complete", "runs_complete": 774, "fresh_calls": 5418, "elapsed_seconds": 6852.717666105}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 122, "runs_complete": 774}
+{"phase": "case_complete", "runs_complete": 777, "fresh_calls": 5439, "elapsed_seconds": 6879.113970727001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 122, "runs_complete": 777}
+{"phase": "case_complete", "runs_complete": 780, "fresh_calls": 5460, "elapsed_seconds": 6906.723271118}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 122, "runs_complete": 780}
+{"phase": "case_complete", "runs_complete": 783, "fresh_calls": 5481, "elapsed_seconds": 6932.123524223}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 122, "runs_complete": 783}
+{"phase": "case_complete", "runs_complete": 786, "fresh_calls": 5502, "elapsed_seconds": 6957.939989096001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 122, "runs_complete": 786}
+{"phase": "case_complete", "runs_complete": 789, "fresh_calls": 5523, "elapsed_seconds": 6986.389627023}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 122, "runs_complete": 789}
+{"phase": "case_complete", "runs_complete": 792, "fresh_calls": 5544, "elapsed_seconds": 7014.392244346}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 123, "runs_complete": 792}
+{"phase": "case_complete", "runs_complete": 795, "fresh_calls": 5565, "elapsed_seconds": 7040.715284460002}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 123, "runs_complete": 795}
+{"phase": "case_complete", "runs_complete": 798, "fresh_calls": 5586, "elapsed_seconds": 7066.677353422998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 123, "runs_complete": 798}
+{"phase": "case_complete", "runs_complete": 801, "fresh_calls": 5607, "elapsed_seconds": 7093.137189354999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 123, "runs_complete": 801}
+{"phase": "case_complete", "runs_complete": 804, "fresh_calls": 5628, "elapsed_seconds": 7119.903566755998}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 123, "runs_complete": 804}
+{"phase": "case_complete", "runs_complete": 807, "fresh_calls": 5649, "elapsed_seconds": 7148.115801800999}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 123, "runs_complete": 807}
+{"phase": "case_complete", "runs_complete": 810, "fresh_calls": 5670, "elapsed_seconds": 7173.435090420997}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 123, "runs_complete": 810}
+{"phase": "case_complete", "runs_complete": 813, "fresh_calls": 5691, "elapsed_seconds": 7200.006539525999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 123, "runs_complete": 813}
+{"phase": "case_complete", "runs_complete": 816, "fresh_calls": 5712, "elapsed_seconds": 7227.314081827}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 123, "runs_complete": 816}
+{"phase": "case_complete", "runs_complete": 819, "fresh_calls": 5733, "elapsed_seconds": 7254.460801024001}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 123, "runs_complete": 819}
+{"phase": "case_complete", "runs_complete": 822, "fresh_calls": 5754, "elapsed_seconds": 7282.174335879998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 123, "runs_complete": 822}
+{"phase": "case_complete", "runs_complete": 825, "fresh_calls": 5775, "elapsed_seconds": 7309.802849363001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 123, "runs_complete": 825}
+{"phase": "case_complete", "runs_complete": 828, "fresh_calls": 5796, "elapsed_seconds": 7337.360800457998}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 124, "runs_complete": 828}
+{"phase": "case_complete", "runs_complete": 831, "fresh_calls": 5817, "elapsed_seconds": 7363.395257629996}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 124, "runs_complete": 831}
+{"phase": "case_complete", "runs_complete": 834, "fresh_calls": 5838, "elapsed_seconds": 7389.245893627998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 124, "runs_complete": 834}
+{"phase": "case_complete", "runs_complete": 837, "fresh_calls": 5859, "elapsed_seconds": 7416.696882672}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 124, "runs_complete": 837}
+{"phase": "case_complete", "runs_complete": 840, "fresh_calls": 5880, "elapsed_seconds": 7444.367537112001}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 124, "runs_complete": 840}
+{"phase": "case_complete", "runs_complete": 843, "fresh_calls": 5901, "elapsed_seconds": 7470.405271533}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 124, "runs_complete": 843}
+{"phase": "case_complete", "runs_complete": 846, "fresh_calls": 5922, "elapsed_seconds": 7495.535547429001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 124, "runs_complete": 846}
+{"phase": "case_complete", "runs_complete": 849, "fresh_calls": 5943, "elapsed_seconds": 7523.890115587001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 124, "runs_complete": 849}
+{"phase": "case_complete", "runs_complete": 852, "fresh_calls": 5964, "elapsed_seconds": 7551.976227549003}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 124, "runs_complete": 852}
+{"phase": "case_complete", "runs_complete": 855, "fresh_calls": 5985, "elapsed_seconds": 7578.934466791998}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 124, "runs_complete": 855}
+{"phase": "case_complete", "runs_complete": 858, "fresh_calls": 6006, "elapsed_seconds": 7604.464862648998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 124, "runs_complete": 858}
+{"phase": "case_complete", "runs_complete": 861, "fresh_calls": 6027, "elapsed_seconds": 7631.240189558001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 124, "runs_complete": 861}
+{"phase": "case_complete", "runs_complete": 864, "fresh_calls": 6048, "elapsed_seconds": 7658.676342297}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 125, "runs_complete": 864}
+{"phase": "case_complete", "runs_complete": 867, "fresh_calls": 6069, "elapsed_seconds": 7684.508630619002}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 125, "runs_complete": 867}
+{"phase": "case_complete", "runs_complete": 870, "fresh_calls": 6090, "elapsed_seconds": 7710.260839956001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 125, "runs_complete": 870}
+{"phase": "case_complete", "runs_complete": 873, "fresh_calls": 6111, "elapsed_seconds": 7737.714801774997}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 125, "runs_complete": 873}
+{"phase": "case_complete", "runs_complete": 876, "fresh_calls": 6132, "elapsed_seconds": 7765.185244632998}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 125, "runs_complete": 876}
+{"phase": "case_complete", "runs_complete": 879, "fresh_calls": 6153, "elapsed_seconds": 7791.244817832998}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 125, "runs_complete": 879}
+{"phase": "case_complete", "runs_complete": 882, "fresh_calls": 6174, "elapsed_seconds": 7817.506700280002}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 125, "runs_complete": 882}
+{"phase": "case_complete", "runs_complete": 885, "fresh_calls": 6195, "elapsed_seconds": 7845.929882020002}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 125, "runs_complete": 885}
+{"phase": "case_complete", "runs_complete": 888, "fresh_calls": 6216, "elapsed_seconds": 7873.270299929998}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 125, "runs_complete": 888}
+{"phase": "case_complete", "runs_complete": 891, "fresh_calls": 6237, "elapsed_seconds": 7900.815123821998}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 125, "runs_complete": 891}
+{"phase": "case_complete", "runs_complete": 894, "fresh_calls": 6258, "elapsed_seconds": 7926.034732563003}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 125, "runs_complete": 894}
+{"phase": "case_complete", "runs_complete": 897, "fresh_calls": 6279, "elapsed_seconds": 7952.886377248997}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 125, "runs_complete": 897}
+{"phase": "case_complete", "runs_complete": 900, "fresh_calls": 6300, "elapsed_seconds": 7978.8605172610005}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 126, "runs_complete": 900}
+{"phase": "case_complete", "runs_complete": 903, "fresh_calls": 6321, "elapsed_seconds": 8004.065876443001}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 126, "runs_complete": 903}
+{"phase": "case_complete", "runs_complete": 906, "fresh_calls": 6342, "elapsed_seconds": 8028.993016345001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 126, "runs_complete": 906}
+{"phase": "case_complete", "runs_complete": 909, "fresh_calls": 6363, "elapsed_seconds": 8056.108628432001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 126, "runs_complete": 909}
+{"phase": "case_complete", "runs_complete": 912, "fresh_calls": 6384, "elapsed_seconds": 8082.562934865997}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 126, "runs_complete": 912}
+{"phase": "case_complete", "runs_complete": 915, "fresh_calls": 6405, "elapsed_seconds": 8107.795427214998}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 126, "runs_complete": 915}
+{"phase": "case_complete", "runs_complete": 918, "fresh_calls": 6426, "elapsed_seconds": 8134.5456984469965}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 126, "runs_complete": 918}
+{"phase": "case_complete", "runs_complete": 921, "fresh_calls": 6447, "elapsed_seconds": 8162.093425012998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 126, "runs_complete": 921}
+{"phase": "case_complete", "runs_complete": 924, "fresh_calls": 6468, "elapsed_seconds": 8188.968453097001}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 126, "runs_complete": 924}
+{"phase": "case_complete", "runs_complete": 927, "fresh_calls": 6489, "elapsed_seconds": 8215.158788858997}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 126, "runs_complete": 927}
+{"phase": "case_complete", "runs_complete": 930, "fresh_calls": 6510, "elapsed_seconds": 8241.490547306003}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 126, "runs_complete": 930}
+{"phase": "case_complete", "runs_complete": 933, "fresh_calls": 6531, "elapsed_seconds": 8269.264746404999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 126, "runs_complete": 933}
+{"phase": "case_complete", "runs_complete": 936, "fresh_calls": 6552, "elapsed_seconds": 8296.814057050997}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 127, "runs_complete": 936}
+{"phase": "case_complete", "runs_complete": 939, "fresh_calls": 6573, "elapsed_seconds": 8322.748759473998}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 127, "runs_complete": 939}
+{"phase": "case_complete", "runs_complete": 942, "fresh_calls": 6594, "elapsed_seconds": 8348.714715159}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 127, "runs_complete": 942}
+{"phase": "case_complete", "runs_complete": 945, "fresh_calls": 6615, "elapsed_seconds": 8376.796354073998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 127, "runs_complete": 945}
+{"phase": "case_complete", "runs_complete": 948, "fresh_calls": 6636, "elapsed_seconds": 8405.302240643}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 127, "runs_complete": 948}
+{"phase": "case_complete", "runs_complete": 951, "fresh_calls": 6657, "elapsed_seconds": 8431.234859285996}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 127, "runs_complete": 951}
+{"phase": "case_complete", "runs_complete": 954, "fresh_calls": 6678, "elapsed_seconds": 8458.1512951}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 127, "runs_complete": 954}
+{"phase": "case_complete", "runs_complete": 957, "fresh_calls": 6699, "elapsed_seconds": 8486.321356693003}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 127, "runs_complete": 957}
+{"phase": "case_complete", "runs_complete": 960, "fresh_calls": 6720, "elapsed_seconds": 8514.745171264996}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 127, "runs_complete": 960}
+{"phase": "case_complete", "runs_complete": 963, "fresh_calls": 6741, "elapsed_seconds": 8541.200550216}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 127, "runs_complete": 963}
+{"phase": "case_complete", "runs_complete": 966, "fresh_calls": 6762, "elapsed_seconds": 8567.249459112001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 127, "runs_complete": 966}
+{"phase": "case_complete", "runs_complete": 969, "fresh_calls": 6783, "elapsed_seconds": 8595.538010872999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 127, "runs_complete": 969}
+{"phase": "case_complete", "runs_complete": 972, "fresh_calls": 6804, "elapsed_seconds": 8623.371855476002}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 128, "runs_complete": 972}
+{"phase": "case_complete", "runs_complete": 975, "fresh_calls": 6825, "elapsed_seconds": 8648.986305044}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 128, "runs_complete": 975}
+{"phase": "case_complete", "runs_complete": 978, "fresh_calls": 6846, "elapsed_seconds": 8674.009349978001}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 128, "runs_complete": 978}
+{"phase": "case_complete", "runs_complete": 981, "fresh_calls": 6867, "elapsed_seconds": 8701.745038254998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 128, "runs_complete": 981}
+{"phase": "case_complete", "runs_complete": 984, "fresh_calls": 6888, "elapsed_seconds": 8729.951502647997}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 128, "runs_complete": 984}
+{"phase": "case_complete", "runs_complete": 987, "fresh_calls": 6909, "elapsed_seconds": 8756.601686548001}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 128, "runs_complete": 987}
+{"phase": "case_complete", "runs_complete": 990, "fresh_calls": 6930, "elapsed_seconds": 8783.375938633999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 128, "runs_complete": 990}
+{"phase": "case_complete", "runs_complete": 993, "fresh_calls": 6951, "elapsed_seconds": 8811.596232952}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 128, "runs_complete": 993}
+{"phase": "case_complete", "runs_complete": 996, "fresh_calls": 6972, "elapsed_seconds": 8840.188990906001}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 128, "runs_complete": 996}
+{"phase": "case_complete", "runs_complete": 999, "fresh_calls": 6993, "elapsed_seconds": 8866.286612362997}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 128, "runs_complete": 999}
+{"phase": "case_complete", "runs_complete": 1002, "fresh_calls": 7014, "elapsed_seconds": 8892.315954444002}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 128, "runs_complete": 1002}
+{"phase": "case_complete", "runs_complete": 1005, "fresh_calls": 7035, "elapsed_seconds": 8919.291755126997}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 128, "runs_complete": 1005}
+{"phase": "case_complete", "runs_complete": 1008, "fresh_calls": 7056, "elapsed_seconds": 8946.486875441999}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 129, "runs_complete": 1008}
+{"phase": "case_complete", "runs_complete": 1011, "fresh_calls": 7077, "elapsed_seconds": 8971.275683222997}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 129, "runs_complete": 1011}
+{"phase": "case_complete", "runs_complete": 1014, "fresh_calls": 7098, "elapsed_seconds": 8996.386045771997}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 129, "runs_complete": 1014}
+{"phase": "case_complete", "runs_complete": 1017, "fresh_calls": 7119, "elapsed_seconds": 9024.354821953999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 129, "runs_complete": 1017}
+{"phase": "case_complete", "runs_complete": 1020, "fresh_calls": 7140, "elapsed_seconds": 9051.861254831001}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 129, "runs_complete": 1020}
+{"phase": "case_complete", "runs_complete": 1023, "fresh_calls": 7161, "elapsed_seconds": 9078.167405163997}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 129, "runs_complete": 1023}
+{"phase": "case_complete", "runs_complete": 1026, "fresh_calls": 7182, "elapsed_seconds": 9104.727998788}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 129, "runs_complete": 1026}
+{"phase": "case_complete", "runs_complete": 1029, "fresh_calls": 7203, "elapsed_seconds": 9132.469902071996}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 129, "runs_complete": 1029}
+{"phase": "case_complete", "runs_complete": 1032, "fresh_calls": 7224, "elapsed_seconds": 9161.093613692003}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 129, "runs_complete": 1032}
+{"phase": "case_complete", "runs_complete": 1035, "fresh_calls": 7245, "elapsed_seconds": 9186.760810728}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 129, "runs_complete": 1035}
+{"phase": "case_complete", "runs_complete": 1038, "fresh_calls": 7266, "elapsed_seconds": 9212.929811068996}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 129, "runs_complete": 1038}
+{"phase": "case_complete", "runs_complete": 1041, "fresh_calls": 7287, "elapsed_seconds": 9238.949737407998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 129, "runs_complete": 1041}
+{"phase": "case_complete", "runs_complete": 1044, "fresh_calls": 7308, "elapsed_seconds": 9265.055245380998}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "seed": 130, "runs_complete": 1044}
+{"phase": "case_complete", "runs_complete": 1047, "fresh_calls": 7329, "elapsed_seconds": 9290.162557376}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "seed": 130, "runs_complete": 1047}
+{"phase": "case_complete", "runs_complete": 1050, "fresh_calls": 7350, "elapsed_seconds": 9314.660026909998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "seed": 130, "runs_complete": 1050}
+{"phase": "case_complete", "runs_complete": 1053, "fresh_calls": 7371, "elapsed_seconds": 9341.186891818}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "seed": 130, "runs_complete": 1053}
+{"phase": "case_complete", "runs_complete": 1056, "fresh_calls": 7392, "elapsed_seconds": 9367.354705308997}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "seed": 130, "runs_complete": 1056}
+{"phase": "case_complete", "runs_complete": 1059, "fresh_calls": 7413, "elapsed_seconds": 9392.577314607002}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "seed": 130, "runs_complete": 1059}
+{"phase": "case_complete", "runs_complete": 1062, "fresh_calls": 7434, "elapsed_seconds": 9417.707614340998}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "seed": 130, "runs_complete": 1062}
+{"phase": "case_complete", "runs_complete": 1065, "fresh_calls": 7455, "elapsed_seconds": 9445.281617694996}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "seed": 130, "runs_complete": 1065}
+{"phase": "case_complete", "runs_complete": 1068, "fresh_calls": 7476, "elapsed_seconds": 9472.583445312997}
+{"phase": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "seed": 130, "runs_complete": 1068}
+{"phase": "case_complete", "runs_complete": 1071, "fresh_calls": 7497, "elapsed_seconds": 9498.635042849}
+{"phase": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "seed": 130, "runs_complete": 1071}
+{"phase": "case_complete", "runs_complete": 1074, "fresh_calls": 7518, "elapsed_seconds": 9523.344430731999}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "seed": 130, "runs_complete": 1074}
+{"phase": "case_complete", "runs_complete": 1077, "fresh_calls": 7539, "elapsed_seconds": 9550.277354379996}
+{"phase": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "seed": 130, "runs_complete": 1077}
+{"phase": "case_complete", "runs_complete": 1080, "fresh_calls": 7560, "elapsed_seconds": 9576.842189895}
+{"status": "COMPLETE", "completed_at_utc": "2026-10-09T01:17:32.052844+00:00", "runs": 1080, "portfolio_days": 7560, "fresh_primary_model_calls": 7560, "balanced_seeds_complete": [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130], "runtime_seconds": 9576.842331996999, "expected_runs": 1080, "protocol_sha256": "313022ff110d796bd2bf91839f8168761ae6a5899fe5119d3f772b6f4e2188bb"}

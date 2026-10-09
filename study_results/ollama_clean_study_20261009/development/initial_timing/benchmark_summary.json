@@ -1,0 +1,23 @@
+[
+  {
+    "role": "supplier",
+    "seconds": 5.944836672999372,
+    "input_tokens": 123,
+    "output_tokens": 155,
+    "output": "{\n  \"rules\": [\n    {\n      \"supplier\": \"S1\",\n      \"pack\": 2,\n      \"moq\": 4,\n      \"lead_days\": 1,\n      \"capacity\": 160\n    },\n    {\n      \"supplier\": \"S2\",\n      \"pack\": 4,\n      \"moq\": 8,\n      \"lead_days\": 2,\n      \"capacity\": 180\n    },\n    {\n      \"supplier\": \"S3\",\n      \"pack\": 6,\n      \"moq\": 12,\n      \"lead_days\": 3,\n      \"capacity\": 200\n    }\n  ],\n  \"budget\": 320\n}"
+  },
+  {
+    "role": "planner",
+    "seconds": 0.6340466930014372,
+    "input_tokens": 81,
+    "output_tokens": 19,
+    "output": "{\n  \"tool\": \"constrained_order\",\n  \"priority\": \"balanced\"\n}"
+  },
+  {
+    "role": "critic",
+    "seconds": 0.657441370000015,
+    "input_tokens": 69,
+    "output_tokens": 21,
+    "output": "{\n  \"verdict\": \"approve\",\n  \"reason\": \"source_uncertainty\"\n}"
+  }
+]

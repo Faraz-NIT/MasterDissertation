@@ -1,0 +1,6 @@
+{
+  "pid": 14924,
+  "log": "logs/execution.log",
+  "detached": true,
+  "restart_mode": "Never overwrite completed or partial cases"
+}

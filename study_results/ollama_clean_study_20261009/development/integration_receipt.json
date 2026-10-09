@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "training_only_origin": 1906,
+  "primary_earliest_origin": 1927,
+  "live_model_calls": 21,
+  "runs": 3,
+  "stock_balance_checks_passed": true,
+  "actual_violations": 0,
+  "source_exact_days": [
+    7
+  ],
+  "held_days": [
+    0
+  ],
+  "results_excluded_from_primary_study": true
+}

@@ -1,0 +1,218 @@
+{
+  "status": "PASS",
+  "at_utc": "2026-10-08T22:33:20.045411+00:00",
+  "cases": [
+    {
+      "case": "M5_routine",
+      "test": "supplier_extraction",
+      "pass": true,
+      "correct_slots": 13,
+      "failures": []
+    },
+    {
+      "case": "M5_supplier_disruption",
+      "test": "supplier_extraction",
+      "pass": true,
+      "correct_slots": 13,
+      "failures": []
+    },
+    {
+      "case": "M5_promotion",
+      "test": "supplier_extraction",
+      "pass": true,
+      "correct_slots": 13,
+      "failures": []
+    },
+    {
+      "case": "M5_routine",
+      "test": "tool_routing",
+      "pass": true
+    },
+    {
+      "case": "M5_promotion",
+      "test": "tool_routing",
+      "pass": true
+    },
+    {
+      "case": "M5_pass",
+      "test": "critic",
+      "pass": true
+    },
+    {
+      "case": "M5_fail",
+      "test": "critic",
+      "pass": true
+    },
+    {
+      "case": "RetailNet_routine",
+      "test": "supplier_extraction",
+      "pass": true,
+      "correct_slots": 13,
+      "failures": []
+    },
+    {
+      "case": "RetailNet_supplier_disruption",
+      "test": "supplier_extraction",
+      "pass": true,
+      "correct_slots": 13,
+      "failures": []
+    },
+    {
+      "case": "RetailNet_promotion",
+      "test": "supplier_extraction",
+      "pass": true,
+      "correct_slots": 13,
+      "failures": []
+    },
+    {
+      "case": "RetailNet_routine",
+      "test": "tool_routing",
+      "pass": true
+    },
+    {
+      "case": "RetailNet_promotion",
+      "test": "tool_routing",
+      "pass": true
+    },
+    {
+      "case": "RetailNet_pass",
+      "test": "critic",
+      "pass": true
+    },
+    {
+      "case": "RetailNet_fail",
+      "test": "critic",
+      "pass": true
+    }
+  ],
+  "calls": [
+    {
+      "role": "supplier",
+      "seconds": 3.729705991998344,
+      "schema_valid": true,
+      "input_tokens": 482,
+      "output_tokens": 115,
+      "path": "development/round_02/calls/M5_routine_supplier.json",
+      "sha256": "4e43897fd5cb6332e973cd655778278cb25de2ef4be77d08e8c904d66507163c"
+    },
+    {
+      "role": "supplier",
+      "seconds": 2.473254635999183,
+      "schema_valid": true,
+      "input_tokens": 499,
+      "output_tokens": 117,
+      "path": "development/round_02/calls/M5_supplier_disruption_supplier.json",
+      "sha256": "143f3562bf76f25f3dd7fdaec1df2bc81a261cebeb255874d901b1c9119f4ffd"
+    },
+    {
+      "role": "supplier",
+      "seconds": 2.352516979997745,
+      "schema_valid": true,
+      "input_tokens": 444,
+      "output_tokens": 115,
+      "path": "development/round_02/calls/M5_promotion_supplier.json",
+      "sha256": "26bb216c6dce725943baa96208979b63260eead6fd3117e809dba053195810ce"
+    },
+    {
+      "role": "planner",
+      "seconds": 0.5334318310015078,
+      "schema_valid": true,
+      "input_tokens": 90,
+      "output_tokens": 19,
+      "path": "development/round_02/calls/M5_routine_planner.json",
+      "sha256": "801dbf3fcec0bc6c88d98dded8cd377c544e86ce474b0ce67cb4ccd950281f67"
+    },
+    {
+      "role": "planner",
+      "seconds": 0.5230171729999711,
+      "schema_valid": true,
+      "input_tokens": 90,
+      "output_tokens": 20,
+      "path": "development/round_02/calls/M5_promotion_planner.json",
+      "sha256": "3ae31f6ef5c41558d3ff2d4b2bad61aa4f27ae0738e4de76e52f7609a83a0ea0"
+    },
+    {
+      "role": "critic",
+      "seconds": 0.6730275789996085,
+      "schema_valid": true,
+      "input_tokens": 218,
+      "output_tokens": 7,
+      "path": "development/round_02/calls/M5_critic_pass_critic.json",
+      "sha256": "36bf5740b825dd78cac7b64410698447f5bc7be3978ee08894dbc9f1f5671b11"
+    },
+    {
+      "role": "critic",
+      "seconds": 0.17278804400120862,
+      "schema_valid": true,
+      "input_tokens": 218,
+      "output_tokens": 7,
+      "path": "development/round_02/calls/M5_critic_fail_critic.json",
+      "sha256": "bbb5c6440a02a837e067382e8b3ee891e93b10fe9ff7a1e39ca95cd884712249"
+    },
+    {
+      "role": "supplier",
+      "seconds": 2.713466723998863,
+      "schema_valid": true,
+      "input_tokens": 489,
+      "output_tokens": 122,
+      "path": "development/round_02/calls/RetailNet_routine_supplier.json",
+      "sha256": "6b4d8dd76ef434f8bdb039e491b68b68758c605f4c895dc859e0ac9feb7ebba6"
+    },
+    {
+      "role": "supplier",
+      "seconds": 2.8212595309996686,
+      "schema_valid": true,
+      "input_tokens": 506,
+      "output_tokens": 124,
+      "path": "development/round_02/calls/RetailNet_supplier_disruption_supplier.json",
+      "sha256": "b64921c3b034174fcae1c1200486014585ef9d0bb50f6d066abdd01151cadfb5"
+    },
+    {
+      "role": "supplier",
+      "seconds": 2.6778112390020397,
+      "schema_valid": true,
+      "input_tokens": 451,
+      "output_tokens": 122,
+      "path": "development/round_02/calls/RetailNet_promotion_supplier.json",
+      "sha256": "ac93787c1d2cbf157b14141424674d9f5fa032c70ca6299eb2dc4d198ed5a67f"
+    },
+    {
+      "role": "planner",
+      "seconds": 0.5087788220007496,
+      "schema_valid": true,
+      "input_tokens": 90,
+      "output_tokens": 19,
+      "path": "development/round_02/calls/RetailNet_routine_planner.json",
+      "sha256": "bbf87a9250a3b0b5d166c0d32df9dbed7e19a0e5c30e6656d1e63ead51b7bd68"
+    },
+    {
+      "role": "planner",
+      "seconds": 0.5131930380011909,
+      "schema_valid": true,
+      "input_tokens": 90,
+      "output_tokens": 20,
+      "path": "development/round_02/calls/RetailNet_promotion_planner.json",
+      "sha256": "bcf65fb4a8e01e57064c253c19e9ee885b2aae4b43e7483ce81b3d4bd2c25057"
+    },
+    {
+      "role": "critic",
+      "seconds": 0.16556257900083438,
+      "schema_valid": true,
+      "input_tokens": 218,
+      "output_tokens": 7,
+      "path": "development/round_02/calls/RetailNet_critic_pass_critic.json",
+      "sha256": "ab29e4d5a0769da73a505608be80594d9b96929d1337d8406bd1b3d90b38551d"
+    },
+    {
+      "role": "critic",
+      "seconds": 0.16407916599928285,
+      "schema_valid": true,
+      "input_tokens": 218,
+      "output_tokens": 7,
+      "path": "development/round_02/calls/RetailNet_critic_fail_critic.json",
+      "sha256": "3689e1fdc93260e5fc2c265d86a304662bb227ed65f4c3dac5048be4228b1987"
+    }
+  ],
+  "primary_evaluation_outcomes_consulted": false,
+  "note": "Development uses training-derived contract scales and invented operational snapshots; not result data."
+}

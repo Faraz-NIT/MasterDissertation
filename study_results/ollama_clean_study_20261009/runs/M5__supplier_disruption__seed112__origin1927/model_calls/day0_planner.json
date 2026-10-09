@@ -1,0 +1,72 @@
+{
+  "role": "planner",
+  "name": "day0",
+  "request": {
+    "model": "qwen2.5:1.5b",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are the replenishment coordination agent. Numerical tools calculate quantities. Request constrained_order. Select balanced for routine trading and supplier disruption. Select service_first for an active announced promotion when availability is the priority. Do not estimate quantities yourself. Return only JSON."
+      },
+      {
+        "role": "user",
+        "content": "{\"scenario\": \"supplier_disruption\", \"active_promotion\": false, \"inventory_units\": 220.0, \"forecast_today\": 72.65, \"current_budget\": 190, \"source_verification\": \"pass\", \"supplier_rules\": {\"rules\": [{\"supplier\": \"S1\", \"pack\": 2, \"moq\": 4, \"lead_days\": 1, \"capacity\": 69}, {\"supplier\": \"S2\", \"pack\": 4, \"moq\": 8, \"lead_days\": 2, \"capacity\": 69}, {\"supplier\": \"S3\", \"pack\": 6, \"moq\": 12, \"lead_days\": 2, \"capacity\": 57}], \"budget\": 190}}"
+      }
+    ],
+    "stream": false,
+    "format": {
+      "type": "object",
+      "properties": {
+        "tool": {
+          "type": "string",
+          "enum": [
+            "constrained_order"
+          ]
+        },
+        "priority": {
+          "type": "string",
+          "enum": [
+            "balanced",
+            "service_first"
+          ]
+        }
+      },
+      "required": [
+        "tool",
+        "priority"
+      ],
+      "additionalProperties": false
+    },
+    "options": {
+      "temperature": 0,
+      "seed": 20261009,
+      "num_ctx": 4096,
+      "num_thread": 3,
+      "num_predict": 512
+    },
+    "keep_alive": "2h"
+  },
+  "response": {
+    "model": "qwen2.5:1.5b",
+    "created_at": "2026-10-08T23:38:18.265219498Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\n  \"tool\": \"constrained_order\",\n  \"priority\": \"balanced\"\n}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 921313931,
+    "load_duration": 4599174,
+    "prompt_eval_count": 235,
+    "prompt_eval_cached_count": 79,
+    "prompt_eval_duration": 562214000,
+    "eval_count": 19,
+    "eval_duration": 348728000
+  },
+  "schema_valid": true,
+  "seconds": 0.9229911750007886,
+  "parsed": {
+    "tool": "constrained_order",
+    "priority": "balanced"
+  }
+}

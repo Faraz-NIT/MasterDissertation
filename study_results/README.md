@@ -1,8 +1,18 @@
 # M5 and FreshRetailNet study reports and complete evidence
 
-The latest [rewritten Word dissertation](business_dissertation/LLM_Replenishment_Business_Dissertation.docx)
+The latest experiment is the [fresh no-repair Ollama study](ollama_clean_study_20261009/).
+It completed 1,080 matched policy runs on 30 series per dataset, two weekly windows,
+30 simulation seeds and three scenarios, using 7,560 fresh Qwen2.5 1.5B calls.
+Download its [19-page PDF report](ollama_clean_study_20261009/Fresh_Ollama_Study_Report.pdf),
+[editable Word report](ollama_clean_study_20261009/Fresh_Ollama_Study_Report.docx), or
+[complete graphs, data, code and logs ZIP](ollama_clean_study_20261009/Fresh_Ollama_Study_download.zip).
+The [15 labelled figures](ollama_clean_study_20261009/figures/) and
+[independent audit](ollama_clean_study_20261009/analysis/audit_receipt.json) belong to the redesigned study.
+Its outcomes are not combined with the earlier experiments below.
+
+The earlier [rewritten Word dissertation](business_dissertation/LLM_Replenishment_Business_Dissertation.docx)
 and [rewritten dissertation PDF](business_dissertation/LLM_Replenishment_Business_Dissertation.pdf)
-present both datasets in six accessible chapters, with 22 explicitly labelled graphs and concise
+present the previous study design in six accessible chapters, with 22 explicitly labelled graphs and concise
 results and conclusion chapters. The [download ZIP](business_dissertation/LLM_Replenishment_Dissertation_download.zip)
 includes both documents, the figures, editable manuscript and validation records. See the
 [rewrite guide](business_dissertation/README.md) for formatting, evidence and reproduction details.

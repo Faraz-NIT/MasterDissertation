@@ -1,0 +1,3 @@
+# Additional dependency used by the fresh-study scripts.
+# Core and ML dependencies are specified in the repository pyproject.toml.
+jsonschema>=4,<5

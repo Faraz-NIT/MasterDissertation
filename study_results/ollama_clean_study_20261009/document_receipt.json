@@ -1,0 +1,20 @@
+{
+  "status": "VERIFIED",
+  "pdf_pages": 19,
+  "figures": 15,
+  "layout_issues": [],
+  "docx_sha256": "b4bc86c4e971dd8c0d39a71a6af2b903c6f9bd9fa8007b4d90d49f2baa0902f6",
+  "pdf_sha256": "269cd29678f1ea4b1126f22d804127d782623c39608daf77f09aa6d86905247d",
+  "figure_inputs": {
+    "llm_diagnostics.csv": "b8ff6c090e5b3f8249ffdaf88113348bbc4d75b1ac283a05d8f5bbf83c5707b0",
+    "policy_means.csv": "ca706c93fa4c22a44f03ffa5d84d83392f91f2a9d5033cdc7a3ab7410295d528",
+    "paired_effects.csv": "cbd0b88084631f436fa36974ca42053d7457b07e01844f1190028327af4ed1c8",
+    "daily_results.csv": "aa5c6d0bddc4db0d3c63ae1d1b35a5390caec738d532d1d779bce79640721b58",
+    "shared_forecast_context.csv": "1811a330007b475a2fbb29e0870337c795b7fefd0584a485ef8fda73fa2192a7",
+    "run_results.csv": "49183009a2a13e183a9522b6f6fdf90339cce271c327cfb6e16c44b15131164d",
+    "seed_results.csv": "911219cf0b75cfed522cb0ef7073a7600f9bada306382f78890eceef359c23b2",
+    "model_calls.csv": "acaad2d5033f90be023bdbee63d45506799a22b31c60172a5d76834d56a3dfbb",
+    "matched_actions.csv": "b1b3137286121a1ef1bbad555310fcb3563827450629023af470ec74a7e74a2d",
+    "source_accuracy_by_case.csv": "d381d567f09ab2f52adec09f6202199fe4a01d65c12d07880865c0b6f3adfc0a"
+  }
+}

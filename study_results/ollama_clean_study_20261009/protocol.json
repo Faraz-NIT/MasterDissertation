@@ -1,0 +1,282 @@
+{
+  "schema": "ollama-clean-study-v1",
+  "status": "FROZEN",
+  "frozen_at_utc": "2026-10-08T22:37:45.608380+00:00",
+  "requested_at_utc": "2026-10-08T22:18:08+00:00",
+  "experiment_cutoff_utc": "2026-10-09T02:13:08+00:00",
+  "report_and_publication_target_utc": "2026-10-09T03:03:08+00:00",
+  "user_timezone": "Europe/Paris",
+  "question": "Can a small local LLM multi-agent workflow deliver reliable replenishment, and what does it add beyond its numerical planning tool?",
+  "datasets": {
+    "M5": {
+      "series": 30,
+      "origins": [
+        1927,
+        1934
+      ],
+      "days_per_origin": 7,
+      "evaluation_dates": {
+        "1927": [
+          "2016-05-09",
+          "2016-05-10",
+          "2016-05-11",
+          "2016-05-12",
+          "2016-05-13",
+          "2016-05-14",
+          "2016-05-15"
+        ],
+        "1934": [
+          "2016-05-16",
+          "2016-05-17",
+          "2016-05-18",
+          "2016-05-19",
+          "2016-05-20",
+          "2016-05-21",
+          "2016-05-22"
+        ]
+      },
+      "file_sha256": {
+        "catalog.json": "4ac0d098b91881c3c402ab2bc9f0e534d686ff10ab6bda7b4d6e39fe243b905f",
+        "lightgbm.txt": "df50a9957d4eff9146b92e25beea30f688ff81dfb6014ae25fd7a9b6b927c0c0",
+        "training.json": "3bab685941dc7e03e9f55af01a5c8db81b027d595b0a70acaed69abaf9db5b39",
+        "panel_and_forecast.npz": "0f9908cced4d9189fa3dc497c95d0a4aced376f32ce88e05bb0f16bc0cb4c696",
+        "origin_1927/catalog.json": "2aa20151322088fc83c076ec9cbc45e031a342c5c747e98cbe143df3b8a7d624",
+        "origin_1927/lightgbm.txt": "2daca6ce37d486aed552495cb467c3c2d264d66d172776a6a9b960578ea3f594",
+        "origin_1927/training.json": "bea984ceb7a12063855e6381a0ae6542599000e6ba72080df1edece2536d1afc",
+        "origin_1927/panel_and_forecast.npz": "b3c3ea89557c44ba337e33f5e4c22362bc0adfb1e77d860c9fc88b6cd53c18cc",
+        "origin_1934/catalog.json": "4ac0d098b91881c3c402ab2bc9f0e534d686ff10ab6bda7b4d6e39fe243b905f",
+        "origin_1934/lightgbm.txt": "df50a9957d4eff9146b92e25beea30f688ff81dfb6014ae25fd7a9b6b927c0c0",
+        "origin_1934/training.json": "3bab685941dc7e03e9f55af01a5c8db81b027d595b0a70acaed69abaf9db5b39",
+        "origin_1934/panel_and_forecast.npz": "0f9908cced4d9189fa3dc497c95d0a4aced376f32ce88e05bb0f16bc0cb4c696"
+      }
+    },
+    "RetailNet": {
+      "series": 30,
+      "origins": [
+        83,
+        90
+      ],
+      "days_per_origin": 7,
+      "evaluation_dates": {
+        "83": [
+          "2024-06-19",
+          "2024-06-20",
+          "2024-06-21",
+          "2024-06-22",
+          "2024-06-23",
+          "2024-06-24",
+          "2024-06-25"
+        ],
+        "90": [
+          "2024-06-26",
+          "2024-06-27",
+          "2024-06-28",
+          "2024-06-29",
+          "2024-06-30",
+          "2024-07-01",
+          "2024-07-02"
+        ]
+      },
+      "file_sha256": {
+        "catalog.json": "d85d3a6ffa655a219501c62ee946b69abc1162a3b52e804deb6237724fcafbba",
+        "lightgbm.txt": "fb9b72850bd6e2cdc4be704b2b4e1694d7a60a19311a130a5423ef11055028c1",
+        "training.json": "c7b8c82e8e10010541dfd7ec00733333139d5809348c6cff824b7a207a320309",
+        "panel_and_forecast.npz": "34b9e982221263fd25284674b583fe4b6a2712f7887f19d91fb3359966ec4380",
+        "origin_90/catalog.json": "d85d3a6ffa655a219501c62ee946b69abc1162a3b52e804deb6237724fcafbba",
+        "origin_90/lightgbm.txt": "fb9b72850bd6e2cdc4be704b2b4e1694d7a60a19311a130a5423ef11055028c1",
+        "origin_90/training.json": "c7b8c82e8e10010541dfd7ec00733333139d5809348c6cff824b7a207a320309",
+        "origin_90/panel_and_forecast.npz": "34b9e982221263fd25284674b583fe4b6a2712f7887f19d91fb3359966ec4380",
+        "origin_83/catalog.json": "b3f2803948c3eaa337f98bf7dd1d787e5e150d1c0118362a25fcc4398dbf6ab9",
+        "origin_83/lightgbm.txt": "51ddcba69caa78b16924328fbedf6097990c6e2a5f4641fcce571b0e7011c983",
+        "origin_83/training.json": "2976edb49ad9fa1840e2826e25a9d55947e080a1140dbaf893c1439b6a094229",
+        "origin_83/panel_and_forecast.npz": "dfeba964a28c5d23f106f3548b8dddb27a59500739e1c763f3055b4230aaade3"
+      }
+    }
+  },
+  "arms": {
+    "conventional": "Order-up-to with proportionate capacity/budget allocation; current structured rules; aggregate inventory position, no age projection",
+    "structured_planner": "Same constrained-order tool, age projection and scenario-priority mapping as the agents; authoritative structured rules; no LLM",
+    "llm_agents": "Three separate Ollama calls: supplier reader, tool coordinator, independent review; current supplier prose; source verification; same planning tool"
+  },
+  "scenarios": [
+    "routine",
+    "supplier_disruption",
+    "promotion"
+  ],
+  "simulation_seeds": [
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130
+  ],
+  "joint_series_per_decision": 30,
+  "expected_runs": 1080,
+  "expected_portfolio_days": 7560,
+  "expected_llm_portfolio_days": 2520,
+  "expected_primary_fresh_model_calls": 7560,
+  "no_inventory_repairs": true,
+  "no_data_fault_injections": true,
+  "no_sales_recovery_or_imputation": true,
+  "no_prior_outputs_loaded": true,
+  "llm_response_cache": false,
+  "llm_retries": 0,
+  "fallback_on_failure": "Hold, never replace LLM output with baseline output",
+  "shared_forecast": {
+    "family": "LightGBM regression",
+    "trees": 150,
+    "one_model_per_dataset_and_origin": true,
+    "training": "Past-only panel, at most 365 days; recursive 14-day prediction; no evaluation outcomes as model inputs",
+    "uncertainty": "Standard deviation of training weekly sales differences / sqrt(2); not evaluation residuals"
+  },
+  "model": {
+    "tag": "qwen2.5:1.5b",
+    "digest": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "1.5B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 1536,
+      "runner": "ggml"
+    },
+    "ollama": {
+      "version": "0.40.0"
+    },
+    "temperature": 0,
+    "generation_seed": 20261009,
+    "threads": 3,
+    "context": 4096,
+    "output_limit": 512,
+    "retail_fine_tuning": false,
+    "inference_only": true,
+    "host": "127.0.0.1:11434",
+    "cloud_llm_api_used": false
+  },
+  "environment": {
+    "os": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "cpu_quota": "400000 100000",
+    "memory_limit_bytes": 34359738368,
+    "gpu": false,
+    "packages": {
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "scipy": "1.17.0",
+      "lightgbm": "4.7.0",
+      "pyarrow": "21.0.0",
+      "jsonschema": "4.26.0"
+    }
+  },
+  "simulation": {
+    "initial_stock": "ceil(3 * past-56-day mean); no initial pipeline; common per matched case",
+    "demand": "Published evaluation sales proxy times independent mean-one lognormal factor (sigma=.10); promotion multiplies day 2 onward by 1.3",
+    "promotion_knowledge": "Announced multiplier is available equally before affected decisions; no realised future demand shown",
+    "supplier_disruption": "Day 2 onward: double cartons and MOQ, add one delivery day, reduce capacity 30%; current terms available equally",
+    "suppliers": "Three synthetic groups, ten series each; not publisher supplier observations",
+    "budget_and_capacity": "Training-derived 2.8x historical mean; current daily +/-8% announced variation; unit purchase cost 1",
+    "supply": "Opportunity-keyed: 2% cancellation, 10% 80% fill, 10% extra-day delay; same draws for matched arms",
+    "shelf_life": "M5 nonperishable within horizon; RetailNet hypothetical 3-day FIFO",
+    "planning": "Standard policy z=1.28. Tool z=1.28 balanced or 1.65 for promotion; MILP minimises purchase + weighted target shortfall, with hard budget/capacity/pack/MOQ limits",
+    "primary_cost": "Inventory operating cost index = .02 * closing stock + 5 * unmet demand + expired units, summed over seven days",
+    "purchase_spend": "Reported separately; not added to primary operating cost to avoid double-counting acquisition and expiry",
+    "economics": "Synthetic dimensionless cost index; not retailer profit or real monetary ROI"
+  },
+  "primary_measures": [
+    "fill rate",
+    "inventory operating cost index per unit demand",
+    "expiry share of opening inventory + receipts",
+    "constraint violations",
+    "holds"
+  ],
+  "llm_measures": [
+    "Exact supplier fields (13 per call)",
+    "correct business-priority selection",
+    "critic decisions",
+    "schema validity",
+    "latency",
+    "tokens"
+  ],
+  "inference": "Paired simulation-seed bootstrap (10,000 resamples), with origins averaged within seed; seeds describe simulated demand/supply variation conditional on selected historical weeks, not population or independent model replications",
+  "time_rule": "Process seeds in balanced rounds across both datasets and all scenarios. Start no new case after cutoff; retain and label partial cases. Never conceal missing runs.",
+  "limitations": [
+    "30 selected series per dataset, not all 50K RetailNet series",
+    "Two historical test weeks per dataset; RetailNet includes one rolling training-file holdout and the official evaluation week",
+    "Historical evaluation periods were used in earlier work; fresh execution does not make them unseen research holdouts",
+    "Controlled supplier messages, simulated inventories and supply; no retailer deployment or measured staff time",
+    "Structured planner is a strong idealised comparator with already-structured current rules; manual entry time not measured",
+    "Any advantage over conventional ordering can include the numerical tool; the structured comparator isolates that contribution",
+    "Source verification compares LLM extraction with authenticated current contract fields; those fields contain no future demand",
+    "One small deterministic pretrained LLM; no generalisation to other models claimed"
+  ],
+  "prompts": {
+    "supplier": "You are the supplier-information agent. Read the current supplier message. Extract exactly one rule for each of S1, S2 and S3, and the daily budget. Copy every number exactly; pack is carton size, moq is minimum order, lead_days is delivery time, capacity is daily dispatch limit. Meaning matters, not the order of numbers in the sentence: a dispatch limit is capacity, and cartons of N means pack=N. Do not swap these fields. Use the current rules only. Return only the JSON object.",
+    "planner": "You are the replenishment coordination agent. Numerical tools calculate quantities. Request constrained_order. Select balanced for routine trading and supplier disruption. Select service_first for an active announced promotion when availability is the priority. Do not estimate quantities yourself. Return only JSON.",
+    "critic": "You are the independent review agent. Approve only when source verification, tool routing, solver feasibility, and every listed action check pass. Hold if any check fails or is unknown. Never override a failed check. Return only JSON."
+  },
+  "few_shot_examples": {
+    "supplier": [
+      {
+        "role": "user",
+        "content": "For S1, dispatch no more than 97 units today; allow 2 days for delivery. Minimum order 6 units; cartons of 3. For S2, cartons contain 4 units, minimum order 8, delivery 1 day, dispatch limit 88. S3 has dispatch limit 120, delivery 3 days, minimum order 12, carton size 6. Daily spending budget 250."
+      },
+      {
+        "role": "assistant",
+        "content": "{\"rules\": [{\"supplier\": \"S1\", \"pack\": 3, \"moq\": 6, \"lead_days\": 2, \"capacity\": 97}, {\"supplier\": \"S2\", \"pack\": 4, \"moq\": 8, \"lead_days\": 1, \"capacity\": 88}, {\"supplier\": \"S3\", \"pack\": 6, \"moq\": 12, \"lead_days\": 3, \"capacity\": 120}], \"budget\": 250}"
+      }
+    ],
+    "critic": [
+      {
+        "role": "user",
+        "content": "{\"source_verification\":\"pass\",\"tool_routing\":\"pass\",\"solver_feasible\":true,\"action_checks\":{\"pack\":\"pass\",\"moq\":\"pass\",\"capacity\":\"pass\",\"budget\":\"fail\"}}"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"verdict\":\"hold\"}"
+      },
+      {
+        "role": "user",
+        "content": "{\"source_verification\":\"pass\",\"tool_routing\":\"pass\",\"solver_feasible\":true,\"action_checks\":{\"pack\":\"pass\",\"moq\":\"pass\",\"capacity\":\"pass\",\"budget\":\"pass\"}}"
+      },
+      {
+        "role": "assistant",
+        "content": "{\"verdict\":\"approve\"}"
+      }
+    ]
+  },
+  "code_sha256": {
+    "scripts/ollama_clean_study/core.py": "e764e6135c5e761f564c5ea9b4f43f2104684aeeb4f9c7510d8145d2df5df788",
+    "scripts/ollama_clean_study/prepare.py": "87fb3cca028906d24f7eff404bb562506384a94319b307d991ce6d3b4e19767f",
+    "scripts/ollama_clean_study/run.py": "0d16424a7112dce3a7ee09f91065aa83114cc3c617ba060653eb87159b25ce80"
+  },
+  "source_commit": "facd6d0d6678c9b557f480dc1c03bfe783d7275b"
+}
