@@ -1,0 +1,352 @@
+[
+  {
+    "title": "1. Retail replenishment and the business case for change",
+    "level": 1,
+    "bookmark": "h000"
+  },
+  {
+    "title": "1.1 A daily decision with consequences beyond the shelf",
+    "level": 2,
+    "bookmark": "h001"
+  },
+  {
+    "title": "1.2 Why forecasting alone does not settle the order",
+    "level": 2,
+    "bookmark": "h002"
+  },
+  {
+    "title": "1.3 The attraction of language models in this setting",
+    "level": 2,
+    "bookmark": "h003"
+  },
+  {
+    "title": "1.4 The management problem behind the research",
+    "level": 2,
+    "bookmark": "h004"
+  },
+  {
+    "title": "1.5 Research purpose and questions",
+    "level": 2,
+    "bookmark": "h005"
+  },
+  {
+    "title": "1.6 Two datasets, one common decision framework",
+    "level": 2,
+    "bookmark": "h006"
+  },
+  {
+    "title": "1.7 Contribution and organisation of the dissertation",
+    "level": 2,
+    "bookmark": "h007"
+  },
+  {
+    "title": "2. Data and decision-making in retail",
+    "level": 1,
+    "bookmark": "h008"
+  },
+  {
+    "title": "2.1 What the retailer needs to know",
+    "level": 2,
+    "bookmark": "h009"
+  },
+  {
+    "title": "2.2 Sales history and the limits of observed demand",
+    "level": 2,
+    "bookmark": "h010"
+  },
+  {
+    "title": "2.3 Inventory information, timing and visibility",
+    "level": 2,
+    "bookmark": "h011"
+  },
+  {
+    "title": "2.4 Forecasting as support for a decision",
+    "level": 2,
+    "bookmark": "h012"
+  },
+  {
+    "title": "2.5 Delivery delays, information changes and allocation",
+    "level": 2,
+    "bookmark": "h013"
+  },
+  {
+    "title": "2.6 Perishability changes the meaning of available stock",
+    "level": 2,
+    "bookmark": "h014"
+  },
+  {
+    "title": "2.7 Separating observations, predictions and assumptions",
+    "level": 2,
+    "bookmark": "h015"
+  },
+  {
+    "title": "2.8 What the performance measures mean to a manager",
+    "level": 2,
+    "bookmark": "h016"
+  },
+  {
+    "title": "3. Language models as replenishment partners",
+    "level": 1,
+    "bookmark": "h017"
+  },
+  {
+    "title": "3.1 What a language model brings to the process",
+    "level": 2,
+    "bookmark": "h018"
+  },
+  {
+    "title": "3.2 From a conversational assistant to a bounded agent role",
+    "level": 2,
+    "bookmark": "h019"
+  },
+  {
+    "title": "3.3 Why numerical planning remains a separate responsibility",
+    "level": 2,
+    "bookmark": "h020"
+  },
+  {
+    "title": "3.4 The supplier-reading role",
+    "level": 2,
+    "bookmark": "h021"
+  },
+  {
+    "title": "3.5 The coordination role and business priorities",
+    "level": 2,
+    "bookmark": "h022"
+  },
+  {
+    "title": "3.6 Review and the authority to execute",
+    "level": 2,
+    "bookmark": "h023"
+  },
+  {
+    "title": "3.7 Instructions, development and stable evaluation",
+    "level": 2,
+    "bookmark": "h024"
+  },
+  {
+    "title": "3.8 A strong comparison and a credible contribution",
+    "level": 2,
+    "bookmark": "h025"
+  },
+  {
+    "title": "4. Research framework and experiment design",
+    "level": 1,
+    "bookmark": "h026"
+  },
+  {
+    "title": "4.1 An experiment that separates the package from its parts",
+    "level": 2,
+    "bookmark": "h027"
+  },
+  {
+    "title": "4.2 The datasets and the selected panels",
+    "level": 2,
+    "bookmark": "h028"
+  },
+  {
+    "title": "4.3 Historical windows and the timing of information",
+    "level": 2,
+    "bookmark": "h029"
+  },
+  {
+    "title": "4.4 One forecasting family shared by every policy",
+    "level": 2,
+    "bookmark": "h030"
+  },
+  {
+    "title": "4.5 The three ordering policies",
+    "level": 2,
+    "bookmark": "h031"
+  },
+  {
+    "title": "4.6 Operating situations with clear business meanings",
+    "level": 2,
+    "bookmark": "h032"
+  },
+  {
+    "title": "4.7 The physical inventory process",
+    "level": 2,
+    "bookmark": "h033"
+  },
+  {
+    "title": "4.8 Matched demand and supplier opportunities",
+    "level": 2,
+    "bookmark": "h034"
+  },
+  {
+    "title": "4.9 Model, training and computing environment",
+    "level": 2,
+    "bookmark": "h035"
+  },
+  {
+    "title": "4.10 Measures, aggregation and uncertainty",
+    "level": 2,
+    "bookmark": "h036"
+  },
+  {
+    "title": "4.11 Traceability and independent checks",
+    "level": 2,
+    "bookmark": "h037"
+  },
+  {
+    "title": "4.12 Interpretation boundaries and responsible reporting",
+    "level": 2,
+    "bookmark": "h038"
+  },
+  {
+    "title": "5. Findings and interpretation",
+    "level": 1,
+    "bookmark": "h039"
+  },
+  {
+    "title": "5.1 The main result in one view",
+    "level": 2,
+    "bookmark": "h040"
+  },
+  {
+    "title": "5.2 M5: a substantial improvement over conventional ordering",
+    "level": 2,
+    "bookmark": "h041"
+  },
+  {
+    "title": "5.3 RetailNet: a smaller gain with a fresh-stock trade-off",
+    "level": 2,
+    "bookmark": "h042"
+  },
+  {
+    "title": "5.4 The roles performed differently",
+    "level": 2,
+    "bookmark": "h043"
+  },
+  {
+    "title": "5.5 What the comparison establishes",
+    "level": 2,
+    "bookmark": "h044"
+  },
+  {
+    "title": "6. Implications and recommendations",
+    "level": 1,
+    "bookmark": "h045"
+  },
+  {
+    "title": "6.1 The strongest positive finding is a useful division of work",
+    "level": 2,
+    "bookmark": "h046"
+  },
+  {
+    "title": "6.2 Why attribution changes the investment decision",
+    "level": 2,
+    "bookmark": "h047"
+  },
+  {
+    "title": "6.3 Fixed business rules and the limits of model discretion",
+    "level": 2,
+    "bookmark": "h048"
+  },
+  {
+    "title": "6.4 Designing a pilot around the work that is missing",
+    "level": 2,
+    "bookmark": "h049"
+  },
+  {
+    "title": "6.5 Measuring value beyond a simulated cost index",
+    "level": 2,
+    "bookmark": "h050"
+  },
+  {
+    "title": "6.6 Work design, visibility and managerial responsibility",
+    "level": 2,
+    "bookmark": "h051"
+  },
+  {
+    "title": "6.7 Computing choices and practical scale",
+    "level": 2,
+    "bookmark": "h052"
+  },
+  {
+    "title": "6.8 What the two-dataset study contributes",
+    "level": 2,
+    "bookmark": "h053"
+  },
+  {
+    "title": "7. Conclusion and future research",
+    "level": 1,
+    "bookmark": "h054"
+  },
+  {
+    "title": "7.1 Answering the research questions",
+    "level": 2,
+    "bookmark": "h055"
+  },
+  {
+    "title": "7.2 The practical conclusion",
+    "level": 2,
+    "bookmark": "h056"
+  },
+  {
+    "title": "7.3 A focused next research step",
+    "level": 2,
+    "bookmark": "h057"
+  },
+  {
+    "title": "References",
+    "level": 1,
+    "bookmark": "references"
+  },
+  {
+    "title": "Appendix A. Model and experimental settings",
+    "level": 1,
+    "bookmark": "h058"
+  },
+  {
+    "title": "A.1 Measures and aggregation",
+    "level": 2,
+    "bookmark": "h059"
+  },
+  {
+    "title": "A.2 Shared forecast context",
+    "level": 2,
+    "bookmark": "h060"
+  },
+  {
+    "title": "Appendix B. Additional dataset-labelled figures",
+    "level": 1,
+    "bookmark": "h061"
+  },
+  {
+    "title": "B.1 Service through the week",
+    "level": 2,
+    "bookmark": "h062"
+  },
+  {
+    "title": "B.2 Cost components and supplier interpretation",
+    "level": 2,
+    "bookmark": "h063"
+  },
+  {
+    "title": "B.3 Workload and paired effects",
+    "level": 2,
+    "bookmark": "h064"
+  },
+  {
+    "title": "B.4 Held decisions",
+    "level": 2,
+    "bookmark": "h065"
+  },
+  {
+    "title": "Appendix C. Evidence, reproducibility and research boundaries",
+    "level": 1,
+    "bookmark": "h066"
+  },
+  {
+    "title": "C.1 Use of AI-assisted tools",
+    "level": 2,
+    "bookmark": "h067"
+  },
+  {
+    "title": "Appendix D. Short glossary",
+    "level": 1,
+    "bookmark": "h068"
+  }
+]

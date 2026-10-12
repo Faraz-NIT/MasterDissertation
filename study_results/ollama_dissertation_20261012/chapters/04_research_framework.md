@@ -1,0 +1,135 @@
+# 4. Research framework and experiment design
+
+## 4.1 An experiment that separates the package from its parts
+
+The research uses a matched simulation experiment to evaluate a newly defined replenishment workflow. Historical retail sales provide the quantity patterns. A disclosed physical simulator then represents stock, purchase decisions, incoming deliveries and expiry. Three policies face the same sales-derived demand and supply opportunities within each matched case. Their decisions can therefore be compared without allowing one policy to benefit from a more favourable demand realization or an easier supplier event simply because it was evaluated in a different run.
+
+The experimental design answers the three research questions at different levels. The comparison between conventional ordering and the agent-assisted workflow addresses the performance of the complete package. The comparison between the structured-data planner and the agents addresses the incremental language-model layer. Role-level scores address supplier interpretation, priority selection and review behaviour. This organisation makes a positive package result useful without requiring the dissertation to assume that the language model caused the entire improvement.
+
+The full registered grid includes two datasets, two weekly origins per dataset, three operating scenarios, thirty simulation seeds and three policies. This gives 1,080 policy episodes. Each episode lasts seven days and contains all thirty selected series for its dataset. The full grid therefore contains 7,560 portfolio decision days and 226,800 series-days. The agent policy occupies 2,520 portfolio days and makes three fresh language-model calls on every one of those days. Its 7,560 model calls are separate from the total policy decision count, despite the two totals having the same numerical value.
+
+The design was frozen before primary execution. The instructions, worked examples, policy code, selected data, forecasts, model settings and completion target were recorded with file hashes. The evaluation ran to completion rather than stopping after favourable seed rounds. Development records remain separate, and earlier experiments are not pooled into the current findings. This dissertation uses the complete new study as its quantitative foundation, with the earlier project versions retained only as historical records in the repository.
+
+[[FIGURE:study_map]]
+
+[[TABLE:study_scope]]
+
+## 4.2 The datasets and the selected panels
+
+M5 provides daily sales from a well-known retail forecasting benchmark. The study uses its released evaluation sales file and calendar, selecting thirty FOODS store–product pairs from information that precedes the test weeks. The chosen panel contains thirty products across ten stores. Selection first forms three historical sales-volume groups and then uses a reproducible hash ranking to choose ten eligible pairs from each group. This gives variation in scale within a manageable portfolio, while avoiding a choice based on which pairs later produce attractive experimental outcomes.
+
+The M5 eligibility rule uses a historical average of between half a unit and thirty units per day in the selection window. This is a computational and operational scope choice. It removes very low-volume and very high-volume pairs from consideration for this experiment. The resulting panel is not a probability sample of every M5 product or department. Its performance supports a statement about the selected FOODS pairs and the declared operating world. It does not support a national or retailer-wide estimate of the effect of language models.
+
+RetailNet is drawn from the pinned release of Dingdong-Inc/FreshRetailNet-50K. The source files contain 4,500,000 training rows and 350,000 evaluation rows, representing 50,000 store–product series. The study checks the release and then selects thirty pairs using only the first sixty-two training days. Eligible pairs have complete early histories and a historical mean within the declared normalized-sales range. They are grouped into three sales-volume strata, with ten hash-ranked pairs selected from each. The selected RetailNet panel contains twenty-nine distinct products and twenty-nine stores.
+
+The use of volume strata is deliberate. It provides a range of order scales without adding a large set of competing forecast models or a broader recovery experiment. It differs from a design that selects series by their observed stockout rate. The primary question concerns the clean agent workflow under common information and ordering conditions. The data-preparation receipt records the eligibility rules, selected identifiers and source hashes. Those details allow the panel to be inspected without suggesting that the selected thirty pairs represent every fresh-retail operating context.
+
+[[TABLE:dataset_panels]]
+
+## 4.3 Historical windows and the timing of information
+
+M5 is evaluated on 9–15 May and 16–22 May 2016. RetailNet is evaluated on 19–25 June and 26 June–2 July 2024. Each week is a separate simulation episode with a fresh opening state. Inventory is not carried from the first test week into the second. This provides two historical origins per dataset while keeping the physical horizon and reset rule consistent across policies. It also means that the study examines two short episodes, rather than a continuous two-week operating trial.
+
+For RetailNet, the first week is a rolling holdout from the released training file, while the second is the official evaluation week. A forecasting model is fitted at the beginning of each week using only earlier observations. The earlier week's recorded sales can consequently be part of the second model's historical training information once that week has occurred. They are never supplied to the first model as future inputs. The sequence reflects a normal distinction between information known at one decision origin and information that becomes known at the next.
+
+The historical periods have also been used elsewhere in the wider dissertation project. Fresh execution does not make them previously unseen research holdouts. The current study protects forecasting inputs from future observations and freezes the new evaluation system before its primary run, but it does not claim a completely untouched research environment. This distinction is disclosed because protection against forecast leakage and freedom from all prior researcher familiarity are different standards.
+
+The protocol records both historical evaluation dates and current execution timestamps. The main study completed on 9 October 2026, with 2.66 hours of live evaluation. Development, data preparation, fresh forecast fitting and reporting were additional activities within the requested time budget. The historical dates describe the retail observations used in the experiment; the execution date describes when the local system was assessed. Keeping those two timelines separate prevents the simulator from being presented as a live store deployment during either historical period.
+
+## 4.4 One forecasting family shared by every policy
+
+The study uses one numerical forecasting family: LightGBM, the tree-based method described by Ke et al. (2017). A separate fit is produced for each dataset and weekly origin, giving four primary fitted forecast models. These are four fits of the same family, not four competing methods. The approach keeps the replenishment comparisons focused. All three policies within a matched case use the same predictions, so a performance gap cannot be attributed to one policy having access to a different forecaster or additional future-sales information.
+
+The model uses earlier sales at several lags, recent averages and variability, the series identifier and calendar information. The training window is limited to at most one year before an origin. RetailNet has a shorter available history, so its fitted model uses the eligible earlier observations that exist in that release. A minimum history is required to form the lag features. The model predicts recursively: after making a prediction, that predicted quantity helps form the next step's input, rather than replacing it with the actual evaluation sale.
+
+The forecast extends fourteen days from each origin so that delivery-aware planning can use estimates beyond the current day. Only the declared seven-day episode is used for primary outcome measurement. This difference between the forecast extension and the evaluation horizon is practical: an order placed near the end of a week may arrive after the immediate sales day, so the planner needs a consistent future estimate for its target. The study does not report the extra forecast days as additional evaluated retail observations.
+
+An uncertainty allowance is derived from historical weekly sales changes. It is based on training information rather than the forecast errors observed during evaluation. The ordering tools use that allowance with the forecast when forming a stock target. The procedure supplies a consistent buffer to the policies, but it is not described as a fully calibrated probability forecast. Forecast-context measures are retained in an appendix, where they help the reader understand the uncertainty behind the common numerical input without turning the dissertation into a forecasting-model competition.
+
+[[FIGURE:dataset_profiles]]
+
+## 4.5 The three ordering policies
+
+The conventional policy uses an order-up-to approach. It estimates how much stock is needed over the relevant delivery period, accounts for current stock and qualifying incoming deliveries, and rounds quantities to the permitted cartons. If supplier or spending limits prevent all desired orders, it allocates capacity proportionately and adjusts the final lines to respect the rules. The policy is understandable and provides a consistent reference. It uses aggregate inventory position rather than the detailed age projection used by the planning tool.
+
+The structured-data planner uses current authenticated rules with a constrained-order tool. It projects usable stock and expected consumption, then allocates proposed orders under the supplier and budget limits. For RetailNet, it considers batch age and the stock expected to remain usable when deliveries arrive. It also applies the declared promotion-priority rule directly. This policy provides the strong reference for the agent system because the numerical tool, age projection and intended priority mapping are shared.
+
+The agent policy adds the supplier reader, planning coordinator and review role to that same numerical capability. The reader extracts current terms from a message. Exact source agreement is required before planning can proceed. The coordinator requests the tool and selects a permitted priority. The tool calculates the proposed order vector for the thirty-series portfolio. The review role assesses the independent checks, and the execution gate determines whether the proposal is permitted. A failed condition leads to a hold, with the original model outputs preserved.
+
+The comparisons have different purposes. Conventional ordering versus agents measures a complete workflow change, including the effect of the numerical tool and its treatment of stock. The structured-data planner versus agents asks what changes when the interpretation and coordination roles are added to that capability. The latter is an idealised comparison because it starts with already organised information. The study does not assign a financial saving to the staff work that might be needed to produce those inputs in an actual retailer.
+
+[[TABLE:policy_comparison]]
+
+## 4.6 Operating situations with clear business meanings
+
+Routine trading uses the current supplier rules without an announced disruption or promotion. Daily budgets and supplier capacities vary within a small declared range around training-derived levels. The same current values are available to every policy. The variation creates a set of related operating worlds rather than thirty exact copies of one fixed capacity condition. It also provides different numerical values for the supplier reader to extract within the controlled message formats.
+
+Supplier disruption begins on the third simulated day. Carton sizes and minimum orders double, delivery takes one extra day, and dispatch capacity is reduced by thirty per cent. These changes represent a more difficult supply situation. They are announced through the current contract information before the affected decision. The experiment therefore examines how the policies act under changed rules, rather than testing which policy can infer an unannounced event or obtain information hidden from the others.
+
+The promotion situation also changes from the third day. It applies an announced thirty per cent uplift to both the sales-derived demand proxy and the forecast used for affected decisions. The promotion information is common across policies. The structured planner applies the service-first mapping directly, while the agent coordinator is expected to select that mode when the promotion is active. Conventional ordering retains its declared rule while receiving the same forecast uplift. This makes the package comparison a comparison of workflows, and the structured comparison a test of the model's policy interpretation.
+
+The scenarios are synthetic business situations. They are not reported as observed promotions or supplier disruptions in the source retailers. They provide defined changes whose timing and meaning can be checked in the saved records. The clean study does not add missing-field faults, contradictory records, inventory repair or sales-recovery methods. This keeps the system and its evaluation aligned with the requested focus on replenishment roles rather than a broader investigation of data-repair mechanisms.
+
+[[TABLE:scenarios]]
+
+## 4.7 The physical inventory process
+
+Each matched episode begins with stock derived from the preceding fifty-six days of sales. The opening quantity is approximately three historical average days, rounded up, and there is no initial delivery pipeline. All policies within a case receive the same opening quantities. RetailNet opening stock is distributed across three age classes. This represents an initial mixture of fresh and older usable goods rather than assuming that every opening unit has just arrived. M5 stock remains usable throughout the weekly episode.
+
+The decision sequence is consistent across days. Deliveries that are due arrive before the current decision. The policy then considers the stock state, current forecast and supplier conditions. Permitted orders enter the future delivery pipeline according to their lead times and supply draws. Simulated sales consume the available stock, and unsatisfied demand is recorded as lost demand. For RetailNet, older batches are consumed first and any remaining units at the end of their usable life expire after that day's sales opportunity.
+
+The simulator keeps purchase, receipt, sale, expiry, closing-stock and pipeline quantities in a physical ledger. Accepted quantities may arrive only partly filled or after an extra day, while cancelled quantities do not become stock. This makes it possible to check where every unit in the modelled process has gone. It also prevents an order from being treated as immediately available simply because it has been placed. Closing pipeline is recorded separately from the stock that can serve demand on the final day.
+
+The weekly horizon creates a limitation that is retained in interpretation. Some closing stock and deliveries may have value beyond the measured episode. The experiment records those balances but does not simulate a long-run operating history or add an observed commercial salvage value. As a result, the operating-cost measure is useful for the declared comparison, while a retailer's longer-term profit and stock rotation would require a longer evaluation and more complete business accounting.
+
+## 4.8 Matched demand and supplier opportunities
+
+The thirty simulation seeds generate variation around the recorded sales proxy and supplier conditions. The demand proxy is multiplied by a modest mean-one random factor, with the additional announced uplift in the promotion case. This retains the source's daily pattern while representing uncertainty within the defined world. The factor is not a correction for naturally censored demand. It does not estimate how many customers were turned away by actual stockouts in the original retailer.
+
+Supplier opportunities include a two per cent cancellation probability, a ten per cent chance of partial fulfilment at eighty per cent of the committed quantity, and a ten per cent chance of an extra delivery day. These probabilities are experimental assumptions. The draws are keyed to the seed, decision day and series. A policy that orders more often therefore does not change the sequence of random opportunities facing the other policies simply because it consumes a different number of random draws.
+
+This matching is important to the interpretation of a cost or service difference. If one policy received a late delivery while another received an on-time delivery only because their random-number sequences had drifted apart, the comparison would mix policy behaviour with an accidental simulation difference. The opportunity-keyed approach gives the same relevant supply draw to equivalent order opportunities. Policies can still experience different realised quantities because their committed orders differ, which is part of the consequence of the policy decision itself.
+
+The seed is the unit used for the paired uncertainty analysis. Days and products within an episode are related through stock, capacity and the delivery pipeline. They are not treated as independent observations. Both weekly origins are aggregated within each seed before the comparison, and the three scenarios remain visible in the separate graphs. This lets the study use a substantial number of recorded series-days without presenting that total as a larger number of independent retailers or independent language-model experiments.
+
+## 4.9 Model, training and computing environment
+
+The local language model is pretrained Qwen2.5 1.5B, served through the local Ollama interface (Ollama, 2026) on a Linux cloud computer. The machine has four allocated CPU cores and 32 GiB of memory. No GPU was used for inference. The model's weights were already trained by its publisher. They were not trained or fine-tuned on M5 or FreshRetailNet in this project. The retailer-specific work consisted of role instructions, current inputs and the connection to the numerical tool and release checks.
+
+LightGBM is the component fitted to the retail histories. Its four primary fits were trained locally on that same cloud environment, with each fit restricted to observations preceding its weekly origin. It used one numerical fitting thread. The language-model calls used three CPU threads and a working context of 4,096 tokens. The model was configured at temperature zero with a fixed generation seed and bounded structured responses. These settings make the evaluated configuration explicit; they do not imply that every future model or computer will reproduce identical latency or behaviour.
+
+The distinction between training and inference is central to reporting this environment accurately. Training adjusts model parameters using data. Inference uses existing parameters to produce a response for a current input. The Qwen model performed inference in this experiment. The LightGBM forecasts were fitted using past retail sales. Adding worked prompt examples before the evaluation freeze did not fine-tune Qwen's weights. Calling the whole system a model trained on these datasets would obscure these different activities.
+
+The environment table summarises the practical setting, while the appendix records the detailed software and generation settings. The CPU-only arrangement allowed all fresh primary calls to finish within the study budget. It does not provide a production cost estimate. Cloud charges, integration work, employee review and system support were not monetised. The recorded latency therefore describes the experimental workload on this computer, while commercial affordability remains a question that would need the retailer's own scale and cost structure.
+
+[[TABLE:model_environment]]
+
+## 4.10 Measures, aggregation and uncertainty
+
+The primary service measure is demand fulfilment: sales served by usable inventory divided by the declared demand quantity. The primary economic measure is an inventory operating-cost index containing holding stock, a penalty for unmet demand and expired units. The index uses the same coefficients across matched policies. It is divided by demand when presenting comparable policy outcomes within a dataset. Purchase spend remains a separately recorded measure, so the dissertation does not describe the index as total procurement cost or real profit.
+
+RetailNet expiry is expressed as expired quantity relative to opening inventory plus receipts. When the two weekly episodes are aggregated within a seed, the opening inventory from both resets is included. The measure therefore reflects the declared input stock for the measured episodes. M5 has no expiry within the modelled weekly horizon. Held decisions and committed-action constraint violations are counted separately. A permitted zero order is a valid decision with no purchase; a hold is a decision that the workflow did not permit to execute.
+
+The main summary gives equal weight to the three business scenarios. Within a seed and scenario, the two weekly origins are aggregated using their demand and outcome totals. Policy means then average across the thirty seeds. A relative cost change is calculated in a paired way for each seed before averaging the changes. This is slightly different from dividing two rounded summary-table means. The detailed tables retain the unrounded quantities, and the appendix explains the aggregation so that the headline percentage reductions can be reproduced.
+
+Uncertainty intervals use ten thousand paired bootstrap resamples of the simulation seeds. Each resample keeps the matched policy comparison together. The resulting intervals describe variation in the selected historical windows under the defined demand and supply draws. They do not estimate a national retail population effect, and they do not represent thirty independent retrainings of the language model. The model remains one deterministic pretrained configuration. The intervals strengthen interpretation within the simulated setting while leaving the broader transfer question open.
+
+## 4.11 Traceability and independent checks
+
+The study records every primary model request and raw response, each proposal and release check, committed quantities and the series-level physical outcomes. It also saves current supplier messages and the authenticated rules that those messages describe. These records allow an investigator to connect a reading result to the numerical plan and its inventory consequences. A reported outcome is therefore supported by a trace of what the system received, chose and executed rather than only by a final summary spreadsheet.
+
+The completed evaluation contains 7,560 unique native response timestamps. Every referenced response file is checked against its recorded hash. The audit verifies the registered decision grid, source and data hashes, model settings and the requirement for three role calls on every agent day. It also compares the master result table with the local episode records. These checks establish that the complete scope was executed and that the reported primary calls correspond to saved current responses, rather than reused answers from earlier studies.
+
+An independent physical replay rebuilds receipt, stock consumption and expiry from the saved decisions without importing the evaluated inventory simulator. It checks the matched opening state and supplier opportunities, stock conservation, FIFO batches and purchase quantities. The operating-cost components and service ratios are then recalculated from the logged outcomes. Committed carton, minimum-order, supplier-capacity and budget constraints are checked independently. The final audit passed with no unresolved discrepancies across the full grid.
+
+This supporting detail is placed outside the short results narrative because a business reader should not need to inspect every file to understand the conclusion. It remains available for research review. The complete evidence package includes the prepared panels, fitted forecast files, raw model calls, numerical tables and frozen evaluated code. The dissertation's own figure register links graphs to those verified inputs. This provides transparency while allowing the main chapters to concentrate on the practical meaning of the system and its measured outcomes.
+
+## 4.12 Interpretation boundaries and responsible reporting
+
+The experiment represents selected retail sales patterns within a constructed operating process. It does not observe actual supplier negotiations, historical inventory balances or retailer profit. The English supplier messages are controlled, the product shelf life is hypothetical and the demand proxy retains the limitation of recorded sales. These boundaries are part of the research design. The dissertation reports them before interpreting the gains, so that the reader can distinguish a successful simulated workflow from a proven commercial investment.
+
+The model also has a limited responsibility. It interprets supplier fields, selects a planning priority and reviews explicit checks. It does not independently forecast all demand or compute every purchase quantity. A successful complete workflow should consequently be attributed to the combination of roles, numerical tools and release conditions. The structured-data comparison is retained even when it reduces the apparent novelty of the model's contribution. That makes the research more useful for a manager deciding which component actually needs to be added to an existing system.
+
+No participant study was conducted. The dissertation therefore does not report employee trust scores, customer satisfaction, interview findings or measured reductions in planning labour. It discusses those outcomes as questions for later work, informed by automation and retail literature. The supplied Gilbert thesis is used for structure rather than as a source of retail findings. Its wording and personal statements are not incorporated, and the retail results come from the completed experiment's own records.
+
+The two short weekly episodes and one fixed model configuration limit generalisation. A longer operating cycle or a different model could change the outcomes. The findings chapter therefore reports M5 and RetailNet separately, retaining the distinction between package performance and the language-model contribution.

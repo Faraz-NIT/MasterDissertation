@@ -1,0 +1,156 @@
+{
+  "status": "VERIFIED",
+  "checked_at_utc": "2026-10-12T09:29:47.298099+00:00",
+  "checks": {
+    "main_prose_minimum_15000": true,
+    "entire_new_manuscript_present_in_word": true,
+    "source_word_count_matches_manifest": true,
+    "times_new_roman_12pt_1_5_justified": true,
+    "one_inch_margins": true,
+    "no_theme_font_override": true,
+    "seven_new_main_chapters": true,
+    "concise_results": true,
+    "concise_conclusion": true,
+    "trained_model_and_inference_distinguished": true,
+    "new_study_only": true,
+    "structured_comparator_and_limits_explicit": true,
+    "contents_pages_match_current_pdf": true,
+    "contents_and_figure_links_resolve": true,
+    "all_21_figures_exactly_embedded": true,
+    "dataset_label_on_every_figure": true,
+    "ten_explanatory_tables": true,
+    "evidence_inputs_unchanged": true,
+    "completed_study_outputs_unchanged": true,
+    "exact_gilbert_structural_reference": true,
+    "paired_effect_recalculated_M5_conventional": true,
+    "paired_effect_recalculated_M5_structured_planner": true,
+    "paired_effect_recalculated_RetailNet_conventional": true,
+    "paired_effect_recalculated_RetailNet_structured_planner": true,
+    "priority_figure_recalculated_from_decisions": true,
+    "complete_extraction_measured_on_all_agent_days": true,
+    "zero_actual_holds_and_committed_violations": true,
+    "completed_registered_calls_and_grid": true,
+    "main_author_year_citations_have_references": true,
+    "all_pdf_pages_nonblank_and_within_bounds": true,
+    "all_figure_captions_present_in_pdf": true,
+    "headline_values_present_in_pdf": true
+  },
+  "issues": [],
+  "main_prose_words": 15751,
+  "main_prose_whitespace_words": 15693,
+  "chapter_words": {
+    "1. Retail replenishment and the business case for change": 2403,
+    "2. Data and decision-making in retail": 2773,
+    "3. Language models as replenishment partners": 2669,
+    "4. Research framework and experiment design": 3864,
+    "5. Findings and interpretation": 865,
+    "6. Implications and recommendations": 2587,
+    "7. Conclusion and future research": 590
+  },
+  "pdf_pages": 70,
+  "main_chapter_pages": 52,
+  "main_page_range": [
+    6,
+    57
+  ],
+  "embedded_figures": 21,
+  "tables": 10,
+  "references": 26,
+  "docx_sha256": "ea090b153b8ef6d6831213c12684c55fa479b1feb09541f3803a6f88bf6c764a",
+  "pdf_sha256": "22a3ec26b5ff858e3a1c1c2d909ed8a12834284bbfd84ab6493df8863f58beb0",
+  "recomputed_effects": [
+    {
+      "dataset": "M5",
+      "comparison": "conventional",
+      "service": {
+        "mean": 25.282492113581426,
+        "ci_low": 24.908057142669,
+        "ci_high": 25.645530064573084
+      },
+      "cost": {
+        "mean": -70.34015310484513,
+        "ci_low": -71.22469212930469,
+        "ci_high": -69.43590018448401
+      }
+    },
+    {
+      "dataset": "M5",
+      "comparison": "structured_planner",
+      "service": {
+        "mean": -0.008385907612452984,
+        "ci_low": -0.029129449045277218,
+        "ci_high": 0.007296546320366322
+      },
+      "cost": {
+        "mean": 0.06246080076782438,
+        "ci_low": -0.06643450050742983,
+        "ci_high": 0.23420380672357877
+      }
+    },
+    {
+      "dataset": "RetailNet",
+      "comparison": "conventional",
+      "service": {
+        "mean": 0.7834977187459621,
+        "ci_low": 0.6839090697196182,
+        "ci_high": 0.8749454120501559
+      },
+      "cost": {
+        "mean": -4.524242491426887,
+        "ci_low": -5.033924395208413,
+        "ci_high": -3.977648744854384
+      }
+    },
+    {
+      "dataset": "RetailNet",
+      "comparison": "structured_planner",
+      "service": {
+        "mean": -0.2010113671845082,
+        "ci_low": -0.2307243428417657,
+        "ci_high": -0.1688068137389105
+      },
+      "cost": {
+        "mean": 1.0123759037894102,
+        "ci_low": 0.8452325791982017,
+        "ci_high": 1.172168871701773
+      }
+    }
+  ],
+  "priority_counts": [
+    {
+      "dataset": "M5",
+      "all_days": 1260,
+      "all_correct": 1247,
+      "active_days": 300,
+      "active_correct": 289
+    },
+    {
+      "dataset": "RetailNet",
+      "all_days": 1260,
+      "all_correct": 1102,
+      "active_days": 300,
+      "active_correct": 142
+    }
+  ],
+  "unmatched_citations": [],
+  "layout_issues": [],
+  "sparse_pages_for_visual_review": [],
+  "image_pages": [
+    7,
+    19,
+    23,
+    27,
+    30,
+    34,
+    43,
+    45,
+    46,
+    47,
+    51,
+    63,
+    64,
+    65,
+    66,
+    67
+  ]
+}

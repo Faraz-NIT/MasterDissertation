@@ -1,5 +1,13 @@
 # M5 and FreshRetailNet study reports and complete evidence
 
+The latest full dissertation is the [Gilbert-structure rewrite based on the clean Ollama study](ollama_dissertation_20261012/).
+Download the [complete Word dissertation](ollama_dissertation_20261012/LLM_Agents_Replenishment_Dissertation.docx),
+[70-page PDF](ollama_dissertation_20261012/LLM_Agents_Replenishment_Dissertation.pdf), or
+[documents, graphs and editable sources ZIP](ollama_dissertation_20261012/LLM_Agents_Dissertation_download.zip).
+It contains 15,751 words of main prose, seven accessible chapters, 21 dataset-labelled
+figures, ten tables and concise results and conclusion chapters. Model training and
+local inference are distinguished in the methods, with the actual CPU environment stated.
+
 The latest experiment is the [fresh no-repair Ollama study](ollama_clean_study_20261009/).
 It completed 1,080 matched policy runs on 30 series per dataset, two weekly windows,
 30 simulation seeds and three scenarios, using 7,560 fresh Qwen2.5 1.5B calls.

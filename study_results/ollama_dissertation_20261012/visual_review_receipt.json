@@ -1,0 +1,21 @@
+{
+  "status": "VERIFIED",
+  "at_utc": "2026-10-12T09:35:47.905988+00:00",
+  "pdf_pages": 70,
+  "all_pages_reviewed_in_contact_sheets": true,
+  "representative_pages_reviewed_at_readable_resolution": [
+    7,
+    23,
+    42,
+    46
+  ],
+  "figures": 21,
+  "docx_sha256": "ea090b153b8ef6d6831213c12684c55fa479b1feb09541f3803a6f88bf6c764a",
+  "pdf_sha256": "22a3ec26b5ff858e3a1c1c2d909ed8a12834284bbfd84ab6493df8863f58beb0",
+  "scope": "Manual visual layout review of all 70 final PDF pages, with enlarged representative prose, agent diagram, results table and RetailNet expiry pages; automated bounds/nonempty checks also cover all pages",
+  "corrections": [
+    "Shortened the methods closing passage to remove a three-line spillover page",
+    "Removed the redundant results transition paragraph that occupied its own page"
+  ],
+  "issues_remaining": []
+}

@@ -1,0 +1,6 @@
+digraph Thesis { graph [rankdir=LR,bgcolor="white",pad=.2,nodesep=.3,ranksep=.4,label="M5 + RetailNet — The completed study design",labelloc=t,fontname="Arial",fontsize=18]; node [shape=box,style="rounded,filled",fontname="Arial",fontsize=14,color="#BDCBD4",fillcolor="#F2F6F9",margin=".15,.12"]; edge [color="#8194A2",arrowsize=.7]; a [label="M5
+30 selected series",fillcolor="#E7EFF7"]; b [label="RetailNet
+30 selected series",fillcolor="#E8F4EE"]; c [label="2 weeks × 3 situations
+× 30 seeds"]; d [label="3 policies
+1,080 runs"]; e [label="7,560 fresh
+Ollama calls"]; a -> c; b -> c; c -> d -> e; }

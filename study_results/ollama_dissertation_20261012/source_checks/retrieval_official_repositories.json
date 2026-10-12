@@ -1,0 +1,26 @@
+[
+  {
+    "source": "react_github",
+    "url": "https://raw.githubusercontent.com/ysymyth/ReAct/master/README.md",
+    "status": "READ",
+    "bytes": 1808
+  },
+  {
+    "source": "optiguide_github",
+    "url": "https://raw.githubusercontent.com/microsoft/OptiGuide/main/README.md",
+    "status": "READ",
+    "bytes": 5088
+  },
+  {
+    "source": "lightgbm_github",
+    "url": "https://raw.githubusercontent.com/microsoft/LightGBM/master/README.md",
+    "status": "READ",
+    "bytes": 12952
+  },
+  {
+    "source": "ollama_github",
+    "url": "https://raw.githubusercontent.com/ollama/ollama/main/docs/api.md",
+    "status": "READ",
+    "bytes": 54614
+  }
+]

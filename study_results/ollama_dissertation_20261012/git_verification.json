@@ -1,0 +1,379 @@
+{
+  "status": "VERIFIED",
+  "at_utc": "2026-10-12T09:37:39.343057+00:00",
+  "parent_commit": "4721351c3745fd51db9fa10b86b7e9d9839a821c",
+  "staged_files_verified": 74,
+  "scope": "All new staged study files, complete dissertation sources and download archive; this receipt excluded from its own hash list",
+  "files": [
+    {
+      "path": "scripts/ollama_dissertation/build.py",
+      "bytes": 11385,
+      "sha256": "4af211f4ab097036f285ee4f2b69d5b81aceba9595bc136bd2342146932fa682"
+    },
+    {
+      "path": "scripts/ollama_dissertation/config.py",
+      "bytes": 823,
+      "sha256": "cd4c921a9a49a0e701151c0e4dcc33315ff004c23292efd954e0108de9d701b7"
+    },
+    {
+      "path": "scripts/ollama_dissertation/evidence.py",
+      "bytes": 6862,
+      "sha256": "0f78201ebae1fe3c07dc059822edf666807d6db5a21477c0bc0bacff5cb16326"
+    },
+    {
+      "path": "scripts/ollama_dissertation/figures.py",
+      "bytes": 8385,
+      "sha256": "aeaa8b543d560e52606a5e9fb5479cdfd580cb5fc988a86bf27ad58c6313c6fc"
+    },
+    {
+      "path": "scripts/ollama_dissertation/package.py",
+      "bytes": 3013,
+      "sha256": "bd74474390f78df0736d448e419293137180c1fbd49549a470fcedf91d9768a1"
+    },
+    {
+      "path": "scripts/ollama_dissertation/publish.py",
+      "bytes": 4758,
+      "sha256": "08f9daf65b10cfe1f63bf0b3b35919159daa6694fbc8c28da903db9c4e3ec272"
+    },
+    {
+      "path": "scripts/ollama_dissertation/validate.py",
+      "bytes": 11639,
+      "sha256": "86d4a0a96c4fdd08c44e02ed696a914aec3c14371f30cdc5ee6c1e5aa1026283"
+    },
+    {
+      "path": "study_results/README.md",
+      "bytes": 7533,
+      "sha256": "f902614b765117ab481c6defa7fee73410393892418626a49b789f559f8629f7"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/LLM_Agents_Dissertation_download.zip",
+      "bytes": 5281054,
+      "sha256": "dcf0c2cd56f2e0d6352eeb7d5a4efbbba9429d6bdd0c5196dc7cef7fc96659f8"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/LLM_Agents_Replenishment_Dissertation.docx",
+      "bytes": 1684147,
+      "sha256": "ea090b153b8ef6d6831213c12684c55fa479b1feb09541f3803a6f88bf6c764a"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/LLM_Agents_Replenishment_Dissertation.pdf",
+      "bytes": 2405605,
+      "sha256": "22a3ec26b5ff858e3a1c1c2d909ed8a12834284bbfd84ab6493df8863f58beb0"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/README.md",
+      "bytes": 5587,
+      "sha256": "8fdb919161f383ea9f033b3436519f792a18a260248b3cb678e90f609f826d1b"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/appendices.md",
+      "bytes": 11172,
+      "sha256": "5362da561e86855bfde2779627b3f782da6d13236fd204ed02d890b699488699"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/build_manifest.json",
+      "bytes": 18943,
+      "sha256": "54e7d60de8c39f5fa9a53ceb7d7d0b1496fac950c00e379b55a189a065e67ddf"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/chapters/01_business_problem.md",
+      "bytes": 16776,
+      "sha256": "a99ee64725627c8a38c0fff1a90afb2bbd3d9e3e867e5e0c0b56123af03493a3"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/chapters/02_data_and_decisions.md",
+      "bytes": 19014,
+      "sha256": "ec389381b4a91d6534d8893f3eff4ee40b09bb533d9961e72aa5fc987b70493c"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/chapters/03_language_models.md",
+      "bytes": 18263,
+      "sha256": "e1043490cd266ad438cd97c8099b991cc0663b08b823847c4cc302b7c30f6cc7"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/chapters/04_research_framework.md",
+      "bytes": 27033,
+      "sha256": "fd3631196529dc9dda69b151d0d52e15995d6cbd25f4030f6f65876e71cf0a8d"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/chapters/05_findings.md",
+      "bytes": 6508,
+      "sha256": "7b72fd653b1beb4ece474b742d40f4d30fb8891ab57a665320250c4b3c375647"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/chapters/06_implications.md",
+      "bytes": 18413,
+      "sha256": "f12bae0e432f5a61cb478114818b8d003cf599eae0ec53c4f6a60077a8fd6431"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/chapters/07_conclusion.md",
+      "bytes": 4427,
+      "sha256": "9cd1a4db670819ebbecd35cb1d9c84f2bb43b38ad9984086f893f9ea469ec0bb"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/contents_pages.json",
+      "bytes": 3762,
+      "sha256": "d2683ea0b15e97c0f9e7ddfc919ecaa73ddc8c5f0b805ab2cff67d77b1af63bf"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/delivery_manifest.json",
+      "bytes": 10898,
+      "sha256": "ad13a84b50523e099e257c8401dd20b25f21900a7562a7848eba71305cadf93a"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/executive_summary.json",
+      "bytes": 2350,
+      "sha256": "14434165d424b46de627607c72c4f8a24903a6fe19ed52292ab5e81a83b4d916"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figure_register.json",
+      "bytes": 17100,
+      "sha256": "67163ce41126cb34a83ff50aabedb12c734be7c3ac8ea92f83f0406f1ebb6db8"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/adoption_path.dot",
+      "bytes": 554,
+      "sha256": "3e25a4bbc8db389d5b8a65f04496efd9b46d63d117fe6d3411a099f8980fd780"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/adoption_path.png",
+      "bytes": 66925,
+      "sha256": "62f8f749f059a72bcd8d9d61da2d5bb0f9fc6942f0793a39873b68b9c3a95830"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/adoption_path.svg",
+      "bytes": 2852,
+      "sha256": "f56e669335eb9d32fb16cb306b33fa33f2378dcc54ed853ad18ec634ea5ca992"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/agent_workflow.png",
+      "bytes": 94075,
+      "sha256": "dbcc86054a58ae3f117c2c8a3365b9c712702b378fbfefd6a356b4c449b5e220"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/cost_components.png",
+      "bytes": 77956,
+      "sha256": "ec600ae738fd09389ec603e0d4f3c37e1c61129f0c3849a5040804b5a131a76c"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/dataset_profiles.png",
+      "bytes": 213637,
+      "sha256": "0099b0c46d64a72d4fe2f123a64f7595614c77a8db636777b3aec7dd4f0dad8a"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/decision_cycle.dot",
+      "bytes": 513,
+      "sha256": "e8ead214d031cde51dc206182e8582f946b3135860330bbc82c6f7c5005fbf4a"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/decision_cycle.png",
+      "bytes": 44723,
+      "sha256": "0181b2e7e3bbc182462cb9a16b353f22c4f4bab58191013e56f9ac50deedeaaf"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/decision_cycle.svg",
+      "bytes": 3824,
+      "sha256": "da93913541b66ff9491cc20b681fbab7aa8c0bab6f03e6091200e5db2fb45ddb"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/evidence_layers.dot",
+      "bytes": 634,
+      "sha256": "a39565b884b50a1a628ea2b6ebdc9b125ec1df5f2f02d3e2891f3c28ce88721b"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/evidence_layers.png",
+      "bytes": 78911,
+      "sha256": "a740189ba689951446f0344623c21255caa75193260ba1455680bd6d44f1c8eb"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/evidence_layers.svg",
+      "bytes": 3757,
+      "sha256": "1c5ec989b3d33055cb36c099d7cbc84e86d3fa78029501cb10a5feb12e0cdfef"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/holds.png",
+      "bytes": 83027,
+      "sha256": "c1759b9b6df1ef6a0e569f0078ac0a8de7756d64d4d6f2b90dca8a1d561365b7"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/m5_cost.png",
+      "bytes": 74520,
+      "sha256": "6c392a7726e270655adcac3ad9394e283dbf79380fdafea99cc4e3bbf35876cb"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/m5_daily.png",
+      "bytes": 117955,
+      "sha256": "c0c1d74bb0e1a348ceab7e4eebcc9b3ecbefe731de0679452303c5519b0b185f"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/m5_fill.png",
+      "bytes": 69649,
+      "sha256": "7a6049a02204f9950fbb318387a039e594a4f3ec35045a1062fc4d0a58c97639"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/model_latency.png",
+      "bytes": 59692,
+      "sha256": "e2d280923309d6b44613d3306d5597a8c1cdff98d7d120121df7f510ffe33291"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/paired_cost.png",
+      "bytes": 112609,
+      "sha256": "4708d89d379123e129bfa1dd83ee975d99e8b7c7c980ae0fbe8ae420dff86a6d"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/paired_service.png",
+      "bytes": 109455,
+      "sha256": "047dd4e5860d81bd0c7f110590d8c7b2fb1efc9af174509f9bcd70ef798dbc79"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/priority_accuracy.png",
+      "bytes": 64786,
+      "sha256": "47a8d280137426bdcf329978015828ae017524c0ec1cf780289183bf5317f719"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/retailnet_cost.png",
+      "bytes": 79146,
+      "sha256": "81ef61f60ef53fc89e262e1c1c8c08d0604f9a79b59ab8c9c7d0984787ec1470"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/retailnet_daily.png",
+      "bytes": 114171,
+      "sha256": "fd39cd7f12af3140727fb466bb946138de21dd72ef0d468508da8b19855cc377"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/retailnet_expiry.png",
+      "bytes": 76898,
+      "sha256": "c031b84a5600a5eaf3546e0f3cdc71d70f25cb4f1bed18b5164dd0701dee4d96"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/retailnet_fill.png",
+      "bytes": 70805,
+      "sha256": "47220d5a77e088a03fb014b995308dd15a6c87f9e74a3edc5eecb8a5cccc6339"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/shared_components.dot",
+      "bytes": 548,
+      "sha256": "3ce13772fca7216f96c81dd50b394453556263524b2dbf1d708b893105240d18"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/shared_components.png",
+      "bytes": 62262,
+      "sha256": "b3ceecea9841d393e3d6958049c7ddeb044723a9c03b230c7265a0e660313254"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/shared_components.svg",
+      "bytes": 3303,
+      "sha256": "bb72e287e838cb5aa54e34f7f96b60905ab029ac7b70f68c92c4b54938d76ea7"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/source_accuracy.png",
+      "bytes": 58570,
+      "sha256": "53d86b23ff01c104cf3007cc037355547263016f6e6c278ccf9e0a1dfe68373f"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/study_map.dot",
+      "bytes": 605,
+      "sha256": "4ed591c0fcbc31bfa530690fbc53611e1238c2f461cf7523cfea9bf73c0ccbea"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/study_map.png",
+      "bytes": 67589,
+      "sha256": "9524e3446c18b845c2e7f1e4266d119177c06b246f1d6aae4456a0ea544b5b46"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/figures/study_map.svg",
+      "bytes": 4404,
+      "sha256": "e97a33932b3bef7919103f2dade325a4ab93df900caacf61cfb9182f97186af7"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/heading_register.json",
+      "bytes": 7624,
+      "sha256": "29f2f5f09c9a93049eb2524c25e03ada2f0731808acd88620a25c966d77b8030"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/logs/pdf_render.log",
+      "bytes": 1992,
+      "sha256": "012fb2dcc943121dbdb5d63c342fe714eba3ad9e9c40a7c9d9df8a0eacbc3c03"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/manuscript.md",
+      "bytes": 110439,
+      "sha256": "a1dc280f00a27bf7ee4a915712e05a0d73b0811f5aa6659418f690f5ea0f16e0"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/references.md",
+      "bytes": 5234,
+      "sha256": "ed264370666b759047ac93fe04ba5536da8601609d601c2c4d79f82aa5585084"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/rendered_text.txt",
+      "bytes": 156368,
+      "sha256": "9aefcbc62e73e443c8e86f04fb0162549d4354e17edb3d0b040c9a93ddd78367"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/reproduction/build.py",
+      "bytes": 11385,
+      "sha256": "4af211f4ab097036f285ee4f2b69d5b81aceba9595bc136bd2342146932fa682"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/reproduction/config.py",
+      "bytes": 823,
+      "sha256": "cd4c921a9a49a0e701151c0e4dcc33315ff004c23292efd954e0108de9d701b7"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/reproduction/evidence.py",
+      "bytes": 6862,
+      "sha256": "0f78201ebae1fe3c07dc059822edf666807d6db5a21477c0bc0bacff5cb16326"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/reproduction/figures.py",
+      "bytes": 8385,
+      "sha256": "aeaa8b543d560e52606a5e9fb5479cdfd580cb5fc988a86bf27ad58c6313c6fc"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/reproduction/package.py",
+      "bytes": 3013,
+      "sha256": "bd74474390f78df0736d448e419293137180c1fbd49549a470fcedf91d9768a1"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/reproduction/publish.py",
+      "bytes": 4758,
+      "sha256": "08f9daf65b10cfe1f63bf0b3b35919159daa6694fbc8c28da903db9c4e3ec272"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/reproduction/validate.py",
+      "bytes": 11639,
+      "sha256": "86d4a0a96c4fdd08c44e02ed696a914aec3c14371f30cdc5ee6c1e5aa1026283"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/rewrite_brief.json",
+      "bytes": 2262,
+      "sha256": "d2d01b56807cfadbc555b79989fa30b0e4808d046eaa467a900ee92df5594f36"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/source_checks/retrieval.json",
+      "bytes": 762,
+      "sha256": "39c89c763dcad04aa60d8bf43d8b2f0955764df5777c8aefc60057f13f2b4789"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/source_checks/retrieval_followup.json",
+      "bytes": 964,
+      "sha256": "b5bfca2bfbea123abb4521d44de214c2925b07d0446328f6280e6c8d7c8c9009"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/source_checks/retrieval_official_repositories.json",
+      "bytes": 654,
+      "sha256": "a29a6a6b60519aa10ceeddfc42a7e025944f0518c69747e353ecdecb9ef26de0"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/validation_receipt.json",
+      "bytes": 4434,
+      "sha256": "aaccf3a2110a301aa438c1036985ada278994b078c4938732f13c3b5323f63e8"
+    },
+    {
+      "path": "study_results/ollama_dissertation_20261012/visual_review_receipt.json",
+      "bytes": 856,
+      "sha256": "533fe863aad7b06527072b02f6bfb5bcbd1bdeb3756c73208e5a7e6f27ecb59a"
+    }
+  ]
+}

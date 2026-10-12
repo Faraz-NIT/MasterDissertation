@@ -1,0 +1,32 @@
+[
+  {
+    "source": "li_supply_abs",
+    "url": "https://arxiv.org/abs/2307.03875",
+    "status": "FAILED",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "source": "fresh_paper_abs",
+    "url": "https://arxiv.org/abs/2505.16319",
+    "status": "FAILED",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "source": "react_abs",
+    "url": "https://arxiv.org/abs/2210.03629",
+    "status": "FAILED",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "source": "lightgbm",
+    "url": "https://papers.nips.cc/paper_files/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html",
+    "status": "FAILED",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "source": "ollama",
+    "url": "https://docs.ollama.com/api/chat",
+    "status": "FAILED",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  }
+]

@@ -1,0 +1,5 @@
+digraph Thesis { graph [rankdir=LR,bgcolor="white",pad=.2,nodesep=.3,ranksep=.4,label="M5 + RetailNet — What is observed and what is modelled",labelloc=t,fontname="Arial",fontsize=18]; node [shape=box,style="rounded,filled",fontname="Arial",fontsize=14,color="#BDCBD4",fillcolor="#F2F6F9",margin=".15,.12"]; edge [color="#8194A2",arrowsize=.7]; a [label="Observed
+Released retail sales",fillcolor="#E8F0F6"]; b [label="Predicted
+Past-only sales forecast"]; c [label="Assumed
+Stock, suppliers and costs",fillcolor="#F7F0E8"]; d [label="Measured in simulation
+Service, index and expiry",fillcolor="#EAF4EF"]; a -> b; b -> d; c -> d; }

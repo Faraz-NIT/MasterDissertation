@@ -1,0 +1,29 @@
+[
+  {
+    "source": "qwen",
+    "url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/raw/main/README.md",
+    "bytes": 4917,
+    "status": "READ"
+  },
+  {
+    "source": "freshretailnet",
+    "url": "https://huggingface.co/datasets/Dingdong-Inc/FreshRetailNet-50K/raw/08c1fab7f9257bc73679d415d65d644165d351d4/README.md",
+    "bytes": 4871,
+    "status": "READ"
+  },
+  {
+    "source": "li_supply",
+    "status": "FAILED",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "source": "fresh_paper",
+    "status": "FAILED",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "source": "react",
+    "status": "FAILED",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  }
+]

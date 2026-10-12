@@ -1,0 +1,39 @@
+{
+  "purpose": "Complete new dissertation based on the completed no-repair Ollama study; accessible business-school writing and concise results/conclusion",
+  "structural_reference": {
+    "file": "GilbertMatteo-DMDSMastersThesis.pdf",
+    "title": "Predicting Temperature Variations Across Europe Using Machine Learning and Geospatial Data for Climate Change Impact Analysis",
+    "author": "Matt\u00e9o Gilbert",
+    "pages": 91,
+    "sha256": "66540dc875e1861d2adb8c716f2e717afaff26723972a6c20aed08e84d7eb584",
+    "use": "Structural and presentation guidance only; no copied prose, findings, graphs, acknowledgments or participant claims",
+    "redistributed": false
+  },
+  "format": {
+    "font": "Times New Roman",
+    "body_points": 12,
+    "line_spacing": 1.5,
+    "margins_inches": 1,
+    "alignment": "justified",
+    "minimum_main_prose_words_excluding_appendices": 15000
+  },
+  "primary_study_commit": "4721351c3745fd51db9fa10b86b7e9d9839a821c",
+  "primary_study_folder": "study_results/ollama_clean_study_20261009",
+  "seven_chapters": [
+    "Retail replenishment and the business case for change",
+    "Data and decision-making in retail",
+    "Language models as replenishment partners",
+    "Research framework and experiment design",
+    "Findings and interpretation",
+    "Implications and recommendations",
+    "Conclusion and future research"
+  ],
+  "protected_study_files": {
+    "study_results/ollama_clean_study_20261009/protocol.json": "313022ff110d796bd2bf91839f8168761ae6a5899fe5119d3f772b6f4e2188bb",
+    "study_results/ollama_clean_study_20261009/execution_receipt.json": "2dab89c988cc88281ecc301deceee2d26db40dced1e66821c72b4d464ca58377",
+    "study_results/ollama_clean_study_20261009/analysis/audit_receipt.json": "bc4e2324a789ccf1f513383b1206b9b71ce1b09a09139a617edd42d0a5353ec7",
+    "study_results/ollama_clean_study_20261009/Fresh_Ollama_Study_Report.pdf": "269cd29678f1ea4b1126f22d804127d782623c39608daf77f09aa6d86905247d",
+    "study_results/ollama_clean_study_20261009/Fresh_Ollama_Study_Report.docx": "b4bc86c4e971dd8c0d39a71a6af2b903c6f9bd9fa8007b4d90d49f2baa0902f6",
+    "study_results/ollama_clean_study_20261009/Fresh_Ollama_Study_download.zip": "ebe469661e0ef18f120a68b8709336deb7c2ecfd13c07177e69e199e46e47d21"
+  }
+}
