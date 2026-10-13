@@ -1,0 +1,22 @@
+{
+  "built_at_utc": "2026-10-13T20:09:42.636150+00:00",
+  "scope": "Only rewritten Chapter 7",
+  "research_question_framework": "study_results/literature_review_20261013/chapter_2.md",
+  "prose_words_excluding_headings_and_table": 989,
+  "tables": 1,
+  "model": "Pretrained Qwen2.5 1.5B via Ollama",
+  "llm_retrained": false,
+  "new_experiments": false,
+  "docx_sha256": "0b646de9ec6d64310512aad3004459fd8029f605b91e163acde526edb554229a",
+  "manuscript_sha256": "ebb203d10e9111fafdf9170248b5ece7af4bcf94c7de00a04391dcdb97b9333c",
+  "evidence_map_sha256": "dc15f02cd88ffdac4f2682a9aca04f38d0381d478a71ecaf22bfd2bcf8b21919",
+  "builder_sha256": "6cff77330524c51ca476319615b4b6025d6fbd093fd533f5302b90fe0d31d71e",
+  "format": {
+    "paper": "A4",
+    "body_font": "Times New Roman",
+    "body_points": 12,
+    "line_spacing": 1.5,
+    "margins_inches": 1,
+    "alignment": "justified"
+  }
+}

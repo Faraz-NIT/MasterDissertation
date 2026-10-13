@@ -1,0 +1,135 @@
+{
+  "RQ1": {
+    "M5": {
+      "dataset": "M5",
+      "comparison": "conventional",
+      "fill_effect_pp": {
+        "mean": 25.282492113581426,
+        "ci_low": 24.908057142669,
+        "ci_high": 25.645530064573084,
+        "seeds": 30
+      },
+      "cost_effect_pct": {
+        "mean": -70.34015310484513,
+        "ci_low": -71.22469212930469,
+        "ci_high": -69.43590018448401,
+        "seeds": 30
+      }
+    },
+    "RetailNet": {
+      "dataset": "RetailNet",
+      "comparison": "conventional",
+      "fill_effect_pp": {
+        "mean": 0.7834977187459621,
+        "ci_low": 0.6839090697196182,
+        "ci_high": 0.8749454120501559,
+        "seeds": 30
+      },
+      "cost_effect_pct": {
+        "mean": -4.524242491426887,
+        "ci_low": -5.033924395208413,
+        "ci_high": -3.977648744854384,
+        "seeds": 30
+      }
+    }
+  },
+  "RQ2": {
+    "M5": {
+      "dataset": "M5",
+      "comparison": "structured_planner",
+      "fill_effect_pp": {
+        "mean": -0.008385907612452984,
+        "ci_low": -0.029129449045277218,
+        "ci_high": 0.007296546320366322,
+        "seeds": 30
+      },
+      "cost_effect_pct": {
+        "mean": 0.06246080076782438,
+        "ci_low": -0.06643450050742983,
+        "ci_high": 0.23420380672357877,
+        "seeds": 30
+      }
+    },
+    "RetailNet": {
+      "dataset": "RetailNet",
+      "comparison": "structured_planner",
+      "fill_effect_pp": {
+        "mean": -0.2010113671845082,
+        "ci_low": -0.2307243428417657,
+        "ci_high": -0.1688068137389105,
+        "seeds": 30
+      },
+      "cost_effect_pct": {
+        "mean": 1.0123759037894102,
+        "ci_low": 0.8452325791982017,
+        "ci_high": 1.172168871701773,
+        "seeds": 30
+      }
+    }
+  },
+  "RQ3": {
+    "M5": {
+      "supplier_exact_extraction_percent": 100.0,
+      "priority_accuracy_percent": 98.96825396825398,
+      "active_promotion_correct": 289,
+      "active_promotion_decisions": 300,
+      "active_promotion_accuracy_percent": 96.33333333333334,
+      "committed_constraint_violations": 0
+    },
+    "RetailNet": {
+      "supplier_exact_extraction_percent": 100.0,
+      "priority_accuracy_percent": 87.46031746031746,
+      "active_promotion_correct": 142,
+      "active_promotion_decisions": 300,
+      "active_promotion_accuracy_percent": 47.333333333333336,
+      "committed_constraint_violations": 0
+    }
+  },
+  "RQ4": {
+    "assessment": "Descriptive and exploratory; no formal cross-dataset effect test performed",
+    "restriction": "No inference that perishability alone caused the difference"
+  },
+  "hypothesis_assessments": {
+    "H1a": "Supported in both simulated datasets",
+    "H1b": "Supported in both simulated datasets",
+    "H2a": "Not supported; M5 superiority inconclusive, RetailNet service lower",
+    "H2b": "Not supported; M5 superiority inconclusive, RetailNet cost higher",
+    "H3": "Supported descriptively for the controlled tasks",
+    "H4": "Exploratory; formal support not established"
+  },
+  "inputs": [
+    {
+      "path": "study_results/literature_review_20261013/chapter_2.md",
+      "sha256": "5d4144ad3ca0aa2ba6695ecd281349c735e066241fefc52ebd8386315c2f6757"
+    },
+    {
+      "path": "study_results/ollama_clean_study_20261009/analysis/overall_effects.json",
+      "sha256": "8b987e1bc8c11d29728fd79ce87409779d085267896a6875331e8b45e586c65f"
+    },
+    {
+      "path": "study_results/ollama_clean_study_20261009/analysis/policy_means.csv",
+      "sha256": "ca706c93fa4c22a44f03ffa5d84d83392f91f2a9d5033cdc7a3ab7410295d528"
+    },
+    {
+      "path": "study_results/ollama_clean_study_20261009/analysis/llm_diagnostics.csv",
+      "sha256": "b8ff6c090e5b3f8249ffdaf88113348bbc4d75b1ac283a05d8f5bbf83c5707b0"
+    },
+    {
+      "path": "study_results/ollama_clean_study_20261009/analysis/daily_results.csv",
+      "sha256": "aa5c6d0bddc4db0d3c63ae1d1b35a5390caec738d532d1d779bce79640721b58"
+    },
+    {
+      "path": "study_results/ollama_clean_study_20261009/analysis/audit_receipt.json",
+      "sha256": "bc4e2324a789ccf1f513383b1206b9b71ce1b09a09139a617edd42d0a5353ec7"
+    },
+    {
+      "path": "study_results/ollama_clean_study_20261009/protocol.json",
+      "sha256": "313022ff110d796bd2bf91839f8168761ae6a5899fe5119d3f772b6f4e2188bb"
+    },
+    {
+      "path": "study_results/ollama_clean_study_20261009/logs/runtime_environment.json",
+      "sha256": "bae5f7dfb72aaeabd20d290e2f015c1341a6b096d82fb5c28616d85c5ad8036a"
+    }
+  ],
+  "analysis_scope": "Reuses completed-study results; no new experiment, effect test or model calls"
+}

@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "chapter_only": true,
+  "docx_text_matches_manuscript": true,
+  "hypothesis_table_complete": true,
+  "hypothesis_table_on_single_page": 3,
+  "all_questions_and_hypotheses_answered": true,
+  "format_verified": true,
+  "pdf_pages": 4,
+  "pdf_nonempty_pages": true,
+  "no_text_outside_page_bounds": true,
+  "numerical_claims_checked_by_builder": true,
+  "H4_formal_assessment": "Not established; exploratory",
+  "docx_sha256": "0b646de9ec6d64310512aad3004459fd8029f605b91e163acde526edb554229a",
+  "pdf_sha256": "74fa650d2496b405bd33781a4dc77e1bbf11725271d30ad4c405a2b1548b879d",
+  "visual_review": "PASS: final four-page contact sheet and full-size hypothesis table reviewed; the table is complete on a single page"
+}

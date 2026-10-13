@@ -1,5 +1,10 @@
 # M5 and FreshRetailNet study reports and complete evidence
 
+The latest conclusion revision is the [rewritten Chapter 7](conclusion_revision_20261013/),
+which answers the revised research questions and hypotheses. Download its
+[chapter-only Word document](conclusion_revision_20261013/Conclusion_and_Future_Research_Rewritten.docx)
+or [four-page PDF](conclusion_revision_20261013/Conclusion_and_Future_Research_Rewritten.pdf).
+
 The latest chapter-only revision is the [rewritten literature review for Chapters 1 and 2](literature_review_20261013/).
 Download its [Word document](literature_review_20261013/Chapters_1_and_2_Literature_Review.docx) or
 [18-page PDF](literature_review_20261013/Chapters_1_and_2_Literature_Review.pdf).
