@@ -1,0 +1,46 @@
+{
+  "created_at_utc": "2026-10-13T19:35:45.631408+00:00",
+  "scope": "Only rewritten Chapters 1 and 2; research questions and hypotheses are within Chapter 2",
+  "publication": "Local files only; no Git push",
+  "chapter_words_excluding_headings": {
+    "chapter_1.md": 2657,
+    "chapter_2.md": 3167
+  },
+  "cited_sources": 26,
+  "bibliography_verification_file_not_in_document": "references.md",
+  "research_questions": [
+    "Main question",
+    "RQ1",
+    "RQ2",
+    "RQ3",
+    "RQ4"
+  ],
+  "hypotheses": [
+    "H1a",
+    "H1b",
+    "H2a",
+    "H2b",
+    "H3",
+    "H4"
+  ],
+  "hypothesis_status": "Analytical framework; no claim of preregistration",
+  "format": {
+    "paper": "A4",
+    "font": "Times New Roman",
+    "body_size_pt": 12,
+    "body_line_spacing": 1.5,
+    "margins_inch": 1,
+    "alignment": "justified"
+  },
+  "docx_sha256": "8c2cc2135aaba1d92379adf09de52f041f6e5d3a79973a43c7b8a0b0f3031b11",
+  "manuscript_sha256": "3c495611eac3fa2f7b4956047e9810e0cd660d99ba94b71323bfdc663fd83572",
+  "reference_source": "/workspace/MasterDissertation/study_results/ollama_dissertation_20261012/references.md",
+  "reference_source_sha256": "ed264370666b759047ac93fe04ba5536da8601609d601c2c4d79f82aa5585084",
+  "additional_source": {
+    "citation": "Wu et al. (2023), AutoGen",
+    "bibliography_verified_from": "https://raw.githubusercontent.com/microsoft/autogen/v0.2.0/README.md",
+    "local_snapshot": "/tmp/literature_review_autogen_readme.md",
+    "snapshot_sha256": "a1a84cfd8cab6fa05fdde8c1d7080592bbc3809cb2ebcc20a94bb084599cc707"
+  },
+  "builder_sha256": "6decdcee6c9a6e22ba45d723d1edf5d30ab37f112edb1d74cea6d6feb84b2c9d"
+}

@@ -1,0 +1,102 @@
+{
+  "status": "STAGED_BYTES_VERIFIED",
+  "at_utc": "2026-10-13T19:39:35.182898+00:00",
+  "authorization": "User explicitly requested push to git after the original local-only delivery",
+  "parent_commit": "5b634dd364717b7743149aebe31502ce9f942519",
+  "destination": "origin/main",
+  "scope": "Standalone rewritten Chapters 1 and 2, supporting sources and verification files, and study-results index",
+  "delivered_artifacts_unchanged": true,
+  "files": [
+    {
+      "path": "study_results/README.md",
+      "bytes": 7963,
+      "sha256": "ac8394fd0348cfa96d25209333b5c5996d6be6dbdcc689675775ebf423488cbb"
+    },
+    {
+      "path": "study_results/literature_review_20261013/Chapters_1_and_2_Literature_Review.docx",
+      "bytes": 52591,
+      "sha256": "8c2cc2135aaba1d92379adf09de52f041f6e5d3a79973a43c7b8a0b0f3031b11"
+    },
+    {
+      "path": "study_results/literature_review_20261013/Chapters_1_and_2_Literature_Review.md",
+      "bytes": 42419,
+      "sha256": "3c495611eac3fa2f7b4956047e9810e0cd660d99ba94b71323bfdc663fd83572"
+    },
+    {
+      "path": "study_results/literature_review_20261013/Chapters_1_and_2_Literature_Review.pdf",
+      "bytes": 173616,
+      "sha256": "e3ebc97740b940e70b6b047b60a930bbe48188aee1b43b175d52a0c0d6cdc21a"
+    },
+    {
+      "path": "study_results/literature_review_20261013/README.md",
+      "bytes": 2296,
+      "sha256": "62464cc014d3fe9b099162acd03183cce49c8359947b1d896d9b6e2453491428"
+    },
+    {
+      "path": "study_results/literature_review_20261013/build_document.py",
+      "bytes": 8777,
+      "sha256": "6decdcee6c9a6e22ba45d723d1edf5d30ab37f112edb1d74cea6d6feb84b2c9d"
+    },
+    {
+      "path": "study_results/literature_review_20261013/build_manifest.json",
+      "bytes": 1641,
+      "sha256": "b8a551ab05edacae8a198f1221c06effa514cfa3b4da29ed93297b6853f4e515"
+    },
+    {
+      "path": "study_results/literature_review_20261013/chapter_1.md",
+      "bytes": 19121,
+      "sha256": "3d20f5bbc67fb43fdd57a620b4ea51710df2385680dc75d9aefc8bdcd44bcb12"
+    },
+    {
+      "path": "study_results/literature_review_20261013/chapter_2.md",
+      "bytes": 23297,
+      "sha256": "5d4144ad3ca0aa2ba6695ecd281349c735e066241fefc52ebd8386315c2f6757"
+    },
+    {
+      "path": "study_results/literature_review_20261013/references.md",
+      "bytes": 5250,
+      "sha256": "066755b4a521cac3b137bfddff5d46620ae3c69307b65ec4f5339997c751415c"
+    },
+    {
+      "path": "study_results/literature_review_20261013/review_contact_sheet.png",
+      "bytes": 708989,
+      "sha256": "ecc8372b5a13ab08f393f414d33e596dc48a38968e787e024a1e15fba4d32fb0"
+    },
+    {
+      "path": "study_results/literature_review_20261013/review_page_01.png",
+      "bytes": 140008,
+      "sha256": "a68e4b12eb60aeb5279f0b09b967c041cdde5bc243a9886c120a9c1ba0c09580"
+    },
+    {
+      "path": "study_results/literature_review_20261013/review_page_15.png",
+      "bytes": 119844,
+      "sha256": "953b94bef74639582c83c44fa6291ed28e44a9446a38bd55576a8036853b77a7"
+    },
+    {
+      "path": "study_results/literature_review_20261013/review_page_17.png",
+      "bytes": 127547,
+      "sha256": "aeb2e09d75e75c28a73baa98006aa8d3a902521486034dc101d05ef3fb91bf03"
+    },
+    {
+      "path": "study_results/literature_review_20261013/review_page_18.png",
+      "bytes": 74157,
+      "sha256": "6366b430a363427888d6dc123b88bb1cdbf916ec2bcfc92bbac744247d908f58"
+    },
+    {
+      "path": "study_results/literature_review_20261013/source_checks/autogen_v0.2.0_README.md",
+      "bytes": 13383,
+      "sha256": "a1a84cfd8cab6fa05fdde8c1d7080592bbc3809cb2ebcc20a94bb084599cc707"
+    },
+    {
+      "path": "study_results/literature_review_20261013/validation.json",
+      "bytes": 753,
+      "sha256": "f650d67690c094ab32373089ad3fdf3d1ccc9918b003628b23907bb6a68abb53"
+    },
+    {
+      "path": "study_results/literature_review_20261013/verify_document.py",
+      "bytes": 4852,
+      "sha256": "98477f454f74b3e1ea1b345a7c4e8c8bd4e75ef7aa37eda8e937a5441c892338"
+    }
+  ],
+  "receipt_excluded_from_own_hash_inventory": true
+}

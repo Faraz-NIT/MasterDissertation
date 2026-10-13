@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "scope": "Exactly two chapters, no additional sections",
+  "docx_exact_text_match": true,
+  "citation_sources_cross_checked": 26,
+  "format_verified": true,
+  "pdf_pages": 18,
+  "pdf_nonempty_pages": true,
+  "pdf_text_within_page_bounds": true,
+  "visual_review_pages": [
+    1,
+    15,
+    17,
+    18
+  ],
+  "document_sha256": "8c2cc2135aaba1d92379adf09de52f041f6e5d3a79973a43c7b8a0b0f3031b11",
+  "pdf_sha256": "e3ebc97740b940e70b6b047b60a930bbe48188aee1b43b175d52a0c0d6cdc21a",
+  "chapter_2_start_page": 9,
+  "question_section_page": 15,
+  "hypothesis_section_page": 16,
+  "visual_review": "PASS: reviewed page contact sheet and full-size hypothesis page; no clipping or missing sections",
+  "git_repository_modified": false
+}

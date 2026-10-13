@@ -1,5 +1,10 @@
 # M5 and FreshRetailNet study reports and complete evidence
 
+The latest chapter-only revision is the [rewritten literature review for Chapters 1 and 2](literature_review_20261013/).
+Download its [Word document](literature_review_20261013/Chapters_1_and_2_Literature_Review.docx) or
+[18-page PDF](literature_review_20261013/Chapters_1_and_2_Literature_Review.pdf).
+It includes clearly framed research questions and hypotheses within Chapter 2; the documents contain only these two chapters.
+
 The latest full dissertation is the [Gilbert-structure rewrite based on the clean Ollama study](ollama_dissertation_20261012/).
 Download the [complete Word dissertation](ollama_dissertation_20261012/LLM_Agents_Replenishment_Dissertation.docx),
 [70-page PDF](ollama_dissertation_20261012/LLM_Agents_Replenishment_Dissertation.pdf), or
