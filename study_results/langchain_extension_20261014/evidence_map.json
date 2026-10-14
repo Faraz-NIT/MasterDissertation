@@ -1,0 +1,26 @@
+{
+  "primary_protocol": {
+    "path": "study_results/architecture_study_20261013/protocol.json",
+    "sha256": "58551bd4e9c62e90868f4ece7b7ec3a0854904bf627fb07d49fe7cd98bda1f56"
+  },
+  "primary_audit": {
+    "path": "study_results/architecture_study_20261013/analysis/audit_receipt.json",
+    "sha256": "fda8e56278c4c70060613b32b3aaed5134b2a577babda25ba82b7e96ee27c129"
+  },
+  "primary_analysis": {
+    "path": "study_results/architecture_study_20261013/analysis/analysis_summary.json",
+    "sha256": "985252fd6bc2e93b8e538db3840cc8fa933487f2743049d90a66f18b27c13764"
+  },
+  "langchain_protocol": {
+    "path": "study_results/langchain_extension_20261014/protocol.json",
+    "sha256": "a5c0202eff7de8814b9910a87a2c970e83a9efb3673bc2fb62856a1db01bc8e2"
+  },
+  "langchain_audit": {
+    "path": "study_results/langchain_extension_20261014/analysis/audit_receipt.json",
+    "sha256": "c009650bcf3e8a0e08cb6563f303b044ca5efda70f9a3f2b14d9852d2ed3c149"
+  },
+  "recorded_response_regression": {
+    "path": "study_results/langchain_extension_20261014/development/recorded_response_replay.json",
+    "sha256": "f3453972a2e1189a9553a9eadeaaf05d8af67fbe6e96f58a5f9806a467bb3443"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "scope": "Fresh one-seed LangChain implementation validation",
+  "simulation_seeds": [
+    233
+  ],
+  "diagnostics": [
+    {
+      "dataset": "M5",
+      "arm": "fixed_agents",
+      "portfolio_days": 42,
+      "fresh_model_calls": 126,
+      "priority_accuracy": 1.0,
+      "source_accuracy": 1.0,
+      "mean_decision_seconds": 4.173302612952587,
+      "held": 0,
+      "violations": 0,
+      "fill_rate": 0.901629398913506,
+      "cost_per_demand": 0.5320827336989434
+    },
+    {
+      "dataset": "M5",
+      "arm": "selective_agents",
+      "portfolio_days": 42,
+      "fresh_model_calls": 24,
+      "priority_accuracy": 1.0,
+      "source_accuracy": 1.0,
+      "mean_decision_seconds": 1.5721415777377497,
+      "held": 0,
+      "violations": 0,
+      "fill_rate": 0.901629398913506,
+      "cost_per_demand": 0.5320827336989434
+    },
+    {
+      "dataset": "M5",
+      "arm": "structured_planner",
+      "portfolio_days": 42,
+      "fresh_model_calls": 0,
+      "priority_accuracy": 1.0,
+      "source_accuracy": 1.0,
+      "mean_decision_seconds": 0.006354901000165791,
+      "held": 0,
+      "violations": 0,
+      "fill_rate": 0.901629398913506,
+      "cost_per_demand": 0.5320827336989434
+    },
+    {
+      "dataset": "RetailNet",
+      "arm": "fixed_agents",
+      "portfolio_days": 42,
+      "fresh_model_calls": 126,
+      "priority_accuracy": 0.8809523809523809,
+      "source_accuracy": 1.0,
+      "mean_decision_seconds": 4.104975354285368,
+      "held": 0,
+      "violations": 0,
+      "fill_rate": 0.8413407251531416,
+      "cost_per_demand": 0.8808221588376687
+    },
+    {
+      "dataset": "RetailNet",
+      "arm": "selective_agents",
+      "portfolio_days": 42,
+      "fresh_model_calls": 24,
+      "priority_accuracy": 1.0,
+      "source_accuracy": 1.0,
+      "mean_decision_seconds": 1.5623183587142973,
+      "held": 0,
+      "violations": 0,
+      "fill_rate": 0.84271339494521,
+      "cost_per_demand": 0.8741193111609475
+    },
+    {
+      "dataset": "RetailNet",
+      "arm": "structured_planner",
+      "portfolio_days": 42,
+      "fresh_model_calls": 0,
+      "priority_accuracy": 1.0,
+      "source_accuracy": 1.0,
+      "mean_decision_seconds": 0.01003725795228439,
+      "held": 0,
+      "violations": 0,
+      "fill_rate": 0.84271339494521,
+      "cost_per_demand": 0.8741193111609475
+    }
+  ],
+  "selective_orders_identical_to_structured": true,
+  "confidence_intervals": null,
+  "explanation": "One seed validates execution; it does not replace the completed 30-seed architecture study."
+}

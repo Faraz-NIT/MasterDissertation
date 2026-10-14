@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "scope": "One contribution chapter",
+  "pdf_pages": 10,
+  "figures": 7,
+  "tables": 4,
+  "manuscript_exact_match": true,
+  "format_verified": true,
+  "page_bounds_verified": true,
+  "primary_and_fresh_validation_scopes_explicit": true,
+  "docx_sha256": "d1cf4133b2baa58147806fc0ff1f7b2caed05394a140d236567d45c279172881",
+  "pdf_sha256": "ab57f9c15a75ed2a933282e362ce281bb3289f250574a4b3fd0296641e277442",
+  "visual_review": "PASS: all ten pages inspected in contact sheet; architecture and fresh-validation pages inspected at full size; final conclusion page contains complete text"
+}

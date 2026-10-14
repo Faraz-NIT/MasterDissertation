@@ -1,0 +1,1766 @@
+{
+  "scope": "All new experiment and chapter evidence, excluding this inventory and the publication manifest",
+  "files": {
+    "LangChain_Agent_Contribution_Chapter.docx": {
+      "bytes": 416216,
+      "sha256": "d1cf4133b2baa58147806fc0ff1f7b2caed05394a140d236567d45c279172881"
+    },
+    "LangChain_Agent_Contribution_Chapter.pdf": {
+      "bytes": 588735,
+      "sha256": "ab57f9c15a75ed2a933282e362ce281bb3289f250574a4b3fd0296641e277442"
+    },
+    "README.md": {
+      "bytes": 2575,
+      "sha256": "161b08bbd9509b2bba8b37958133afe66b7809ff7b0211c0f41ba2d75bc35ed4"
+    },
+    "analysis/audit_receipt.json": {
+      "bytes": 697,
+      "sha256": "c009650bcf3e8a0e08cb6563f303b044ca5efda70f9a3f2b14d9852d2ed3c149"
+    },
+    "analysis/daily_results.csv": {
+      "bytes": 71248,
+      "sha256": "c8609ea7989d3c7b6a954aa3c87d0169333e77efd14c59e4d40563a1dae134f5"
+    },
+    "analysis/matched_actions.csv": {
+      "bytes": 2593,
+      "sha256": "7986fa361dccb60edd4042e67c06a13b84f3ff9b57b12125aab088c52a228cd0"
+    },
+    "analysis/model_calls.csv": {
+      "bytes": 70893,
+      "sha256": "a5722b1c661b137b047c21c7d3a5a1e58ea663c1cedf54be25b599d8a370a165"
+    },
+    "analysis/run_results.csv": {
+      "bytes": 14728,
+      "sha256": "652732be6a3af1c875e5764ba855c8c8191cfc7d3d91ef1454a1495fd50f00b3"
+    },
+    "analysis/validation_summary.json": {
+      "bytes": 2534,
+      "sha256": "394137016a510d04ecb92fa36800fecd7b98afa58b7cbd4719e06851b6490e85"
+    },
+    "build_manifest.json": {
+      "bytes": 740,
+      "sha256": "850b1bde67c45929bcc846179107708728ef3b1af1fb683d07fbb96035014e74"
+    },
+    "chapter.md": {
+      "bytes": 12674,
+      "sha256": "bdb2726ba542926218c55c03daf8b62509249d14b7c0f0c690e4529248779441"
+    },
+    "chapter_tables.json": {
+      "bytes": 2672,
+      "sha256": "0a55c58b58d4260a8bc774a5c46cddd977134a2627cfc7f34fb3bba9db4d3f1c"
+    },
+    "data/M5/origin_1927/catalog.json": {
+      "bytes": 42138,
+      "sha256": "2aa20151322088fc83c076ec9cbc45e031a342c5c747e98cbe143df3b8a7d624"
+    },
+    "data/M5/origin_1927/lightgbm.txt": {
+      "bytes": 231159,
+      "sha256": "2daca6ce37d486aed552495cb467c3c2d264d66d172776a6a9b960578ea3f594"
+    },
+    "data/M5/origin_1927/panel_and_forecast.npz": {
+      "bytes": 45266,
+      "sha256": "b3c3ea89557c44ba337e33f5e4c22362bc0adfb1e77d860c9fc88b6cd53c18cc"
+    },
+    "data/M5/origin_1927/training.json": {
+      "bytes": 435,
+      "sha256": "bea984ceb7a12063855e6381a0ae6542599000e6ba72080df1edece2536d1afc"
+    },
+    "data/M5/origin_1934/catalog.json": {
+      "bytes": 42138,
+      "sha256": "4ac0d098b91881c3c402ab2bc9f0e534d686ff10ab6bda7b4d6e39fe243b905f"
+    },
+    "data/M5/origin_1934/lightgbm.txt": {
+      "bytes": 229614,
+      "sha256": "df50a9957d4eff9146b92e25beea30f688ff81dfb6014ae25fd7a9b6b927c0c0"
+    },
+    "data/M5/origin_1934/panel_and_forecast.npz": {
+      "bytes": 45179,
+      "sha256": "0f9908cced4d9189fa3dc497c95d0a4aced376f32ce88e05bb0f16bc0cb4c696"
+    },
+    "data/M5/origin_1934/training.json": {
+      "bytes": 435,
+      "sha256": "3bab685941dc7e03e9f55af01a5c8db81b027d595b0a70acaed69abaf9db5b39"
+    },
+    "data/RetailNet/origin_83/catalog.json": {
+      "bytes": 9934,
+      "sha256": "b3f2803948c3eaa337f98bf7dd1d787e5e150d1c0118362a25fcc4398dbf6ab9"
+    },
+    "data/RetailNet/origin_83/lightgbm.txt": {
+      "bytes": 229190,
+      "sha256": "51ddcba69caa78b16924328fbedf6097990c6e2a5f4641fcce571b0e7011c983"
+    },
+    "data/RetailNet/origin_83/panel_and_forecast.npz": {
+      "bytes": 7561,
+      "sha256": "dfeba964a28c5d23f106f3548b8dddb27a59500739e1c763f3055b4230aaade3"
+    },
+    "data/RetailNet/origin_83/training.json": {
+      "bytes": 432,
+      "sha256": "2976edb49ad9fa1840e2826e25a9d55947e080a1140dbaf893c1439b6a094229"
+    },
+    "data/RetailNet/origin_90/catalog.json": {
+      "bytes": 9934,
+      "sha256": "d85d3a6ffa655a219501c62ee946b69abc1162a3b52e804deb6237724fcafbba"
+    },
+    "data/RetailNet/origin_90/lightgbm.txt": {
+      "bytes": 223307,
+      "sha256": "fb9b72850bd6e2cdc4be704b2b4e1694d7a60a19311a130a5423ef11055028c1"
+    },
+    "data/RetailNet/origin_90/panel_and_forecast.npz": {
+      "bytes": 7562,
+      "sha256": "34b9e982221263fd25284674b583fe4b6a2712f7887f19d91fb3359966ec4380"
+    },
+    "data/RetailNet/origin_90/training.json": {
+      "bytes": 432,
+      "sha256": "c7b8c82e8e10010541dfd7ec00733333139d5809348c6cff824b7a207a320309"
+    },
+    "data/preparation_receipt.json": {
+      "bytes": 460,
+      "sha256": "f8cbec42dcf9ba67b0c38b210f8bd935cb6d327cf2c8ae6618e447746351275d"
+    },
+    "development/protocol_correction.json": {
+      "bytes": 196,
+      "sha256": "c430545fa37191eb127b9e21a71ec3a55970ec491b4684eddbaedea09522c7eb"
+    },
+    "development/recorded_response_replay.csv": {
+      "bytes": 457474,
+      "sha256": "54c4aa5fb2baf925f8bd6ee6cab8b7c28a4b2b39802630c4d950b23fd6a2d233"
+    },
+    "development/recorded_response_replay.json": {
+      "bytes": 493,
+      "sha256": "f3453972a2e1189a9553a9eadeaaf05d8af67fbe6e96f58a5f9806a467bb3443"
+    },
+    "development/superseded_protocol_before_inference.json": {
+      "bytes": 13975,
+      "sha256": "1c4d09626dccaad32544adefca0663b8951289a19cefe7dcb84a3ce3562ecb06"
+    },
+    "development/tests.json": {
+      "bytes": 681,
+      "sha256": "5f41e497ab40a3da19a6e282e03cbb6dcc7697548b6cf7d0fd0a605237e4ace6"
+    },
+    "development/tests.log": {
+      "bytes": 99,
+      "sha256": "74d422abff089f247c3b6c332325df27ca6c964db6f58fb8835b8d90c6f6693f"
+    },
+    "document_validation.json": {
+      "bytes": 609,
+      "sha256": "c51b67c63c5fe6747528997b57fae0081c8ee3fdf97872727d01a76bfc022312"
+    },
+    "evidence_map.json": {
+      "bytes": 1175,
+      "sha256": "e2680645ad54ad0972e263b1d17e9dd986f43bebbf725b3690b0bd7b8da9ff94"
+    },
+    "execution_receipt.json": {
+      "bytes": 392,
+      "sha256": "e56cd9e9e771d49f1502d8620a51067439aaa2ae211978ac3c2d746ece4251dd"
+    },
+    "figure_register.json": {
+      "bytes": 3713,
+      "sha256": "34154eadbf5c4215cdc83cdfa1b17afd4000fa1877fcd87cfb4772f7121300c3"
+    },
+    "figures/agent_extension.dot": {
+      "bytes": 1199,
+      "sha256": "c1e18564b8165f175b4524deb83c6b6b9830091ebebb8d7d0bde5994e896ca3b"
+    },
+    "figures/agent_extension.png": {
+      "bytes": 117176,
+      "sha256": "2afb08c1067747911e5b64012ba0d1f038f1b48487fc9c988852428bd12a0246"
+    },
+    "figures/agent_extension.svg": {
+      "bytes": 7440,
+      "sha256": "ea751e85bbe8d3e175e3fcc717fb34bea4ece910699dea76f0bb6f13e5225454"
+    },
+    "figures/decision_time.png": {
+      "bytes": 50086,
+      "sha256": "d507f3e90bd035393020dd1f64a6b1b8c0c45c9f973f748d7f6ce8dda7cc9b80"
+    },
+    "figures/fresh_langchain_validation.png": {
+      "bytes": 44742,
+      "sha256": "d88f96a15f5b7bd9f64564fb99160790955046954f922d5f5eb124a24b7440ca"
+    },
+    "figures/inventory_effects.png": {
+      "bytes": 60286,
+      "sha256": "7ba3db402dc7f61845b0f71bdab360b16db7d16f1352d23197198b12a9c60265"
+    },
+    "figures/model_calls.png": {
+      "bytes": 46028,
+      "sha256": "3f0a109690318caf85c45f9c4edab8bc6d83f970c33a25cb766f8df2c02fdb9b"
+    },
+    "figures/priority_accuracy.png": {
+      "bytes": 59011,
+      "sha256": "9ae67568ec9abd137602f8eb809a020f33d9e6e6efa2cdc09e6f7a9e34907911"
+    },
+    "figures/retailnet_expiry.png": {
+      "bytes": 55861,
+      "sha256": "851cbe0c4c063c6e7d61cd8098703b7e684b901660febdc8522bd3916ef2ce76"
+    },
+    "logs/audit_timing_note.json": {
+      "bytes": 263,
+      "sha256": "f268fabde5e3f473ce9cf92be4eed2cec07b06e4f024a7243e8e47a1eaf0b9b0"
+    },
+    "logs/live_validation.log": {
+      "bytes": 4551,
+      "sha256": "3b9688124ca4af8d9e3b71f397485a53dd60aaca053e1468525cde9f9166daa2"
+    },
+    "logs/ollama_server.log": {
+      "bytes": 869209,
+      "sha256": "7eb6e79c625664d441f5eb8e5b64fbee45d5d0e34338fd6774c84dc828c74649"
+    },
+    "logs/recorded_response_replay.log": {
+      "bytes": 473,
+      "sha256": "21943fa6f8398a9dca2fa17a92c30007b1ecae3e3978cb706fd419a5d442e06c"
+    },
+    "logs/runtime_receipt.json": {
+      "bytes": 228,
+      "sha256": "dfd7068a9aa77a8f1dd431caade8a314eed4826702de0d7ba1100e256b3ca2ee"
+    },
+    "primary_evidence/analysis_summary.json": {
+      "bytes": 51961,
+      "sha256": "985252fd6bc2e93b8e538db3840cc8fa933487f2743049d90a66f18b27c13764"
+    },
+    "primary_evidence/audit_receipt.json": {
+      "bytes": 933,
+      "sha256": "fda8e56278c4c70060613b32b3aaed5134b2a577babda25ba82b7e96ee27c129"
+    },
+    "primary_evidence/overall_seed_results.csv": {
+      "bytes": 20215,
+      "sha256": "9a45a9f0227afcd0579bf3b2636f6ca26bde1687c19400cc9d9eddee2c56c766"
+    },
+    "primary_evidence/paired_effects.csv": {
+      "bytes": 9813,
+      "sha256": "cdb5618f01e88eee65b66fde9a9d133f211a7ff6c6a4bf857f9a0fa19ebaae9f"
+    },
+    "progress.json": {
+      "bytes": 149,
+      "sha256": "93038e0e3232648bb67a2003fe5d398e7a6c144f195a908463b72300cad51d83"
+    },
+    "protocol.json": {
+      "bytes": 13910,
+      "sha256": "a5c0202eff7de8814b9910a87a2c970e83a9efb3673bc2fb62856a1db01bc8e2"
+    },
+    "publication_checks.json": {
+      "bytes": 600,
+      "sha256": "79aeccf1eb001437735bc5cc290c1cd20ab57e43767aa27069039900b47aded8"
+    },
+    "review_architecture.png": {
+      "bytes": 147706,
+      "sha256": "005c8f472a3efd43b4e50cca3c5c27ba6587d9df777d52a730d96a9ebf31bdc0"
+    },
+    "review_conclusion.png": {
+      "bytes": 117187,
+      "sha256": "896cd20cd958ebfb932f5d6223315a1761fbc56914b450b1ac383ede0e393a8b"
+    },
+    "review_contact_sheet.png": {
+      "bytes": 339046,
+      "sha256": "c16b8bce3a29d583e2090d4ff1ac5f1f1be1e1ddec4de6502804b037c161314c"
+    },
+    "review_hypotheses.png": {
+      "bytes": 134609,
+      "sha256": "673a8f07fcd62d7f1b1266fa658187850415c62ac1dbfee9a2c645be44b90654"
+    },
+    "review_results.png": {
+      "bytes": 112952,
+      "sha256": "df74ca0401ee21c62407d6c0145c201ad24abee354df6240e0daf09f406cc0e2"
+    },
+    "review_validation.png": {
+      "bytes": 117905,
+      "sha256": "0a06c66b7e9a06987c4b21638340ec4b5b1d38305de87615e6f140a789810273"
+    },
+    "runs/M5__promotion__seed233__origin1927/daily_fixed_agents.csv": {
+      "bytes": 2297,
+      "sha256": "d562bc5f795baf54c05b582386caecb304828f10f649e550b144d994564cab63"
+    },
+    "runs/M5__promotion__seed233__origin1927/daily_selective_agents.csv": {
+      "bytes": 2279,
+      "sha256": "036a4e0f07e9cd4260aa1449f201cdef6d0753862b9bec4add31a9905edb035f"
+    },
+    "runs/M5__promotion__seed233__origin1927/daily_structured_planner.csv": {
+      "bytes": 2395,
+      "sha256": "fd21913eb00d3e3c31365765f569720ad66e1874aa5e54bda55a447d0ea743ef"
+    },
+    "runs/M5__promotion__seed233__origin1927/decisions.jsonl": {
+      "bytes": 182465,
+      "sha256": "601b9c09a3eac9cff3b98e9a0d96c4bdba73759758c2ea69d2b0fc96ca01d124"
+    },
+    "runs/M5__promotion__seed233__origin1927/demand_world.json": {
+      "bytes": 5002,
+      "sha256": "e4483925988e34b59202e1dcb1c874a37cd195050bf1af3ba33bae50a240cd70"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day0_critic.json": {
+      "bytes": 2460,
+      "sha256": "9669484f42305df267dfd316e17ae70b3eb0bbea25b410e3b2080872cd4834b8"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day0_planner.json": {
+      "bytes": 2315,
+      "sha256": "d0dd623592010070d8ec90f2b28717199d2c8978459639c1472817b4f2d556b8"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day0_supplier.json": {
+      "bytes": 4510,
+      "sha256": "073ce9b715a2f88ea2478f2be2f8803dbc9f9e91c70b387f9779d32b273aab99"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day1_critic.json": {
+      "bytes": 2460,
+      "sha256": "83a9a01ec41e182b60b95b2b62dfc0315330a642b36be186b6a0302c3d870584"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day1_planner.json": {
+      "bytes": 2316,
+      "sha256": "a4d0cc736c1bfe0df3f6c6a209be7dbf98507fad15f21ed93d92613a3b66fe5d"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day1_supplier.json": {
+      "bytes": 4734,
+      "sha256": "b9936b1613e1412eb21442748b940af87148c12d5b7e0c541fa51a3cdd70f052"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day2_critic.json": {
+      "bytes": 2459,
+      "sha256": "a3d4f1ae7619f3637d5105c0012d6693b109e0323440f5edd3f342254d62bcfe"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day2_planner.json": {
+      "bytes": 2326,
+      "sha256": "a34a3226039de32689d0684b7d9026f7800501878bfc829af3e8d993a9ff6767"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day2_supplier.json": {
+      "bytes": 4791,
+      "sha256": "12a00a6a3b52930edd55edeb9a5bf3f2cdfe3fe609e79a085373c6930e048cb4"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day3_critic.json": {
+      "bytes": 2459,
+      "sha256": "22dfbc818d3b8d2f71dcb57737ad13e9ae6fe4b16c7f2ab9501dbbc0d862b066"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day3_planner.json": {
+      "bytes": 2325,
+      "sha256": "829a3906c5a15aabcd70c8dd4a3a2ee1696523e61e70152727a9bfd7a50d6894"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day3_supplier.json": {
+      "bytes": 4511,
+      "sha256": "f6e5150e6e9d2db011a37d125a69eae363e2d34434287abf30bbb3d487f5b804"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day4_critic.json": {
+      "bytes": 2459,
+      "sha256": "3d00dae041b4f4ff0ef051aa0c15e8edc3f69e322fbb05fde204c4e6ec7bb219"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day4_planner.json": {
+      "bytes": 2325,
+      "sha256": "65343fbdd4ebaee156efba0d02e96818f09fae550c3f0a5d9d86ea8b42431ff6"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day4_supplier.json": {
+      "bytes": 4733,
+      "sha256": "273633af2144fd3cdbed533715f0822046c9f96f0151b1af12e5ce3c80022f5d"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day5_critic.json": {
+      "bytes": 2459,
+      "sha256": "c5f056397c83d1c2d370842730ac73b670b7f03118b7f4d7861d0654b8e13b93"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day5_planner.json": {
+      "bytes": 2324,
+      "sha256": "8adbf8dda89bbd0c73f046d0f1aa03ad6a4197651b26a16db777ee4fc0eeccab"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day5_supplier.json": {
+      "bytes": 4791,
+      "sha256": "4060c94a00f95c9e5446a311419e6bc2e7c3b369990121aa632a3aff0ba9776b"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day6_critic.json": {
+      "bytes": 2460,
+      "sha256": "f0340a33d438cac18f2ec0493d933dbf06221c495dd4dffa060da43ba2c2b82f"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day6_planner.json": {
+      "bytes": 2325,
+      "sha256": "f2417bfcdf9bf536b8fd172eb5be7f363da1a53660747398a595b5bd2ce71fc5"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/fixed_agents/day6_supplier.json": {
+      "bytes": 4511,
+      "sha256": "041ffd5956ed65e216e900bd3da06d216ccfb5f0ff02942ab328c31bfc0517fc"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/selective_agents/day1_supplier.json": {
+      "bytes": 4733,
+      "sha256": "be1a1056b88173a2de70a42e6dc91c7d822db7f614b7b857c1db8746af3558d7"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/selective_agents/day2_supplier.json": {
+      "bytes": 4792,
+      "sha256": "9793049d034a089fbe510edbf2a0b517c78d7a2f4af93a070b475523a09874dc"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/selective_agents/day4_supplier.json": {
+      "bytes": 4735,
+      "sha256": "fb1e6ac89b631ff2ec961cbace0ab61ed777ef61d8068e99b5e280b7160b7011"
+    },
+    "runs/M5__promotion__seed233__origin1927/model_calls/selective_agents/day5_supplier.json": {
+      "bytes": 4791,
+      "sha256": "63cc5d1c655cb8ed676781fd3a3f44672142420e3594808ce36540d5067d7b99"
+    },
+    "runs/M5__promotion__seed233__origin1927/summary.json": {
+      "bytes": 3472,
+      "sha256": "67c285d3056cb27fedbdfc709e4dceaf5dd0083d606477e48929dd6e32c02594"
+    },
+    "runs/M5__promotion__seed233__origin1934/daily_fixed_agents.csv": {
+      "bytes": 2286,
+      "sha256": "01a3c9e662e8c28ea5fbc51bfb6ede9a048982e8b0ff117260cb8fbcd10f74d6"
+    },
+    "runs/M5__promotion__seed233__origin1934/daily_selective_agents.csv": {
+      "bytes": 2266,
+      "sha256": "8a6e4b7713787bf07f3758d2ef47fdbdf7df2ffeb113ea1082fcaf29799194df"
+    },
+    "runs/M5__promotion__seed233__origin1934/daily_structured_planner.csv": {
+      "bytes": 2380,
+      "sha256": "c6560c84a6cecdbf4b0e80a6128466f103309b79cbc91e02d322996de2f9dff8"
+    },
+    "runs/M5__promotion__seed233__origin1934/decisions.jsonl": {
+      "bytes": 184181,
+      "sha256": "faaa84c5428c7ba876ca14e8c10a10c8b08227fe8ff9d289d95991505482b5bd"
+    },
+    "runs/M5__promotion__seed233__origin1934/demand_world.json": {
+      "bytes": 5077,
+      "sha256": "72920d6d523fead41b9c79483a862d6319a94c6fea4340543bd75049ac8cbc22"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day0_critic.json": {
+      "bytes": 2460,
+      "sha256": "e92040c76d722867dfa53ff6380a0ff4cb75db84fd6f2cb8e6b44be6919dfd4c"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day0_planner.json": {
+      "bytes": 2314,
+      "sha256": "dfabefe16157bed4559b518b659f023de779937c7f09793884ae6f8426808d8a"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day0_supplier.json": {
+      "bytes": 4511,
+      "sha256": "025453ffdaee3808e8076660e2f19fe4944bc7e378fc456b8e87d0fc4267e86f"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day1_critic.json": {
+      "bytes": 2458,
+      "sha256": "ae67a1e16e2a5095552c9b6ef6802205e8e2231c22f906c001cf6301089625c6"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day1_planner.json": {
+      "bytes": 2316,
+      "sha256": "8daefe26c8ef3982668a756bab82ff592c1fa94960a9e63708b98e71a04eca88"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day1_supplier.json": {
+      "bytes": 4735,
+      "sha256": "6d71a152f2e5d2b324120e74a7ec12ac9d6148380a133a0e8a412f53bc86024b"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day2_critic.json": {
+      "bytes": 2460,
+      "sha256": "e1796f0fa9f867ace8e03b24be0879c662540687ed00d73052ec9cd812154577"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day2_planner.json": {
+      "bytes": 2324,
+      "sha256": "3c4176920da8cdf01e736d95888974640aca008e666b9646dbc337cf703c31ec"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day2_supplier.json": {
+      "bytes": 4791,
+      "sha256": "93d988288a477d7d2bbb9b64a1a169b738e9ac6affb0765979efa1acce054750"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day3_critic.json": {
+      "bytes": 2459,
+      "sha256": "5d79a5316d7a5fb6d4480f4ded276b6a03487f58d8cc2061bf224394cbe5ef29"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day3_planner.json": {
+      "bytes": 2324,
+      "sha256": "d05f5f276abf7c4fb38a98ff3110b68e7a76fa1ed94c1aa4f38aa92a15944aee"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day3_supplier.json": {
+      "bytes": 4510,
+      "sha256": "e9bbba63f492457d53f1fb7fbf41aeff66f8033fe7009d60d202cf134c0126f1"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day4_critic.json": {
+      "bytes": 2460,
+      "sha256": "06298c5d6537fe9560188234e53bad88f7eff242d037856b8d0e3d157cf8cc4a"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day4_planner.json": {
+      "bytes": 2325,
+      "sha256": "f0289e7d154f96166dac943004ff3340e19069830190589cafa0cc738eccc0f7"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day4_supplier.json": {
+      "bytes": 4734,
+      "sha256": "b86b0a576bf559048dc46dc94cf95ddaaac6a62d29b68ac8fb0f69f2d05802ae"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day5_critic.json": {
+      "bytes": 2458,
+      "sha256": "0d3fe4339796a20e84c048035b6f5076af42dc29db688b7347776f74c6b6665d"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day5_planner.json": {
+      "bytes": 2326,
+      "sha256": "9b411a40f4e787be069a9bf3baa19f901ee3c8295e4f67d5f1b0b2b4b5aa8b15"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day5_supplier.json": {
+      "bytes": 4792,
+      "sha256": "4584557c16b108f7e3999a9429ec353ed115742301bcba0b159cf03f81f5082c"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day6_critic.json": {
+      "bytes": 2458,
+      "sha256": "c13b3ca79805b61001241e379abb726d61144dde7614fc91011a47c0a41750d1"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day6_planner.json": {
+      "bytes": 2326,
+      "sha256": "a9a8e78b10ac779da1e30ed1c68f807a9f5db0e0b4d70ff08a469b98395ebd56"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/fixed_agents/day6_supplier.json": {
+      "bytes": 4509,
+      "sha256": "d350d5d2fca975e2e89c41f1f59e8f7b9d0094d3e714f8b967d377898e46cf64"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/selective_agents/day1_supplier.json": {
+      "bytes": 4734,
+      "sha256": "36e1100dd499178e8c4a6123f41debe437ce501c4fdd6ed26ebe1004ed71659b"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/selective_agents/day2_supplier.json": {
+      "bytes": 4791,
+      "sha256": "c8bd913c1b797a3b907fa2aea3db2f3bfa8964334f48e5413685ab921ae350c6"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/selective_agents/day4_supplier.json": {
+      "bytes": 4735,
+      "sha256": "ebb9b4d43077e63975b781b27f1034993e53f7f50dd402390aa8da73066e9257"
+    },
+    "runs/M5__promotion__seed233__origin1934/model_calls/selective_agents/day5_supplier.json": {
+      "bytes": 4790,
+      "sha256": "30603d9ade75aec5fe1ab0ed8c4603cbc83e13189ed3683d75c73ba5267a47be"
+    },
+    "runs/M5__promotion__seed233__origin1934/summary.json": {
+      "bytes": 3468,
+      "sha256": "55adb477a6257b429bf5e4b3a07a98fe0a8a0f2a9be614b8677bc01b9d3ed515"
+    },
+    "runs/M5__routine__seed233__origin1927/daily_fixed_agents.csv": {
+      "bytes": 2237,
+      "sha256": "85ad7fe6889fe1326d89422bb44be28a295d0306b4d7ed7008ba67d0c9661b77"
+    },
+    "runs/M5__routine__seed233__origin1927/daily_selective_agents.csv": {
+      "bytes": 2224,
+      "sha256": "f258c4ddfaec1eff25c819356ce0d3099ce00ec3e8f81335860860e1aa6baf55"
+    },
+    "runs/M5__routine__seed233__origin1927/daily_structured_planner.csv": {
+      "bytes": 2335,
+      "sha256": "9918ad8ac22282fc4f4aedf0d96210c552b9661efe2a5f9a73dfea115de2e04f"
+    },
+    "runs/M5__routine__seed233__origin1927/decisions.jsonl": {
+      "bytes": 180344,
+      "sha256": "fde7529cf2c91bcf3f1a155b94c313ec4997da7ad9efc16c459358e21bdccd26"
+    },
+    "runs/M5__routine__seed233__origin1927/demand_world.json": {
+      "bytes": 5012,
+      "sha256": "333e4e41f6482c9a0f0e269f8fd2013c4ace4691a901c2c94b118e8a31fc6707"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day0_critic.json": {
+      "bytes": 2460,
+      "sha256": "bc904880a96abd7095ae7b1e88a27d6b805facc1238d8da58e509e5123caf937"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day0_planner.json": {
+      "bytes": 2314,
+      "sha256": "9263aa7cc5e25a218c0a4ea0d274d2f68dd4c904b80fdfdcbe2f20146828ae73"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day0_supplier.json": {
+      "bytes": 4512,
+      "sha256": "35dc085d266c4b075d3a1cd1b8c736a26172631c92e2f0d25561c43d81246804"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day1_critic.json": {
+      "bytes": 2461,
+      "sha256": "e234ac4a7aeb9a149bf59a7912691a0c082b27062ee5dc83a818ff1b74573808"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day1_planner.json": {
+      "bytes": 2314,
+      "sha256": "3240e311cf36ec8f326774edd718be93b622fd681ad00f3fe80f9350f5e25215"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day1_supplier.json": {
+      "bytes": 4734,
+      "sha256": "348be735e8e15c9715a1c352991e0f2638b14902cb8b947dc8f732f58a094ebb"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day2_critic.json": {
+      "bytes": 2460,
+      "sha256": "ee75fb241aa0bbf69ad0b30e5bfc6521321288e042488a3ea0d983d32e750e53"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day2_planner.json": {
+      "bytes": 2314,
+      "sha256": "b420a33e4e2677512b40f44a7fb8123ab0d149ee3ba2d9bf8b4e502f367c02fc"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day2_supplier.json": {
+      "bytes": 4791,
+      "sha256": "56879bf6e07b5c936a0b0d1da7fa84e40a376988f3e35daff23634dd5fb748d0"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day3_critic.json": {
+      "bytes": 2460,
+      "sha256": "6ab2663965a508a55312d5b1676505aa29338ec0b4b0b2b5ef3f5943f896b21f"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day3_planner.json": {
+      "bytes": 2314,
+      "sha256": "a52d6974fcadd9a956cd10e7162b6cfad6f389b58793ff00967743740124b0fb"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day3_supplier.json": {
+      "bytes": 4511,
+      "sha256": "9eb48080897759179c1b0f535b2f9baca390e977641b7eb47dbff66637b69dde"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day4_critic.json": {
+      "bytes": 2460,
+      "sha256": "de98625ec4acc39964117f0588afff2045f1157afede5f483f56c5a8ad5b43db"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day4_planner.json": {
+      "bytes": 2315,
+      "sha256": "e7cafc31797cbf38138d924bdff9f3ebb382b710784eb4bb6249604feda1e4b5"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day4_supplier.json": {
+      "bytes": 4735,
+      "sha256": "42ced06839d26d856454c7bebc59c42627ff8713d43f567069410fb34dee9169"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day5_critic.json": {
+      "bytes": 2460,
+      "sha256": "f9583641e4e12e05569584fbdbca65b8dc2846461bd8a91eccbf1dd85ccfaa26"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day5_planner.json": {
+      "bytes": 2315,
+      "sha256": "091cb393a2ec9eba5463c977bff2c0cc37c9c607d7769348d1ca52e122f88830"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day5_supplier.json": {
+      "bytes": 4792,
+      "sha256": "70e32ce1513d1f9063ca3bce9851a89919502f6915f4fe0b6dd04a9d386cdc2d"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day6_critic.json": {
+      "bytes": 2460,
+      "sha256": "e2f08c771287ad82b6d01410c570e048cabbcf0a66ff9be1ea8a948813731e4f"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day6_planner.json": {
+      "bytes": 2315,
+      "sha256": "b5b7af24a17177bb3b20aa6d2c448269e09e04bff328373286b52f7709f5a7c2"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/fixed_agents/day6_supplier.json": {
+      "bytes": 4511,
+      "sha256": "a59abbf11dc7c2ab3081ab3964ef0ee5d4789f78646728ebdc929966edd05319"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/selective_agents/day1_supplier.json": {
+      "bytes": 4733,
+      "sha256": "700acb07d1ca3d349926c2f386f3161ead0f3279243e8d62b031905212710799"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/selective_agents/day2_supplier.json": {
+      "bytes": 4792,
+      "sha256": "74efe76185871bdfe39ee060a9758db301321dc08c32d7aa43ea71c270405376"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/selective_agents/day4_supplier.json": {
+      "bytes": 4734,
+      "sha256": "e3eafca4d0beb33f5961a239c1705ee38789e55e094c13e18f373b22647f17f9"
+    },
+    "runs/M5__routine__seed233__origin1927/model_calls/selective_agents/day5_supplier.json": {
+      "bytes": 4791,
+      "sha256": "fcb111896780c336c6b2f397adabc76621d0eee17bf1395512cdf93d96a0a524"
+    },
+    "runs/M5__routine__seed233__origin1927/summary.json": {
+      "bytes": 3465,
+      "sha256": "3b64c90b3bc2eba01d5f0bb0e341ec184d84c01c66393b9e817e7b887343efef"
+    },
+    "runs/M5__routine__seed233__origin1934/daily_fixed_agents.csv": {
+      "bytes": 2201,
+      "sha256": "f2d29546d6f5cfa295f2624c7c8c7d7b1798814df51e10ac0b118ac464119264"
+    },
+    "runs/M5__routine__seed233__origin1934/daily_selective_agents.csv": {
+      "bytes": 2180,
+      "sha256": "f6b3ae2ee76cf38d37a7f2f9cf07794a9c6d14fd1589646b26187a78a77211b9"
+    },
+    "runs/M5__routine__seed233__origin1934/daily_structured_planner.csv": {
+      "bytes": 2296,
+      "sha256": "30a8f5020c494f57ecd839af44540b667813808cf0fc807971c9e261ab2893a7"
+    },
+    "runs/M5__routine__seed233__origin1934/decisions.jsonl": {
+      "bytes": 181744,
+      "sha256": "01e19a1f68b3cc893f41468bdffbd36cc49eaf69a65bedefe62a7088095fb5a5"
+    },
+    "runs/M5__routine__seed233__origin1934/demand_world.json": {
+      "bytes": 5094,
+      "sha256": "b2f9250782235378dbe0b3fcbfe2272403307e637fb801e11c7421932b1df010"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day0_critic.json": {
+      "bytes": 2460,
+      "sha256": "c95c294ef6c2fe59b63eb6b1b29ed27cfb1c6b7d9bb57acaa0784483e687097f"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day0_planner.json": {
+      "bytes": 2313,
+      "sha256": "10ecbbabb45cc9e5e34f0dbc259d676f6d5f39c68da46c20f011b408f2e0e751"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day0_supplier.json": {
+      "bytes": 4510,
+      "sha256": "4f21577ff2da28efdd6734ed03275a79c5270f9a36c288040121f262423fd3b8"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day1_critic.json": {
+      "bytes": 2459,
+      "sha256": "041faa7d8b6b2bd4ecc925a46e34b6776073048b579c8b2109c62df34a1963cd"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day1_planner.json": {
+      "bytes": 2315,
+      "sha256": "b86a40b31232632464e5373ee6d1fa6a8687c60c47256d50dde42ea0274cbfa3"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day1_supplier.json": {
+      "bytes": 4735,
+      "sha256": "42c409fd0dda10dce56a0109d3ef6c88ffa652317d2024c8ca1fc8af2eb795f0"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day2_critic.json": {
+      "bytes": 2459,
+      "sha256": "af9de75adfd786de721d01e5f748b692df8bc31d927103321fe2885bd62e8d0a"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day2_planner.json": {
+      "bytes": 2314,
+      "sha256": "65c134dd0aea5c5ed50cbd3dc7694c53d6342340e9dff7cf3d521047aa0c5944"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day2_supplier.json": {
+      "bytes": 4790,
+      "sha256": "96cbe7a85cbd7158d6621c6092065ce1b348799421a1d9293061cccb458218d2"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day3_critic.json": {
+      "bytes": 2458,
+      "sha256": "e9d1caf77bf9dc07fa809258a464407fe99dd14b3c604fe25bc101b5e3446932"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day3_planner.json": {
+      "bytes": 2314,
+      "sha256": "232732a6969f59b9922ee2c244ac92660f0be980f3e34c2bb1e26567064db86f"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day3_supplier.json": {
+      "bytes": 4510,
+      "sha256": "c4ee173f19619efee6163c25fe5635f8f512d18444119084d622f6d5f5cff7cd"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day4_critic.json": {
+      "bytes": 2458,
+      "sha256": "5e690b88cf87f6a2820df79995135f0acd85655e7410f3090fbfa607c27025fd"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day4_planner.json": {
+      "bytes": 2313,
+      "sha256": "8458da4b0d8515a4574888d9e2920512bf737300741c08ea1f14638ce71e3fe1"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day4_supplier.json": {
+      "bytes": 4733,
+      "sha256": "e2f25ae2d8194a63cd8ec6e97f5e6622388c724aa11d30c841ec351903734dfa"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day5_critic.json": {
+      "bytes": 2457,
+      "sha256": "25887094676a985d6ecac03b83f3d9367c5bc0ba202c935d926c4aeeb9d6697d"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day5_planner.json": {
+      "bytes": 2314,
+      "sha256": "2114cd265481df0744f07ccc447a38d6d1c433cab6d548e251a8ba7ce79f6d4a"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day5_supplier.json": {
+      "bytes": 4791,
+      "sha256": "a6d13832948e4003f37fd77a75ebc6ed9beb370d79068466e72d1c043906e756"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day6_critic.json": {
+      "bytes": 2459,
+      "sha256": "a10b568fd630aa2e6939317cb7b21d8311edd12c222f90040a9898cf4da58c57"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day6_planner.json": {
+      "bytes": 2316,
+      "sha256": "5b6c142c9c4695c0ecac68f8a6c15bffcde2678f3be0a1181817f6ce6af8fc65"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/fixed_agents/day6_supplier.json": {
+      "bytes": 4511,
+      "sha256": "3cd38516eb630471280a79cd70f033ad1e52ee7e772d3f323f992903ce76d93c"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/selective_agents/day1_supplier.json": {
+      "bytes": 4734,
+      "sha256": "861777e072c4ae03ebbeae781885108f6b7d4cc85f43ce1507233f9c2697ab17"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/selective_agents/day2_supplier.json": {
+      "bytes": 4791,
+      "sha256": "0759b8c91574f1387258337982c496f7d75e048b3ef0573b447bb3ca0e97c711"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/selective_agents/day4_supplier.json": {
+      "bytes": 4733,
+      "sha256": "522f2433a2bc2d6060a498fe74f535ce88a14e83138afc0c29b6267e244a0be5"
+    },
+    "runs/M5__routine__seed233__origin1934/model_calls/selective_agents/day5_supplier.json": {
+      "bytes": 4791,
+      "sha256": "2831c6df1a351ce8551eb22da7df5dbacde33e7c10bd150900b204cd8118c0b7"
+    },
+    "runs/M5__routine__seed233__origin1934/summary.json": {
+      "bytes": 3452,
+      "sha256": "942193ef19e74af2adf35c495c097c0a9c96e78daa9a85a13e675bda61bc13af"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/daily_fixed_agents.csv": {
+      "bytes": 2346,
+      "sha256": "41e3d657db7e3d6140831dfcb35edda85d1f32a7b96d493b9b8c63b4346b2568"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/daily_selective_agents.csv": {
+      "bytes": 2328,
+      "sha256": "c0f3bdc218a25f4ee59f29aa312f691c6199eb201e51a01dc95e7e968229db28"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/daily_structured_planner.csv": {
+      "bytes": 2440,
+      "sha256": "7d72f9e2dffbe34149bc389e6261cee80ef1239decfb72e6fb8622d01754bb43"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/decisions.jsonl": {
+      "bytes": 184172,
+      "sha256": "28c8be9c7c3e305f78d4552f0297c11ce4c52cefda3a84b57566d0238fb224d8"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/demand_world.json": {
+      "bytes": 5012,
+      "sha256": "333e4e41f6482c9a0f0e269f8fd2013c4ace4691a901c2c94b118e8a31fc6707"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day0_critic.json": {
+      "bytes": 2460,
+      "sha256": "b4a0f1606390cec4abdf17f62e41bbf3561362957768dd4a6119509d279d7474"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day0_planner.json": {
+      "bytes": 2325,
+      "sha256": "097ab9c8bad1905fccdeb0c0dd0fe82e33ca22d73291f67a5eb0ebf4e451eed0"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day0_supplier.json": {
+      "bytes": 4511,
+      "sha256": "6f8299789f02fbdfd0d4b7132c49f91a87a5bef9f42196a49cabfdcc1ed26f6a"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day1_critic.json": {
+      "bytes": 2459,
+      "sha256": "5f0d5e74f268c08089c5700778982df72816efb1cfa3cb869a2227bd4826ffac"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day1_planner.json": {
+      "bytes": 2326,
+      "sha256": "96d44f6584532de8faabafbde5aa142c97d0db0a7ae72e3f373dea333cd42ea9"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day1_supplier.json": {
+      "bytes": 4734,
+      "sha256": "e050905a175e68f14b2009eb13eb24fd8d05d5af467cd50a71f6ed8822749589"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day2_critic.json": {
+      "bytes": 2461,
+      "sha256": "708d9559756ffd597e62400f93d5a22aff686b24f86df9e85d9a138d3bcb0627"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day2_planner.json": {
+      "bytes": 2328,
+      "sha256": "2619d73867e7fe3e0e7f955612307eb268aee37009d47c29edf97488a1da8072"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day2_supplier.json": {
+      "bytes": 4797,
+      "sha256": "b9d44fcdaf83738d4d18117ec6af87175a360298a2b9aa7dac35a26e90dc03fa"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day3_critic.json": {
+      "bytes": 2459,
+      "sha256": "e519a58d412ed4303814093fcb366852df20fe030877c12f8f7aca7d7fc88193"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day3_planner.json": {
+      "bytes": 2329,
+      "sha256": "75eb39cf20ba9416742e031cab5ee8df75b122d521216650cf9d29e49fed6ee8"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day3_supplier.json": {
+      "bytes": 4517,
+      "sha256": "6919ef62dd380011569da07d4c44fe1e84dbc862a630651e597c081ee39d68bd"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day4_critic.json": {
+      "bytes": 2460,
+      "sha256": "a1697e54bad6b88cc4d64309f645319bec21cb3b8a7340e67dcac4c070712c07"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day4_planner.json": {
+      "bytes": 2328,
+      "sha256": "f5a78b6bc746214ebaaa3e0c783fe499cc4817999fa25aed23e5fb8325c3aeb2"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day4_supplier.json": {
+      "bytes": 4739,
+      "sha256": "0220434300ee2311cdfe058edbf3ce6ca026d642f5d04d10aa48791292508fa8"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day5_critic.json": {
+      "bytes": 2460,
+      "sha256": "898cd6a74939719c410b4f50332e2f828131b64898326034ada176c1d3533eaa"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day5_planner.json": {
+      "bytes": 2327,
+      "sha256": "9f12eef4e8de0bd867f5b79e060279d0514d10187a4c9c54892b1fab64a52350"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day5_supplier.json": {
+      "bytes": 4797,
+      "sha256": "6532a1adc526374a54d2288bbe288d23ee51a0cd634b3c52e298ccff0d6b2486"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day6_critic.json": {
+      "bytes": 2458,
+      "sha256": "50cf57fb30783319497c7613fe6a6c0382cdbf00cfce58f99fbfadfe81fa13dc"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day6_planner.json": {
+      "bytes": 2328,
+      "sha256": "2551c8755eeef1620d69c213741a9ef8a978c70c70191073a21c8e6c2d9449ad"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/fixed_agents/day6_supplier.json": {
+      "bytes": 4517,
+      "sha256": "8be49d592c4f04dc562edd0b2b1f7a95959b5444e71efc8d8e9cd2d078c00a01"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/selective_agents/day1_supplier.json": {
+      "bytes": 4734,
+      "sha256": "043a7b48ba8afbf6e664332218449ca06a333c88f18363aa3b4ddeebf0f9fb87"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/selective_agents/day2_supplier.json": {
+      "bytes": 4795,
+      "sha256": "2f56ebd23e5e2d96f42ac8040a1ae562c06dba9b21b3d074c5e334b6e52a6abe"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/selective_agents/day4_supplier.json": {
+      "bytes": 4741,
+      "sha256": "1f31c3efdf9480e6717a992a6f70602a46429e2473900f87a11256d0914647c0"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/model_calls/selective_agents/day5_supplier.json": {
+      "bytes": 4796,
+      "sha256": "64bd43a732290d76b3825d1e3a80596b78248847cc38db670f22a44c582953ec"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1927/summary.json": {
+      "bytes": 3524,
+      "sha256": "058cb790221ce6c6fac927a8c8ce442af3b33eefd53f3602adc39331694963dc"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/daily_fixed_agents.csv": {
+      "bytes": 2349,
+      "sha256": "7124b51306cc0242c2597bbb4a725fb7db46629e3e2e9b1b58b022c8a2f5fee6"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/daily_selective_agents.csv": {
+      "bytes": 2328,
+      "sha256": "3357d1308c737c2b50d9010b97068ecc431751194fe1a576eeebdd3d12e04b29"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/daily_structured_planner.csv": {
+      "bytes": 2447,
+      "sha256": "3b533d60d54ef07b5d1cefd570445c7069ae417a5eb1c827e0869682db7395e9"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/decisions.jsonl": {
+      "bytes": 186010,
+      "sha256": "433c54946cb531a9ca111abc2a3ecbc0a3e7d0b88ea87bf0e4fb9f365cafbbf9"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/demand_world.json": {
+      "bytes": 5094,
+      "sha256": "b2f9250782235378dbe0b3fcbfe2272403307e637fb801e11c7421932b1df010"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day0_critic.json": {
+      "bytes": 2458,
+      "sha256": "90a320ab5608412cd67c2af43faff176bf541b43914d0528921add999aa9a5cd"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day0_planner.json": {
+      "bytes": 2324,
+      "sha256": "4862b3c56d91940befa583ccaaa785688f8562859a378f555cf6e9de893d4ab6"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day0_supplier.json": {
+      "bytes": 4510,
+      "sha256": "577424025d48ce35cbd3314e44a8de8cc9e4ffd70ca32b5372c3d864d903e178"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day1_critic.json": {
+      "bytes": 2458,
+      "sha256": "be9c4f5257d635410d22bc114b80e3424a647cd2994dd7a2094d7bd7a33cf99b"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day1_planner.json": {
+      "bytes": 2326,
+      "sha256": "11c020d8c0092cfceb46b64a8928acb997e49ee36d600e4000c4639dd9d4ccfb"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day1_supplier.json": {
+      "bytes": 4735,
+      "sha256": "f5a5d52595976cf0ff953819ae77c1d9a4b6b8f5eb00d59f93290eb626719fa6"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day2_critic.json": {
+      "bytes": 2458,
+      "sha256": "30f7858d97dde702cadcea0a248ded654a2a713d31acc15dd6bbedb5e8eb3818"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day2_planner.json": {
+      "bytes": 2326,
+      "sha256": "d38939c5c7c89a2923b506078bb1997a479d0b21110bdb15c6b003218ca4408a"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day2_supplier.json": {
+      "bytes": 4797,
+      "sha256": "d47c59efdf26fd8c9a70304ec6e741f8fd981567a4e13970001595c50b35b709"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day3_critic.json": {
+      "bytes": 2459,
+      "sha256": "e1a4b6dfd101309177858d06c19c18ffbdb4f1171d8318afe8bc7f82635f5d95"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day3_planner.json": {
+      "bytes": 2328,
+      "sha256": "3a6257e5703865bd861d92171590408d2839a055f35fdacf3fa884dd02a4aa56"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day3_supplier.json": {
+      "bytes": 4517,
+      "sha256": "f58a800b39bc65c5ad9b357473c16d929198d432522d2850a2cbed66f41a55ac"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day4_critic.json": {
+      "bytes": 2460,
+      "sha256": "13dd3e40a2b63ccbc7d4e3a26ca4eb323a9ed81055f0635f125be881639e8421"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day4_planner.json": {
+      "bytes": 2328,
+      "sha256": "98a7b97d98ac4c375557665aee8dc729f838b1d544e5b6a6cb0e479ac8e61eec"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day4_supplier.json": {
+      "bytes": 4740,
+      "sha256": "ad4f1f1ccd4220d1bb60f4213c718d0c4c211ee910fac4b368a249fbb9991113"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day5_critic.json": {
+      "bytes": 2458,
+      "sha256": "9add8afa4edd80d4a1d198fb917c40fa8b522bf6301a913d9d3a6c943f027ce9"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day5_planner.json": {
+      "bytes": 2329,
+      "sha256": "ea9c6a5c766046957148ae99bebc16132547f8ec6b19fc00059fb20e0bd1f074"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day5_supplier.json": {
+      "bytes": 4795,
+      "sha256": "b27c01d3e6eb144b3cd667d93318f0cc69ecc3fcc541c18d4ec2924175b427e4"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day6_critic.json": {
+      "bytes": 2459,
+      "sha256": "7a2f57982f51f88930363b9cd11d816f20d13bd6de7696d6da0cb6e15a1fb6f2"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day6_planner.json": {
+      "bytes": 2330,
+      "sha256": "c35544679c1fea416f2e3784ca51c4b8a5d855e0904a010b2c38c8a7d75cb459"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/fixed_agents/day6_supplier.json": {
+      "bytes": 4517,
+      "sha256": "20adf2e3f50601169e104ab4a9650d06f6a3df465b9747ea8d48868a86cc6d21"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/selective_agents/day1_supplier.json": {
+      "bytes": 4733,
+      "sha256": "771aa350e96c8751b0c3dda6b1ef81eec126b7824065b1c3b4897c9b3db22990"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/selective_agents/day2_supplier.json": {
+      "bytes": 4797,
+      "sha256": "f59fc62508f1158f5e33a465c30280884491d9f8f9a17918ff4c3081a32c9e30"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/selective_agents/day4_supplier.json": {
+      "bytes": 4741,
+      "sha256": "104181da9bca3f57a66a93d7279eaa72f20e991a848685bd844406f7d7ebf91e"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/model_calls/selective_agents/day5_supplier.json": {
+      "bytes": 4796,
+      "sha256": "2abd91c0278163bd9572afa73e6e80e8b6d9c9df7ee0bfd4a8574236cb9338fe"
+    },
+    "runs/M5__supplier_disruption__seed233__origin1934/summary.json": {
+      "bytes": 3538,
+      "sha256": "d5a0564b341d1f61ff8b8a4509afb6cedb63c71c5c6e079571f0509d0e35aad4"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/daily_fixed_agents.csv": {
+      "bytes": 2468,
+      "sha256": "89ab777f084146df87f3da1e5705d6b5ebcb8b3fce6e45ff817459a78c5e2a0b"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/daily_selective_agents.csv": {
+      "bytes": 2450,
+      "sha256": "ed4a30567f97f9d10e1191da6dfa59887927c9779a8ac75937bccbd3eff97a10"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/daily_structured_planner.csv": {
+      "bytes": 2564,
+      "sha256": "fa4e7f381dbdc3541deeefdde128a323cf3b4e86418a25cfe91cccf594558e08"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/decisions.jsonl": {
+      "bytes": 204079,
+      "sha256": "8e0809297511d3814814420aac7d7c5676995d1fee47d5a39e9c369d6970dfb3"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/demand_world.json": {
+      "bytes": 5701,
+      "sha256": "6134f8999b656e572a964779ee59cf6fa20f5984ff49ebf0375bd89c94a47d7b"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day0_critic.json": {
+      "bytes": 2462,
+      "sha256": "89eb74bfecf937475644fa879d44bfac43387c9ed328cba550fd1d353f778449"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day0_planner.json": {
+      "bytes": 2326,
+      "sha256": "3dd40fa7061b5ee73541b38597192a8aa44f768c45fc4e305fd8c8af7fa16a20"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day0_supplier.json": {
+      "bytes": 4686,
+      "sha256": "1eebb914a1f8f10edc04ca552d9205ff109705a6367a4bef0dc9d445a8df4f0c"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day1_critic.json": {
+      "bytes": 2462,
+      "sha256": "570493a1968af53e954a85a492a2075500554b0e4cc733321f7b571f4a6cacf3"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day1_planner.json": {
+      "bytes": 2328,
+      "sha256": "55e25c07d2e20237035e6ea7e0c1b31269c8b5b8c70deab89f57c2f9d335799e"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day1_supplier.json": {
+      "bytes": 4755,
+      "sha256": "8ad0c84d4806aa762ecc270a8bc386905587c90e41f8a77d0864827d352da330"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day2_critic.json": {
+      "bytes": 2462,
+      "sha256": "3d9b7f2a898db0dba845c0ec67d5bc00928b8f0db6d0eba2eb48e6c3f4ff3895"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day2_planner.json": {
+      "bytes": 2337,
+      "sha256": "6d54a530a12188644267c0db249e4c38bbf929ced2ac9090ce8eb00cfb1d7b5a"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day2_supplier.json": {
+      "bytes": 4811,
+      "sha256": "e0927e5481c15f4c80e00d44d29ef71ac7c7618ace51a90f9c2ad076656dd1d0"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day3_critic.json": {
+      "bytes": 2462,
+      "sha256": "d2e1daaf4433506effc6bf1c00ef77360ce4f6288dc8c594d80b00cb6de71543"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day3_planner.json": {
+      "bytes": 2326,
+      "sha256": "63dfa2b4685e91b64203af9bed906ca537cadeb8d00e08717e6f73d147a4a78f"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day3_supplier.json": {
+      "bytes": 4531,
+      "sha256": "b770afdcf2697b126ebfed0190c1301581ab16e6d414f892125a2549c8253e77"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day4_critic.json": {
+      "bytes": 2462,
+      "sha256": "e2b53b3ebdbd6b01636183dc56f86e95e0a0561d0f8e403889eccf90b9794475"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day4_planner.json": {
+      "bytes": 2334,
+      "sha256": "b8f00d3246dd4f0cdc531721adae997bfc456b84c972c841ad8278a3945923e9"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day4_supplier.json": {
+      "bytes": 4755,
+      "sha256": "d29eb7920dfd42cf00112755386b43a931bac31b0e75961c674456b32327c5cb"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day5_critic.json": {
+      "bytes": 2463,
+      "sha256": "17fff260544965e4542a930ada241250a2384d0bc3b938b397eee1342d9bf546"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day5_planner.json": {
+      "bytes": 2326,
+      "sha256": "403a231f774ae8feed606493ce755ffbeeee4e619ab64674e01a4f2451375df9"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day5_supplier.json": {
+      "bytes": 4813,
+      "sha256": "a5d568c95444f8ebd4c79de21ca52b0681ca900421316283d2b9fc14e93dc7a8"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day6_critic.json": {
+      "bytes": 2462,
+      "sha256": "87a65c714afe5f941dd11aeda48310bedd2974232ce3ab853c30955bbbb9d527"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day6_planner.json": {
+      "bytes": 2326,
+      "sha256": "a5bee538c1520f66eb9d43e2dd302c55b08c836b2f744eec6a2197f1bdfdc96e"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/fixed_agents/day6_supplier.json": {
+      "bytes": 4687,
+      "sha256": "bfddda1c8e542c309cdd1140807782d6b1f93e588f0fe70122b8324f7f580607"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/selective_agents/day1_supplier.json": {
+      "bytes": 4754,
+      "sha256": "bd404b9b24782945a50f0565e5805761354b484c1d5ac7a511006be0468f7bf6"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/selective_agents/day2_supplier.json": {
+      "bytes": 4812,
+      "sha256": "f387c5e48e779ebff997b45b9e0dac81dc51f389bf90fa61e6f78cd055b94694"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/selective_agents/day4_supplier.json": {
+      "bytes": 4754,
+      "sha256": "f42098af7208552d078992751299b5e873c571b9e65f6248072ede5bc02ad71a"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/model_calls/selective_agents/day5_supplier.json": {
+      "bytes": 4812,
+      "sha256": "e2d4265d15f99ee867b4ef608826daa09190c472257cc7a8eb97748541f15071"
+    },
+    "runs/RetailNet__promotion__seed233__origin83/summary.json": {
+      "bytes": 3603,
+      "sha256": "0031989a86ca865f9a1545dcc714115335002df10ce5d6f28de49a3d46ba58c8"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/daily_fixed_agents.csv": {
+      "bytes": 2501,
+      "sha256": "8913b2bd6d1a0ba5f8fa466649f7a6c6011ac6fc3e8ef9a88d1accaaa892eab5"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/daily_selective_agents.csv": {
+      "bytes": 2485,
+      "sha256": "bd89c64d354ad7c794557094c1822f250f1c583b19feed6441f7fdb142d5db07"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/daily_structured_planner.csv": {
+      "bytes": 2600,
+      "sha256": "9531b32ff4f788e72d4acf1ca842fcde5dbf5ef748055ef99f6d85a1a976ff0f"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/decisions.jsonl": {
+      "bytes": 202801,
+      "sha256": "293eeda1d3863149fb22d3c35a1abbb233a5a94d66ad10aeef8a97fefbd0939c"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/demand_world.json": {
+      "bytes": 5722,
+      "sha256": "38617fe0c874e9e109dbae6ecbb550e1f887794426bdac7b1aff2e892a3f7bda"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day0_critic.json": {
+      "bytes": 2462,
+      "sha256": "a94cae17ac3f6327c0b44a1a4d6caa8d450fe282ecc4e8b636c51606f5b67bf4"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day0_planner.json": {
+      "bytes": 2326,
+      "sha256": "3c1193454376f36966335d9cf37bc8d8288985404851e3a83d38a956515df94a"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day0_supplier.json": {
+      "bytes": 4532,
+      "sha256": "893f8d175b041d387d5480a4a83b9c3c7c61e40f6754feab9096aed59b4e22bc"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day1_critic.json": {
+      "bytes": 2463,
+      "sha256": "b4408568b5e2f3f808825358989a6eb9b35150b42fe23403a886a169bc0c8f77"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day1_planner.json": {
+      "bytes": 2327,
+      "sha256": "e957c2561ca267063efc814b4d2af35966f057cd306ee8be9b9db0b3f21d207c"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day1_supplier.json": {
+      "bytes": 4756,
+      "sha256": "deed8abae80e108bf8baa1abb2ec0ef2ed5c45476f951a3aa410eb38da1d61e0"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day2_critic.json": {
+      "bytes": 2463,
+      "sha256": "72178ed489eab79ff75713d7517eec66b3b7a824a7e58d962fb1bb7ca6c7ce19"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day2_planner.json": {
+      "bytes": 2337,
+      "sha256": "4ecc79a3a6dd0b1124d7f6b373a45f60c306a0d859586acbf4bc4e0677ce0a6b"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day2_supplier.json": {
+      "bytes": 4812,
+      "sha256": "049b1fd46b8e13ca5f50ac5e25888ec33996a40ee8ebda7841c7ca0337a950a6"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day3_critic.json": {
+      "bytes": 2463,
+      "sha256": "b24bb0d5352c3135e34447609a4582331189e2e8574ac6e258d91f7048d42e72"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day3_planner.json": {
+      "bytes": 2337,
+      "sha256": "3bd9b850c8082328119a7d74c2a278e04dc49f9e229bcdd4c71d7152cb15db91"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day3_supplier.json": {
+      "bytes": 4531,
+      "sha256": "5b9104c9bc921d16c0e1541d597cf06e222b31f34de448005f1b71a50ba4b752"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day4_critic.json": {
+      "bytes": 2463,
+      "sha256": "497fffc7f487e6f852bd64966d6a089aa0e36ab64eed85c6b9f2ac01c4e677fc"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day4_planner.json": {
+      "bytes": 2326,
+      "sha256": "e79e6e57bb8724fbe93cc653ed1f19648622bb3485d1a192bd70f72e31e0188c"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day4_supplier.json": {
+      "bytes": 4753,
+      "sha256": "39b5b5f50bfe573c8271324a0ea4bb2dd96c67be5c5970c204405f87662761e7"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day5_critic.json": {
+      "bytes": 2463,
+      "sha256": "df330f5474c964a56a4354d686db8dcdef4681eb26f2c6f1cf4766abba407946"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day5_planner.json": {
+      "bytes": 2336,
+      "sha256": "361a78090a9771a4e9d4db0a2abfc6a50121e0cff4b6eca61b17037178ed6f0b"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day5_supplier.json": {
+      "bytes": 4812,
+      "sha256": "2a96daaeba9c4f3f2f6ec7243bb5b63168f2a40d95df71e84df3a8a44f7014d4"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day6_critic.json": {
+      "bytes": 2462,
+      "sha256": "a626fa1fa4715538f68d7087f0ef0072015c12867e7b80fb165a23ba24e72fd2"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day6_planner.json": {
+      "bytes": 2327,
+      "sha256": "6e97e7fd7790f37808b99cc7e7519a82b2ab5d29e8d601a9222ed034d9e077bc"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/fixed_agents/day6_supplier.json": {
+      "bytes": 4531,
+      "sha256": "f2d260faf915421f259b18f0f2f95f936ba7a27353cf48afe581bb96b0a7d079"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/selective_agents/day1_supplier.json": {
+      "bytes": 4754,
+      "sha256": "974b70468676fbf7373395495b993b81b9f7b641fcddb8e5d83872de388005c7"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/selective_agents/day2_supplier.json": {
+      "bytes": 4812,
+      "sha256": "65ccb38f08af6077fab568e2d3171bcd5039c400e18e9b3195dc923277e2a238"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/selective_agents/day4_supplier.json": {
+      "bytes": 4755,
+      "sha256": "39b53faaddc06ccd781623f2531481e7ff9dc6ff1b968e43cb499b4ccab2bf41"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/model_calls/selective_agents/day5_supplier.json": {
+      "bytes": 4811,
+      "sha256": "116f95b18123f00e2f54d5bfea54cf3ada50b2a1be8a5608b2fe50af218a3326"
+    },
+    "runs/RetailNet__promotion__seed233__origin90/summary.json": {
+      "bytes": 3669,
+      "sha256": "ab35c90ba3e54826865127aa4045edaeb2cf186c88e04369bdcd27ba4e8832e7"
+    },
+    "runs/RetailNet__routine__seed233__origin83/daily_fixed_agents.csv": {
+      "bytes": 2489,
+      "sha256": "f3b0c2c9606937c8a64519f7e794238a07de3e531d0cc76fd655cb335df72883"
+    },
+    "runs/RetailNet__routine__seed233__origin83/daily_selective_agents.csv": {
+      "bytes": 2470,
+      "sha256": "b4faa2aade28a9657593da3e6795722e93e4739d550f48a4a0b56d2d6983970e"
+    },
+    "runs/RetailNet__routine__seed233__origin83/daily_structured_planner.csv": {
+      "bytes": 2585,
+      "sha256": "dac240b3ca830f64046791cd241427d9d8c2cf24883c5e6467ea7536a128d42c"
+    },
+    "runs/RetailNet__routine__seed233__origin83/decisions.jsonl": {
+      "bytes": 203278,
+      "sha256": "41ed7c36182be257b3a8739ff1da2c014197f23b949f627043b01a62179b4bfd"
+    },
+    "runs/RetailNet__routine__seed233__origin83/demand_world.json": {
+      "bytes": 5690,
+      "sha256": "772def1cc8e3fc1caf718932a57b932e5a962b4e9380730666d01432a8638b0e"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day0_critic.json": {
+      "bytes": 2462,
+      "sha256": "dacb79640e32724aadae9a14a614be65b56e3b53ff18c594b4fd8e7e8a7d8e42"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day0_planner.json": {
+      "bytes": 2324,
+      "sha256": "2643bd44898f4eb415ef963f93248dcc16ac37b29d201f3cf5a31a282c07b4e6"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day0_supplier.json": {
+      "bytes": 4687,
+      "sha256": "c3ef942d8dc40d4749909d4c81e6b7ce3589634b1567f19940a313b0ff45be15"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day1_critic.json": {
+      "bytes": 2461,
+      "sha256": "1ba823b1e19bbed059048773a4220f6f6e986affe44ed9723b5f03ea33b27e44"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day1_planner.json": {
+      "bytes": 2325,
+      "sha256": "12dc7dd0b40d26935a9137ef9615c458070dc563ab339ccb7a6415dadfaa92cd"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day1_supplier.json": {
+      "bytes": 4756,
+      "sha256": "64b75d05c2501557522d3cd58e4e9114d4e50f131d8b24eb7f9a71a80de69d8a"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day2_critic.json": {
+      "bytes": 2463,
+      "sha256": "4c2430de5aef70728abf59c77950f273deac35686416cd28c928b1e6654fabd2"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day2_planner.json": {
+      "bytes": 2324,
+      "sha256": "cb6682d2174a54ca70945aefb95eadedd957c3e16f506a626f193b1e44310165"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day2_supplier.json": {
+      "bytes": 4812,
+      "sha256": "f384306191186f38fef2d6ba70a4ca373d0878202dd29d2c73500c599602e015"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day3_critic.json": {
+      "bytes": 2463,
+      "sha256": "9472fb3059e93316c23cc79fa428796e9319b555d893169f4a4334399fb5a111"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day3_planner.json": {
+      "bytes": 2325,
+      "sha256": "e75c9ca6c51902c3bce7b19f17e17544be7043802c6eabcf672210e1e56514b9"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day3_supplier.json": {
+      "bytes": 4531,
+      "sha256": "776ba346ac18006c3bfe4f647ec3e1df809bd6e9fdb6cf784a3e4366a3eff5e3"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day4_critic.json": {
+      "bytes": 2462,
+      "sha256": "323361cccbc18ce66aa51b8b1e6c50aa222191261148424f7c2d84886dd0fc6a"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day4_planner.json": {
+      "bytes": 2326,
+      "sha256": "e1b62ccaee2d32206cda851fbeaca5fc6f4fb2040704e548c8e29252da53b37b"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day4_supplier.json": {
+      "bytes": 4755,
+      "sha256": "1b57d5c472dfcf8c4cbbbe8f359b582b02e7d7c50b5b664912b3862d980383f2"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day5_critic.json": {
+      "bytes": 2463,
+      "sha256": "af4cfd2952e47d373a7fb5adef06fe7febc52ee62b196beecb4cdf2e16a5a3e4"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day5_planner.json": {
+      "bytes": 2327,
+      "sha256": "ba47449b6137f15ca38de6b6f955fe26774112a8ac63b85d9a6c3f5516f5ab91"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day5_supplier.json": {
+      "bytes": 4812,
+      "sha256": "3d8c0ce05eb7bb753bd3a35a194740e303d70aaf0fdba39e24489e8d7198cdc3"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day6_critic.json": {
+      "bytes": 2463,
+      "sha256": "5f3282ca42c3a3232335ab552203d6194938ed49219ee5aed5fe42048ea37f91"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day6_planner.json": {
+      "bytes": 2326,
+      "sha256": "48735c300ccb02b945a410962c8cb923ff3bae7ccabedc1a7738cd04f9ef889f"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/fixed_agents/day6_supplier.json": {
+      "bytes": 4686,
+      "sha256": "710a7ceab710153715df755beecc973335aa474555708fb4ca3c74df9ec0c703"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/selective_agents/day1_supplier.json": {
+      "bytes": 4753,
+      "sha256": "1fd23d9c0c7c10b8f1c63a075ccfd83dccbf87b407523023e203079ffdeb6c3a"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/selective_agents/day2_supplier.json": {
+      "bytes": 4811,
+      "sha256": "72a678708cc405593b0955a4b522a617c94869c778b30d096ebe368d15799a22"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/selective_agents/day4_supplier.json": {
+      "bytes": 4755,
+      "sha256": "03bf32c9da5c24b13bfe026fe5acd2ad549f9f69264d7196bc25c16ed6414a0a"
+    },
+    "runs/RetailNet__routine__seed233__origin83/model_calls/selective_agents/day5_supplier.json": {
+      "bytes": 4811,
+      "sha256": "30ef97c570ddfea6a221cf0addb02599c677ffb55ccb89e9f53f845b5111f8af"
+    },
+    "runs/RetailNet__routine__seed233__origin83/summary.json": {
+      "bytes": 3646,
+      "sha256": "8cc4cc05efb9c739d15d8d4b27a1e9eed3ece1b5a218eff6c8f45ca67a4ae4c5"
+    },
+    "runs/RetailNet__routine__seed233__origin90/daily_fixed_agents.csv": {
+      "bytes": 2486,
+      "sha256": "ba8311d5b2630305fed3bbed1897f05cc89bb9bc21d5c62435a8706e48c70340"
+    },
+    "runs/RetailNet__routine__seed233__origin90/daily_selective_agents.csv": {
+      "bytes": 2469,
+      "sha256": "42b800434406919e438a427eb4b22bfd5df4060096e5367d92419c5b76147863"
+    },
+    "runs/RetailNet__routine__seed233__origin90/daily_structured_planner.csv": {
+      "bytes": 2582,
+      "sha256": "28c8730e4387d1bc2fdd6229add6e35de09eb1cff4fa53380edc27a006fc5552"
+    },
+    "runs/RetailNet__routine__seed233__origin90/decisions.jsonl": {
+      "bytes": 204165,
+      "sha256": "e9312e2b973b38f91083acb4faef79c93886eda91ffc392bf3586a9f82c193ed"
+    },
+    "runs/RetailNet__routine__seed233__origin90/demand_world.json": {
+      "bytes": 5715,
+      "sha256": "032a280ed69ef8ded9eb6890a0fabbc02499df1063fa1f8920dac1e28035aac2"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day0_critic.json": {
+      "bytes": 2463,
+      "sha256": "ee1fae32a8237778be17cb7ca1c6f1f7804dae6715e761ee369a17bf8ed03580"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day0_planner.json": {
+      "bytes": 2324,
+      "sha256": "9b021e2a94a28ca28555209117fe03b12104fc61bc9e67445941bc1feac17835"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day0_supplier.json": {
+      "bytes": 4532,
+      "sha256": "7e51c89b7a3509b4871a204437b3b51417f27fb42391e5eb26c4efc890479f19"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day1_critic.json": {
+      "bytes": 2461,
+      "sha256": "3864d3d23b68432417f277e596bed3a29929b3354cc42899632de6b2144c92c1"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day1_planner.json": {
+      "bytes": 2326,
+      "sha256": "88ef95ecca2942bb7a131d117d59725246e7e1ef149205d471e43a0ab08efa04"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day1_supplier.json": {
+      "bytes": 4755,
+      "sha256": "f7ad1f8eb4d661c13642014e98691e4308f4f4ffc30df8abdd9d1197df432c1c"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day2_critic.json": {
+      "bytes": 2463,
+      "sha256": "98ddda550f32c4abb8c470bbb9da686e1e7b80d003e6f40ed29cb32eeeda35d3"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day2_planner.json": {
+      "bytes": 2325,
+      "sha256": "11fdde911b646fb4870e95525f7d00aa6cf527f52a5ad2a32c83029fa58f84e1"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day2_supplier.json": {
+      "bytes": 4813,
+      "sha256": "da1a752780962d5f3f3a634eacef3976b0ffb3c772d2639c3ee266bfc239ba78"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day3_critic.json": {
+      "bytes": 2461,
+      "sha256": "99a9316071816967330d7501b9c7371f83e4b26b73a1c6950bd816dcb377cd42"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day3_planner.json": {
+      "bytes": 2326,
+      "sha256": "08f734bf82fac4b30e823121052c19f128e9f3d7365b9d9c5c5243c959d9a451"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day3_supplier.json": {
+      "bytes": 4531,
+      "sha256": "77fe3ad55f2e13b1a961c6b3e01ac0cf1a1ce5e6a5e06af4aeb256bd7b6fe774"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day4_critic.json": {
+      "bytes": 2463,
+      "sha256": "dfec45175406f10192c69f5b7421e4cde0caee97cf20af99dc2e25325f5a5372"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day4_planner.json": {
+      "bytes": 2325,
+      "sha256": "6d41c9a099e3f4c29ce0e13918034c86fc7629c9c71fe7e3549e64135639738e"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day4_supplier.json": {
+      "bytes": 4754,
+      "sha256": "7b5f578be76a6918d75e77c2e9bf0ef0b12dc545fb51c251082812d54d823418"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day5_critic.json": {
+      "bytes": 2462,
+      "sha256": "bdb59c4a4f49a6df0ce2d6f82f6a1e23c5c20b31abe4dd2963ce69ac4fb00fda"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day5_planner.json": {
+      "bytes": 2326,
+      "sha256": "d75b8c776c6339f53ed1700fadf2c6a182f46e9e6ff0e2ea3e3a8d5490a46244"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day5_supplier.json": {
+      "bytes": 4812,
+      "sha256": "39caf270d2f0cccc5334e96cb34ed06c18d509df2b83db7f0ae4f62b7d24b93b"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day6_critic.json": {
+      "bytes": 2462,
+      "sha256": "0981af14fc94051e53956f389e320f6714119286b919fa138624320236a0047b"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day6_planner.json": {
+      "bytes": 2326,
+      "sha256": "40abecb1ce27cd99f32487ded613114ff5963fe367763fd2f6fbf0ac8e518c94"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/fixed_agents/day6_supplier.json": {
+      "bytes": 4532,
+      "sha256": "a68a08bb5195261bcb4e75de8aae6bb67038bb4611474327c0cd5a03a6d6feb5"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/selective_agents/day1_supplier.json": {
+      "bytes": 4755,
+      "sha256": "a535a155abf71fe3407f56ba96f0d384d1136319b999b75c7cf18796d10693e4"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/selective_agents/day2_supplier.json": {
+      "bytes": 4813,
+      "sha256": "487d4158d8518b35f924c83d113ce0459a048fb017c517e3691c5d059dd2d19a"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/selective_agents/day4_supplier.json": {
+      "bytes": 4756,
+      "sha256": "43d01a64df5dacf6aedfee6d1e8a8a5c79bce60bf4d2fb4cb99d81bdc45d69b0"
+    },
+    "runs/RetailNet__routine__seed233__origin90/model_calls/selective_agents/day5_supplier.json": {
+      "bytes": 4812,
+      "sha256": "6bd01d0ce98476c8ed034728b7c435540fec644e00cfb4b13358fd66526c3566"
+    },
+    "runs/RetailNet__routine__seed233__origin90/summary.json": {
+      "bytes": 3658,
+      "sha256": "858f54b1a2afa18819b51f44a727493e721402db995cc29d846585cf82433296"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/daily_fixed_agents.csv": {
+      "bytes": 2566,
+      "sha256": "3e6f9c13b8c37fbeae48fd4ad98316008e30cc40cb11d74f6b99beae76e499c5"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/daily_selective_agents.csv": {
+      "bytes": 2548,
+      "sha256": "b4e0e5a11c4e1567439dac019d37778021601fda25764f566f2227e0d07665bf"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/daily_structured_planner.csv": {
+      "bytes": 2659,
+      "sha256": "53f3b411ed882b7a65f2213a422f1128491db31492b8c6b0f10a9f065862ed86"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/decisions.jsonl": {
+      "bytes": 219255,
+      "sha256": "04d8e53bc42ea9e9cf7162f8409c9f4c532daceea9238211f251469ad5730318"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/demand_world.json": {
+      "bytes": 5690,
+      "sha256": "772def1cc8e3fc1caf718932a57b932e5a962b4e9380730666d01432a8638b0e"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day0_critic.json": {
+      "bytes": 2462,
+      "sha256": "b532139080b6220c0c583fe70c66168f665bbaae28388169513b816cb01e2005"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day0_planner.json": {
+      "bytes": 2336,
+      "sha256": "6ce9290616faf01d5254caed24e63328e6bb3d68c86902d1f3af8d376a59ce86"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day0_supplier.json": {
+      "bytes": 4686,
+      "sha256": "6707396fa7c5e5e3abe92da6c0c945020fc8639e111c820d3c154aef3af30f75"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day1_critic.json": {
+      "bytes": 2463,
+      "sha256": "18352407e4b31f5c9681f4f02bf9bb3ff3ce00e1ae02682e3e6824f09d8ece6e"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day1_planner.json": {
+      "bytes": 2337,
+      "sha256": "a8ba2d4330d5549c6743b909c2218ffd8fb588d5dc3c429dce3d010bc3e67c2b"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day1_supplier.json": {
+      "bytes": 4756,
+      "sha256": "5c447b2b6036f786297db389aab5baebf7d0be3c9025c90af3559d2872fea91b"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day2_critic.json": {
+      "bytes": 2462,
+      "sha256": "fd2830008e21cff802f26a550fd3378399f017f6aaaa043a0d721ca1ca4a77a6"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day2_planner.json": {
+      "bytes": 2339,
+      "sha256": "5489274682b92f778404ddce342c89cff3c4a6673502209f2d4c1d5bb6e98926"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day2_supplier.json": {
+      "bytes": 4816,
+      "sha256": "3c1fce12756e53e2cd28bd1150e079415105ca349332fbe705e6828efde7b10d"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day3_critic.json": {
+      "bytes": 2463,
+      "sha256": "20c16a00ab57cc4becb7577f2ed3875a13b80cab2c992b55ade948137cfba531"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day3_planner.json": {
+      "bytes": 2337,
+      "sha256": "1e8590bec6ed7f531ed74df07218cfba9154f95846cc8633a72ed6cc12748cb4"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day3_supplier.json": {
+      "bytes": 4534,
+      "sha256": "9a19be73fed71eeaa957ec0b9928c4e640d72ffd29717d1812341f12db6c8306"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day4_critic.json": {
+      "bytes": 2461,
+      "sha256": "66a2aeb96accb35a158b44efbf55b0d5d4eb5c82f87c0850d0fe484de08e3ce8"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day4_planner.json": {
+      "bytes": 2339,
+      "sha256": "ab79dc0dfb9572322240882fbe2d8930d4f477907925f7109240fdd85cd9c78f"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day4_supplier.json": {
+      "bytes": 4760,
+      "sha256": "7cce7c2b04cc541b0257d3c0df894c9606f10b12241f6c1de7d433aedce0701b"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day5_critic.json": {
+      "bytes": 2462,
+      "sha256": "0280314dffce0b394e0d90d1da57bbc5a13cf5cdc2ebf89ffd1c8bed6040ebf2"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day5_planner.json": {
+      "bytes": 2339,
+      "sha256": "5c9fe8f8879f3a8b90cf13c8920d93d91e43883238e708cf42fdae20d36882ff"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day5_supplier.json": {
+      "bytes": 4819,
+      "sha256": "235ecb6150ec3d998371d6bf919e7214124d66981c4963fd40dcae619466354f"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day6_critic.json": {
+      "bytes": 2463,
+      "sha256": "4a5f8748008a4b556cf94c808f54d7279a322c08f7031a528cfba7d778f8cc64"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day6_planner.json": {
+      "bytes": 2338,
+      "sha256": "1162b3a4de4f8f55c4b752c25814f8ae604deba5db3638af5c50e0706c0bb8e7"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/fixed_agents/day6_supplier.json": {
+      "bytes": 4537,
+      "sha256": "92a9be322c0a47498d75e368a20646b2fb7ee24f84b4b56997418303f5b4b28b"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/selective_agents/day1_supplier.json": {
+      "bytes": 4754,
+      "sha256": "d6b870e912e0e45fc0db8feba4d0e9cfc59c6e7ea3efce517222f91856e484e0"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/selective_agents/day2_supplier.json": {
+      "bytes": 4819,
+      "sha256": "a632f83daf2c9107c2668ecf68ef83a57fbf1fa35776c5e964b6c66b85e5e4bd"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/selective_agents/day4_supplier.json": {
+      "bytes": 4762,
+      "sha256": "cf058e681b9052c662bd8f693b3e1f3fc29e1da58b93af3369b29cba81a1ca68"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/model_calls/selective_agents/day5_supplier.json": {
+      "bytes": 4817,
+      "sha256": "8e5ed593b4848f41aa9750d3a8a13dfe4619a70f94857e729e6efb133415a7de"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin83/summary.json": {
+      "bytes": 3658,
+      "sha256": "fead9e1cb41b1883565489686fadbef75df3732c61094d675d36ce8116df3b36"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/daily_fixed_agents.csv": {
+      "bytes": 2544,
+      "sha256": "3dee09bce9145380b587f19c6cd30e44c7a6e2f16fb02a2eb2992ff96995069c"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/daily_selective_agents.csv": {
+      "bytes": 2525,
+      "sha256": "f1ab4cd46d11734f0e693c44c15430bb178a7afbb82f4449c215be94c6f6ad80"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/daily_structured_planner.csv": {
+      "bytes": 2638,
+      "sha256": "c2f82cd47cdcbaef98ef5dedec56a89fde7a27030f071b5d518f752038a7b89c"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/decisions.jsonl": {
+      "bytes": 218601,
+      "sha256": "78196b6e3eb7146b2ac389ea34eb296566b5ee8df2a3b9ba37be3babb72b3969"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/demand_world.json": {
+      "bytes": 5715,
+      "sha256": "032a280ed69ef8ded9eb6890a0fabbc02499df1063fa1f8920dac1e28035aac2"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day0_critic.json": {
+      "bytes": 2463,
+      "sha256": "cbd6fa1ad9f1bdb670eba769f23afe3ff3da71db57b2bc41ec762fec4fcf7c40"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day0_planner.json": {
+      "bytes": 2337,
+      "sha256": "d96d4ffa608b49987d07dbc8700c4320e1b951823d31de3ead1a4f688bc83281"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day0_supplier.json": {
+      "bytes": 4530,
+      "sha256": "af1b7d1f14fb2680a3821c6e774ddb23a532adedcaa9455c55d57a746f8fffbc"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day1_critic.json": {
+      "bytes": 2461,
+      "sha256": "2162c70e47a145131b53fbbb611787cb23c10098cfeed98744f8b52a4029b8b6"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day1_planner.json": {
+      "bytes": 2337,
+      "sha256": "ab60d847a792b772a0142fda336bb9c97bfcbe5f2a6aea2e6e11937ce1721775"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day1_supplier.json": {
+      "bytes": 4755,
+      "sha256": "c02139f8af6df584d8076e5d68f75198b64c2b02ad882e569efcf1fa21756e6c"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day2_critic.json": {
+      "bytes": 2463,
+      "sha256": "56fdf2559395e440b4f28be250a026564a31669ecf70105e3f108a638cd09499"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day2_planner.json": {
+      "bytes": 2340,
+      "sha256": "e20b01f7e8b84698f9407b22b3640478ab33f431df2fb8145ae9e265c0829723"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day2_supplier.json": {
+      "bytes": 4817,
+      "sha256": "963cef07b8c8bbab1e301ba458d259d2d020f27a071cca778cf36d94bcf4d0fe"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day3_critic.json": {
+      "bytes": 2461,
+      "sha256": "ae01ede45f968c8d105a16cfaded1ac156b2a751fdd034061da55a99fe94d4af"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day3_planner.json": {
+      "bytes": 2338,
+      "sha256": "dc3e1215516f265cc3df0f1097fd76cd0d298433d973aefd651bf0ae706176c9"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day3_supplier.json": {
+      "bytes": 4535,
+      "sha256": "e2f2abd7203c37bc24f6b89e73153f96179aa8077927a368b39769a9d9cb23b0"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day4_critic.json": {
+      "bytes": 2463,
+      "sha256": "d57d71343f5e58cbe315dd3753f67c230c4ec5f4051783540d6bde2abed82515"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day4_planner.json": {
+      "bytes": 2338,
+      "sha256": "9278b7e470da38d202c50ffe1df791ed8038c2196581005d7181a1783fd55faa"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day4_supplier.json": {
+      "bytes": 4760,
+      "sha256": "659dc4eba4fb9b6ae5500e995655ca2ce199ed0abb639528ba0e8eee3e5dd61d"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day5_critic.json": {
+      "bytes": 2463,
+      "sha256": "786c8b49fb2426f6ba6825d72ec5ed7a4390b0b119c1a6f75219948dd3b37266"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day5_planner.json": {
+      "bytes": 2339,
+      "sha256": "9331a0985f386a7e0ff8bd2dc893c6b496025fc65e1c91f5c1b55a5550c08c02"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day5_supplier.json": {
+      "bytes": 4819,
+      "sha256": "d79b03c760e47da3c0f2ee10353c479553245b20bd291d52788e4d01a02fe5f4"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day6_critic.json": {
+      "bytes": 2461,
+      "sha256": "ece4e4fcbcc3910138912773982308aa5f5c509e29fae2857cfdcbe82720d715"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day6_planner.json": {
+      "bytes": 2339,
+      "sha256": "97fbdc7578b350af9ff5d7bd065034942ef6b41bbae8e98c8e38776ce3a24d80"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/fixed_agents/day6_supplier.json": {
+      "bytes": 4693,
+      "sha256": "235fa94004f1dd571dfd0a8bf74b74d80c2dfa9fa3b89ad5c18d83009ce036ed"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/selective_agents/day1_supplier.json": {
+      "bytes": 4755,
+      "sha256": "cb6abf7d9b0bdcdbe5d9aabc75142d298135548bbe32085949acbedba1d900b9"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/selective_agents/day2_supplier.json": {
+      "bytes": 4818,
+      "sha256": "3e4027b57119610dd660f66c2c707310f1e8d52d5771cbfe7180f51c84207eae"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/selective_agents/day4_supplier.json": {
+      "bytes": 4761,
+      "sha256": "7a58c61d903b996eff9b0ccc07ff00179adc10d19d882019884f9e1fc9d1ecef"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/model_calls/selective_agents/day5_supplier.json": {
+      "bytes": 4818,
+      "sha256": "6bcfb8b687586d60a801836e9c3dc78c2ce6700448b6297260c753078fc3fc2f"
+    },
+    "runs/RetailNet__supplier_disruption__seed233__origin90/summary.json": {
+      "bytes": 3713,
+      "sha256": "8d8b4b58f8433dd3b1fce5d7477ddcc40f860f7fa5f090d53914dba57faca6ac"
+    },
+    "summary.csv": {
+      "bytes": 14728,
+      "sha256": "a40d81fdcd11d82d5a2fc05d59e8888bc1f3be12825ba02c9e1f0eac1aac7bdd"
+    },
+    "workflow.jsonl": {
+      "bytes": 4801,
+      "sha256": "d76b3b0768cdc42868abbe5497d0c253c62261d90241f3208ff691c7c2630b18"
+    }
+  },
+  "count": 440
+}

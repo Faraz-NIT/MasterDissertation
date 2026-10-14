@@ -1,0 +1,23 @@
+{
+  "status": "VERIFIED",
+  "at_utc": "2026-10-14T14:01:27.266445+00:00",
+  "runs": 36,
+  "portfolio_days": 252,
+  "series_days": 7560,
+  "fresh_model_calls": 300,
+  "unique_native_timestamps": 300,
+  "issues": [],
+  "checks": [
+    "Frozen code/data hashes",
+    "Complete matched grid",
+    "Independent FIFO ledger",
+    "Source and priority accuracy",
+    "Held actions not released",
+    "Every LangChain step and model-role path",
+    "Fresh native request/response hashes and model settings",
+    "Recomputed cost and quantities",
+    "Master summary agreement"
+  ],
+  "inferential_analysis": false,
+  "protocol_sha256": "a5c0202eff7de8814b9910a87a2c970e83a9efb3673bc2fb62856a1db01bc8e2"
+}

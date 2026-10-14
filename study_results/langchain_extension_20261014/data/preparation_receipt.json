@@ -1,0 +1,10 @@
+{
+  "status": "VERIFIED",
+  "at_utc": "2026-10-13T20:37:54.241390+00:00",
+  "input_protocol_sha256": "313022ff110d796bd2bf91839f8168761ae6a5899fe5119d3f772b6f4e2188bb",
+  "same_30_series_per_dataset": true,
+  "same_past_only_forecasts_and_initial_state_rules": true,
+  "previous_model_outputs_used": false,
+  "forecast_retraining": false,
+  "note": "Reuses fixed historical inputs to isolate architectural changes; periods are not unseen research holdouts."
+}

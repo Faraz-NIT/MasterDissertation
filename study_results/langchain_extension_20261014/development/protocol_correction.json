@@ -1,0 +1,5 @@
+{
+  "stage": "BEFORE_ANY_LIVE_VALIDATION_OR_REPLAY",
+  "reason": "Replace inherited LangGraph and 30-seed inference metadata with the LangChain validation scope",
+  "prior_study_changed": false
+}

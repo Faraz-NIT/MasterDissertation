@@ -1,0 +1,11 @@
+{
+  "model_family": "LightGBM",
+  "models_fitted": 1,
+  "training_end_exclusive": 90,
+  "training_rows": 1860,
+  "forecast_mode": "14-day recursive, no evaluation sales as inputs",
+  "historical_sales_correction": false,
+  "retail_llm_fine_tuning": false,
+  "forecast_sha256": "34b9e982221263fd25284674b583fe4b6a2712f7887f19d91fb3359966ec4380",
+  "model_sha256": "fb9b72850bd6e2cdc4be704b2b4e1694d7a60a19311a130a5423ef11055028c1"
+}

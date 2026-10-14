@@ -1,0 +1,13 @@
+{
+  "status": "COMPLETE",
+  "at_utc": "2026-10-14T14:00:47.619429+00:00",
+  "runs": 36,
+  "portfolio_days": 252,
+  "fresh_primary_model_calls": 300,
+  "elapsed_seconds": 480.25689305299966,
+  "balanced_seeds_complete": [
+    233
+  ],
+  "scope": "Implementation validation, not the full 30-seed study",
+  "protocol_sha256": "a5c0202eff7de8814b9910a87a2c970e83a9efb3673bc2fb62856a1db01bc8e2"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "at_utc": "2026-10-14T13:53:53.842509+00:00",
+  "portfolio_decisions": 7560,
+  "native_inference_calls": 0,
+  "recorded_model_outputs_used": 9240,
+  "all_actions_priorities_paths_and_inventory_outcomes_identical": true,
+  "scope": "Software regression only; archived answers are supplied to both implementations",
+  "does_not_establish_fresh_model_reproducibility": true,
+  "source_protocol_sha256": "58551bd4e9c62e90868f4ece7b7ec3a0854904bf627fb07d49fe7cd98bda1f56"
+}

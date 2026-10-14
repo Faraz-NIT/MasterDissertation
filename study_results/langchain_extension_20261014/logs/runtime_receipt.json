@@ -1,0 +1,9 @@
+{
+  "pid": 10894,
+  "version": {
+    "version": "0.40.0"
+  },
+  "model_name": "qwen2.5:1.5b",
+  "model_digest": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b",
+  "status": "SERVER_AVAILABLE_MODEL_VERIFIED"
+}

@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "scope": "One chapter extending the previous agent",
+  "prose_words": 1676,
+  "figures": 7,
+  "tables": 4,
+  "docx_sha256": "d1cf4133b2baa58147806fc0ff1f7b2caed05394a140d236567d45c279172881",
+  "chapter_sha256": "bdb2726ba542926218c55c03daf8b62509249d14b7c0f0c690e4529248779441",
+  "primary_performance_framework": "LangGraph",
+  "new_implementation_framework": "LangChain LCEL",
+  "primary_runs": 1080,
+  "fresh_langchain_validation_runs": 36,
+  "recorded_regression_decisions": 7560,
+  "format": {
+    "font": "Times New Roman",
+    "body_points": 12,
+    "line_spacing": 1.5,
+    "margins_inches": 1
+  },
+  "pdf_pages": 10,
+  "pdf_sha256": "ab57f9c15a75ed2a933282e362ce281bb3289f250574a4b3fd0296641e277442"
+}

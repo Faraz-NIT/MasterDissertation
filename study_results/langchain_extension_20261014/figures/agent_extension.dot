@@ -1,0 +1,20 @@
+digraph architecture {
+      graph [rankdir=TB, newrank=true, bgcolor="white", nodesep=.45, ranksep=.42, dpi=180];
+      node [shape=box, style="rounded,filled", fillcolor="#F4F8FA", color="#97A9B2", fontname="Arial", fontsize=12, margin=".18,.12"];
+      edge [color="#97A9B2", arrowsize=.65];
+      subgraph cluster_old { label="Previous fixed agent"; fontname="Arial"; fontsize=14; color="#D8E1E5"; style=rounded;
+        a1 [label="Supplier reader (LLM)\n+ source verification"];
+        a2 [label="Priority coordinator (LLM)"];
+        a3 [label="Shared numerical planner"];
+        a4 [label="Critic (LLM) every day\n+ hard release checks"];
+        a1 -> a2 -> a3 -> a4;
+      }
+      subgraph cluster_new { label="Selective LangChain extension"; fontname="Arial"; fontsize=14; color="#D8E1E5"; style=rounded;
+        b1 [label="Supplier intake\nTable parser or LLM reader"];
+        b2 [label="Source verification\n+ explicit priority router"];
+        b3 [label="Same numerical planner"];
+        b4 [label="Checks pass: release\nChecks fail: hold + LLM review"];
+        b1 -> b2 -> b3 -> b4;
+      }
+      {rank=same; a1;b1;} {rank=same;a2;b2;} {rank=same;a3;b3;} {rank=same;a4;b4;}
+    }

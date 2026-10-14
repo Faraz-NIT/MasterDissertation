@@ -1,0 +1,1936 @@
+{
+  "status": "COMPLETE",
+  "policy_means": [
+    {
+      "dataset": "M5",
+      "scenario": "promotion",
+      "arm": "fixed_agents",
+      "fill_rate": {
+        "mean": 0.9069945968633589,
+        "ci_low": 0.9019240391213195,
+        "ci_high": 0.9119286888842094,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 0.5027435134106936,
+        "ci_low": 0.4784525866045451,
+        "ci_high": 0.5278185988058122,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 3.79507708092514,
+        "ci_low": 3.749418607623097,
+        "ci_high": 3.840390613589757,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 3.0,
+        "ci_low": 3.0,
+        "ci_high": 3.0,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 0.9928571428571428,
+        "ci_low": 0.9833333333333333,
+        "ci_high": 1.0,
+        "simulation_seeds": 30
+      }
+    },
+    {
+      "dataset": "M5",
+      "scenario": "promotion",
+      "arm": "selective_agents",
+      "fill_rate": {
+        "mean": 0.9070748872952782,
+        "ci_low": 0.9020752052137574,
+        "ci_high": 0.9119609544462534,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 0.5023615084283622,
+        "ci_low": 0.47829975671717284,
+        "ci_high": 0.527029764363047,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 1.6974907990305275,
+        "ci_low": 1.6318662225387621,
+        "ci_high": 1.7613083485743741,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 0.6666666666666669,
+        "ci_low": 0.6428571428571429,
+        "ci_high": 0.6904761904761906,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "simulation_seeds": 30
+      }
+    },
+    {
+      "dataset": "M5",
+      "scenario": "promotion",
+      "arm": "structured_planner",
+      "fill_rate": {
+        "mean": 0.9070748872952782,
+        "ci_low": 0.9020752052137574,
+        "ci_high": 0.9119609544462534,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 0.5023615084283622,
+        "ci_low": 0.47829975671717284,
+        "ci_high": 0.527029764363047,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 0.0058549259323626745,
+        "ci_low": 0.005293332315618282,
+        "ci_high": 0.006658553006505133,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "simulation_seeds": 30
+      }
+    },
+    {
+      "dataset": "M5",
+      "scenario": "routine",
+      "arm": "fixed_agents",
+      "fill_rate": {
+        "mean": 0.9224678955094904,
+        "ci_low": 0.9182297326954832,
+        "ci_high": 0.9265343949738083,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 0.4318462281099442,
+        "ci_low": 0.4117877247408512,
+        "ci_high": 0.4527306345273509,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 3.8289807174692947,
+        "ci_low": 3.7902075849470678,
+        "ci_high": 3.8656473702963554,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 3.0,
+        "ci_low": 3.0,
+        "ci_high": 3.0,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "simulation_seeds": 30
+      }
+    },
+    {
+      "dataset": "M5",
+      "scenario": "routine",
+      "arm": "selective_agents",
+      "fill_rate": {
+        "mean": 0.9224678955094904,
+        "ci_low": 0.9182297326954832,
+        "ci_high": 0.9265343949738083,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 0.4318462281099442,
+        "ci_low": 0.4117877247408512,
+        "ci_high": 0.4527306345273509,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 1.7372439010499785,
+        "ci_low": 1.6718658038757919,
+        "ci_high": 1.799765153940891,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 0.6666666666666669,
+        "ci_low": 0.6428571428571429,
+        "ci_high": 0.6904761904761906,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "simulation_seeds": 30
+      }
+    },
+    {
+      "dataset": "M5",
+      "scenario": "routine",
+      "arm": "structured_planner",
+      "fill_rate": {
+        "mean": 0.9224678955094904,
+        "ci_low": 0.9182297326954832,
+        "ci_high": 0.9265343949738083,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 0.4318462281099442,
+        "ci_low": 0.4117877247408512,
+        "ci_high": 0.4527306345273509,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 0.005369182335700662,
+        "ci_low": 0.005038142148959672,
+        "ci_high": 0.005782442349771459,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "simulation_seeds": 30
+      }
+    },
+    {
+      "dataset": "M5",
+      "scenario": "supplier_disruption",
+      "arm": "fixed_agents",
+      "fill_rate": {
+        "mean": 0.8864085298532518,
+        "ci_low": 0.8809699166018105,
+        "ci_high": 0.8917990638387359,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 0.6108105482967954,
+        "ci_low": 0.5843391413062075,
+        "ci_high": 0.6374787642911693,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 3.8219016996244184,
+        "ci_low": 3.781946183370098,
+        "ci_high": 3.8570247811083425,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 3.0,
+        "ci_low": 3.0,
+        "ci_high": 3.0,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "simulation_seeds": 30
+      }
+    },
+    {
+      "dataset": "M5",
+      "scenario": "supplier_disruption",
+      "arm": "selective_agents",
+      "fill_rate": {
+        "mean": 0.8864085298532518,
+        "ci_low": 0.8809699166018105,
+        "ci_high": 0.8917990638387359,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 0.6108105482967954,
+        "ci_low": 0.5843391413062075,
+        "ci_high": 0.6374787642911693,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 1.739736738294873,
+        "ci_low": 1.6672122439205852,
+        "ci_high": 1.811164796239311,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 0.6666666666666669,
+        "ci_low": 0.6428571428571429,
+        "ci_high": 0.6904761904761906,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "simulation_seeds": 30
+      }
+    },
+    {
+      "dataset": "M5",
+      "scenario": "supplier_disruption",
+      "arm": "structured_planner",
+      "fill_rate": {
+        "mean": 0.8864085298532518,
+        "ci_low": 0.8809699166018105,
+        "ci_high": 0.8917990638387359,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 0.6108105482967954,
+        "ci_low": 0.5843391413062075,
+        "ci_high": 0.6374787642911693,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 0.005764695419929922,
+        "ci_low": 0.005191780456835183,
+        "ci_high": 0.006514725631710633,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "simulation_seeds": 30
+      }
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "promotion",
+      "arm": "fixed_agents",
+      "fill_rate": {
+        "mean": 0.8376507506573495,
+        "ci_low": 0.8330613520598955,
+        "ci_high": 0.842167650390149,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 0.8864230092767816,
+        "ci_low": 0.8639196956402648,
+        "ci_high": 0.9095288891950646,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.06284461342617315,
+        "ci_low": 0.061847920948340095,
+        "ci_high": 0.06383314814335475,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 4.092028713724132,
+        "ci_low": 4.050119117883411,
+        "ci_high": 4.136709847540604,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 3.0,
+        "ci_low": 3.0,
+        "ci_high": 3.0,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 0.6071428571428573,
+        "ci_low": 0.5619047619047619,
+        "ci_high": 0.6500000000000001,
+        "simulation_seeds": 30
+      }
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "promotion",
+      "arm": "selective_agents",
+      "fill_rate": {
+        "mean": 0.8447323209273466,
+        "ci_low": 0.8403781179409983,
+        "ci_high": 0.8490064717644491,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 0.8551980438619116,
+        "ci_low": 0.8333978673107999,
+        "ci_high": 0.8774018140760198,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.06527217156013927,
+        "ci_low": 0.06415333418838422,
+        "ci_high": 0.06639623927003195,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 1.8377211958552446,
+        "ci_low": 1.7664143768119678,
+        "ci_high": 1.9051399125616344,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 0.6666666666666669,
+        "ci_low": 0.6428571428571429,
+        "ci_high": 0.6904761904761906,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "simulation_seeds": 30
+      }
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "promotion",
+      "arm": "structured_planner",
+      "fill_rate": {
+        "mean": 0.8447323209273466,
+        "ci_low": 0.8403781179409983,
+        "ci_high": 0.8490064717644491,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 0.8551980438619116,
+        "ci_low": 0.8333978673107999,
+        "ci_high": 0.8774018140760198,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.06527217156013927,
+        "ci_low": 0.06415333418838422,
+        "ci_high": 0.06639623927003195,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 0.008002268700234015,
+        "ci_low": 0.007718416424471624,
+        "ci_high": 0.008393837562613218,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "simulation_seeds": 30
+      }
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "routine",
+      "arm": "fixed_agents",
+      "fill_rate": {
+        "mean": 0.8739978637045536,
+        "ci_low": 0.8701745428276033,
+        "ci_high": 0.8776804181178107,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 0.7263873868222057,
+        "ci_low": 0.7074566579167254,
+        "ci_high": 0.7458840762254826,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.07772149322431467,
+        "ci_low": 0.07668796314744422,
+        "ci_high": 0.07878085131550128,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 4.052231830537286,
+        "ci_low": 4.0176263022688605,
+        "ci_high": 4.08986435228219,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 3.0,
+        "ci_low": 3.0,
+        "ci_high": 3.0,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "simulation_seeds": 30
+      }
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "routine",
+      "arm": "selective_agents",
+      "fill_rate": {
+        "mean": 0.8739978637045536,
+        "ci_low": 0.8701745428276033,
+        "ci_high": 0.8776804181178107,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 0.7263873868222057,
+        "ci_low": 0.7074566579167254,
+        "ci_high": 0.7458840762254826,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.07772149322431467,
+        "ci_low": 0.07668796314744422,
+        "ci_high": 0.07878085131550128,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 1.8237230150922967,
+        "ci_low": 1.7561704040242816,
+        "ci_high": 1.8875532408429854,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 0.6666666666666669,
+        "ci_low": 0.6428571428571429,
+        "ci_high": 0.6904761904761906,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "simulation_seeds": 30
+      }
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "routine",
+      "arm": "structured_planner",
+      "fill_rate": {
+        "mean": 0.8739978637045536,
+        "ci_low": 0.8701745428276033,
+        "ci_high": 0.8776804181178107,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 0.7263873868222057,
+        "ci_low": 0.7074566579167254,
+        "ci_high": 0.7458840762254826,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.07772149322431467,
+        "ci_low": 0.07668796314744422,
+        "ci_high": 0.07878085131550128,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 0.008304834822359096,
+        "ci_low": 0.007974364741011023,
+        "ci_high": 0.008668538897895598,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "simulation_seeds": 30
+      }
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "supplier_disruption",
+      "arm": "fixed_agents",
+      "fill_rate": {
+        "mean": 0.8087353996263913,
+        "ci_low": 0.8053538185647474,
+        "ci_high": 0.8121877942282124,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 1.0408024683626418,
+        "ci_low": 1.0234959723069434,
+        "ci_high": 1.0578133422293718,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.06971184583633354,
+        "ci_low": 0.06900906742427687,
+        "ci_high": 0.07038884814300357,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 4.060980152257668,
+        "ci_low": 4.012730964681989,
+        "ci_high": 4.108404240154348,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 3.0,
+        "ci_low": 3.0,
+        "ci_high": 3.0,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "simulation_seeds": 30
+      }
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "supplier_disruption",
+      "arm": "selective_agents",
+      "fill_rate": {
+        "mean": 0.8087353996263913,
+        "ci_low": 0.8053538185647474,
+        "ci_high": 0.8121877942282124,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 1.0408024683626418,
+        "ci_low": 1.0234959723069434,
+        "ci_high": 1.0578133422293718,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.06971184583633354,
+        "ci_low": 0.06900906742427687,
+        "ci_high": 0.07038884814300357,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 1.8399711596505113,
+        "ci_low": 1.771929117982429,
+        "ci_high": 1.9053399605927415,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 0.6666666666666669,
+        "ci_low": 0.6428571428571429,
+        "ci_high": 0.6904761904761906,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "simulation_seeds": 30
+      }
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "supplier_disruption",
+      "arm": "structured_planner",
+      "fill_rate": {
+        "mean": 0.8087353996263913,
+        "ci_low": 0.8053538185647474,
+        "ci_high": 0.8121877942282124,
+        "simulation_seeds": 30
+      },
+      "cost_per_demand": {
+        "mean": 1.0408024683626418,
+        "ci_low": 1.0234959723069434,
+        "ci_high": 1.0578133422293718,
+        "simulation_seeds": 30
+      },
+      "expiry_share": {
+        "mean": 0.06971184583633354,
+        "ci_low": 0.06900906742427687,
+        "ci_high": 0.07038884814300357,
+        "simulation_seeds": 30
+      },
+      "mean_decision_seconds": {
+        "mean": 0.008325320218517888,
+        "ci_low": 0.00788946567356193,
+        "ci_high": 0.008949400550187593,
+        "simulation_seeds": 30
+      },
+      "calls_per_day": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "simulation_seeds": 30
+      },
+      "priority_accuracy": {
+        "mean": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "simulation_seeds": 30
+      }
+    }
+  ],
+  "paired_effects": [
+    {
+      "dataset": "M5",
+      "scenario": "overall",
+      "comparison": "fixed_agents",
+      "metric": "fill_rate",
+      "unit": "percentage_points",
+      "mean": 0.0026763477306431436,
+      "ci_low": 0.0,
+      "ci_high": 0.00802904319192943,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "overall",
+      "comparison": "fixed_agents",
+      "metric": "cost_per_demand",
+      "unit": "relative_percent",
+      "mean": -0.01981256633424004,
+      "ci_low": -0.06013645513021082,
+      "ci_high": 0.0006987561274907073,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "overall",
+      "comparison": "fixed_agents",
+      "metric": "expiry_share",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "overall",
+      "comparison": "fixed_agents",
+      "metric": "mean_decision_seconds",
+      "unit": "seconds",
+      "mean": -2.0904960198811575,
+      "ci_low": -2.1634604968595887,
+      "ci_high": -2.018647300842547,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "overall",
+      "comparison": "fixed_agents",
+      "metric": "calls_per_day",
+      "unit": "calls_per_day",
+      "mean": -2.333333333333334,
+      "ci_low": -2.357142857142858,
+      "ci_high": -2.3095238095238098,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "overall",
+      "comparison": "fixed_agents",
+      "metric": "priority_accuracy",
+      "unit": "percentage_points",
+      "mean": 0.23809523809523725,
+      "ci_low": 0.0,
+      "ci_high": 0.5555555555555536,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "overall",
+      "comparison": "structured_planner",
+      "metric": "fill_rate",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "overall",
+      "comparison": "structured_planner",
+      "metric": "cost_per_demand",
+      "unit": "relative_percent",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "overall",
+      "comparison": "structured_planner",
+      "metric": "expiry_share",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "overall",
+      "comparison": "structured_planner",
+      "metric": "mean_decision_seconds",
+      "unit": "seconds",
+      "mean": 1.7191608782291288,
+      "ci_low": 1.6525316211431273,
+      "ci_high": 1.7831049553015084,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "overall",
+      "comparison": "structured_planner",
+      "metric": "calls_per_day",
+      "unit": "calls_per_day",
+      "mean": 0.6666666666666669,
+      "ci_low": 0.6428571428571429,
+      "ci_high": 0.6904761904761906,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "overall",
+      "comparison": "structured_planner",
+      "metric": "priority_accuracy",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "overall",
+      "comparison": "fixed_agents",
+      "metric": "fill_rate",
+      "unit": "percentage_points",
+      "mean": 0.23605234233323913,
+      "ci_low": 0.20429359173738315,
+      "ci_high": 0.2690328487047263,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "overall",
+      "comparison": "fixed_agents",
+      "metric": "cost_per_demand",
+      "unit": "relative_percent",
+      "mean": -1.1764205568725619,
+      "ci_low": -1.3404607578259349,
+      "ci_high": -1.0209496270963088,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "overall",
+      "comparison": "fixed_agents",
+      "metric": "expiry_share",
+      "unit": "percentage_points",
+      "mean": 0.08091860446553767,
+      "ci_low": 0.052773297365467674,
+      "ci_high": 0.10941538645054291,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "overall",
+      "comparison": "fixed_agents",
+      "metric": "mean_decision_seconds",
+      "unit": "seconds",
+      "mean": -2.234608441973678,
+      "ci_low": -2.3152305932224637,
+      "ci_high": -2.156559819614351,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "overall",
+      "comparison": "fixed_agents",
+      "metric": "calls_per_day",
+      "unit": "calls_per_day",
+      "mean": -2.333333333333334,
+      "ci_low": -2.357142857142858,
+      "ci_high": -2.3095238095238098,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "overall",
+      "comparison": "fixed_agents",
+      "metric": "priority_accuracy",
+      "unit": "percentage_points",
+      "mean": 13.095238095238095,
+      "ci_low": 11.666666666666666,
+      "ci_high": 14.603174603174601,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "overall",
+      "comparison": "structured_planner",
+      "metric": "fill_rate",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "overall",
+      "comparison": "structured_planner",
+      "metric": "cost_per_demand",
+      "unit": "relative_percent",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "overall",
+      "comparison": "structured_planner",
+      "metric": "expiry_share",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "overall",
+      "comparison": "structured_planner",
+      "metric": "mean_decision_seconds",
+      "unit": "seconds",
+      "mean": 1.825594315618981,
+      "ci_low": 1.7587767074091685,
+      "ci_high": 1.8888116976077987,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "overall",
+      "comparison": "structured_planner",
+      "metric": "calls_per_day",
+      "unit": "calls_per_day",
+      "mean": 0.6666666666666669,
+      "ci_low": 0.6428571428571429,
+      "ci_high": 0.6904761904761906,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "overall",
+      "comparison": "structured_planner",
+      "metric": "priority_accuracy",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "promotion",
+      "comparison": "fixed_agents",
+      "metric": "fill_rate",
+      "unit": "percentage_points",
+      "mean": 0.00802904319192906,
+      "ci_low": 0.0,
+      "ci_high": 0.02408712957578718,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "promotion",
+      "comparison": "fixed_agents",
+      "metric": "cost_per_demand",
+      "unit": "relative_percent",
+      "mean": -0.06386203985932408,
+      "ci_low": -0.19376379322528006,
+      "ci_high": 0.0021776736473078095,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "promotion",
+      "comparison": "fixed_agents",
+      "metric": "expiry_share",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "promotion",
+      "comparison": "fixed_agents",
+      "metric": "mean_decision_seconds",
+      "unit": "seconds",
+      "mean": -2.097586281894612,
+      "ci_low": -2.169507576012478,
+      "ci_high": -2.02712035204145,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "promotion",
+      "comparison": "fixed_agents",
+      "metric": "calls_per_day",
+      "unit": "calls_per_day",
+      "mean": -2.333333333333334,
+      "ci_low": -2.357142857142858,
+      "ci_high": -2.3095238095238098,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "promotion",
+      "comparison": "fixed_agents",
+      "metric": "priority_accuracy",
+      "unit": "percentage_points",
+      "mean": 0.714285714285714,
+      "ci_low": 0.0,
+      "ci_high": 1.6666666666666659,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "promotion",
+      "comparison": "structured_planner",
+      "metric": "fill_rate",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "promotion",
+      "comparison": "structured_planner",
+      "metric": "cost_per_demand",
+      "unit": "relative_percent",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "promotion",
+      "comparison": "structured_planner",
+      "metric": "expiry_share",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "promotion",
+      "comparison": "structured_planner",
+      "metric": "mean_decision_seconds",
+      "unit": "seconds",
+      "mean": 1.6916358730981647,
+      "ci_low": 1.626151502887234,
+      "ci_high": 1.755197762618967,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "promotion",
+      "comparison": "structured_planner",
+      "metric": "calls_per_day",
+      "unit": "calls_per_day",
+      "mean": 0.6666666666666669,
+      "ci_low": 0.6428571428571429,
+      "ci_high": 0.6904761904761906,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "promotion",
+      "comparison": "structured_planner",
+      "metric": "priority_accuracy",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "promotion",
+      "comparison": "fixed_agents",
+      "metric": "fill_rate",
+      "unit": "percentage_points",
+      "mean": 0.7081570269997142,
+      "ci_low": 0.6128807752121472,
+      "ci_high": 0.8070985461141816,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "promotion",
+      "comparison": "fixed_agents",
+      "metric": "cost_per_demand",
+      "unit": "relative_percent",
+      "mean": -3.515266441000883,
+      "ci_low": -3.9982270691585455,
+      "ci_high": -3.053652524522559,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "promotion",
+      "comparison": "fixed_agents",
+      "metric": "expiry_share",
+      "unit": "percentage_points",
+      "mean": 0.24275581339661298,
+      "ci_low": 0.15831989209640315,
+      "ci_high": 0.3282461593516287,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "promotion",
+      "comparison": "fixed_agents",
+      "metric": "mean_decision_seconds",
+      "unit": "seconds",
+      "mean": -2.254307517868888,
+      "ci_low": -2.3406442833585577,
+      "ci_high": -2.1728899294291475,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "promotion",
+      "comparison": "fixed_agents",
+      "metric": "calls_per_day",
+      "unit": "calls_per_day",
+      "mean": -2.333333333333334,
+      "ci_low": -2.357142857142858,
+      "ci_high": -2.3095238095238098,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "promotion",
+      "comparison": "fixed_agents",
+      "metric": "priority_accuracy",
+      "unit": "percentage_points",
+      "mean": 39.28571428571429,
+      "ci_low": 34.99999999999999,
+      "ci_high": 43.80952380952381,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "promotion",
+      "comparison": "structured_planner",
+      "metric": "fill_rate",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "promotion",
+      "comparison": "structured_planner",
+      "metric": "cost_per_demand",
+      "unit": "relative_percent",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "promotion",
+      "comparison": "structured_planner",
+      "metric": "expiry_share",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "promotion",
+      "comparison": "structured_planner",
+      "metric": "mean_decision_seconds",
+      "unit": "seconds",
+      "mean": 1.8297189271550103,
+      "ci_low": 1.7585339771201582,
+      "ci_high": 1.8971439079112244,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "promotion",
+      "comparison": "structured_planner",
+      "metric": "calls_per_day",
+      "unit": "calls_per_day",
+      "mean": 0.6666666666666669,
+      "ci_low": 0.6428571428571429,
+      "ci_high": 0.6904761904761906,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "promotion",
+      "comparison": "structured_planner",
+      "metric": "priority_accuracy",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "routine",
+      "comparison": "fixed_agents",
+      "metric": "fill_rate",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "routine",
+      "comparison": "fixed_agents",
+      "metric": "cost_per_demand",
+      "unit": "relative_percent",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "routine",
+      "comparison": "fixed_agents",
+      "metric": "expiry_share",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "routine",
+      "comparison": "fixed_agents",
+      "metric": "mean_decision_seconds",
+      "unit": "seconds",
+      "mean": -2.091736816419316,
+      "ci_low": -2.169657357769566,
+      "ci_high": -2.0136472208306317,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "routine",
+      "comparison": "fixed_agents",
+      "metric": "calls_per_day",
+      "unit": "calls_per_day",
+      "mean": -2.333333333333334,
+      "ci_low": -2.357142857142858,
+      "ci_high": -2.3095238095238098,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "routine",
+      "comparison": "fixed_agents",
+      "metric": "priority_accuracy",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "routine",
+      "comparison": "structured_planner",
+      "metric": "fill_rate",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "routine",
+      "comparison": "structured_planner",
+      "metric": "cost_per_demand",
+      "unit": "relative_percent",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "routine",
+      "comparison": "structured_planner",
+      "metric": "expiry_share",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "routine",
+      "comparison": "structured_planner",
+      "metric": "mean_decision_seconds",
+      "unit": "seconds",
+      "mean": 1.7318747187142782,
+      "ci_low": 1.6666882778521088,
+      "ci_high": 1.7943630471399228,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "routine",
+      "comparison": "structured_planner",
+      "metric": "calls_per_day",
+      "unit": "calls_per_day",
+      "mean": 0.6666666666666669,
+      "ci_low": 0.6428571428571429,
+      "ci_high": 0.6904761904761906,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "routine",
+      "comparison": "structured_planner",
+      "metric": "priority_accuracy",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "routine",
+      "comparison": "fixed_agents",
+      "metric": "fill_rate",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "routine",
+      "comparison": "fixed_agents",
+      "metric": "cost_per_demand",
+      "unit": "relative_percent",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "routine",
+      "comparison": "fixed_agents",
+      "metric": "expiry_share",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "routine",
+      "comparison": "fixed_agents",
+      "metric": "mean_decision_seconds",
+      "unit": "seconds",
+      "mean": -2.2285088154449895,
+      "ci_low": -2.311621552921895,
+      "ci_high": -2.1489577596921854,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "routine",
+      "comparison": "fixed_agents",
+      "metric": "calls_per_day",
+      "unit": "calls_per_day",
+      "mean": -2.333333333333334,
+      "ci_low": -2.357142857142858,
+      "ci_high": -2.3095238095238098,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "routine",
+      "comparison": "fixed_agents",
+      "metric": "priority_accuracy",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "routine",
+      "comparison": "structured_planner",
+      "metric": "fill_rate",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "routine",
+      "comparison": "structured_planner",
+      "metric": "cost_per_demand",
+      "unit": "relative_percent",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "routine",
+      "comparison": "structured_planner",
+      "metric": "expiry_share",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "routine",
+      "comparison": "structured_planner",
+      "metric": "mean_decision_seconds",
+      "unit": "seconds",
+      "mean": 1.8154181802699374,
+      "ci_low": 1.7478995359987073,
+      "ci_high": 1.8792597382941039,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "routine",
+      "comparison": "structured_planner",
+      "metric": "calls_per_day",
+      "unit": "calls_per_day",
+      "mean": 0.6666666666666669,
+      "ci_low": 0.6428571428571429,
+      "ci_high": 0.6904761904761906,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "routine",
+      "comparison": "structured_planner",
+      "metric": "priority_accuracy",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "supplier_disruption",
+      "comparison": "fixed_agents",
+      "metric": "fill_rate",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "supplier_disruption",
+      "comparison": "fixed_agents",
+      "metric": "cost_per_demand",
+      "unit": "relative_percent",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "supplier_disruption",
+      "comparison": "fixed_agents",
+      "metric": "expiry_share",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "supplier_disruption",
+      "comparison": "fixed_agents",
+      "metric": "mean_decision_seconds",
+      "unit": "seconds",
+      "mean": -2.0821649613295445,
+      "ci_low": -2.1591035740552758,
+      "ci_high": -2.0075511423469736,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "supplier_disruption",
+      "comparison": "fixed_agents",
+      "metric": "calls_per_day",
+      "unit": "calls_per_day",
+      "mean": -2.333333333333334,
+      "ci_low": -2.357142857142858,
+      "ci_high": -2.3095238095238098,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "supplier_disruption",
+      "comparison": "fixed_agents",
+      "metric": "priority_accuracy",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "supplier_disruption",
+      "comparison": "structured_planner",
+      "metric": "fill_rate",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "supplier_disruption",
+      "comparison": "structured_planner",
+      "metric": "cost_per_demand",
+      "unit": "relative_percent",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "supplier_disruption",
+      "comparison": "structured_planner",
+      "metric": "expiry_share",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "supplier_disruption",
+      "comparison": "structured_planner",
+      "metric": "mean_decision_seconds",
+      "unit": "seconds",
+      "mean": 1.7339720428749432,
+      "ci_low": 1.6615230895430535,
+      "ci_high": 1.8052807231469965,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "supplier_disruption",
+      "comparison": "structured_planner",
+      "metric": "calls_per_day",
+      "unit": "calls_per_day",
+      "mean": 0.6666666666666669,
+      "ci_low": 0.6428571428571429,
+      "ci_high": 0.6904761904761906,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "M5",
+      "scenario": "supplier_disruption",
+      "comparison": "structured_planner",
+      "metric": "priority_accuracy",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "supplier_disruption",
+      "comparison": "fixed_agents",
+      "metric": "fill_rate",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "supplier_disruption",
+      "comparison": "fixed_agents",
+      "metric": "cost_per_demand",
+      "unit": "relative_percent",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "supplier_disruption",
+      "comparison": "fixed_agents",
+      "metric": "expiry_share",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "supplier_disruption",
+      "comparison": "fixed_agents",
+      "metric": "mean_decision_seconds",
+      "unit": "seconds",
+      "mean": -2.2210089926071563,
+      "ci_low": -2.3051689609883756,
+      "ci_high": -2.139736116088402,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "supplier_disruption",
+      "comparison": "fixed_agents",
+      "metric": "calls_per_day",
+      "unit": "calls_per_day",
+      "mean": -2.333333333333334,
+      "ci_low": -2.357142857142858,
+      "ci_high": -2.3095238095238098,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "supplier_disruption",
+      "comparison": "fixed_agents",
+      "metric": "priority_accuracy",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "supplier_disruption",
+      "comparison": "structured_planner",
+      "metric": "fill_rate",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "supplier_disruption",
+      "comparison": "structured_planner",
+      "metric": "cost_per_demand",
+      "unit": "relative_percent",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "supplier_disruption",
+      "comparison": "structured_planner",
+      "metric": "expiry_share",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "supplier_disruption",
+      "comparison": "structured_planner",
+      "metric": "mean_decision_seconds",
+      "unit": "seconds",
+      "mean": 1.8316458394319937,
+      "ci_low": 1.7637546924814351,
+      "ci_high": 1.8969033628778975,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "supplier_disruption",
+      "comparison": "structured_planner",
+      "metric": "calls_per_day",
+      "unit": "calls_per_day",
+      "mean": 0.6666666666666669,
+      "ci_low": 0.6428571428571429,
+      "ci_high": 0.6904761904761906,
+      "simulation_seeds": 30
+    },
+    {
+      "dataset": "RetailNet",
+      "scenario": "supplier_disruption",
+      "comparison": "structured_planner",
+      "metric": "priority_accuracy",
+      "unit": "percentage_points",
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "simulation_seeds": 30
+    }
+  ],
+  "diagnostics": [
+    {
+      "dataset": "M5",
+      "arm": "fixed_agents",
+      "portfolio_days": 1260,
+      "fresh_model_calls": 3780,
+      "structured_table_decisions": 0,
+      "exact_source_accuracy": 1.0,
+      "priority_accuracy": 0.9976190476190476,
+      "active_promotion_accuracy": 0.99,
+      "priority_errors": 3,
+      "mean_decision_seconds": 3.8153198326729507,
+      "p95_decision_seconds": 4.395896307143266,
+      "held_days": 0,
+      "review_requests": 0,
+      "committed_violations": 0,
+      "input_tokens": 1199934,
+      "output_tokens": 178970
+    },
+    {
+      "dataset": "M5",
+      "arm": "selective_agents",
+      "portfolio_days": 1260,
+      "fresh_model_calls": 840,
+      "structured_table_decisions": 420,
+      "exact_source_accuracy": 1.0,
+      "priority_accuracy": 1.0,
+      "active_promotion_accuracy": 1.0,
+      "priority_errors": 0,
+      "mean_decision_seconds": 1.7248238127917932,
+      "p95_decision_seconds": 3.0414122239657444,
+      "held_days": 0,
+      "review_requests": 0,
+      "committed_violations": 0,
+      "input_tokens": 411580,
+      "output_tokens": 97000
+    },
+    {
+      "dataset": "M5",
+      "arm": "structured_planner",
+      "portfolio_days": 1260,
+      "fresh_model_calls": 0,
+      "structured_table_decisions": 0,
+      "exact_source_accuracy": 1.0,
+      "priority_accuracy": 1.0,
+      "active_promotion_accuracy": 1.0,
+      "priority_errors": 0,
+      "mean_decision_seconds": 0.00566293456266442,
+      "p95_decision_seconds": 0.00933001496305223,
+      "held_days": 0,
+      "review_requests": 0,
+      "committed_violations": 0,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    {
+      "dataset": "RetailNet",
+      "arm": "fixed_agents",
+      "portfolio_days": 1260,
+      "fresh_model_calls": 3780,
+      "structured_table_decisions": 0,
+      "exact_source_accuracy": 1.0,
+      "priority_accuracy": 0.8690476190476191,
+      "active_promotion_accuracy": 0.45,
+      "priority_errors": 165,
+      "mean_decision_seconds": 4.068413565506362,
+      "p95_decision_seconds": 4.699463827270665,
+      "held_days": 0,
+      "review_requests": 0,
+      "committed_violations": 0,
+      "input_tokens": 1225393,
+      "output_tokens": 188763
+    },
+    {
+      "dataset": "RetailNet",
+      "arm": "selective_agents",
+      "portfolio_days": 1260,
+      "fresh_model_calls": 840,
+      "structured_table_decisions": 420,
+      "exact_source_accuracy": 1.0,
+      "priority_accuracy": 1.0,
+      "active_promotion_accuracy": 1.0,
+      "priority_errors": 0,
+      "mean_decision_seconds": 1.8338051235326842,
+      "p95_decision_seconds": 3.239700470739626,
+      "held_days": 0,
+      "review_requests": 0,
+      "committed_violations": 0,
+      "input_tokens": 417415,
+      "output_tokens": 102835
+    },
+    {
+      "dataset": "RetailNet",
+      "arm": "structured_planner",
+      "portfolio_days": 1260,
+      "fresh_model_calls": 0,
+      "structured_table_decisions": 0,
+      "exact_source_accuracy": 1.0,
+      "priority_accuracy": 1.0,
+      "active_promotion_accuracy": 1.0,
+      "priority_errors": 0,
+      "mean_decision_seconds": 0.008210807913703667,
+      "p95_decision_seconds": 0.010486952675273642,
+      "held_days": 0,
+      "review_requests": 0,
+      "committed_violations": 0,
+      "input_tokens": 0,
+      "output_tokens": 0
+    }
+  ],
+  "registered_assessments": [
+    {
+      "dataset": "M5",
+      "A1_call_reduction_pct": 77.77777777777779,
+      "A1_supported": true,
+      "A2_supported": true,
+      "A3_supported": true,
+      "A4_supported": true,
+      "service_superiority_supported": false,
+      "cost_superiority_supported": false
+    },
+    {
+      "dataset": "RetailNet",
+      "A1_call_reduction_pct": 77.77777777777779,
+      "A1_supported": true,
+      "A2_supported": true,
+      "A3_supported": true,
+      "A4_supported": true,
+      "service_superiority_supported": true,
+      "cost_superiority_supported": true
+    }
+  ],
+  "all_registered_success_conditions_met": true,
+  "inference_note": "Conditional simulated-seed uncertainty; historical weeks previously studied. Neither retailer-population inference nor independent model replications.",
+  "attribution_note": "Same forecast and numerical planner across arms. Routing, structured parsing and omitted routine LLM calls are architectural changes, not model training."
+}

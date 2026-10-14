@@ -1,0 +1,18 @@
+{
+  "repository": "Faraz-NIT/MasterDissertation",
+  "branch": "main",
+  "folder": "study_results/langchain_extension_20261014",
+  "documents": {
+    "LangChain_Agent_Contribution_Chapter.docx": {
+      "bytes": 416216,
+      "sha256": "d1cf4133b2baa58147806fc0ff1f7b2caed05394a140d236567d45c279172881"
+    },
+    "LangChain_Agent_Contribution_Chapter.pdf": {
+      "bytes": 588735,
+      "sha256": "ab57f9c15a75ed2a933282e362ce281bb3289f250574a4b3fd0296641e277442"
+    }
+  },
+  "scope": "One chapter; original 30-seed architecture evidence distinguished from fresh LangChain implementation validation",
+  "all_new_native_requests_responses_and_decisions_included": true,
+  "prior_study_files_changed": false
+}

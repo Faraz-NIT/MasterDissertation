@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "scope": "Source, documents and artifacts; native server log excluded from style formatting checks",
+  "raw_server_log_preserved_byte_for_byte": true,
+  "reason_for_raw_log_exception": "Unmodified Ollama diagnostic lines end with spaces",
+  "check_command": [
+    "git",
+    "diff",
+    "--cached",
+    "--check",
+    "--",
+    "scripts/langchain_extension",
+    "tests/test_langchain_extension.py",
+    "study_results/langchain_extension_20261014",
+    ":!study_results/langchain_extension_20261014/logs/ollama_server.log"
+  ],
+  "frozen_evaluation_sources_changed": false
+}

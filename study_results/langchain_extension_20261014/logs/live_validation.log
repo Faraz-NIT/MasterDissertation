@@ -1,0 +1,26 @@
+{"at_utc": "2026-10-14T13:52:47.362565+00:00", "stage": "validation_started", "protocol_sha256": "a5c0202eff7de8814b9910a87a2c970e83a9efb3673bc2fb62856a1db01bc8e2"}
+{"at_utc": "2026-10-14T13:52:47.362646+00:00", "stage": "case_started", "dataset": "M5", "origin": 1927, "scenario": "routine", "runs_complete": 0}
+{"at_utc": "2026-10-14T13:53:38.734809+00:00", "stage": "case_finished", "dataset": "M5", "origin": 1927, "scenario": "routine", "runs_complete": 3, "fresh_calls": 25}
+{"at_utc": "2026-10-14T13:53:38.734876+00:00", "stage": "case_started", "dataset": "M5", "origin": 1934, "scenario": "routine", "runs_complete": 3}
+{"at_utc": "2026-10-14T13:54:20.880726+00:00", "stage": "case_finished", "dataset": "M5", "origin": 1934, "scenario": "routine", "runs_complete": 6, "fresh_calls": 50}
+{"at_utc": "2026-10-14T13:54:20.880817+00:00", "stage": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "runs_complete": 6}
+{"at_utc": "2026-10-14T13:55:01.882779+00:00", "stage": "case_finished", "dataset": "RetailNet", "origin": 83, "scenario": "routine", "runs_complete": 9, "fresh_calls": 75}
+{"at_utc": "2026-10-14T13:55:01.882839+00:00", "stage": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "runs_complete": 9}
+{"at_utc": "2026-10-14T13:55:41.970701+00:00", "stage": "case_finished", "dataset": "RetailNet", "origin": 90, "scenario": "routine", "runs_complete": 12, "fresh_calls": 100}
+{"at_utc": "2026-10-14T13:55:41.970780+00:00", "stage": "case_started", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "runs_complete": 12}
+{"at_utc": "2026-10-14T13:56:19.720543+00:00", "stage": "case_finished", "dataset": "M5", "origin": 1927, "scenario": "supplier_disruption", "runs_complete": 15, "fresh_calls": 125}
+{"at_utc": "2026-10-14T13:56:19.720604+00:00", "stage": "case_started", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "runs_complete": 15}
+{"at_utc": "2026-10-14T13:56:56.751404+00:00", "stage": "case_finished", "dataset": "M5", "origin": 1934, "scenario": "supplier_disruption", "runs_complete": 18, "fresh_calls": 150}
+{"at_utc": "2026-10-14T13:56:56.751479+00:00", "stage": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "runs_complete": 18}
+{"at_utc": "2026-10-14T13:57:36.839817+00:00", "stage": "case_finished", "dataset": "RetailNet", "origin": 83, "scenario": "supplier_disruption", "runs_complete": 21, "fresh_calls": 175}
+{"at_utc": "2026-10-14T13:57:36.839880+00:00", "stage": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "runs_complete": 21}
+{"at_utc": "2026-10-14T13:58:14.529615+00:00", "stage": "case_finished", "dataset": "RetailNet", "origin": 90, "scenario": "supplier_disruption", "runs_complete": 24, "fresh_calls": 200}
+{"at_utc": "2026-10-14T13:58:14.529679+00:00", "stage": "case_started", "dataset": "M5", "origin": 1927, "scenario": "promotion", "runs_complete": 24}
+{"at_utc": "2026-10-14T13:58:51.119253+00:00", "stage": "case_finished", "dataset": "M5", "origin": 1927, "scenario": "promotion", "runs_complete": 27, "fresh_calls": 225}
+{"at_utc": "2026-10-14T13:58:51.119332+00:00", "stage": "case_started", "dataset": "M5", "origin": 1934, "scenario": "promotion", "runs_complete": 27}
+{"at_utc": "2026-10-14T13:59:27.925921+00:00", "stage": "case_finished", "dataset": "M5", "origin": 1934, "scenario": "promotion", "runs_complete": 30, "fresh_calls": 250}
+{"at_utc": "2026-10-14T13:59:27.925987+00:00", "stage": "case_started", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "runs_complete": 30}
+{"at_utc": "2026-10-14T14:00:08.048539+00:00", "stage": "case_finished", "dataset": "RetailNet", "origin": 83, "scenario": "promotion", "runs_complete": 33, "fresh_calls": 275}
+{"at_utc": "2026-10-14T14:00:08.048598+00:00", "stage": "case_started", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "runs_complete": 33}
+{"at_utc": "2026-10-14T14:00:47.619360+00:00", "stage": "case_finished", "dataset": "RetailNet", "origin": 90, "scenario": "promotion", "runs_complete": 36, "fresh_calls": 300}
+{"at_utc": "2026-10-14T14:00:47.619429+00:00", "stage": "validation_finished", "status": "COMPLETE", "runs": 36, "portfolio_days": 252, "fresh_primary_model_calls": 300, "elapsed_seconds": 480.25689305299966, "balanced_seeds_complete": [233], "scope": "Implementation validation, not the full 30-seed study", "protocol_sha256": "a5c0202eff7de8814b9910a87a2c970e83a9efb3673bc2fb62856a1db01bc8e2"}

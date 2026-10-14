@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "passed": 16,
+  "failed": 0,
+  "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -m pytest -q tests/test_langchain_extension.py tests/test_selective_architecture.py tests/test_ollama_clean_study.py",
+  "receipt_source": "Captured completed execution session 12186",
+  "test_sha256": {
+    "tests/test_langchain_extension.py": "75d8332157b1091d0270039d1514639ad273e4463ba081026a6a24eb547998cf",
+    "tests/test_selective_architecture.py": "2f34d7cdc08a20a8e065573832076630bf576a3e8daeef8e03f94bb49a702826",
+    "tests/test_ollama_clean_study.py": "5ba7b4e46fc0de9abf8bb37e51b3e64d50b69eff6b7b64afbb5958e9d6c55b84"
+  }
+}
