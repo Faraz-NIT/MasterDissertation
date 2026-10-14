@@ -1,0 +1,11 @@
+{
+  "evaluated_source_hashes_unchanged": true,
+  "committed_study": "65f9e6b52a4e627b2d36ae55abc7d43029efeb86",
+  "whitespace_check": "PASS with blank-at-EOF warnings excluded; all other whitespace checks retained",
+  "preserved_EOF_warnings": [
+    "scripts/architecture_study/independent_ledger.py",
+    "study_results/architecture_study_20261013/architecture_graph.mmd",
+    "study_results/architecture_study_20261013/reproduction/scripts/architecture_study/independent_ledger.py"
+  ],
+  "reason": "Preserve frozen/evaluated and generated export bytes and their recorded hashes"
+}
