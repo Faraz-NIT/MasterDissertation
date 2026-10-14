@@ -1,0 +1,19 @@
+{
+  "scope": "Chapter revision with explicitly hypothetical 3% relative fill-rate scenario",
+  "new_experiment_runs": 0,
+  "new_model_calls": 0,
+  "measured_results_modified": false,
+  "assumption": "3% relative improvement over the measured fixed-agent fill rate; not three percentage points",
+  "source_docx": {
+    "path": "study_results/langchain_extension_20261014/LangChain_Agent_Contribution_Chapter.docx",
+    "sha256": "d1cf4133b2baa58147806fc0ff1f7b2caed05394a140d236567d45c279172881"
+  },
+  "source_measured_results": {
+    "path": "study_results/architecture_study_20261013/analysis/overall_seed_results.csv",
+    "sha256": "9a45a9f0227afcd0579bf3b2636f6ca26bde1687c19400cc9d9eddee2c56c766"
+  },
+  "docx_sha256": "7b66c2d225fec1c2344785daa5cd9ceb1355b11aea10dda96b1a450ebd19a426",
+  "figures": 8,
+  "tables": 5,
+  "manuscript_and_tables_verified": true
+}

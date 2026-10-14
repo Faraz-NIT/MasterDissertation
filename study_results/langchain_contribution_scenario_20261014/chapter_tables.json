@@ -1,0 +1,139 @@
+{
+  "changes": {
+    "title": "What changes and what is retained",
+    "headers": [
+      "Component",
+      "Previous agent",
+      "Selective extension"
+    ],
+    "rows": [
+      [
+        "Supplier information",
+        "LLM reads every message",
+        "Parser for complete declared tables; LLM for prose"
+      ],
+      [
+        "Business priority",
+        "LLM selects the priority",
+        "Router applies the announced business policy"
+      ],
+      [
+        "Numerical planning",
+        "Constrained planning tool",
+        "Same tool, exposed as a LangChain StructuredTool"
+      ],
+      [
+        "Critic and release",
+        "LLM critic on every decision; hard checks retained",
+        "LLM review on failed checks; failed actions held"
+      ],
+      [
+        "Model and forecasts",
+        "Local pretrained model; past-only forecasts",
+        "Same model, prompts and forecasts"
+      ]
+    ]
+  },
+  "results": {
+    "title": "Completed architecture study: selective extension versus the previous fixed agent",
+    "headers": [
+      "Dataset",
+      "Declared-priority accuracy: previous / selective",
+      "Model-call reduction",
+      "Decision-time reduction",
+      "Inventory result"
+    ],
+    "rows": [
+      [
+        "M5",
+        "99.76% / 100.00%",
+        "77.8%",
+        "54.8%",
+        "Service and cost essentially unchanged"
+      ],
+      [
+        "RetailNet",
+        "86.90% / 100.00%",
+        "77.8%",
+        "54.9%",
+        "Fill +0.24 pp; cost -1.18%"
+      ]
+    ]
+  },
+  "hypotheses": {
+    "title": "Architecture hypotheses in the completed 30-seed study",
+    "headers": [
+      "Hypothesis",
+      "M5",
+      "RetailNet"
+    ],
+    "rows": [
+      [
+        "A1: At least 50% fewer model calls",
+        "Supported",
+        "Supported"
+      ],
+      [
+        "A2: Lower mean decision time",
+        "Supported",
+        "Supported"
+      ],
+      [
+        "A3: Preserved/improved priority accuracy and no released violations",
+        "Supported",
+        "Supported"
+      ],
+      [
+        "A4: Preserve service and cost within the stated study tolerances",
+        "Supported",
+        "Supported"
+      ]
+    ]
+  },
+  "validation": {
+    "title": "Fresh LangChain implementation validation; one new simulation seed",
+    "headers": [
+      "Dataset",
+      "Priority accuracy: previous / selective",
+      "Native calls: previous / selective",
+      "Released rule violations"
+    ],
+    "rows": [
+      [
+        "M5",
+        "100.00% / 100.00%",
+        "126 / 24",
+        "0"
+      ],
+      [
+        "RetailNet",
+        "88.10% / 100.00%",
+        "126 / 24",
+        "0"
+      ]
+    ]
+  },
+  "scenario": {
+    "title": "Observed demand satisfied and a separately labelled illustrative scenario",
+    "headers": [
+      "Dataset",
+      "Previous agent: observed",
+      "Selective extension: observed",
+      "3% relative gain: assumed"
+    ],
+    "rows": [
+      [
+        "M5",
+        "90.53%",
+        "90.53%",
+        "93.24%"
+      ],
+      [
+        "RetailNet",
+        "84.01%",
+        "84.25%",
+        "86.53%"
+      ]
+    ]
+  }
+}

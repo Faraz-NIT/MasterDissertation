@@ -1,0 +1,66 @@
+{
+  "figures": [
+    {
+      "key": "agent_extension",
+      "path": "figures/agent_extension.png",
+      "title": "Building on the previous replenishment agent",
+      "scope": "Architecture",
+      "caption": "The reader, numerical planner and hard release controls are retained. Delegation and priority selection change. LangChain implements the extension with conditional runnable branches and a planning tool."
+    },
+    {
+      "key": "model_calls",
+      "path": "figures/model_calls.png",
+      "title": "Model calls per replenishment decision",
+      "scope": "M5 + RetailNet",
+      "caption": "Completed 30-seed architecture study, executed with LangGraph. Calls include every attempted native model call. The same model and generation settings were used. Structured-table parsing is a declared architectural route, not a reused model response.",
+      "source_sha256": "3f0a109690318caf85c45f9c4edab8bc6d83f970c33a25cb766f8df2c02fdb9b"
+    },
+    {
+      "key": "decision_time",
+      "path": "figures/decision_time.png",
+      "title": "Mean time per replenishment decision",
+      "scope": "M5 + RetailNet",
+      "caption": "Completed 30-seed architecture study, executed with LangGraph. Measured whole-decision blocks, including graph orchestration and the numerical tool. Fixed/selective order was counterbalanced. This describes the experimental instance, not employee time or production cost.",
+      "source_sha256": "d507f3e90bd035393020dd1f64a6b1b8c0c45c9f973f748d7f6ce8dda7cc9b80"
+    },
+    {
+      "key": "priority_accuracy",
+      "path": "figures/priority_accuracy.png",
+      "title": "Correct application of the declared business priority",
+      "scope": "M5 + RetailNet",
+      "caption": "Completed 30-seed architecture study, executed with LangGraph. Accuracy is scored against the policy available before ordering. Active promotion covers days 2\u20136. Explicit policy routing does not demonstrate that the model itself improved its reasoning.",
+      "source_sha256": "9ae67568ec9abd137602f8eb809a020f33d9e6e6efa2cdc09e6f7a9e34907911"
+    },
+    {
+      "key": "inventory_effects",
+      "path": "figures/inventory_effects.png",
+      "title": "Inventory-performance change relative to the fixed workflow",
+      "scope": "M5 + RetailNet",
+      "caption": "Completed 30-seed architecture study, executed with LangGraph. Points show paired simulation-seed means; intervals are 95% bootstrap intervals for 30 simulated seeds. Positive values favour selective delegation in both panels. Costs are synthetic inventory operating-cost indices, not realised savings.",
+      "source_sha256": "7ba3db402dc7f61845b0f71bdab360b16db7d16f1352d23197198b12a9c60265"
+    },
+    {
+      "key": "retailnet_expiry",
+      "path": "figures/retailnet_expiry.png",
+      "title": "Expiry outcomes by RetailNet operating situation",
+      "scope": "RetailNet",
+      "caption": "Completed 30-seed architecture study, executed with LangGraph. Hypothetical three-day FIFO stock process. A service or cost improvement does not necessarily imply less waste. M5 has no expiry within the evaluated horizon.",
+      "source_sha256": "851cbe0c4c063c6e7d61cd8098703b7e684b901660febdc8522bd3916ef2ce76"
+    },
+    {
+      "key": "illustrative_3percent_scenario",
+      "path": "figures/illustrative_3percent_scenario.png",
+      "title": "Illustrative 3% relative improvement in demand satisfied",
+      "scope": "M5 + RetailNet; hypothetical scenario",
+      "caption": "The first two bars show observed rates from the completed architecture study. The hatched bar assumes a 3% relative gain over the previous fixed agent. It is a calculated illustration and is not an experimental result."
+    },
+    {
+      "key": "fresh_langchain_validation",
+      "path": "figures/fresh_langchain_validation.png",
+      "title": "Fresh LangChain execution check",
+      "scope": "M5 + RetailNet",
+      "caption": "Both workflows use LangChain in this fresh, one-seed validation. Thirty series per dataset, two weeks and three scenarios are covered. Times are descriptive; this small check supplies no new confidence intervals."
+    }
+  ],
+  "source_chapter": "study_results/langchain_extension_20261014"
+}

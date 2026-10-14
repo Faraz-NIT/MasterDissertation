@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "pdf_pages": 11,
+  "figures": 8,
+  "tables": 5,
+  "manuscript_exact_match": true,
+  "format_and_page_bounds_verified": true,
+  "hypothesis_table_together": true,
+  "scenario_calculation_verified": true,
+  "assumption_explicit_in_pdf": true,
+  "new_experiments": 0,
+  "docx_sha256": "7b66c2d225fec1c2344785daa5cd9ceb1355b11aea10dda96b1a450ebd19a426",
+  "pdf_sha256": "c0a170f8f8a04207ac21f97aa922790826ca6f2d461bd2982c0b1f0a8ecae19b",
+  "visual_review": "PASS: final eleven-page contact sheet inspected; scenario page inspected at full size; hypothesis table together"
+}
