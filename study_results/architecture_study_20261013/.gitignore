@@ -1,0 +1,6 @@
+# These original bytes are preserved in the verified complete-evidence archive.
+runs/
+development/
+data/
+frozen_code/
+logs/

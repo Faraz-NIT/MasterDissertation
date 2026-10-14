@@ -1,0 +1,391 @@
+{
+  "status": "STAGED_BYTES_VERIFIED",
+  "at_utc": "2026-10-14T00:54:51.973780+00:00",
+  "parent_commit": "efdc64078571e000a38f7069b39985b056caa5c7",
+  "destination": "origin/main",
+  "scope": "Completed LangGraph architecture study, one illustrated chapter and all research evidence",
+  "files": [
+    {
+      "path": "scripts/architecture_study/README.md",
+      "bytes": 3002,
+      "sha256": "254647cc3f7fb718bc6caf19316fdc154498f71c45d72d105cd6d73326209d63"
+    },
+    {
+      "path": "scripts/architecture_study/analyze.py",
+      "bytes": 19707,
+      "sha256": "5a0e2d779d499410b577bc43bba0ba5624b2b681821b8ccd1cccc1c472d6a907"
+    },
+    {
+      "path": "scripts/architecture_study/architecture.py",
+      "bytes": 3992,
+      "sha256": "06a5a0d7fbd9c7934d41317998121845c86873d985a395336b43f4641082173a"
+    },
+    {
+      "path": "scripts/architecture_study/check_development.py",
+      "bytes": 2134,
+      "sha256": "733c9c68d162b4d6dc2c215850b33162bc838ea6db47f401feae65526aee5815"
+    },
+    {
+      "path": "scripts/architecture_study/figures.py",
+      "bytes": 9584,
+      "sha256": "cc431d41f7f1f7c0df85fbd45748042b0a55baa602c0b27168d3188de6c72fc0"
+    },
+    {
+      "path": "scripts/architecture_study/graph.py",
+      "bytes": 7669,
+      "sha256": "b10e53990d93104ef0da590c9dbfde35a6c754abbde5c7cfff593775d2cd47d1"
+    },
+    {
+      "path": "scripts/architecture_study/independent_ledger.py",
+      "bytes": 4148,
+      "sha256": "105c08553929c37b89c6453fb72d44c3093e5564c1dfe83e688371c026cb4c8b"
+    },
+    {
+      "path": "scripts/architecture_study/package.py",
+      "bytes": 3263,
+      "sha256": "8cb8a5e310bb69a22ad37d1526d77d522d8d1d456a950208f22aa121e11fdae6"
+    },
+    {
+      "path": "scripts/architecture_study/report.py",
+      "bytes": 25126,
+      "sha256": "7b60b9de6d4bf38eac37a403f067f6bf7189ba1130828f960215f594c06a64e2"
+    },
+    {
+      "path": "scripts/architecture_study/requirements.txt",
+      "bytes": 101,
+      "sha256": "52372decb45dedd0c5d43c3b4c442ae47d4411727d07497a518541b84decf4dc"
+    },
+    {
+      "path": "scripts/architecture_study/run.py",
+      "bytes": 21227,
+      "sha256": "c09987c8a7408db3fe343c7f1f6d14e60b11b8dc2e39be8d15996c84d526b944"
+    },
+    {
+      "path": "scripts/architecture_study/supervise.py",
+      "bytes": 3360,
+      "sha256": "aa232ca33bec30044744e5c38ef96477a8de7eacd1beb90be20251162e636761"
+    },
+    {
+      "path": "scripts/architecture_study/validate_document.py",
+      "bytes": 3479,
+      "sha256": "5ec11c6a406405bdce7cd079a6e439458ac72b317e2c1fe9be4e727e860363ae"
+    },
+    {
+      "path": "study_results/README.md",
+      "bytes": 9192,
+      "sha256": "162e48584ac67c484100c83629f2f79a2f74ebce353d3f7bbd8838991d879319"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/.gitignore",
+      "bytes": 124,
+      "sha256": "dac684757b568c72af32cd71c88295a5c5f493912f963edd3f9745c8aa527d30"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/README.md",
+      "bytes": 4760,
+      "sha256": "a19a87c0b37b8007061556e16e192a401de9aaacfa6702d800adeefd42d6ede2"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/Selective_Agent_Architecture_Chapter.docx",
+      "bytes": 325560,
+      "sha256": "67f12b1f74df07543c0883d7009be9b6146346cafcd19628ed7d9bdd30aebf4a"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/Selective_Agent_Architecture_Chapter.pdf",
+      "bytes": 472789,
+      "sha256": "1580f4fe3b087ccff72e0910edfd6f92d7d8fa2c0521f43708e2846689e1aaa0"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/Selective_Architecture_Complete_Evidence.zip",
+      "bytes": 26036403,
+      "sha256": "70417defbded3b88c4b6fd476ceae1cb12990d96cb0d25e8aa11debfaa70d312"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/analysis/analysis_summary.json",
+      "bytes": 51961,
+      "sha256": "985252fd6bc2e93b8e538db3840cc8fa933487f2743049d90a66f18b27c13764"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/analysis/audit_receipt.json",
+      "bytes": 933,
+      "sha256": "fda8e56278c4c70060613b32b3aaed5134b2a577babda25ba82b7e96ee27c129"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/analysis/daily_results.csv",
+      "bytes": 2129742,
+      "sha256": "05bc5be8a4576f102396bbe39420e5c32647ac7b925152299f7ba8156d9dd00c"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/analysis/diagnostics.csv",
+      "bytes": 925,
+      "sha256": "7920ce81ce246026ad437176ddb3d0e0bff1a0c9cf5d46840f0c4a6e5dbd7fe3"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/analysis/matched_actions.csv",
+      "bytes": 86164,
+      "sha256": "28fe86d936ce2314bb59da4e05ea2cc48f4ef8d47c0c3315379d3d1bbf0e29be"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/analysis/model_calls.csv",
+      "bytes": 2182953,
+      "sha256": "4ea96623323fb04523d83a505e8873a4676d58bee3d540b183e04c468660d5a5"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/analysis/overall_seed_results.csv",
+      "bytes": 20215,
+      "sha256": "9a45a9f0227afcd0579bf3b2636f6ca26bde1687c19400cc9d9eddee2c56c766"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/analysis/paired_effects.csv",
+      "bytes": 9813,
+      "sha256": "cdb5618f01e88eee65b66fde9a9d133f211a7ff6c6a4bf857f9a0fa19ebaae9f"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/analysis/run_results.csv",
+      "bytes": 427211,
+      "sha256": "e427e637b7108d6b4f1fbb46d281554a36e4e65cd050dcebc71fdc23546aba86"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/analysis/seed_results.csv",
+      "bytes": 148231,
+      "sha256": "d1d6a01def1304df007921a58dd02059d05397ff6070c2789c022f4989aff833"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/architecture_graph.mmd",
+      "bytes": 1191,
+      "sha256": "a815042314de3017da2a959c6e60056ebdf73fcf4144289e7d6a2000360ac0e8"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/build_manifest.json",
+      "bytes": 791,
+      "sha256": "28775d202875366695bf9b8326f744b6e5cdd8580664a39914da4b285d163c5b"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/chapter.md",
+      "bytes": 13115,
+      "sha256": "791c124cb6675b0973ff5cca3d529043f01cd9a321f3ace87a49016754e65d5e"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/chapter_tables.json",
+      "bytes": 1069,
+      "sha256": "5720cc39e63920e548119e86b29bb281ced64dc185c7b0f515c2338db2bd1c9f"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/delivery_manifest.json",
+      "bytes": 581,
+      "sha256": "b9534869ab6cea6c0a89ba4a42ec944bd777594673a47a04a11b3c4bec08d508"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/document_validation.json",
+      "bytes": 624,
+      "sha256": "040e87be193b33f2e6aa08281bccfd7ef228d27f46e354cc859ae117edc517cd"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/execution_process.json",
+      "bytes": 279,
+      "sha256": "333c32e705cb8c9812cc9b59ec878a1e7a34ad6138b5df85321e6256a78ce537"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/execution_receipt.json",
+      "bytes": 589,
+      "sha256": "0c461278318b096e11e0f529d665aabdb7cd080b1c3fe01966f91aae019a4f5d"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/figure_register.json",
+      "bytes": 2555,
+      "sha256": "3e7d811fa1023f98a2e2095eaf83e2ff1e9a643fcbebff5f1f217a8339f6c5e8"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/figures/decision_time.png",
+      "bytes": 50086,
+      "sha256": "d507f3e90bd035393020dd1f64a6b1b8c0c45c9f973f748d7f6ce8dda7cc9b80"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/figures/inventory_effects.png",
+      "bytes": 60286,
+      "sha256": "7ba3db402dc7f61845b0f71bdab360b16db7d16f1352d23197198b12a9c60265"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/figures/model_calls.png",
+      "bytes": 46028,
+      "sha256": "3f0a109690318caf85c45f9c4edab8bc6d83f970c33a25cb766f8df2c02fdb9b"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/figures/priority_accuracy.png",
+      "bytes": 59011,
+      "sha256": "9ae67568ec9abd137602f8eb809a020f33d9e6e6efa2cdc09e6f7a9e34907911"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/figures/retailnet_expiry.png",
+      "bytes": 55861,
+      "sha256": "851cbe0c4c063c6e7d61cd8098703b7e684b901660febdc8522bd3916ef2ce76"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/figures/selective_architecture.dot",
+      "bytes": 1301,
+      "sha256": "7b59efd635ecbdd4a55b93cc654cfe11a905b02e85f0bd4af681c46b887faf17"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/figures/selective_architecture.png",
+      "bytes": 57832,
+      "sha256": "3bc3f99fc71df362344fe050fc77e960300be96d8d3abae6f9a50124dd5ca5e7"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/figures/selective_architecture.svg",
+      "bytes": 9063,
+      "sha256": "58d39fac26a33a83e55a882396fa2b046875dc06e75ebc9292b55cf0a036680a"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/file_inventory.json.gz",
+      "bytes": 523917,
+      "sha256": "f5e47f34d5881fcef1dcf88b2c09e2030e65db61cfc426ec86e44116ef9c1c9d"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/progress.json",
+      "bytes": 149,
+      "sha256": "d23d1174ee4aa40df6d956c7305e03e67f0c7599442b2eb776f1c14f21134829"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/protocol.json",
+      "bytes": 13821,
+      "sha256": "58551bd4e9c62e90868f4ece7b7ec3a0854904bf627fb07d49fe7cd98bda1f56"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/ready_for_review.json",
+      "bytes": 151,
+      "sha256": "8ec3895f2413e1bd1f637f65de338a39df5d2df07f8d0a7cb87d002370212fa4"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/reproduction/scripts/architecture_study/README.md",
+      "bytes": 3002,
+      "sha256": "254647cc3f7fb718bc6caf19316fdc154498f71c45d72d105cd6d73326209d63"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/reproduction/scripts/architecture_study/analyze.py",
+      "bytes": 19707,
+      "sha256": "5a0e2d779d499410b577bc43bba0ba5624b2b681821b8ccd1cccc1c472d6a907"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/reproduction/scripts/architecture_study/architecture.py",
+      "bytes": 3992,
+      "sha256": "06a5a0d7fbd9c7934d41317998121845c86873d985a395336b43f4641082173a"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/reproduction/scripts/architecture_study/check_development.py",
+      "bytes": 2134,
+      "sha256": "733c9c68d162b4d6dc2c215850b33162bc838ea6db47f401feae65526aee5815"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/reproduction/scripts/architecture_study/figures.py",
+      "bytes": 9584,
+      "sha256": "cc431d41f7f1f7c0df85fbd45748042b0a55baa602c0b27168d3188de6c72fc0"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/reproduction/scripts/architecture_study/graph.py",
+      "bytes": 7669,
+      "sha256": "b10e53990d93104ef0da590c9dbfde35a6c754abbde5c7cfff593775d2cd47d1"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/reproduction/scripts/architecture_study/independent_ledger.py",
+      "bytes": 4148,
+      "sha256": "105c08553929c37b89c6453fb72d44c3093e5564c1dfe83e688371c026cb4c8b"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/reproduction/scripts/architecture_study/package.py",
+      "bytes": 3263,
+      "sha256": "8cb8a5e310bb69a22ad37d1526d77d522d8d1d456a950208f22aa121e11fdae6"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/reproduction/scripts/architecture_study/report.py",
+      "bytes": 25126,
+      "sha256": "7b60b9de6d4bf38eac37a403f067f6bf7189ba1130828f960215f594c06a64e2"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/reproduction/scripts/architecture_study/requirements.txt",
+      "bytes": 101,
+      "sha256": "52372decb45dedd0c5d43c3b4c442ae47d4411727d07497a518541b84decf4dc"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/reproduction/scripts/architecture_study/run.py",
+      "bytes": 21227,
+      "sha256": "c09987c8a7408db3fe343c7f1f6d14e60b11b8dc2e39be8d15996c84d526b944"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/reproduction/scripts/architecture_study/supervise.py",
+      "bytes": 3360,
+      "sha256": "aa232ca33bec30044744e5c38ef96477a8de7eacd1beb90be20251162e636761"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/reproduction/scripts/architecture_study/validate_document.py",
+      "bytes": 3479,
+      "sha256": "5ec11c6a406405bdce7cd079a6e439458ac72b317e2c1fe9be4e727e860363ae"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/reproduction/scripts/ollama_clean_study/analyze.py",
+      "bytes": 24975,
+      "sha256": "797a8e333e7e4920114255b2947ac76fee4342155a5df50b944824475f67299e"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/reproduction/scripts/ollama_clean_study/core.py",
+      "bytes": 18859,
+      "sha256": "e764e6135c5e761f564c5ea9b4f43f2104684aeeb4f9c7510d8145d2df5df788"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/reproduction/tests/test_ollama_clean_study.py",
+      "bytes": 2841,
+      "sha256": "5ba7b4e46fc0de9abf8bb37e51b3e64d50b69eff6b7b64afbb5958e9d6c55b84"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/reproduction/tests/test_selective_architecture.py",
+      "bytes": 5009,
+      "sha256": "2f34d7cdc08a20a8e065573832076630bf576a3e8daeef8e03f94bb49a702826"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/review_architecture.png",
+      "bytes": 155735,
+      "sha256": "0b1a44233a3faac417755556b45a7c624a06e867ecafb1f984ddcd4877d5d4e7"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/review_contact_sheet.png",
+      "bytes": 325979,
+      "sha256": "a5c63fb8be2dd8c55c8f3b6215a39704b1f453a4607c8c3933ad1688fd4bca42"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/review_headline.png",
+      "bytes": 84651,
+      "sha256": "6e1a61778c3512bd112c2dd3b6250a31084209eb1825cfc3c0b1fd506443468b"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/review_hypotheses.png",
+      "bytes": 95176,
+      "sha256": "0b49cf3ad4b1788d61f8bf53ecfb3e36b38f81321756368b8e1c27e3020f3742"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/seed_progress.json",
+      "bytes": 439,
+      "sha256": "926889fb2ca01c635e4c61c9a8101878d41389944ac7499ef41b0ce76aed13e2"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/summary.csv",
+      "bytes": 427211,
+      "sha256": "eee006e55f4aaffe51d7632e3a91ea1bf8e1e28ce015aa5f53e672fddf84baab"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/supervision_process.json",
+      "bytes": 232,
+      "sha256": "a75dc940169359c37a57028771356940c5b69c573afa570fb3169d8acb6160fc"
+    },
+    {
+      "path": "study_results/architecture_study_20261013/workflow.jsonl",
+      "bytes": 142356,
+      "sha256": "40b20f0125691dc77cf3a775cee05ed83c7df3c3c3f77a9819fea0f7acd2579c"
+    },
+    {
+      "path": "tests/test_selective_architecture.py",
+      "bytes": 5009,
+      "sha256": "2f34d7cdc08a20a8e065573832076630bf576a3e8daeef8e03f94bb49a702826"
+    }
+  ],
+  "native_logs_preserved_in_verified_archive": true,
+  "receipt_excluded_from_own_hash_inventory": true
+}

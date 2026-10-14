@@ -1,5 +1,14 @@
 # M5 and FreshRetailNet study reports and complete evidence
 
+The latest additional experiment is the [selective LangGraph architecture study](architecture_study_20261013/).
+It completed 1,080 matched policy runs and 9,240 fresh model calls on 30 series per dataset.
+Download its [single illustrated Word chapter](architecture_study_20261013/Selective_Agent_Architecture_Chapter.docx),
+[10-page PDF](architecture_study_20261013/Selective_Agent_Architecture_Chapter.pdf), or
+[complete code, figures, results and native logs ZIP](architecture_study_20261013/Selective_Architecture_Complete_Evidence.zip).
+The architecture used 77.78% fewer model calls and was about 55% faster than the fixed workflow.
+RetailNet service and the simulated cost index improved modestly; M5 inventory changes were inconclusive.
+The chapter reports the expiry trade-off and the identical outcomes of the structured-information reference.
+
 The latest conclusion revision is the [rewritten Chapter 7](conclusion_revision_20261013/),
 which answers the revised research questions and hypotheses. Download its
 [chapter-only Word document](conclusion_revision_20261013/Conclusion_and_Future_Research_Rewritten.docx)
@@ -18,7 +27,7 @@ It contains 15,751 words of main prose, seven accessible chapters, 21 dataset-la
 figures, ten tables and concise results and conclusion chapters. Model training and
 local inference are distinguished in the methods, with the actual CPU environment stated.
 
-The latest experiment is the [fresh no-repair Ollama study](ollama_clean_study_20261009/).
+The main preceding experiment is the [fresh no-repair Ollama study](ollama_clean_study_20261009/).
 It completed 1,080 matched policy runs on 30 series per dataset, two weekly windows,
 30 simulation seeds and three scenarios, using 7,560 fresh Qwen2.5 1.5B calls.
 Download its [19-page PDF report](ollama_clean_study_20261009/Fresh_Ollama_Study_Report.pdf),

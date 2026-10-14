@@ -1,0 +1,20 @@
+{
+  "status": "BUILT_PENDING_RENDER",
+  "at_utc": "2026-10-14T00:51:21.728692+00:00",
+  "scope": "One additional chapter only",
+  "prose_words": 1790,
+  "figures": 6,
+  "tables": 2,
+  "docx_sha256": "67f12b1f74df07543c0883d7009be9b6146346cafcd19628ed7d9bdd30aebf4a",
+  "chapter_sha256": "791c124cb6675b0973ff5cca3d529043f01cd9a321f3ace87a49016754e65d5e",
+  "protocol_sha256": "58551bd4e9c62e90868f4ece7b7ec3a0854904bf627fb07d49fe7cd98bda1f56",
+  "audit_sha256": "fda8e56278c4c70060613b32b3aaed5134b2a577babda25ba82b7e96ee27c129",
+  "analysis_sha256": "985252fd6bc2e93b8e538db3840cc8fa933487f2743049d90a66f18b27c13764",
+  "format": {
+    "font": "Times New Roman",
+    "body_points": 12,
+    "line_spacing": 1.5,
+    "margins_inches": 1
+  },
+  "all_registered_success_conditions_met": true
+}

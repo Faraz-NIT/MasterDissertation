@@ -1,0 +1,14 @@
+{
+  "status": "VERIFIED",
+  "scope": "Complete single-chapter architecture study and all native logs",
+  "original_files": 11629,
+  "original_bytes": 118454634,
+  "archive": {
+    "path": "Selective_Architecture_Complete_Evidence.zip",
+    "bytes": 26036403,
+    "sha256": "70417defbded3b88c4b6fd476ceae1cb12990d96cb0d25e8aa11debfaa70d312"
+  },
+  "inventory_sha256": "f5e47f34d5881fcef1dcf88b2c09e2030e65db61cfc426ec86e44116ef9c1c9d",
+  "excluded": "LLM weights, raw complete publisher datasets, credentials and runtime caches",
+  "all_output_bytes_preserved_and_verified": true
+}

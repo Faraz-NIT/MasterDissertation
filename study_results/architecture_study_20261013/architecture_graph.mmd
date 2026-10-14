@@ -1,0 +1,34 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	supplier_intake(supplier_intake)
+	supplier_model(supplier_model)
+	source_verification(source_verification)
+	llm_coordinator(llm_coordinator)
+	policy_router(policy_router)
+	constrained_planning_tool(constrained_planning_tool)
+	action_validation(action_validation)
+	llm_review(llm_review)
+	release_gate(release_gate)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> supplier_intake;
+	action_validation -. &nbsp;review&nbsp; .-> llm_review;
+	action_validation -. &nbsp;release&nbsp; .-> release_gate;
+	constrained_planning_tool --> action_validation;
+	llm_coordinator --> constrained_planning_tool;
+	llm_review --> release_gate;
+	policy_router --> constrained_planning_tool;
+	source_verification -. &nbsp;llm&nbsp; .-> llm_coordinator;
+	source_verification -. &nbsp;policy&nbsp; .-> policy_router;
+	supplier_intake -. &nbsp;verify&nbsp; .-> source_verification;
+	supplier_intake -. &nbsp;extract&nbsp; .-> supplier_model;
+	supplier_model --> source_verification;
+	release_gate --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc
+

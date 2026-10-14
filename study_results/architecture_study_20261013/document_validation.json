@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "scope": "Exactly one additional chapter",
+  "docx_exact_text_match": true,
+  "figures": 6,
+  "tables": 2,
+  "pdf_pages": 10,
+  "format_verified": true,
+  "full_study_and_audit_required": true,
+  "pdf_nonempty_pages": true,
+  "page_bounds_verified": true,
+  "docx_sha256": "67f12b1f74df07543c0883d7009be9b6146346cafcd19628ed7d9bdd30aebf4a",
+  "pdf_sha256": "1580f4fe3b087ccff72e0910edfd6f92d7d8fa2c0521f43708e2846689e1aaa0",
+  "visual_review": "PASS: final 10-page contact sheet, full-size hypothesis/expiry page, headline table and inventory-effect figure reviewed; no missing or clipped content"
+}

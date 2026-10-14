@@ -1,0 +1,26 @@
+{
+  "status": "VERIFIED",
+  "at_utc": "2026-10-14T00:49:26.315967+00:00",
+  "runs": 1080,
+  "portfolio_days": 7560,
+  "series_days": 226800,
+  "fresh_primary_model_calls": 9240,
+  "unique_native_response_timestamps": 9240,
+  "native_calls_without_returned_response": 0,
+  "issues": [],
+  "checks": [
+    "Frozen code and data hashes",
+    "Complete registered matched grid",
+    "Independent FIFO and supplier-ledger replay",
+    "Matched demand and forecasts",
+    "Recomputed inventory costs",
+    "Pack/MOQ/budget/capacity checks",
+    "Source accuracy and declared-priority scores",
+    "Every LangGraph path and role-call count",
+    "Every native model request/response hash and generation configuration",
+    "Unique native response timestamps",
+    "Held actions never released",
+    "Master summary agrees with per-case records"
+  ],
+  "protocol_sha256": "58551bd4e9c62e90868f4ece7b7ec3a0854904bf627fb07d49fe7cd98bda1f56"
+}

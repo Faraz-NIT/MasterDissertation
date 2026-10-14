@@ -1,0 +1,27 @@
+digraph architecture {
+      graph [rankdir=TB, bgcolor="white", pad="0.2", nodesep="0.28", ranksep="0.35"];
+      node [shape=box, style="rounded,filled", fillcolor="#F6F8FA", color="#ABB8C4", fontname="Arial", fontsize=12, margin="0.14,0.10"];
+      edge [color="#718191", fontname="Arial", fontsize=10];
+      intake [label="Supplier intake"];
+      parser [label="Declared table
+Deterministic parser"];
+      reader [label="Supplier prose
+LLM extraction", fillcolor="#EAF4EE"];
+      source [label="Verify current source"];
+      policy [label="Apply declared business policy
+Deterministic priority router"];
+      planner [label="Shared numerical planner"];
+      check [label="Validate proposed action"];
+      release [label="Release valid order", fillcolor="#EAF4EE"];
+      review [label="Exception review (LLM)
+Hold and request review", fillcolor="#FFF5E8"];
+      intake -> parser [label="recognised format"];
+      intake -> reader [label="prose"];
+      parser -> source; reader -> source; source -> policy;
+      policy -> planner; planner -> check;
+      check -> release [label="all conditions pass"];
+      check -> review [label="failed / unknown"];
+      parser -> review [label="malformed",style=dashed];
+      {rank=same; parser; reader;}
+      {rank=same; release; review;}
+    }

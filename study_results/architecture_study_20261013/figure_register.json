@@ -1,0 +1,47 @@
+{
+  "figures": [
+    {
+      "key": "selective_architecture",
+      "path": "figures/selective_architecture.png",
+      "title": "Selective delegation in the LangGraph workflow",
+      "scope": "Architecture",
+      "caption": "A reader-oriented diagram of the selective path. Failed conditions cannot release an order; review requests are recorded, and no human resolution is simulated. The full executable graph is exported separately as architecture_graph.mmd."
+    },
+    {
+      "key": "model_calls",
+      "path": "figures/model_calls.png",
+      "title": "Model calls per replenishment decision",
+      "scope": "M5 + RetailNet",
+      "caption": "Calls include every attempted native model call. The same model and generation settings were used. Structured-table parsing is a declared architectural route, not a reused model response."
+    },
+    {
+      "key": "decision_time",
+      "path": "figures/decision_time.png",
+      "title": "Mean time per replenishment decision",
+      "scope": "M5 + RetailNet",
+      "caption": "Measured whole-decision blocks, including graph orchestration and the numerical tool. Fixed/selective order was counterbalanced. This describes the experimental instance, not employee time or production cost."
+    },
+    {
+      "key": "priority_accuracy",
+      "path": "figures/priority_accuracy.png",
+      "title": "Correct application of the declared business priority",
+      "scope": "M5 + RetailNet",
+      "caption": "Accuracy is scored against the policy available before ordering. Active promotion covers days 2\u20136. Explicit policy routing does not demonstrate that the model itself improved its reasoning."
+    },
+    {
+      "key": "inventory_effects",
+      "path": "figures/inventory_effects.png",
+      "title": "Inventory-performance change relative to the fixed workflow",
+      "scope": "M5 + RetailNet",
+      "caption": "Points show paired simulation-seed means; intervals are 95% bootstrap intervals for 30 simulated seeds. Positive values favour selective delegation in both panels. Costs are synthetic inventory operating-cost indices, not realised savings."
+    },
+    {
+      "key": "retailnet_expiry",
+      "path": "figures/retailnet_expiry.png",
+      "title": "Expiry outcomes by RetailNet operating situation",
+      "scope": "RetailNet",
+      "caption": "Hypothetical three-day FIFO stock process. A service or cost improvement does not necessarily imply less waste. M5 has no expiry within the evaluated horizon."
+    }
+  ],
+  "source_analysis": "analysis/analysis_summary.json"
+}
