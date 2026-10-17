@@ -1,0 +1,1237 @@
+{
+  "status": "VERIFIED",
+  "scope": "Appendices A–I only; no main chapters or bibliography",
+  "appendices": 9,
+  "tables": [
+    {
+      "key": "study_versions",
+      "number": "A.1",
+      "title": "Empirical stages and their separate evidence scopes",
+      "headers": [
+        "Stage",
+        "Simulation seeds",
+        "Policy runs / portfolio days",
+        "Fresh primary calls",
+        "Live execution"
+      ],
+      "rows": [
+        [
+          "Main study: three-role agents and two controls",
+          "101–130",
+          "1,080 / 7,560",
+          "7,560",
+          "2.66 hours"
+        ],
+        [
+          "Architecture comparison: LangGraph implementation",
+          "201–230",
+          "1,080 / 7,560",
+          "9,240",
+          "4.01 hours"
+        ],
+        [
+          "LangChain implementation validation",
+          "233",
+          "36 / 252",
+          "300",
+          "8.00 minutes"
+        ]
+      ]
+    },
+    {
+      "key": "technical_settings",
+      "number": "A.2",
+      "title": "M5 + RetailNet: selected technical settings",
+      "headers": [
+        "Item",
+        "Frozen setting"
+      ],
+      "rows": [
+        [
+          "Model tag / representation",
+          "qwen2.5:1.5b / Q4_K_M"
+        ],
+        [
+          "Ollama version",
+          "0.40.0"
+        ],
+        [
+          "Working context / output limit",
+          "4,096 / 512 tokens"
+        ],
+        [
+          "Generation",
+          "Temperature 0; seed 20261009; three CPU threads"
+        ],
+        [
+          "Response treatment",
+          "Native structured JSON; no retries or answer cache"
+        ],
+        [
+          "Forecast fit",
+          "LightGBM 150 trees; maximum depth 5; at most 365 historical days"
+        ],
+        [
+          "Primary fitted windows",
+          "M5 origins 1927, 1934; RetailNet origins 83, 90"
+        ],
+        [
+          "Cost coefficients",
+          "0.02 holding; 5 unmet demand; 1 expired unit"
+        ],
+        [
+          "Starting inventory",
+          "Rounded-up three historical average days; no initial pipeline"
+        ],
+        [
+          "Synthetic supply",
+          "2% cancellations; 10% partial fill at 80%; 10% extra-day delay"
+        ],
+        [
+          "Main numerical packages",
+          "NumPy 2.3.5; pandas 2.2.3; SciPy 1.17.0; LightGBM 4.7.0"
+        ],
+        [
+          "Inference scope",
+          "One fixed pretrained model; three task-specific roles"
+        ]
+      ]
+    },
+    {
+      "key": "model_environment",
+      "number": "A.3",
+      "title": "Main-study model and computing environment; shared inference hardware retained for the extensions",
+      "headers": [
+        "Component",
+        "Actual setting"
+      ],
+      "rows": [
+        [
+          "Computer",
+          "Linux; four allocated CPU cores; 32 GiB memory; no GPU"
+        ],
+        [
+          "Language model",
+          "Pretrained Qwen2.5 1.5B, served locally through Ollama"
+        ],
+        [
+          "Retail fine-tuning",
+          "None; language-model inference only"
+        ],
+        [
+          "Forecast family",
+          "LightGBM; four primary fits using earlier retail history"
+        ],
+        [
+          "Fitting / inference threads",
+          "One for numerical fitting; three for Qwen calls"
+        ],
+        [
+          "Live evaluation duration",
+          "2.66 hours; development and reporting additional"
+        ],
+        [
+          "Costs not monetised",
+          "Compute, integration, staff review and production support"
+        ]
+      ]
+    },
+    {
+      "key": "simulation_settings",
+      "number": "A.4",
+      "title": "Declared simulation assumptions; common across empirical stages",
+      "headers": [
+        "Element",
+        "Setting and interpretation"
+      ],
+      "rows": [
+        [
+          "Starting stock",
+          "ceil(3 × past-56-day mean); zero initial pipeline"
+        ],
+        [
+          "Synthetic suppliers",
+          "Three groups; ten series per group; current daily terms supplied before ordering"
+        ],
+        [
+          "Routine carton / minimum order",
+          "Cartons of 2, 4 and 6; minimum nonzero line twice its carton size"
+        ],
+        [
+          "Routine lead times",
+          "1, 2 and 2 days for the three supplier groups"
+        ],
+        [
+          "Daily budget and dispatch limits",
+          "Training-derived scale 2.8 × historical mean; announced daily variation of up to ±8%"
+        ],
+        [
+          "Delivery opportunities",
+          "2% cancellation; 10% draw for 80% fill; 10% draw for one extra delivery day"
+        ],
+        [
+          "Promotion",
+          "Announced 30% increase in demand proxy and forecast from the third day"
+        ],
+        [
+          "Supplier disruption",
+          "From the third day: carton/MOQ ×2, lead time +1 day, capacity ×0.7, with a minimum feasible limit"
+        ],
+        [
+          "Stock life",
+          "M5: no expiry within the horizon; RetailNet: hypothetical three-day FIFO"
+        ],
+        [
+          "Declared priorities",
+          "Balanced: safety factor 1.28; active promotion: service-first factor 1.65"
+        ],
+        [
+          "Hard constraints",
+          "Nonnegative quantities, carton multiples, minimum line, supplier capacity and daily budget"
+        ],
+        [
+          "Inventory-record errors",
+          "None injected; no inventory repair or sales-recovery mechanism"
+        ]
+      ]
+    },
+    {
+      "key": "paired_intervals",
+      "number": "A.5",
+      "title": "M5 and RetailNet: overall paired effects with 95% intervals",
+      "headers": [
+        "Dataset",
+        "Comparator",
+        "Service change (points)",
+        "Cost change (%)"
+      ],
+      "rows": [
+        [
+          "M5",
+          "Conventional ordering",
+          "+25.28 [+24.91, +25.65]",
+          "-70.34% [-71.22%, -69.44%]"
+        ],
+        [
+          "M5",
+          "Structured-data planner",
+          "-0.01 [-0.03, +0.01]",
+          "+0.06% [-0.07%, +0.23%]"
+        ],
+        [
+          "RetailNet",
+          "Conventional ordering",
+          "+0.78 [+0.68, +0.87]",
+          "-4.52% [-5.03%, -3.98%]"
+        ],
+        [
+          "RetailNet",
+          "Structured-data planner",
+          "-0.20 [-0.23, -0.17]",
+          "+1.01% [+0.85%, +1.17%]"
+        ]
+      ]
+    },
+    {
+      "key": "forecast_context",
+      "number": "A.6",
+      "title": "M5 and RetailNet: the shared LightGBM forecast context",
+      "headers": [
+        "Dataset",
+        "Weekly origin",
+        "WAPE",
+        "MAE"
+      ],
+      "rows": [
+        [
+          "M5",
+          "1927",
+          "60.14%",
+          "1.601"
+        ],
+        [
+          "M5",
+          "1934",
+          "54.88%",
+          "1.411"
+        ],
+        [
+          "RetailNet",
+          "83",
+          "37.60%",
+          "25.137"
+        ],
+        [
+          "RetailNet",
+          "90",
+          "39.98%",
+          "29.902"
+        ]
+      ]
+    },
+    {
+      "key": "current_evidence_locations",
+      "number": "C.1",
+      "title": "Evidence and code locations in the accompanying package",
+      "headers": [
+        "Item",
+        "Location relative to the repository root"
+      ],
+      "rows": [
+        [
+          "Main experiment",
+          "study_results/ollama_clean_study_20261009/"
+        ],
+        [
+          "Full architecture comparison",
+          "study_results/architecture_study_20261013/"
+        ],
+        [
+          "Fresh LangChain validation",
+          "study_results/langchain_extension_20261014/"
+        ],
+        [
+          "Within each study",
+          "protocol.json; data/; runs/; development/; logs/; analysis/; execution_receipt.json"
+        ],
+        [
+          "Baseline simulation and forecasting code",
+          "scripts/ollama_clean_study/"
+        ],
+        [
+          "Selective-delegation implementation",
+          "scripts/architecture_study/"
+        ],
+        [
+          "LangChain LCEL and StructuredTool implementation",
+          "scripts/langchain_extension/"
+        ],
+        [
+          "Relevant engineering tests",
+          "tests/test_ollama_clean_study.py; test_selective_architecture.py; test_langchain_extension.py"
+        ],
+        [
+          "Portable-package verification",
+          "tools/verify_bundle.py; tools/audit_saved_results.py; MANIFEST.json"
+        ],
+        [
+          "Package-level check records",
+          "packaging_checks/; PACKAGE_METADATA.json"
+        ]
+      ]
+    },
+    {
+      "key": "architecture_diagnostics",
+      "number": "E.1",
+      "title": "Full architecture comparison: decision reliability and workload",
+      "headers": [
+        "Dataset / workflow",
+        "Calls",
+        "Priority accuracy",
+        "Active-promotion accuracy",
+        "Mean decision time"
+      ],
+      "rows": [
+        [
+          "M5 / Fixed agent",
+          "3780",
+          "99.76%",
+          "99.00%",
+          "3.815 s"
+        ],
+        [
+          "M5 / Selective",
+          "840",
+          "100.00%",
+          "100.00%",
+          "1.725 s"
+        ],
+        [
+          "M5 / Structured reference",
+          "0",
+          "100.00%",
+          "100.00%",
+          "0.006 s"
+        ],
+        [
+          "RetailNet / Fixed agent",
+          "3780",
+          "86.90%",
+          "45.00%",
+          "4.068 s"
+        ],
+        [
+          "RetailNet / Selective",
+          "840",
+          "100.00%",
+          "100.00%",
+          "1.834 s"
+        ],
+        [
+          "RetailNet / Structured reference",
+          "0",
+          "100.00%",
+          "100.00%",
+          "0.008 s"
+        ]
+      ]
+    },
+    {
+      "key": "architecture_effects",
+      "number": "E.2",
+      "title": "Selective minus fixed architecture: paired effects and 95% intervals",
+      "headers": [
+        "Dataset",
+        "Fill rate (pp)",
+        "Cost change (%)",
+        "Expiry share (pp)"
+      ],
+      "rows": [
+        [
+          "M5",
+          "+0.003 [+0.000, +0.008]",
+          "-0.020 [-0.060, +0.001]",
+          "+0.000 [+0.000, +0.000]"
+        ],
+        [
+          "RetailNet",
+          "+0.236 [+0.204, +0.269]",
+          "-1.176 [-1.340, -1.021]",
+          "+0.081 [+0.053, +0.109]"
+        ]
+      ]
+    },
+    {
+      "key": "architecture_hypotheses",
+      "number": "E.3",
+      "title": "Criteria frozen before the full architecture evaluation",
+      "headers": [
+        "Criterion",
+        "Assessment",
+        "M5 / RetailNet"
+      ],
+      "rows": [
+        [
+          "A1",
+          "At least 50% fewer native model calls",
+          "Supported / Supported"
+        ],
+        [
+          "A2",
+          "Lower mean decision latency; upper paired difference bound below zero",
+          "Supported / Supported"
+        ],
+        [
+          "A3",
+          "Preserved or improved declared-policy accuracy; zero released violations",
+          "Supported / Supported"
+        ],
+        [
+          "A4",
+          "Lower fill-change bound > −0.10 pp; upper relative cost-change bound < +0.5%",
+          "Supported / Supported"
+        ],
+        [
+          "Exploratory attribution",
+          "Same planner; selective orders match the structured-information reference",
+          "100% / 100%"
+        ]
+      ]
+    },
+    {
+      "key": "langchain_validation",
+      "number": "E.4",
+      "title": "Fresh LangChain validation; descriptive one-seed results",
+      "headers": [
+        "Dataset / workflow",
+        "Fill rate",
+        "Cost / demand",
+        "Priority accuracy",
+        "Calls / mean time"
+      ],
+      "rows": [
+        [
+          "M5 / Fixed agent",
+          "90.16%",
+          "0.5321",
+          "100.00%",
+          "126 / 4.173 s"
+        ],
+        [
+          "M5 / Selective",
+          "90.16%",
+          "0.5321",
+          "100.00%",
+          "24 / 1.572 s"
+        ],
+        [
+          "M5 / Structured reference",
+          "90.16%",
+          "0.5321",
+          "100.00%",
+          "0 / 0.006 s"
+        ],
+        [
+          "RetailNet / Fixed agent",
+          "84.13%",
+          "0.8808",
+          "88.10%",
+          "126 / 4.105 s"
+        ],
+        [
+          "RetailNet / Selective",
+          "84.27%",
+          "0.8741",
+          "100.00%",
+          "24 / 1.562 s"
+        ],
+        [
+          "RetailNet / Structured reference",
+          "84.27%",
+          "0.8741",
+          "100.00%",
+          "0 / 0.010 s"
+        ]
+      ]
+    },
+    {
+      "key": "dataset_windows",
+      "number": "G.1",
+      "title": "Selected-panel windows and quantity conventions",
+      "headers": [
+        "Dataset",
+        "Series",
+        "Origin / dates",
+        "Quantity convention"
+      ],
+      "rows": [
+        [
+          "M5",
+          "30",
+          "1927: 2016-05-09 to 2016-05-15",
+          "Published unit sales"
+        ],
+        [
+          "M5",
+          "30",
+          "1934: 2016-05-16 to 2016-05-22",
+          "Published unit sales"
+        ],
+        [
+          "RetailNet",
+          "30",
+          "83: 2024-06-19 to 2024-06-25",
+          "Published normalised sales × 100"
+        ],
+        [
+          "RetailNet",
+          "30",
+          "90: 2024-06-26 to 2024-07-02",
+          "Published normalised sales × 100"
+        ]
+      ]
+    },
+    {
+      "key": "m5_catalogue",
+      "number": "G.2",
+      "title": "M5: complete training-selected portfolio",
+      "headers": [
+        "Series identifier",
+        "Store",
+        "Stratum",
+        "Selection-period mean"
+      ],
+      "rows": [
+        [
+          "FOODS_1_003@CA_2",
+          "CA_2",
+          "1",
+          "1.053571"
+        ],
+        [
+          "FOODS_1_023@TX_2",
+          "TX_2",
+          "2",
+          "3.214286"
+        ],
+        [
+          "FOODS_1_092@TX_1",
+          "TX_1",
+          "0",
+          "0.625000"
+        ],
+        [
+          "FOODS_1_112@CA_3",
+          "CA_3",
+          "1",
+          "1.517857"
+        ],
+        [
+          "FOODS_1_171@CA_1",
+          "CA_1",
+          "0",
+          "0.535714"
+        ],
+        [
+          "FOODS_1_184@WI_1",
+          "WI_1",
+          "1",
+          "1.714286"
+        ],
+        [
+          "FOODS_2_018@CA_3",
+          "CA_3",
+          "0",
+          "0.785714"
+        ],
+        [
+          "FOODS_2_079@CA_3",
+          "CA_3",
+          "1",
+          "1.642857"
+        ],
+        [
+          "FOODS_2_131@WI_1",
+          "WI_1",
+          "2",
+          "2.285714"
+        ],
+        [
+          "FOODS_2_269@CA_4",
+          "CA_4",
+          "0",
+          "0.571429"
+        ],
+        [
+          "FOODS_2_311@WI_3",
+          "WI_3",
+          "0",
+          "0.946429"
+        ],
+        [
+          "FOODS_2_399@TX_1",
+          "TX_1",
+          "0",
+          "0.892857"
+        ],
+        [
+          "FOODS_3_002@TX_3",
+          "TX_3",
+          "1",
+          "1.446429"
+        ],
+        [
+          "FOODS_3_049@CA_3",
+          "CA_3",
+          "0",
+          "0.875000"
+        ],
+        [
+          "FOODS_3_098@CA_4",
+          "CA_4",
+          "1",
+          "1.196429"
+        ],
+        [
+          "FOODS_3_108@TX_3",
+          "TX_3",
+          "1",
+          "1.750000"
+        ],
+        [
+          "FOODS_3_134@CA_4",
+          "CA_4",
+          "1",
+          "1.517857"
+        ],
+        [
+          "FOODS_3_201@TX_3",
+          "TX_3",
+          "2",
+          "2.178571"
+        ],
+        [
+          "FOODS_3_203@TX_2",
+          "TX_2",
+          "2",
+          "2.357143"
+        ],
+        [
+          "FOODS_3_227@CA_1",
+          "CA_1",
+          "2",
+          "5.910714"
+        ],
+        [
+          "FOODS_3_245@WI_2",
+          "WI_2",
+          "1",
+          "1.625000"
+        ],
+        [
+          "FOODS_3_368@TX_3",
+          "TX_3",
+          "2",
+          "2.660714"
+        ],
+        [
+          "FOODS_3_376@CA_2",
+          "CA_2",
+          "2",
+          "2.660714"
+        ],
+        [
+          "FOODS_3_389@TX_3",
+          "TX_3",
+          "2",
+          "11.053571"
+        ],
+        [
+          "FOODS_3_413@CA_3",
+          "CA_3",
+          "2",
+          "7.660714"
+        ],
+        [
+          "FOODS_3_513@CA_1",
+          "CA_1",
+          "1",
+          "1.839286"
+        ],
+        [
+          "FOODS_3_677@CA_3",
+          "CA_3",
+          "0",
+          "0.839286"
+        ],
+        [
+          "FOODS_3_756@WI_3",
+          "WI_3",
+          "2",
+          "6.875000"
+        ],
+        [
+          "FOODS_3_810@CA_2",
+          "CA_2",
+          "0",
+          "0.535714"
+        ],
+        [
+          "FOODS_3_817@TX_2",
+          "TX_2",
+          "0",
+          "0.517857"
+        ]
+      ]
+    },
+    {
+      "key": "retailnet_catalogue",
+      "number": "G.3",
+      "title": "RetailNet: complete training-selected portfolio",
+      "headers": [
+        "Series identifier",
+        "Store",
+        "Stratum",
+        "Selection-period mean"
+      ],
+      "rows": [
+        [
+          "FRN_12@S255",
+          "255",
+          "0",
+          "0.472581"
+        ],
+        [
+          "FRN_140@S242",
+          "242",
+          "2",
+          "0.908065"
+        ],
+        [
+          "FRN_249@S382",
+          "382",
+          "0",
+          "0.429839"
+        ],
+        [
+          "FRN_250@S191",
+          "191",
+          "1",
+          "0.598548"
+        ],
+        [
+          "FRN_257@S183",
+          "183",
+          "0",
+          "0.436129"
+        ],
+        [
+          "FRN_258@S420",
+          "420",
+          "0",
+          "0.445161"
+        ],
+        [
+          "FRN_259@S576",
+          "576",
+          "0",
+          "0.380645"
+        ],
+        [
+          "FRN_290@S560",
+          "560",
+          "1",
+          "0.492581"
+        ],
+        [
+          "FRN_291@S586",
+          "586",
+          "2",
+          "0.701935"
+        ],
+        [
+          "FRN_293@S331",
+          "331",
+          "1",
+          "0.535000"
+        ],
+        [
+          "FRN_357@S269",
+          "269",
+          "0",
+          "0.452581"
+        ],
+        [
+          "FRN_379@S471",
+          "471",
+          "2",
+          "0.667742"
+        ],
+        [
+          "FRN_414@S790",
+          "790",
+          "2",
+          "0.753065"
+        ],
+        [
+          "FRN_415@S147",
+          "147",
+          "1",
+          "0.555000"
+        ],
+        [
+          "FRN_422@S227",
+          "227",
+          "1",
+          "0.511290"
+        ],
+        [
+          "FRN_508@S561",
+          "561",
+          "0",
+          "0.409355"
+        ],
+        [
+          "FRN_510@S490",
+          "490",
+          "1",
+          "0.551613"
+        ],
+        [
+          "FRN_526@S763",
+          "763",
+          "0",
+          "0.362903"
+        ],
+        [
+          "FRN_531@S677",
+          "677",
+          "1",
+          "0.510806"
+        ],
+        [
+          "FRN_563@S182",
+          "182",
+          "1",
+          "0.588871"
+        ],
+        [
+          "FRN_578@S530",
+          "530",
+          "2",
+          "0.949516"
+        ],
+        [
+          "FRN_634@S213",
+          "213",
+          "0",
+          "0.399194"
+        ],
+        [
+          "FRN_634@S383",
+          "383",
+          "2",
+          "0.690000"
+        ],
+        [
+          "FRN_670@S234",
+          "234",
+          "0",
+          "0.470968"
+        ],
+        [
+          "FRN_699@S449",
+          "449",
+          "1",
+          "0.546774"
+        ],
+        [
+          "FRN_715@S424",
+          "424",
+          "1",
+          "0.637097"
+        ],
+        [
+          "FRN_734@S154",
+          "154",
+          "2",
+          "0.710161"
+        ],
+        [
+          "FRN_76@S164",
+          "164",
+          "2",
+          "0.721129"
+        ],
+        [
+          "FRN_810@S135",
+          "135",
+          "2",
+          "0.896774"
+        ],
+        [
+          "FRN_847@S586",
+          "586",
+          "2",
+          "0.703226"
+        ]
+      ]
+    },
+    {
+      "key": "research_alignment",
+      "number": "H.1",
+      "title": "Dissertation research questions and main-study hypothesis assessments",
+      "headers": [
+        "Question / hypothesis",
+        "Comparison and meaning",
+        "Assessment"
+      ],
+      "rows": [
+        [
+          "RQ1; H1a / H1b",
+          "Complete three-role workflow versus conventional ordering: fill rate / operating cost",
+          "Supported for both datasets within the simulated panels"
+        ],
+        [
+          "RQ2; H2a / H2b",
+          "LLM increment versus the same numerical planner with structured inputs",
+          "Not supported: M5 superiority inconclusive; RetailNet slightly adverse"
+        ],
+        [
+          "RQ3; H3",
+          "Supplier-fact extraction versus business-priority selection",
+          "Extraction more accurate in the controlled main-study tasks"
+        ],
+        [
+          "RQ4; H4",
+          "Difference in benefit between the two retail settings",
+          "Descriptive/exploratory; formal cross-dataset effect test not performed"
+        ]
+      ]
+    },
+    {
+      "key": "source_identifiers",
+      "number": "H.2",
+      "title": "Frozen protocols and archived evidence identifiers",
+      "headers": [
+        "Stage",
+        "Protocol SHA-256"
+      ],
+      "rows": [
+        [
+          "Main study",
+          "313022ff110d796bd2bf91839f8168761ae6a5899fe5119d3f772b6f4e2188bb"
+        ],
+        [
+          "Architecture study",
+          "58551bd4e9c62e90868f4ece7b7ec3a0854904bf627fb07d49fe7cd98bda1f56"
+        ],
+        [
+          "LangChain validation",
+          "a5c0202eff7de8814b9910a87a2c970e83a9efb3673bc2fb62856a1db01bc8e2"
+        ]
+      ]
+    },
+    {
+      "key": "illustrative_target",
+      "number": "I.1",
+      "title": "Observed fill rates and an explicitly assumed 3% relative target",
+      "headers": [
+        "Dataset",
+        "Previous fixed: observed",
+        "Selective: observed",
+        "3% relative target: assumed"
+      ],
+      "rows": [
+        [
+          "M5",
+          "90.53%",
+          "90.53%",
+          "93.24%"
+        ],
+        [
+          "RetailNet",
+          "84.01%",
+          "84.25%",
+          "86.53%"
+        ]
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "key": "m5_daily",
+      "number": "B.1",
+      "path": "study_results/ollama_dissertation_20261012/figures/m5_daily.png",
+      "sha256": "c0c1d74bb0e1a348ceab7e4eebcc9b3ecbefe731de0679452303c5519b0b185f",
+      "caption": "Daily demand-weighted fulfilment, pooling both weekly windows and 30 seeds within each scenario. The daily plots are descriptive; days are not treated as independent replications."
+    },
+    {
+      "key": "retailnet_daily",
+      "number": "B.2",
+      "path": "study_results/ollama_dissertation_20261012/figures/retailnet_daily.png",
+      "sha256": "fd39cd7f12af3140727fb466bb946138de21dd72ef0d468508da8b19855cc377",
+      "caption": "Daily demand-weighted fulfilment, pooling both weekly windows and 30 seeds within each scenario. The daily plots are descriptive; days are not treated as independent replications."
+    },
+    {
+      "key": "cost_components",
+      "number": "B.3",
+      "path": "study_results/ollama_dissertation_20261012/figures/cost_components.png",
+      "sha256": "ec600ae738fd09389ec603e0d4f3c37e1c61129f0c3849a5040804b5a131a76c",
+      "caption": "The primary index includes holding, unmet-demand penalties and expiry. Acquisition spend is reported separately. Ratios here use pooled demand; policy-mean tables use the mean of per-seed ratios."
+    },
+    {
+      "key": "source_accuracy",
+      "number": "B.4",
+      "path": "study_results/ollama_dissertation_20261012/figures/source_accuracy.png",
+      "sha256": "53d86b23ff01c104cf3007cc037355547263016f6e6c278ccf9e0a1dfe68373f",
+      "caption": "Exactly 13 numerical fields are scored per supplier call: four fields for each of three suppliers, plus the daily budget. Supplier identity/coverage must also be correct for a complete extraction. This is controlled language, not an unrestricted commercial document corpus."
+    },
+    {
+      "key": "model_latency",
+      "number": "B.5",
+      "path": "study_results/ollama_dissertation_20261012/figures/model_latency.png",
+      "sha256": "e2d280923309d6b44613d3306d5597a8c1cdff98d7d120121df7f510ffe33291",
+      "caption": "Bars show median recorded call time; upper whiskers show the 95th percentile, not a confidence interval. The local model was warm following development. Hardware and integration costs were not monetised."
+    },
+    {
+      "key": "paired_service",
+      "number": "B.6",
+      "path": "study_results/ollama_dissertation_20261012/figures/paired_service.png",
+      "sha256": "047dd4e5860d81bd0c7f110590d8c7b2fb1efc9af174509f9bcd70ef798dbc79",
+      "caption": "Thirty paired simulation seeds, with two weeks aggregated inside seed; 95% bootstrap intervals. The structured comparator uses the same numerical tool and current rules, isolating the model-assisted interpretation/routing layer."
+    },
+    {
+      "key": "paired_cost",
+      "number": "B.7",
+      "path": "study_results/ollama_dissertation_20261012/figures/paired_cost.png",
+      "sha256": "4708d89d379123e129bfa1dd83ee975d99e8b7c7c980ae0fbe8ae420dff86a6d",
+      "caption": "Thirty paired simulation seeds, with two weeks aggregated inside seed; 95% bootstrap intervals. Cost changes are means of paired seed-relative percentages. The structured comparator uses the same numerical tool and current rules, isolating the model-assisted interpretation/routing layer."
+    },
+    {
+      "key": "holds",
+      "number": "B.8",
+      "path": "study_results/ollama_dissertation_20261012/figures/holds.png",
+      "sha256": "c1759b9b6df1ef6a0e569f0078ac0a8de7756d64d4d6f2b90dca8a1d561365b7",
+      "caption": "A hold is an unexecuted decision, not a successful zero-order recommendation. The same deterministic budget, capacity, pack and minimum-order checks govern all arms."
+    },
+    {
+      "key": "langchain_agent_extension",
+      "number": "E.1",
+      "path": "study_results/langchain_extension_20261014/figures/agent_extension.png",
+      "sha256": "2afb08c1067747911e5b64012ba0d1f038f1b48487fc9c988852428bd12a0246",
+      "caption": "The reader, numerical planner and hard release controls are retained. Delegation and priority selection change. LangChain implements the extension with conditional runnable branches and a planning tool."
+    },
+    {
+      "key": "architecture_model_calls",
+      "number": "E.2",
+      "path": "study_results/architecture_study_20261013/figures/model_calls.png",
+      "sha256": "3f0a109690318caf85c45f9c4edab8bc6d83f970c33a25cb766f8df2c02fdb9b",
+      "caption": "Calls include every attempted native model call. The same model and generation settings were used. Structured-table parsing is a declared architectural route, not a reused model response."
+    },
+    {
+      "key": "architecture_priority_accuracy",
+      "number": "E.3",
+      "path": "study_results/architecture_study_20261013/figures/priority_accuracy.png",
+      "sha256": "9ae67568ec9abd137602f8eb809a020f33d9e6e6efa2cdc09e6f7a9e34907911",
+      "caption": "Accuracy is scored against the policy available before ordering. Active promotion covers days 2–6. Explicit policy routing does not demonstrate that the model itself improved its reasoning."
+    },
+    {
+      "key": "architecture_inventory_effects",
+      "number": "E.4",
+      "path": "study_results/architecture_study_20261013/figures/inventory_effects.png",
+      "sha256": "7ba3db402dc7f61845b0f71bdab360b16db7d16f1352d23197198b12a9c60265",
+      "caption": "Points show paired simulation-seed means; intervals are 95% bootstrap intervals for 30 simulated seeds. Positive values favour selective delegation in both panels. Costs are synthetic inventory operating-cost indices, not realised savings."
+    },
+    {
+      "key": "architecture_retailnet_expiry",
+      "number": "E.5",
+      "path": "study_results/architecture_study_20261013/figures/retailnet_expiry.png",
+      "sha256": "851cbe0c4c063c6e7d61cd8098703b7e684b901660febdc8522bd3916ef2ce76",
+      "caption": "Hypothetical three-day FIFO stock process. A service or cost improvement does not necessarily imply less waste. M5 has no expiry within the evaluated horizon."
+    },
+    {
+      "key": "langchain_fresh_langchain_validation",
+      "number": "E.6",
+      "path": "study_results/langchain_extension_20261014/figures/fresh_langchain_validation.png",
+      "sha256": "d88f96a15f5b7bd9f64564fb99160790955046954f922d5f5eb124a24b7440ca",
+      "caption": "Both workflows use LangChain in this fresh, one-seed validation. Thirty series per dataset, two weeks and three scenarios are covered. Times are descriptive; this small check supplies no new confidence intervals."
+    }
+  ],
+  "verbatim_blocks": [
+    {
+      "key": "reproduction",
+      "text": ".venv/bin/python -m pip install -r requirements.txt\n.venv/bin/python tools/verify_bundle.py\n.venv/bin/python -I -m pytest -q tests\n.venv/bin/python tools/audit_saved_results.py"
+    },
+    {
+      "key": "prompt_supplier",
+      "text": "You are the supplier-information agent. Read the current supplier message. Extract exactly one rule for each of S1, S2 and S3, and the daily budget. Copy every number exactly; pack is carton size, moq is minimum order, lead_days is delivery time, capacity is daily dispatch limit. Meaning matters, not the order of numbers in the sentence: a dispatch limit is capacity, and cartons of N means pack=N. Do not swap these fields. Use the current rules only. Return only the JSON object."
+    },
+    {
+      "key": "example_supplier_1",
+      "text": "For S1, dispatch no more than 97 units today; allow 2 days for delivery. Minimum order 6 units; cartons of 3. For S2, cartons contain 4 units, minimum order 8, delivery 1 day, dispatch limit 88. S3 has dispatch limit 120, delivery 3 days, minimum order 12, carton size 6. Daily spending budget 250."
+    },
+    {
+      "key": "example_supplier_2",
+      "text": "{\"rules\": [{\"supplier\": \"S1\", \"pack\": 3, \"moq\": 6, \"lead_days\": 2, \"capacity\": 97}, {\"supplier\": \"S2\", \"pack\": 4, \"moq\": 8, \"lead_days\": 1, \"capacity\": 88}, {\"supplier\": \"S3\", \"pack\": 6, \"moq\": 12, \"lead_days\": 3, \"capacity\": 120}], \"budget\": 250}"
+    },
+    {
+      "key": "prompt_planner",
+      "text": "You are the replenishment coordination agent. Numerical tools calculate quantities. Request constrained_order. Select balanced for routine trading and supplier disruption. Select service_first for an active announced promotion when availability is the priority. Do not estimate quantities yourself. Return only JSON."
+    },
+    {
+      "key": "prompt_critic",
+      "text": "You are the independent review agent. Approve only when source verification, tool routing, solver feasibility, and every listed action check pass. Hold if any check fails or is unknown. Never override a failed check. Return only JSON."
+    },
+    {
+      "key": "example_critic_1",
+      "text": "{\"source_verification\":\"pass\",\"tool_routing\":\"pass\",\"solver_feasible\":true,\"action_checks\":{\"pack\":\"pass\",\"moq\":\"pass\",\"capacity\":\"pass\",\"budget\":\"fail\"}}"
+    },
+    {
+      "key": "example_critic_2",
+      "text": "{\"verdict\":\"hold\"}"
+    },
+    {
+      "key": "example_critic_3",
+      "text": "{\"source_verification\":\"pass\",\"tool_routing\":\"pass\",\"solver_feasible\":true,\"action_checks\":{\"pack\":\"pass\",\"moq\":\"pass\",\"capacity\":\"pass\",\"budget\":\"pass\"}}"
+    },
+    {
+      "key": "example_critic_4",
+      "text": "{\"verdict\":\"approve\"}"
+    },
+    {
+      "key": "message_0",
+      "text": "Current supplier agreement for decision day 0. All quantities are study units.\nS1 sells cartons of 2 units. The minimum order is 4 units. Delivery takes 1 days. Daily dispatch is limited to 100 units.\nS2 sells cartons of 4 units. The minimum order is 8 units. Delivery takes 2 days. Daily dispatch is limited to 120 units.\nS3 sells cartons of 6 units. The minimum order is 12 units. Delivery takes 2 days. Daily dispatch is limited to 150 units.\nThe current daily spending budget is 250 cost-index units. Each purchased unit costs one cost-index unit."
+    },
+    {
+      "key": "message_1",
+      "text": "Current supplier agreement for decision day 0. All quantities are study units.\nFor S1, dispatch no more than 100 units today; allow 1 days for delivery. The order must contain at least 4 units, supplied in cartons of 2.\nFor S2, dispatch no more than 120 units today; allow 2 days for delivery. The order must contain at least 8 units, supplied in cartons of 4.\nFor S3, dispatch no more than 150 units today; allow 2 days for delivery. The order must contain at least 12 units, supplied in cartons of 6.\nThe current daily spending budget is 250 cost-index units. Each purchased unit costs one cost-index unit."
+    },
+    {
+      "key": "message_2",
+      "text": "Current supplier agreement for decision day 0. All quantities are study units.\nSupplier | Carton size | Minimum order | Delivery days | Daily dispatch limit\nS1 | 2 | 4 | 1 | 100\nS2 | 4 | 8 | 2 | 120\nS3 | 6 | 12 | 2 | 150\nThe current daily spending budget is 250 cost-index units. Each purchased unit costs one cost-index unit."
+    },
+    {
+      "key": "schema_supplier",
+      "text": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"rules\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"supplier\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"S1\",\n              \"S2\",\n              \"S3\"\n            ]\n          },\n          \"pack\": {\n            \"type\": \"integer\",\n            \"minimum\": 1\n          },\n          \"moq\": {\n            \"type\": \"integer\",\n            \"minimum\": 1\n          },\n          \"lead_days\": {\n            \"type\": \"integer\",\n            \"minimum\": 1,\n            \"maximum\": 7\n          },\n          \"capacity\": {\n            \"type\": \"integer\",\n            \"minimum\": 1\n          }\n        },\n        \"required\": [\n          \"supplier\",\n          \"pack\",\n          \"moq\",\n          \"lead_days\",\n          \"capacity\"\n        ],\n        \"additionalProperties\": false\n      },\n      \"minItems\": 3,\n      \"maxItems\": 3\n    },\n    \"budget\": {\n      \"type\": \"integer\",\n      \"minimum\": 1\n    }\n  },\n  \"required\": [\n    \"rules\",\n    \"budget\"\n  ],\n  \"additionalProperties\": false\n}"
+    },
+    {
+      "key": "schema_planner",
+      "text": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"tool\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"constrained_order\"\n      ]\n    },\n    \"priority\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"balanced\",\n        \"service_first\"\n      ]\n    }\n  },\n  \"required\": [\n    \"tool\",\n    \"priority\"\n  ],\n  \"additionalProperties\": false\n}"
+    },
+    {
+      "key": "schema_critic",
+      "text": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"verdict\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"approve\",\n        \"hold\"\n      ]\n    }\n  },\n  \"required\": [\n    \"verdict\"\n  ],\n  \"additionalProperties\": false\n}"
+    },
+    {
+      "key": "model_digest",
+      "text": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b"
+    }
+  ],
+  "prose_words": 3691,
+  "new_experiment_runs": 0,
+  "new_model_calls": 0,
+  "source_files": {
+    "scripts/ollama_clean_study/core.py": "e764e6135c5e761f564c5ea9b4f43f2104684aeeb4f9c7510d8145d2df5df788",
+    "study_results/architecture_study_20261013/analysis/analysis_summary.json": "985252fd6bc2e93b8e538db3840cc8fa933487f2743049d90a66f18b27c13764",
+    "study_results/architecture_study_20261013/analysis/audit_receipt.json": "fda8e56278c4c70060613b32b3aaed5134b2a577babda25ba82b7e96ee27c129",
+    "study_results/architecture_study_20261013/data/M5/origin_1927/catalog.json": "2aa20151322088fc83c076ec9cbc45e031a342c5c747e98cbe143df3b8a7d624",
+    "study_results/architecture_study_20261013/data/M5/origin_1934/catalog.json": "4ac0d098b91881c3c402ab2bc9f0e534d686ff10ab6bda7b4d6e39fe243b905f",
+    "study_results/architecture_study_20261013/data/RetailNet/origin_83/catalog.json": "b3f2803948c3eaa337f98bf7dd1d787e5e150d1c0118362a25fcc4398dbf6ab9",
+    "study_results/architecture_study_20261013/data/RetailNet/origin_90/catalog.json": "d85d3a6ffa655a219501c62ee946b69abc1162a3b52e804deb6237724fcafbba",
+    "study_results/architecture_study_20261013/execution_receipt.json": "0c461278318b096e11e0f529d665aabdb7cd080b1c3fe01966f91aae019a4f5d",
+    "study_results/architecture_study_20261013/figure_register.json": "3e7d811fa1023f98a2e2095eaf83e2ff1e9a643fcbebff5f1f217a8339f6c5e8",
+    "study_results/architecture_study_20261013/figures/inventory_effects.png": "7ba3db402dc7f61845b0f71bdab360b16db7d16f1352d23197198b12a9c60265",
+    "study_results/architecture_study_20261013/figures/model_calls.png": "3f0a109690318caf85c45f9c4edab8bc6d83f970c33a25cb766f8df2c02fdb9b",
+    "study_results/architecture_study_20261013/figures/priority_accuracy.png": "9ae67568ec9abd137602f8eb809a020f33d9e6e6efa2cdc09e6f7a9e34907911",
+    "study_results/architecture_study_20261013/figures/retailnet_expiry.png": "851cbe0c4c063c6e7d61cd8098703b7e684b901660febdc8522bd3916ef2ce76",
+    "study_results/architecture_study_20261013/protocol.json": "58551bd4e9c62e90868f4ece7b7ec3a0854904bf627fb07d49fe7cd98bda1f56",
+    "study_results/conclusion_revision_20261013/evidence_map.json": "dc15f02cd88ffdac4f2682a9aca04f38d0381d478a71ecaf22bfd2bcf8b21919",
+    "study_results/langchain_contribution_scenario_20261014/illustrative_scenario_calculations.csv": "0663bcf3a04182bc2cb2742d9491b839d4bac0cc77db40d9a3cda0e6c1f0d1fd",
+    "study_results/langchain_extension_20261014/analysis/audit_receipt.json": "c009650bcf3e8a0e08cb6563f303b044ca5efda70f9a3f2b14d9852d2ed3c149",
+    "study_results/langchain_extension_20261014/analysis/validation_summary.json": "394137016a510d04ecb92fa36800fecd7b98afa58b7cbd4719e06851b6490e85",
+    "study_results/langchain_extension_20261014/data/M5/origin_1927/catalog.json": "2aa20151322088fc83c076ec9cbc45e031a342c5c747e98cbe143df3b8a7d624",
+    "study_results/langchain_extension_20261014/data/M5/origin_1934/catalog.json": "4ac0d098b91881c3c402ab2bc9f0e534d686ff10ab6bda7b4d6e39fe243b905f",
+    "study_results/langchain_extension_20261014/data/RetailNet/origin_83/catalog.json": "b3f2803948c3eaa337f98bf7dd1d787e5e150d1c0118362a25fcc4398dbf6ab9",
+    "study_results/langchain_extension_20261014/data/RetailNet/origin_90/catalog.json": "d85d3a6ffa655a219501c62ee946b69abc1162a3b52e804deb6237724fcafbba",
+    "study_results/langchain_extension_20261014/development/recorded_response_replay.json": "f3453972a2e1189a9553a9eadeaaf05d8af67fbe6e96f58a5f9806a467bb3443",
+    "study_results/langchain_extension_20261014/execution_receipt.json": "e56cd9e9e771d49f1502d8620a51067439aaa2ae211978ac3c2d746ece4251dd",
+    "study_results/langchain_extension_20261014/figure_register.json": "34154eadbf5c4215cdc83cdfa1b17afd4000fa1877fcd87cfb4772f7121300c3",
+    "study_results/langchain_extension_20261014/figures/agent_extension.png": "2afb08c1067747911e5b64012ba0d1f038f1b48487fc9c988852428bd12a0246",
+    "study_results/langchain_extension_20261014/figures/fresh_langchain_validation.png": "d88f96a15f5b7bd9f64564fb99160790955046954f922d5f5eb124a24b7440ca",
+    "study_results/langchain_extension_20261014/protocol.json": "a5c0202eff7de8814b9910a87a2c970e83a9efb3673bc2fb62856a1db01bc8e2",
+    "study_results/ollama_clean_study_20261009/analysis/audit_receipt.json": "bc4e2324a789ccf1f513383b1206b9b71ce1b09a09139a617edd42d0a5353ec7",
+    "study_results/ollama_clean_study_20261009/analysis/llm_diagnostics.csv": "b8ff6c090e5b3f8249ffdaf88113348bbc4d75b1ac283a05d8f5bbf83c5707b0",
+    "study_results/ollama_clean_study_20261009/analysis/overall_effects.json": "8b987e1bc8c11d29728fd79ce87409779d085267896a6875331e8b45e586c65f",
+    "study_results/ollama_clean_study_20261009/analysis/policy_means.csv": "ca706c93fa4c22a44f03ffa5d84d83392f91f2a9d5033cdc7a3ab7410295d528",
+    "study_results/ollama_clean_study_20261009/analysis/seed_results.csv": "911219cf0b75cfed522cb0ef7073a7600f9bada306382f78890eceef359c23b2",
+    "study_results/ollama_clean_study_20261009/analysis/shared_forecast_context.csv": "1811a330007b475a2fbb29e0870337c795b7fefd0584a485ef8fda73fa2192a7",
+    "study_results/ollama_clean_study_20261009/data/M5/origin_1927/catalog.json": "2aa20151322088fc83c076ec9cbc45e031a342c5c747e98cbe143df3b8a7d624",
+    "study_results/ollama_clean_study_20261009/data/M5/origin_1934/catalog.json": "4ac0d098b91881c3c402ab2bc9f0e534d686ff10ab6bda7b4d6e39fe243b905f",
+    "study_results/ollama_clean_study_20261009/data/RetailNet/origin_83/catalog.json": "b3f2803948c3eaa337f98bf7dd1d787e5e150d1c0118362a25fcc4398dbf6ab9",
+    "study_results/ollama_clean_study_20261009/data/RetailNet/origin_90/catalog.json": "d85d3a6ffa655a219501c62ee946b69abc1162a3b52e804deb6237724fcafbba",
+    "study_results/ollama_clean_study_20261009/data/preparation_receipt.json": "da5b1afa37c9976dbd60fc8922527d10f6f64cc333e54fa49138050b9f03f214",
+    "study_results/ollama_clean_study_20261009/execution_receipt.json": "2dab89c988cc88281ecc301deceee2d26db40dced1e66821c72b4d464ca58377",
+    "study_results/ollama_clean_study_20261009/protocol.json": "313022ff110d796bd2bf91839f8168761ae6a5899fe5119d3f772b6f4e2188bb",
+    "study_results/ollama_dissertation_20261012/appendices.md": "5362da561e86855bfde2779627b3f782da6d13236fd204ed02d890b699488699",
+    "study_results/ollama_dissertation_20261012/figure_register.json": "67163ce41126cb34a83ff50aabedb12c734be7c3ac8ea92f83f0406f1ebb6db8",
+    "study_results/ollama_dissertation_20261012/figures/cost_components.png": "ec600ae738fd09389ec603e0d4f3c37e1c61129f0c3849a5040804b5a131a76c",
+    "study_results/ollama_dissertation_20261012/figures/holds.png": "c1759b9b6df1ef6a0e569f0078ac0a8de7756d64d4d6f2b90dca8a1d561365b7",
+    "study_results/ollama_dissertation_20261012/figures/m5_daily.png": "c0c1d74bb0e1a348ceab7e4eebcc9b3ecbefe731de0679452303c5519b0b185f",
+    "study_results/ollama_dissertation_20261012/figures/model_latency.png": "e2d280923309d6b44613d3306d5597a8c1cdff98d7d120121df7f510ffe33291",
+    "study_results/ollama_dissertation_20261012/figures/paired_cost.png": "4708d89d379123e129bfa1dd83ee975d99e8b7c7c980ae0fbe8ae420dff86a6d",
+    "study_results/ollama_dissertation_20261012/figures/paired_service.png": "047dd4e5860d81bd0c7f110590d8c7b2fb1efc9af174509f9bcd70ef798dbc79",
+    "study_results/ollama_dissertation_20261012/figures/retailnet_daily.png": "fd39cd7f12af3140727fb466bb946138de21dd72ef0d468508da8b19855cc377",
+    "study_results/ollama_dissertation_20261012/figures/source_accuracy.png": "53d86b23ff01c104cf3007cc037355547263016f6e6c278ccf9e0a1dfe68373f"
+  },
+  "docx_sha256": "077fe309ca6ed748a512ddf8e3b343cb8728ac1789116039fb2218cbc7148ace",
+  "manuscript_sha256": "95d31e87509966eba0e27cb4bf29777a710662947d9e88aa700669d652271d8e",
+  "format": {
+    "body_font": "Times New Roman",
+    "body_points": 12,
+    "line_spacing": 1.5,
+    "margins_inches": 1,
+    "alignment": "justified"
+  },
+  "pdf_pages": 32
+}

@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "scope": "Appendices A–I only",
+  "pdf_pages": 32,
+  "appendices": 9,
+  "tables": 17,
+  "figures": 14,
+  "verbatim_blocks": 17,
+  "complete_manuscript_and_tables_verified": true,
+  "embedded_image_bytes_verified": true,
+  "source_hashes_verified": true,
+  "selected_series": {
+    "M5": 30,
+    "RetailNet": 30
+  },
+  "format_and_page_bounds_verified": true,
+  "new_experiment_runs": 0,
+  "new_model_calls": 0,
+  "docx_sha256": "077fe309ca6ed748a512ddf8e3b343cb8728ac1789116039fb2218cbc7148ace",
+  "layout_pdf_sha256": "f111be5ed6540b18f8cf66ab33d8e517eb4ef5be11a59c59a44dd2104f5327d5",
+  "visual_review": "PASS: complete 32-page contact sheet and full-size settings, architecture, prompts, both series catalogues and illustrative-scenario pages inspected; no clipping or blank pages."
+}
